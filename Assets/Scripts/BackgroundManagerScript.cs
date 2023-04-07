@@ -15,10 +15,7 @@ public class BackgroundManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        livingRoomBG.sprite = livingRoomSprites[0];
-        KitchenBG.sprite = kitchenSprites[0];
-        garageBG.sprite = garageSprites[0];
-        frontYardBG.sprite = frontYardSprites[0];
+        ChangeRoomBackground(0);
     }
 
     // Update is called once per frame
