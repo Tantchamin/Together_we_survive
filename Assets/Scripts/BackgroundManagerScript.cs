@@ -5,58 +5,30 @@ using UnityEngine.Sprites;
 
 public class BackgroundManagerScript : MonoBehaviour
 {
-    public SpriteRenderer livingRoomBG, KitchenBG, garageBG, frontYardBG;
-    public List<Sprite> livingRoomSprites;
-    public List<Sprite> kitchenSprites;
-    public List<Sprite> garageSprites;
-    public List<Sprite> frontYardSprites;
-    public int houseLevel = 0;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpriteRenderer _livingRoomBG, _KitchenBG, _garageBG, _frontYardBG;
+    [SerializeField] private  List<Sprite> _livingRoomSprites;
+    [SerializeField] private  List<Sprite> _kitchenSprites;
+    [SerializeField] private  List<Sprite> _garageSprites;
+    [SerializeField] private  List<Sprite> _frontYardSprites;
+    private int _houseLevel = -1;
+    private void Start()
     {
-        ChangeRoomBackground(0);
+        DisplayHouseLevel(_houseLevel);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if(houseLevel == 0)
-        //{
-        //    livingRoomBG.sprite = livingRoomSprites[0];
-        //    KitchenBG.sprite = kitchenSprites[0];
-        //    garageBG.sprite = garageSprites[0];
-        //    frontYardBG.sprite = frontYardSprites[0];
-        //}
-        //else if (houseLevel == 1)
-        //{
-        //    livingRoomBG.sprite = livingRoomSprites[1];
-        //    KitchenBG.sprite = kitchenSprites[1];
-        //    garageBG.sprite = garageSprites[1];
-        //    frontYardBG.sprite = frontYardSprites[1];
-        //}
-        //else if (houseLevel == 2)
-        //{
-        //    livingRoomBG.sprite = livingRoomSprites[2];
-        //    KitchenBG.sprite = kitchenSprites[2];
-        //    garageBG.sprite = garageSprites[2];
-        //    frontYardBG.sprite = frontYardSprites[2];
-        //}
-        //else if (houseLevel == 3)
-        //{
-        //    livingRoomBG.sprite = livingRoomSprites[3];
-        //    KitchenBG.sprite = kitchenSprites[3];
-        //    garageBG.sprite = garageSprites[3];
-        //    frontYardBG.sprite = frontYardSprites[3];
-        //}
-        ChangeRoomBackground(houseLevel);
+    public void UpgradeHouse(){
+        DisplayHouseLevel(_houseLevel);
     }
 
-    private void ChangeRoomBackground(int level)
+    private void DisplayHouseLevel(int _level)
     {
-        livingRoomBG.sprite = livingRoomSprites[level];
-        KitchenBG.sprite = kitchenSprites[level];
-        garageBG.sprite = garageSprites[level];
-        frontYardBG.sprite = frontYardSprites[level];
+        _level = _houseLevel +=1;
+        Debug.Log(_level);
+        _livingRoomBG.sprite = _livingRoomSprites[_level];
+        _KitchenBG.sprite = _kitchenSprites[_level];
+        _garageBG.sprite = _garageSprites[_level];
+        _frontYardBG.sprite = _frontYardSprites[_level];
+        _houseLevel = _level;
     }
+
 }
