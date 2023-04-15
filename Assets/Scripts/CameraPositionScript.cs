@@ -24,6 +24,6 @@ public class CameraPositionScript : MonoBehaviour
 
     public void GoToFrontYard()
     {
-            roomCamera.transform.position = new Vector3(FrontYardBG.transform.position.x, 0, -15);
+        roomCamera.transform.position = new Vector3(FrontYardBG.transform.position.x, 0, -15);
     }
 }
