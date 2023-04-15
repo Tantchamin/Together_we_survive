@@ -23,6 +23,7 @@ public class BackgroundManagerScript : MonoBehaviour
     private void DisplayHouseLevel(int _level)
     {
         _level = _houseLevel +=1;
+        if(_houseLevel > 3) return;
         Debug.Log(_level);
         _livingRoomBG.sprite = _livingRoomSprites[_level];
         _KitchenBG.sprite = _kitchenSprites[_level];
