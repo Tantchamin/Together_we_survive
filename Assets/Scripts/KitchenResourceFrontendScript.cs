@@ -25,13 +25,13 @@ public class KitchenResourceFrontendScript : MonoBehaviour
 
     private void Update()
     {
-        if(_roomCamera.transform.position.x == _kitchenBG.transform.position.x){
+        if(_roomCamera.transform.position.x == _kitchenBG.transform.position.x){    
             SetKitchenUIActive(true);
         }
         else{
             SetKitchenUIActive(false);
         }
-        DisplayResouce();
+        DisplayKitchenResource();
         
     }
 
@@ -39,7 +39,7 @@ public class KitchenResourceFrontendScript : MonoBehaviour
         _kitchenUI.SetActive(_uiActive);
     }
 
-    private void DisplayResouce(){
+    private void DisplayKitchenResource(){
         DisplayRawFoodAmount();
         DisplayCannedFoodAmount();
         DisplayMedicineAmount();
