@@ -10,26 +10,23 @@ public class BackgroundManagerScript : MonoBehaviour
     [SerializeField] private  List<Sprite> _kitchenSprites;
     [SerializeField] private  List<Sprite> _garageSprites;
     [SerializeField] private  List<Sprite> _frontYardSprites;
-    private int _houseLevel = -1;
+
+    [SerializeField] private FrontYardUpgradeHouseManager frontYardUpgradeHouseManager;
+
+    private byte _houseLevel;
     private void Start()
     {
-        DisplayHouseLevel(_houseLevel);
-    }
+        _houseLevel = frontYardUpgradeHouseManager.GetHouseLevel();
 
-    public void UpgradeHouse(){
-        DisplayHouseLevel(_houseLevel);
     }
-
-    private void DisplayHouseLevel(int _level)
+    public void DisplayHouseLevel()
     {
-        _level = _houseLevel +=1;
+        _houseLevel = frontYardUpgradeHouseManager.GetHouseLevel();
         if(_houseLevel > 3) return;
-        Debug.Log(_level);
-        _livingRoomBG.sprite = _livingRoomSprites[_level];
-        _KitchenBG.sprite = _kitchenSprites[_level];
-        _garageBG.sprite = _garageSprites[_level];
-        _frontYardBG.sprite = _frontYardSprites[_level];
-        _houseLevel = _level;
+        _livingRoomBG.sprite = _livingRoomSprites[_houseLevel];
+        _KitchenBG.sprite = _kitchenSprites[_houseLevel];
+        _garageBG.sprite = _garageSprites[_houseLevel];
+        _frontYardBG.sprite = _frontYardSprites[_houseLevel];
     }
 
 }

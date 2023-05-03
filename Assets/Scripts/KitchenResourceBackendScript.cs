@@ -17,9 +17,7 @@ public class KitchenResourceBackendScript : MonoBehaviour
     public void ReceiveRawFood(int _amount){
         _rawFoodAmount += _amount;
         Debug.Log("Current Rawfood : " + _rawFoodAmount);
-    }
-
-    public void ReceiveCannedFood(int _amount){
+    }    public void ReceiveCannedFood(int _amount){
         _cannedFoodAmount += _amount;
         Debug.Log("Current Cannedfood : " + _cannedFoodAmount);
     }

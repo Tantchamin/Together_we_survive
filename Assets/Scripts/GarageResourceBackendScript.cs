@@ -24,14 +24,19 @@ public class GarageResourceBackendScript : MonoBehaviour
         _garageResource[_listIndex] += _amount;
     }
 
+    public void UseResourceFromList(int _usedAmount , int _listIndex){
+        if(_garageResource[_listIndex] <= 0) return;
+        _garageResource[_listIndex] -= _usedAmount;
+    }
+
     private void FillResourceToList(){
-        _garageResource.Add(_woodAmount);
-        _garageResource.Add(_metalAmount);
+        _garageResource.Add(_woodAmount); //0
+        _garageResource.Add(_metalAmount); 
         _garageResource.Add(_tapeAmount);
         _garageResource.Add(_clotheAmount);
         _garageResource.Add(_gunComponentAmount);
         _garageResource.Add(_gunPowderAmount);
-        _garageResource.Add(_herbAmount);
+        _garageResource.Add(_herbAmount); //6
 
     }
 

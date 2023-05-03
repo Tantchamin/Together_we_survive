@@ -44,6 +44,9 @@ public class KitchenResourceFrontendScript : MonoBehaviour
         DisplayCannedFoodAmount();
         DisplayMedicineAmount();
         DisplayWaterAmount();
+
+
+        
     }
 
     private void DisplayRawFoodAmount(){

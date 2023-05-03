@@ -36,8 +36,8 @@ public class GarageResourceFrontendScript : MonoBehaviour
         }
     }
 
-    public void SetGarageUIActive(bool _uiActive){
-        _garageUI.SetActive(_uiActive);
+    private void SetGarageUIActive(bool _isUIActive){
+        _garageUI.SetActive(_isUIActive);
         DisplayGarageResource();
     }
 
