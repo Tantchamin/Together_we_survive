@@ -566,11 +566,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524924084}
   toggleTransition: 1
   graphic: {fileID: 217576585}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1492029994}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &95282551
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,11 +653,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1842441764}
   toggleTransition: 1
   graphic: {fileID: 1461237783}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1861261118}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &101727187
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ RectTransform:
   - {fileID: 882917663}
   - {fileID: 1192816139}
   m_Father: {fileID: 2025894876}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -740,11 +740,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882917664}
   toggleTransition: 1
   graphic: {fileID: 209733283}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 2025894877}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &108588453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,11 +1325,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1498738818}
   toggleTransition: 1
   graphic: {fileID: 611828160}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1027744425}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &201297975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2547,7 @@ RectTransform:
   - {fileID: 1212640159}
   - {fileID: 419274070}
   m_Father: {fileID: 1861261117}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1212640160}
   toggleTransition: 1
   graphic: {fileID: 370332823}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1861261118}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3289,6 +3289,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea79e43fa84afe742985020f6413c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fatherToggleList:
+  - {fileID: 1642888418}
+  - {fileID: 86321467}
+  - {fileID: 724973580}
+  _motherToggleList:
+  - {fileID: 1850903491}
+  - {fileID: 1641936086}
+  - {fileID: 176898665}
+  _sisterToggleList:
+  - {fileID: 1376785100}
+  - {fileID: 437499424}
+  - {fileID: 95282553}
+  _brotherToggleList:
+  - {fileID: 101727189}
+  - {fileID: 957641883}
+  - {fileID: 749983289}
   _isFatherScavenger: {fileID: 1642888418}
   _isFatherGuard: {fileID: 86321467}
   _isFatherSleep: {fileID: 724973580}
@@ -4239,7 +4255,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1292616921}
   toggleTransition: 1
   graphic: {fileID: 1643152726}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1492029994}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4461,7 +4477,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1881736739}
   toggleTransition: 1
   graphic: {fileID: 436878125}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 2025894877}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5574,7 +5590,7 @@ RectTransform:
   - {fileID: 1046289955}
   - {fileID: 108588454}
   m_Father: {fileID: 2025894876}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5624,11 +5640,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1046289956}
   toggleTransition: 1
   graphic: {fileID: 138614407}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 2025894877}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &973144103
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,6 +6031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1027744424}
+  - component: {fileID: 1027744425}
   m_Layer: 5
   m_Name: MotherFolder
   m_TagString: Untagged
@@ -6034,8 +6051,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1641936085}
   - {fileID: 1850903490}
+  - {fileID: 1641936085}
   - {fileID: 176898664}
   - {fileID: 1755805049}
   m_Father: {fileID: 2083458424}
@@ -6046,6 +6063,19 @@ RectTransform:
   m_AnchoredPosition: {x: 260, y: 140}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1027744425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027744423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &1036296019
 GameObject:
   m_ObjectHideFlags: 0
@@ -8232,7 +8262,7 @@ RectTransform:
   - {fileID: 956092160}
   - {fileID: 1282464512}
   m_Father: {fileID: 1861261117}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8282,11 +8312,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 956092161}
   toggleTransition: 1
   graphic: {fileID: 1589250934}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1861261118}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1391178594
 GameObject:
   m_ObjectHideFlags: 0
@@ -8927,6 +8957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1492029993}
+  - component: {fileID: 1492029994}
   m_Layer: 5
   m_Name: FatherFolder
   m_TagString: Untagged
@@ -8958,6 +8989,19 @@ RectTransform:
   m_AnchoredPosition: {x: -80, y: 140}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1492029994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492029992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &1498738816
 GameObject:
   m_ObjectHideFlags: 0
@@ -9600,7 +9644,7 @@ RectTransform:
   - {fileID: 464218340}
   - {fileID: 348717378}
   m_Father: {fileID: 1027744424}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9650,11 +9694,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 464218341}
   toggleTransition: 1
   graphic: {fileID: 1982634673}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1027744425}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1642888416
 GameObject:
   m_ObjectHideFlags: 0
@@ -9737,11 +9781,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1294788767}
   toggleTransition: 1
   graphic: {fileID: 529675259}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1492029994}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1643152724
 GameObject:
   m_ObjectHideFlags: 0
@@ -11091,7 +11135,7 @@ RectTransform:
   - {fileID: 1041919520}
   - {fileID: 1523848893}
   m_Father: {fileID: 1027744424}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11141,7 +11185,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1041919521}
   toggleTransition: 1
   graphic: {fileID: 1077171819}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1027744425}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11231,6 +11275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1861261117}
+  - component: {fileID: 1861261118}
   m_Layer: 5
   m_Name: SisterFolder
   m_TagString: Untagged
@@ -11250,8 +11295,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 437499423}
   - {fileID: 1376785099}
+  - {fileID: 437499423}
   - {fileID: 95282552}
   - {fileID: 1405581950}
   m_Father: {fileID: 2083458424}
@@ -11262,6 +11307,19 @@ RectTransform:
   m_AnchoredPosition: {x: -80, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1861261118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861261116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &1868698368
 GameObject:
   m_ObjectHideFlags: 0
@@ -11991,6 +12049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2025894876}
+  - component: {fileID: 2025894877}
   m_Layer: 5
   m_Name: BrotherFolder
   m_TagString: Untagged
@@ -12010,8 +12069,8 @@ RectTransform:
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 957641882}
   - {fileID: 101727188}
+  - {fileID: 957641882}
   - {fileID: 749983288}
   - {fileID: 1858486284}
   m_Father: {fileID: 2083458424}
@@ -12022,6 +12081,19 @@ RectTransform:
   m_AnchoredPosition: {x: 260.00003, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025894877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025894875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &2083458423
 GameObject:
   m_ObjectHideFlags: 0
@@ -12199,7 +12271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2142327230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2083458425}
+        m_TargetAssemblyTypeName: ChooseCharacterLabelScript, Assembly-CSharp
+        m_MethodName: NextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2142327230
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ChooseCharacterManagerScript : MonoBehaviour
 {
+    [SerializeField] private List<Toggle> _fatherToggleList;
+    [SerializeField] private List<Toggle> _motherToggleList;
+    [SerializeField] private List<Toggle> _sisterToggleList;
+    [SerializeField] private List<Toggle> _brotherToggleList;
     [SerializeField] private Toggle _isFatherScavenger;
     [SerializeField] private Toggle _isFatherGuard;
     [SerializeField] private Toggle _isFatherSleep;
@@ -33,11 +37,23 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         _isBrotherScavenger.isOn = false;
         _isBrotherGuard.isOn = false;
         _isBrotherSleep.isOn = false;
+
+        //foreach (Toggle _toggle in _fatherToggleList)
+        //{
+        //    _toggle.isOn = false;
+        //}
+        //foreach (Toggle _toggle in _motherToggleList)
+        //{
+        //    _toggle.isOn = false;
+        //}
+        //foreach (Toggle _toggle in _sisterToggleList)
+        //{
+        //    _toggle.isOn = false;
+        //}
+        //foreach (Toggle _toggle in _brotherToggleList)
+        //{
+        //    _toggle.isOn = false;
+        //}
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

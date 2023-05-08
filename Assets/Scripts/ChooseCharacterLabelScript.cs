@@ -8,7 +8,6 @@ public class ChooseCharacterLabelScript : MonoBehaviour
 
     public void NextButton()
     {
-        _mapLabel.SetActive(false);
-        gameObject.SetActive(false);
+        _mapLabel.SetActive(true);
     }
 }
