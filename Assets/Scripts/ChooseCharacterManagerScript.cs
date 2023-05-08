@@ -21,6 +21,11 @@ public class ChooseCharacterManagerScript : MonoBehaviour
     [SerializeField] private Toggle _isBrotherScavenger;
     [SerializeField] private Toggle _isBrotherGuard;
     [SerializeField] private Toggle _isBrotherSleep;
+    [SerializeField] private Button _nextMapButton;
+    bool _isFatherToggle = false;
+    bool _isMotherToggle = false;
+    bool _isSisterToggle = false;
+    bool _isBrotherToggle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +59,51 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         //{
         //    _toggle.isOn = false;
         //}
+    }
+
+    private void Update()
+    {
+        if (_isFatherScavenger.isOn == false && _isFatherGuard.isOn == false && _isFatherSleep.isOn == false)
+        {
+            _nextMapButton.interactable = false;
+        }
+        else
+        {
+            _isFatherToggle = true;
+        }
+
+        if (_isMotherScavenger.isOn == false && _isMotherGuard.isOn == false && _isMotherSleep.isOn == false)
+        {
+            _nextMapButton.interactable = false;
+        }
+        else
+        {
+            _isMotherToggle = true;
+        }
+
+        if (_isSisterScavenger.isOn == false && _isSisterGuard.isOn == false && _isSisterSleep.isOn == false)
+        {
+            _nextMapButton.interactable = false;
+        }
+        else
+        {
+            _isSisterToggle = true;
+        }
+
+        if (_isBrotherScavenger.isOn == false && _isBrotherGuard.isOn == false && _isBrotherSleep.isOn == false)
+        {
+            _nextMapButton.interactable = false;
+        }
+        else
+        {
+            _isBrotherToggle = true;
+        }
+
+        if (_isFatherToggle == true && _isMotherToggle == true && _isSisterToggle == true && _isBrotherToggle == true)
+        {
+            _nextMapButton.interactable = true;
+        }
+
     }
 
 }

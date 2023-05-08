@@ -3317,6 +3317,7 @@ MonoBehaviour:
   _isBrotherScavenger: {fileID: 101727189}
   _isBrotherGuard: {fileID: 957641883}
   _isBrotherSleep: {fileID: 749983289}
+  _nextMapButton: {fileID: 2142327229}
 --- !u!4 &536082653
 Transform:
   m_ObjectHideFlags: 0
