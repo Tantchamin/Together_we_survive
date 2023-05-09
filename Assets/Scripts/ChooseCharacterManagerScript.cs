@@ -26,6 +26,12 @@ public class ChooseCharacterManagerScript : MonoBehaviour
     bool _isMotherToggle = false;
     bool _isSisterToggle = false;
     bool _isBrotherToggle = false;
+    int _fatherScavengerCounter = 0;
+    int _motherScavengerCounter = 0;
+    int _sisterScavengerCounter = 0;
+    int _brotherScavengerCounter = 0;
+    bool _isOnlyScavenger = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +69,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
 
     private void Update()
     {
+        // ToggleList
         if (_isFatherScavenger.isOn == false && _isFatherGuard.isOn == false && _isFatherSleep.isOn == false)
         {
             _nextMapButton.interactable = false;
@@ -99,9 +106,55 @@ public class ChooseCharacterManagerScript : MonoBehaviour
             _isBrotherToggle = true;
         }
 
-        if (_isFatherToggle == true && _isMotherToggle == true && _isSisterToggle == true && _isBrotherToggle == true)
+        if (_isFatherToggle == true && _isMotherToggle == true && _isSisterToggle == true && _isBrotherToggle == true && _isOnlyScavenger == true)
         {
             _nextMapButton.interactable = true;
+        }
+
+        // Check scavenger is there more than 2 scavenger
+        if (_isFatherScavenger.isOn == true)
+        {
+            _fatherScavengerCounter = 1;
+        }
+        else
+        {
+            _fatherScavengerCounter = 0;
+        }
+
+        if (_isMotherScavenger.isOn == true)
+        {
+            _motherScavengerCounter = 1;
+        }
+        else
+        {
+            _motherScavengerCounter = 0;
+        }
+
+        if (_isSisterScavenger.isOn == true)
+        {
+            _sisterScavengerCounter = 1;
+        }
+        else
+        {
+            _sisterScavengerCounter = 0;
+        }
+
+        if (_isBrotherScavenger.isOn == true)
+        {
+            _brotherScavengerCounter = 1;
+        }
+        else
+        {
+            _brotherScavengerCounter = 0;
+        }
+
+        if(_fatherScavengerCounter + _motherScavengerCounter +_sisterScavengerCounter+ _brotherScavengerCounter <= 1)
+        {
+           _isOnlyScavenger = true;
+        }
+        else
+        {
+            _isOnlyScavenger = false;
         }
 
     }
