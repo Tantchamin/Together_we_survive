@@ -26,34 +26,34 @@ public class MapSelectScript : MonoBehaviour
         {
             for(int i = 0; i < 10; i++)
             {
-                int randomNumber = Random.Range(1, 8);
+                int randomNumber = Random.Range(1, 101);
                 switch (randomNumber)
                 {
-                    case 1:
+                    case <=25:
                         _garageResourceBackendScript.ReceiveResourceToList(1, 0);
                         break;
 
-                    case 2:
+                    case <=45:
                         _garageResourceBackendScript.ReceiveResourceToList(1, 1);
                         break;
 
-                    case 3:
+                    case <=55:
                         _garageResourceBackendScript.ReceiveResourceToList(1, 5);
                         break;
 
-                    case 4:
+                    case <=70:
                         _garageResourceBackendScript.ReceiveResourceToList(1, 6);
                         break;
 
-                    case 5:
+                    case <=80:
                         _kitchenResorceBackendScript.ReceiveRawFood(1);
                         break;
 
-                    case 6:
+                    case <=90:
                         _kitchenResorceBackendScript.ReceiveCannedFood(1);
                         break;
 
-                    case 7:
+                    case <=100:
                         _kitchenResorceBackendScript.ReceiveWater(1);
                         break;
 
@@ -64,6 +64,46 @@ public class MapSelectScript : MonoBehaviour
         }
         else if (_marketToggle.isOn == true)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                int randomNumber = Random.Range(1, 101);
+                switch (randomNumber)
+                {
+                    case <=20:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 1);
+                        break;
+
+                    case <=30:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 2);
+                        break;
+
+                    case <=50:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 3);
+                        break;
+
+                    case <=60:
+                        _kitchenResorceBackendScript.ReceiveRawFood(1);
+                        break;
+
+                    case <=70:
+                        
+                        break;
+
+                    case <=80:
+                        _kitchenResorceBackendScript.ReceiveCannedFood(1);
+                        break;
+
+                    case <=95:
+                        _kitchenResorceBackendScript.ReceiveWater(1);
+                        break;
+
+                    case <= 100:
+                        
+                        break;
+
+                }
+
+            }
             gameObject.SetActive(false);
         }
         else if(_hospitalToggle.isOn == true)

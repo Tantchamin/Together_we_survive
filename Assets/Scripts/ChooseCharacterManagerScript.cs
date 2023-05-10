@@ -73,6 +73,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         if (_isFatherScavenger.isOn == false && _isFatherGuard.isOn == false && _isFatherSleep.isOn == false)
         {
             _nextMapButton.interactable = false;
+            _isFatherToggle = false;
         }
         else
         {
@@ -82,6 +83,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         if (_isMotherScavenger.isOn == false && _isMotherGuard.isOn == false && _isMotherSleep.isOn == false)
         {
             _nextMapButton.interactable = false;
+            _isMotherToggle = false;
         }
         else
         {
@@ -91,6 +93,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         if (_isSisterScavenger.isOn == false && _isSisterGuard.isOn == false && _isSisterSleep.isOn == false)
         {
             _nextMapButton.interactable = false;
+            _isSisterToggle = false;
         }
         else
         {
@@ -100,6 +103,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
         if (_isBrotherScavenger.isOn == false && _isBrotherGuard.isOn == false && _isBrotherSleep.isOn == false)
         {
             _nextMapButton.interactable = false;
+            _isBrotherToggle = false;
         }
         else
         {
