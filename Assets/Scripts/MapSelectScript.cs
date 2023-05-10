@@ -24,7 +24,42 @@ public class MapSelectScript : MonoBehaviour
     {
         if (_villageToggle.isOn == true)
         {
-            _kitchenResorceBackendScript.ReceiveRawFood(5);
+            for(int i = 0; i < 10; i++)
+            {
+                int randomNumber = Random.Range(1, 8);
+                switch (randomNumber)
+                {
+                    case 1:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 0);
+                        break;
+
+                    case 2:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 1);
+                        break;
+
+                    case 3:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 5);
+                        break;
+
+                    case 4:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 6);
+                        break;
+
+                    case 5:
+                        _kitchenResorceBackendScript.ReceiveRawFood(1);
+                        break;
+
+                    case 6:
+                        _kitchenResorceBackendScript.ReceiveCannedFood(1);
+                        break;
+
+                    case 7:
+                        _kitchenResorceBackendScript.ReceiveWater(1);
+                        break;
+
+                }
+
+            }
             gameObject.SetActive(false);
         }
         else if (_marketToggle.isOn == true)
