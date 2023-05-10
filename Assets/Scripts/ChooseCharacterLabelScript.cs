@@ -5,9 +5,23 @@ using UnityEngine;
 public class ChooseCharacterLabelScript : MonoBehaviour
 {
     [SerializeField] private GameObject _mapLabel;
+    ChooseCharacterManagerScript _chooseCharacterManagerScript;
+
+    private void Start()
+    {
+        _chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
+        
+    }
 
     public void NextButton()
     {
-        _mapLabel.SetActive(true);
+        if (_chooseCharacterManagerScript.IsHaveScavenger() == true)
+        {
+            _mapLabel.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
