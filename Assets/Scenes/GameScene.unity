@@ -5401,7 +5401,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 835079856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1159128041}
+        m_TargetAssemblyTypeName: MapSelectScript, Assembly-CSharp
+        m_MethodName: NextDayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &835079856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7550,6 +7562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159128040}
+  - component: {fileID: 1159128041}
   m_Layer: 5
   m_Name: MapLabel
   m_TagString: Untagged
@@ -7581,6 +7594,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1159128041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159128039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f1881c7a3fe024b8b38e9fef2aa35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _villageToggle: {fileID: 2079812378}
+  _marketToggle: {fileID: 1794493640}
+  _hospitalToggle: {fileID: 1454296258}
+  _gasStationToggle: {fileID: 172221363}
+  _garageResourceBackendScript: {fileID: 859340453}
+  _kitchenResorceBackendScript: {fileID: 25067612}
 --- !u!1 &1187411513
 GameObject:
   m_ObjectHideFlags: 0

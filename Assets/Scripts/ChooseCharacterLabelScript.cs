@@ -18,6 +18,7 @@ public class ChooseCharacterLabelScript : MonoBehaviour
         if (_chooseCharacterManagerScript.IsHaveScavenger() == true)
         {
             _mapLabel.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
