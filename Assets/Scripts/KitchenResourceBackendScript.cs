@@ -21,7 +21,7 @@ public class KitchenResourceBackendScript : MonoBehaviour
         Debug.Log("Current Rawfood : " + _rawFoodAmount);
     }    
 
-    public void ReceiveVegetableFoodAmount(int _amount)
+    public void ReceiveVegetableFood(int _amount)
     {
         _vegetableFoodAmount += _amount;
         Debug.Log("Current VegetableFood : " + _vegetableFoodAmount);

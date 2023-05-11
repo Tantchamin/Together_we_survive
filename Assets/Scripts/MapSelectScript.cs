@@ -86,7 +86,7 @@ public class MapSelectScript : MonoBehaviour
                         break;
 
                     case <=70:
-                        
+                        _kitchenResorceBackendScript.ReceiveVegetableFood(1);
                         break;
 
                     case <=80:
@@ -98,7 +98,7 @@ public class MapSelectScript : MonoBehaviour
                         break;
 
                     case <= 100:
-                        
+                        _kitchenResorceBackendScript.ReceiveBandage(1);
                         break;
 
                 }
@@ -108,10 +108,78 @@ public class MapSelectScript : MonoBehaviour
         }
         else if(_hospitalToggle.isOn == true)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                int randomNumber = Random.Range(1, 101);
+                switch (randomNumber)
+                {
+                    case <= 5:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 2);
+                        break;
+
+                    case <= 15:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 3);
+                        break;
+
+                    case <= 35:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 3);
+                        break;
+
+                    case <= 45:
+                        _kitchenResorceBackendScript.ReceiveWater(1);
+                        break;
+
+                    case <= 75:
+                        _kitchenResorceBackendScript.ReceiveMedicine(1);
+                        break;
+
+                    case <= 100:
+                        _kitchenResorceBackendScript.ReceiveBandage(1);
+                        break;
+
+                }
+
+            }
             gameObject.SetActive(false);
         }
         else if(_gasStationToggle.isOn == true)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                int randomNumber = Random.Range(1, 101);
+                switch (randomNumber)
+                {
+                    case <= 25:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 0);
+                        break;
+
+                    case <= 45:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 1);
+                        break;
+
+                    case <= 55:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 5);
+                        break;
+
+                    case <= 70:
+                        _garageResourceBackendScript.ReceiveResourceToList(1, 6);
+                        break;
+
+                    case <= 80:
+                        _kitchenResorceBackendScript.ReceiveRawFood(1);
+                        break;
+
+                    case <= 90:
+                        _kitchenResorceBackendScript.ReceiveCannedFood(1);
+                        break;
+
+                    case <= 100:
+                        _kitchenResorceBackendScript.ReceiveWater(1);
+                        break;
+
+                }
+
+            }
             gameObject.SetActive(false);
         }
 
