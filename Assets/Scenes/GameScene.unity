@@ -216,11 +216,11 @@ MonoBehaviour:
   _kitchenBG: {fileID: 973144103}
   _kitchenUI: {fileID: 0}
   _rawFoodDisplayAmount: {fileID: 843635163}
-  _vegetableFoodDisplayAmount: {fileID: 0}
+  _vegetableFoodDisplayAmount: {fileID: 1096204084}
   _cannedFoodDisplayAmount: {fileID: 163003611}
   _medicineDisplayAmount: {fileID: 1232112839}
   _waterDisplayAmount: {fileID: 1458131066}
-  _bandageDisplayAmount: {fileID: 0}
+  _bandageDisplayAmount: {fileID: 256018928}
 --- !u!114 &25067612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c15ba7621ca0dc341b0bcc8ef9c3babb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1746,7 +1746,7 @@ GameObject:
   - component: {fileID: 256018929}
   - component: {fileID: 256018928}
   m_Layer: 5
-  m_Name: WaterAmount
+  m_Name: BandageAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4212,7 +4212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 610b120011fcbbe4c9c97247334fd53f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4288,7 +4288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0b239ad50c2d2444c890b1687b5bf24e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5594,7 +5594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9c5d7f4e0fbc9e04eb078c541ce284d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5966,7 +5966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859340451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7550,7 +7550,7 @@ GameObject:
   - component: {fileID: 1096204085}
   - component: {fileID: 1096204084}
   m_Layer: 5
-  m_Name: WaterAmount
+  m_Name: VegetableAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7964,7 +7964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7d98e8a2b6e03044eb06c707b05be2ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8406,7 +8406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1198435921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10478,7 +10478,7 @@ GameObject:
   - component: {fileID: 1514165010}
   - component: {fileID: 1514165009}
   m_Layer: 5
-  m_Name: WaterImage
+  m_Name: VegetavbleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11673,7 +11673,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3e64a2f1569ad4143907b45c828ccd0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13464,7 +13464,7 @@ GameObject:
   - component: {fileID: 1918272425}
   - component: {fileID: 1918272424}
   m_Layer: 5
-  m_Name: WaterImage
+  m_Name: BandageImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
