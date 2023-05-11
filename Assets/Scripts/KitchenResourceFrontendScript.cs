@@ -10,9 +10,11 @@ public class KitchenResourceFrontendScript : MonoBehaviour
     [SerializeField] private GameObject _kitchenBG;
     [SerializeField] private GameObject _kitchenUI;
     [SerializeField] private TextMeshProUGUI _rawFoodDisplayAmount;
+    [SerializeField] private TextMeshProUGUI _vegetableFoodDisplayAmount;
     [SerializeField] private TextMeshProUGUI _cannedFoodDisplayAmount;
     [SerializeField] private TextMeshProUGUI _medicineDisplayAmount;
     [SerializeField] private TextMeshProUGUI _waterDisplayAmount;
+    [SerializeField] private TextMeshProUGUI _bandageDisplayAmount;
     KitchenResourceBackendScript kitchenResourceBackendScript;
 
 
@@ -44,8 +46,8 @@ public class KitchenResourceFrontendScript : MonoBehaviour
         DisplayCannedFoodAmount();
         DisplayMedicineAmount();
         DisplayWaterAmount();
-
-
+        DisplayVegetableFoddAmount();
+        DisplayBandageAmount();
         
     }
 
@@ -64,5 +66,16 @@ public class KitchenResourceFrontendScript : MonoBehaviour
     private void DisplayWaterAmount(){
         _waterDisplayAmount.text = kitchenResourceBackendScript.GetWaterAmount().ToString();
     }
+
+    private void DisplayVegetableFoddAmount()
+    {
+        _vegetableFoodDisplayAmount.text = kitchenResourceBackendScript.GetVegetableAmount().ToString();
+    }
+
+    private void DisplayBandageAmount()
+    {
+        _bandageDisplayAmount.text = kitchenResourceBackendScript.GetBandageAmount().ToString();
+    }
+
 }
 
