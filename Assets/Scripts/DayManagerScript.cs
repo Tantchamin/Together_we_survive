@@ -19,4 +19,9 @@ public class DayManagerScript : MonoBehaviour
         _dayNumber += _day;
     }
 
+    public int GetDay()
+    {
+        return _dayNumber;
+    }
+
 }
