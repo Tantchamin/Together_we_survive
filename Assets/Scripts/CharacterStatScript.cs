@@ -45,19 +45,44 @@ public class CharacterStatScript : MonoBehaviour
 
     }
 
-    public void CharacterHungry()
+    public void CharacterHungryAdjust(byte value)
     {
         _isHungry = true;
-        _hungryValue -= 1;
-        if (_hungryValue == 10)
+        _hungryValue += value;
+        if (_hungryValue == _hungryMaxValue)
         {
             _isHungry = false;
         }
     }
 
-    public void CharacterTired()
+    public void CharacterThirstyAdjust(byte value)
     {
-        _isTired = true;
+        _isThirsty = true;
+        _thirstyValue += value;
+        if (_thirstyValue == _thirstyMaxValue)
+        {
+            _isThirsty = false;
+        }
+    }
+
+    public void CharacterFeverAdjust(byte value)
+    {
+        _isFevered = true;
+        _healthyValue += value;
+        if (_healthyValue == _healthyMaxValue)
+        {
+            _isFevered = false;
+        }
+    }
+
+    public void CharacterInfectedAdjust(byte value)
+    {
+        
+    }
+
+    public void SetCharacterTire(bool isTire)
+    {
+        _isTired = isTire;
     }
 
     public byte GetCharacterStat(int _indexArray)
