@@ -49,5 +49,16 @@ public class GarageResourceBackendScript : MonoBehaviour
         _gunPowderAmount = 0;
     }
 
-    
+    private void OnEnable() {
+        TestEventScript.onGarageResourceButtonClicked += IncreaseWood;
+    }
+
+    private void OnDisable() {
+        TestEventScript.onGarageResourceButtonClicked -= IncreaseWood;
+
+    }
+
+    void IncreaseWood(){
+        _garageResource[0] += 9999;
+    }
 }

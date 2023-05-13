@@ -10,4 +10,5 @@ public class MapInfoPanelSetActiveScript : MonoBehaviour
         bool _isPanelActive = _infoPanel.activeSelf;
         _infoPanel.SetActive(!_isPanelActive);
     }
+
 }

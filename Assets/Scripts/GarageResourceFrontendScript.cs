@@ -51,4 +51,6 @@ public class GarageResourceFrontendScript : MonoBehaviour
         _herbDisplayAmount.text = garageResourceBackendScript.GetResourceFromList(6).ToString();
 
     }
+
+    
 }
