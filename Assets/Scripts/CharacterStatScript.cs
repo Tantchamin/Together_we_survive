@@ -12,23 +12,23 @@ public class CharacterStatScript : MonoBehaviour
     [SerializeField] private bool _isHungry = false;
     [SerializeField] private bool _isThirsty = false;
 
-    [SerializeField] private byte _healthyMaxValue;
-    private byte _healthyValue;
+    [SerializeField] private int _healthyMaxValue;
+    private int _healthyValue;
 
-    [SerializeField] private byte _hungryMaxValue;
-    private byte _hungryValue;
+    [SerializeField] private int _hungryMaxValue;
+    private int _hungryValue;
 
-    [SerializeField] private byte _thirstyMaxValue;
-    private byte _thirstyValue;
+    [SerializeField] private int _thirstyMaxValue;
+    private int _thirstyValue;
 
-    [SerializeField] private byte _infectedMaxValue;
-    private byte _infectedValue;
+    [SerializeField] private int _infectedMaxValue;
+    private int _infectedValue;
 
-    [SerializeField] private byte _StrengthMaxValue;
-    private byte _strengthValue;
-    [SerializeField] private byte _healthMaxValue;
-    private byte _healthValue;
-    [SerializeField] private List<byte> _characterStat;
+    [SerializeField] private int _StrengthMaxValue;
+    private int _strengthValue;
+    [SerializeField] private int _healthMaxValue;
+    private int _healthValue;
+    [SerializeField] private List<int> _characterStat;
     void Start()
     {
         _healthyValue = _healthyMaxValue;
@@ -85,47 +85,47 @@ public class CharacterStatScript : MonoBehaviour
 
     }
 
-    public void CharacterHealthAdjust(byte value)
+    public void CharacterHealthAdjust(int value)
     {
-        _isInjured = true;
-        _healthValue += value;
-        if (_healthValue == _healthMaxValue)
-        {
-            _isInjured = false;
-        }
+        //_isInjured = true;
+        _characterStat[3] += value;
+        //if (_healthValue == _healthMaxValue)
+        //{
+        //    _isInjured = false;
+        //}
     }
 
-    public void CharacterHungryAdjust(byte value)
+    public void CharacterHungryAdjust(int value)
     {
-        _isHungry = true;
-        _hungryValue += value;
-        if (_hungryValue == _hungryMaxValue)
-        {
-            _isHungry = false;
-        }
+        //_isHungry = true;
+        _characterStat[1] += value;
+        //if (_hungryValue == _hungryMaxValue)
+        //{
+        //    _isHungry = false;
+        //}
     }
 
-    public void CharacterThirstyAdjust(byte value)
+    public void CharacterThirstyAdjust(int value)
     {
-        _isThirsty = true;
-        _thirstyValue += value;
-        if (_thirstyValue == _thirstyMaxValue)
-        {
-            _isThirsty = false;
-        }
+        //_isThirsty = true;
+        _characterStat[2] += value;
+        //if (_thirstyValue == _thirstyMaxValue)
+        //{
+        //    _isThirsty = false;
+        //}
     }
 
-    public void CharacterFeverAdjust(byte value)
+    public void CharacterFeverAdjust(int value)
     {
-        _isFevered = true;
-        _healthyValue += value;
-        if (_healthyValue == _healthyMaxValue)
-        {
-            _isFevered = false;
-        }
+        //_isFevered = true;
+        _characterStat[0] += value;
+        //if (_healthyValue == _healthyMaxValue)
+        //{
+        //    _isFevered = false;
+        //}
     }
 
-    public void CharacterInfectedAdjust(byte value)
+    public void CharacterInfectedAdjust(int value)
     {
         _isInfected = true;
         _infectedValue += value;
@@ -136,7 +136,7 @@ public class CharacterStatScript : MonoBehaviour
         _isTired = isTire;
     }
 
-    public byte GetCharacterStat(int _indexArray)
+    public int GetCharacterStat(int _indexArray)
     {
 
         return _characterStat[_indexArray];

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - ChooseCharacterManager
+  - Father
+  - Mother
+  - Sister
+  - Brother
   layers:
   - Default
   - TransparentFX
