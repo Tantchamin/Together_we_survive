@@ -320,7 +320,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16236364}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430117345}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CookedFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &16236364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +692,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 40871108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 941120197}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CookedFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &40871108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3450,7 +3474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 258584865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 941120197}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CanFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &258584865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4706,7 +4742,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 368981974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430117345}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: WaterDrinkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &368981974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6116,7 +6164,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 467928870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430117345}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CanFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &467928870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8625,7 +8685,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758705299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430117345}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: RawFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &758705299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9923,7 +9995,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 896845591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1353617022}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CanFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &896845591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10106,6 +10190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 941120196}
+  - component: {fileID: 941120197}
   m_Layer: 5
   m_Name: SisterFolder
   m_TagString: Untagged
@@ -10138,6 +10223,20 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: -185}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &941120197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941120195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafd8bfc06ae8a7468c1ad7a57978f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterStatScript: {fileID: 1666945656}
+  kitchenResourceBackendScript: {fileID: 25067612}
 --- !u!1 &945697944
 GameObject:
   m_ObjectHideFlags: 0
@@ -14421,6 +14520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353617021}
+  - component: {fileID: 1353617022}
   m_Layer: 5
   m_Name: FatherFolder
   m_TagString: Untagged
@@ -14453,6 +14553,20 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: 15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1353617022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353617020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafd8bfc06ae8a7468c1ad7a57978f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterStatScript: {fileID: 1802925206}
+  kitchenResourceBackendScript: {fileID: 25067612}
 --- !u!1 &1367243056
 GameObject:
   m_ObjectHideFlags: 0
@@ -15147,6 +15261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430117344}
+  - component: {fileID: 1430117345}
   m_Layer: 5
   m_Name: BrotherFolder
   m_TagString: Untagged
@@ -15179,6 +15294,20 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: -285}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1430117345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430117343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafd8bfc06ae8a7468c1ad7a57978f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterStatScript: {fileID: 1391178597}
+  kitchenResourceBackendScript: {fileID: 25067612}
 --- !u!1 &1436274567
 GameObject:
   m_ObjectHideFlags: 0
@@ -15945,6 +16074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474584067}
+  - component: {fileID: 1474584068}
   m_Layer: 5
   m_Name: MotherFolder
   m_TagString: Untagged
@@ -15977,6 +16107,20 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: -85}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1474584068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474584066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafd8bfc06ae8a7468c1ad7a57978f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterStatScript: {fileID: 1744604710}
+  kitchenResourceBackendScript: {fileID: 25067612}
 --- !u!1 &1485535101
 GameObject:
   m_ObjectHideFlags: 0
@@ -16199,7 +16343,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1492431401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1353617022}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: WaterDrinkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1492431401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16398,7 +16554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1505483031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 941120197}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: WaterDrinkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1505483031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16714,7 +16882,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1535901018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474584068}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CookedFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1535901018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17051,7 +17231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1559744295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1353617022}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CookedFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1559744295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17242,7 +17434,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1572058546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 941120197}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: RawFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1572058546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18908,7 +19112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1746284930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474584068}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: CanFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1746284930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19870,7 +20086,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1829407606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474584068}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: WaterDrinkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1829407606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21620,7 +21848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1978732152}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474584068}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: RawFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1978732152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22255,7 +22495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040979751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1353617022}
+        m_TargetAssemblyTypeName: EatingManagementScript, Assembly-CSharp
+        m_MethodName: RawFoodEatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040979751
 MonoBehaviour:
   m_ObjectHideFlags: 0
