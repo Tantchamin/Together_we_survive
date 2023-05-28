@@ -21,10 +21,10 @@ public class OnEndDayScript : MonoBehaviour
         _mother.CharacterHungryAdjust(-2);
         _sister.CharacterHungryAdjust(-2);
         _brother.CharacterHungryAdjust(-2);
-        _father.CharacterHealthAdjust(-2);
-        _mother.CharacterHealthAdjust(-2);
-        _sister.CharacterHealthAdjust(-2);
-        _brother.CharacterHealthAdjust(-2);
+        //_father.CharacterHealthAdjust(-2);
+        //_mother.CharacterHealthAdjust(-2);
+        //_sister.CharacterHealthAdjust(-2);
+        //_brother.CharacterHealthAdjust(-2);
 
     }
 }

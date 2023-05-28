@@ -11,6 +11,7 @@ public class CharacterStatScript : MonoBehaviour
     [SerializeField] private bool _isFevered = false;
     [SerializeField] private bool _isHungry = false;
     [SerializeField] private bool _isThirsty = false;
+    [SerializeField] private bool _isDead = false;
 
     [SerializeField] private int _healthyMaxValue;
     private int _healthyValue;
@@ -47,7 +48,7 @@ public class CharacterStatScript : MonoBehaviour
     }
     void Update()
     {
-        if (_characterStat[0] == _healthyMaxValue)
+        if (_characterStat[0] == _healthyMaxValue || _isDead == true)
         {
             _isFevered = false;
         }
@@ -56,7 +57,7 @@ public class CharacterStatScript : MonoBehaviour
             _isFevered = true;
         }
 
-        if (_characterStat[1] == _hungryMaxValue)
+        if (_characterStat[1] == _hungryMaxValue || _isDead == true)
         {
             _isHungry = false;
         }
@@ -65,7 +66,7 @@ public class CharacterStatScript : MonoBehaviour
             _isHungry = true;
         }
 
-        if (_characterStat[2] == _thirstyMaxValue)
+        if (_characterStat[2] == _thirstyMaxValue || _isDead == true)
         {
             _isThirsty = false;
         }
@@ -74,7 +75,7 @@ public class CharacterStatScript : MonoBehaviour
             _isThirsty = true;
         }
 
-        if (_characterStat[3] == _healthMaxValue)
+        if (_characterStat[3] == _healthMaxValue || _isDead == true)
         {
             _isInjured = false;
         }
@@ -82,6 +83,12 @@ public class CharacterStatScript : MonoBehaviour
         {
             _isInjured = true;
         }
+
+        if (_characterStat[0] <= 0 || _characterStat[1] <= 0 || _characterStat[2] <= 0 || _characterStat[3] <= 0)
+        {
+            _isDead = true;
+        }
+
 
     }
 
@@ -136,6 +143,11 @@ public class CharacterStatScript : MonoBehaviour
         _isTired = isTire;
     }
 
+    public void SetCharacterDead(bool isDeadYet)
+    {
+        _isDead = isDeadYet;
+    }
+
     public int GetCharacterStat(int _indexArray)
     {
 
@@ -172,5 +184,10 @@ public class CharacterStatScript : MonoBehaviour
     {
         return _isThirsty;
     }
+    public bool GetIsDead()
+    {
+        return _isDead;
+    }
+
 
 }

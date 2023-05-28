@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSpriteManager : MonoBehaviour
 {
     [SerializeField] private CharacterStatScript characterStatScript;
-    [SerializeField] private GameObject _injuredSprite, _tiredSprite, _sickSprite, _infectedSprite, _hungrySprite, _thirstySprite;
+    [SerializeField] private GameObject _injuredSprite, _tiredSprite, _sickSprite, _infectedSprite, _hungrySprite, _thirstySprite, _deadSprite, _characterSprite;
 
     private void Start()
     {
@@ -67,5 +67,22 @@ public class CharacterSpriteManager : MonoBehaviour
         {
             _infectedSprite.SetActive(false);
         }
+
+        if(characterStatScript.GetIsDead() == true)
+        {
+            _deadSprite.SetActive(true);
+            _injuredSprite.SetActive(false);
+            _tiredSprite.SetActive(false);
+            _sickSprite.SetActive(false);
+            _infectedSprite.SetActive(false);
+            _hungrySprite.SetActive(false); 
+            _thirstySprite.SetActive(false);
+            _characterSprite.SetActive(false);
+        }
+        else
+        {
+            _deadSprite.SetActive(false);
+        }
+
     }
 }
