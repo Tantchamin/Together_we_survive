@@ -48,7 +48,7 @@ public class CharacterStatScript : MonoBehaviour
     }
     void Update()
     {
-        if (_characterStat[0] == _healthyMaxValue || _isDead == true)
+        if (_characterStat[0] >= _healthyMaxValue || _isDead == true)
         {
             _isFevered = false;
         }
@@ -57,7 +57,7 @@ public class CharacterStatScript : MonoBehaviour
             _isFevered = true;
         }
 
-        if (_characterStat[1] == _hungryMaxValue || _isDead == true)
+        if (_characterStat[1] >= _hungryMaxValue || _isDead == true)
         {
             _isHungry = false;
         }
@@ -66,7 +66,7 @@ public class CharacterStatScript : MonoBehaviour
             _isHungry = true;
         }
 
-        if (_characterStat[2] == _thirstyMaxValue || _isDead == true)
+        if (_characterStat[2] >= _thirstyMaxValue || _isDead == true)
         {
             _isThirsty = false;
         }
@@ -75,7 +75,7 @@ public class CharacterStatScript : MonoBehaviour
             _isThirsty = true;
         }
 
-        if (_characterStat[3] == _healthMaxValue || _isDead == true)
+        if (_characterStat[3] >= _healthMaxValue || _isDead == true)
         {
             _isInjured = false;
         }

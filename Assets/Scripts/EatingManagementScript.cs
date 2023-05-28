@@ -32,21 +32,21 @@ public class EatingManagementScript : MonoBehaviour
 
     public void CanFoodEatButton()
     {
-        kitchenResourceBackendScript.UseCannedFood(-1);
+        kitchenResourceBackendScript.UseCannedFood(1);
         CharacterStatScript.CharacterHungryAdjust(+3);
 
     }
 
     public void CookedFoodEatButton()
     {
-        kitchenResourceBackendScript.UseCannedFood(-1);
+        kitchenResourceBackendScript.UseCannedFood(1);
         CharacterStatScript.CharacterHungryAdjust(+3);
 
     }
 
     public void WaterDrinkButton()
     {
-        kitchenResourceBackendScript.UseWater(-1);
+        kitchenResourceBackendScript.UseWater(1);
         CharacterStatScript.CharacterThirstyAdjust(+3);
 
     }
