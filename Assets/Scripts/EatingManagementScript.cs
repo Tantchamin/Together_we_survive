@@ -7,7 +7,7 @@ public class EatingManagementScript : MonoBehaviour
 {
     [SerializeField] private CharacterStatScript CharacterStatScript;
     [SerializeField] private KitchenResourceBackendScript kitchenResourceBackendScript;
-    [SerializeField] private Button _rawFoodButton, _canFoodButton, _cookedFoodButton, _waterDrinkButton;
+    [SerializeField] private Button _rawFoodButton, _canFoodButton, _cookedFoodButton, _waterDrinkButton, _bandageButton, _medicineButton;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,16 @@ public class EatingManagementScript : MonoBehaviour
             _waterDrinkButton.interactable = false;
         else
             _waterDrinkButton.interactable = true;
+
+        if (kitchenResourceBackendScript.GetBandageAmount() == 0)
+            _bandageButton.interactable = false;
+        else
+            _bandageButton.interactable = true;
+
+        if (kitchenResourceBackendScript.GetMedicineAmount() == 0)
+            _medicineButton.interactable = false;
+        else
+            _medicineButton.interactable = true;
 
         _cookedFoodButton.interactable = false;
 
@@ -66,6 +76,18 @@ public class EatingManagementScript : MonoBehaviour
     {
         kitchenResourceBackendScript.UseWater(1);
         CharacterStatScript.CharacterThirstyAdjust(+3);
+
+    }
+    public void BandageUseButton()
+    {
+        kitchenResourceBackendScript.UseBandage(1);
+        CharacterStatScript.CharacterHealthAdjust(+1);
+
+    }
+    public void MedicineUseButton()
+    {
+        kitchenResourceBackendScript.UseMedicine(1);
+        CharacterStatScript.CharacterFeverAdjust(+5);
 
     }
 
