@@ -16,4 +16,6 @@ public class UISetActiveFalseWhenStartScript : MonoBehaviour
         _zombieRaid.SetActive(false);
     }
 
+    //hello world;
+
 }
