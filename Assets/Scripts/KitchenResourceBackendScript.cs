@@ -5,7 +5,8 @@ using UnityEngine;
 public class KitchenResourceBackendScript : MonoBehaviour
 {
     KitchenResourceFrontendScript kitchenResourceFrontendScript;
-    [SerializeField] private int _rawFoodAmount = 0 , _vegetableFoodAmount = 0, _cannedFoodAmount = 0 , _medicineAmount = 0 , _waterAmount = 0, _bandageAmount = 0;
+    [SerializeField] private int _rawFoodAmount = 0 , _vegetableFoodAmount = 0, _cannedFoodAmount = 0 , 
+    _medicineAmount = 0 , _waterAmount = 0, _bandageAmount = 0 , _cookedFoodAmount = 0;
     void Start()
     {
         // Maybe Change Difficulty And this will change
@@ -48,6 +49,12 @@ public class KitchenResourceBackendScript : MonoBehaviour
         Debug.Log("Current Bandage : " + _bandageAmount);
     }
 
+    public void ReceiveCookedFood(int _amount)
+    {
+        _cookedFoodAmount += _amount;
+        Debug.Log("Current CookedFood : " + _cookedFoodAmount);
+    }
+
     public void UseRawFood(int _amount){
         if(_rawFoodAmount <= 0) return;
         _rawFoodAmount -= _amount;
@@ -86,6 +93,13 @@ public class KitchenResourceBackendScript : MonoBehaviour
         Debug.Log("Current Bandage : " + _bandageAmount);
     }
 
+    public void UseCookedFood(int _amount)
+    {
+        if (_cookedFoodAmount <= 0) return;
+        _cookedFoodAmount -= _amount;
+        Debug.Log("Current Bandage : " + _cookedFoodAmount);
+    }
+
     public int GetRawFoodAmount(){
         return _rawFoodAmount;
     }
@@ -110,6 +124,10 @@ public class KitchenResourceBackendScript : MonoBehaviour
     public int GetBandageAmount()
     {
         return _bandageAmount;
+    }
+
+    public int GetCookedFoodAmount(){
+        return _cookedFoodAmount;
     }
 
 }

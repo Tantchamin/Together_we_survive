@@ -43,7 +43,12 @@ public class EatingManagementScript : MonoBehaviour
         else
             _medicineButton.interactable = true;
 
-        _cookedFoodButton.interactable = false;
+        if(kitchenResourceBackendScript.GetCookedFoodAmount() == 0){
+            _cookedFoodButton.interactable = false; 
+        }
+        else
+            _cookedFoodButton.interactable = true;
+        
 
     }
 
@@ -67,7 +72,7 @@ public class EatingManagementScript : MonoBehaviour
 
     public void CookedFoodEatButton()
     {
-        kitchenResourceBackendScript.UseCannedFood(1);
+        kitchenResourceBackendScript.UseCookedFood(1);
         CharacterStatScript.CharacterHungryAdjust(+3);
 
     }
