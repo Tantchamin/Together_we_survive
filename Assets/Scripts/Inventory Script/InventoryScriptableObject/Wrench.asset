@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060c3819cc54cad42a8246cb7caea457, type: 3}
   m_Name: Wrench
   m_EditorClassIdentifier: 
+  equiptmentName: Wrench
   equipmentID: 15
-  equiptmentName: 
-  durability: 0
-  itemStackSize: 0
+  description: 
+  equiptmentdurability: 0
+  equiptmentIcon: {fileID: 0}
+  equiptmentStackSize: 0
+  isConsumable: 0
