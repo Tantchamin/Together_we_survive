@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-    [SerializeField] private KitchenResourceBackendScript kitchenResourceBackendScript;
-    [SerializeField] private GarageResourceBackendScript garageResourceBackendScript;
+    [SerializeField] private KitchenResourceManagerScript kitchenResourceBackendScript;
+    [SerializeField] private GarageResourceManagerScript garageResourceBackendScript;
 
     [SerializeField] private int _rawFood = 1;
     [SerializeField] private int _wood = 1;

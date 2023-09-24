@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FrontYardUpgradeHouseManager : MonoBehaviour
 {   
-    [SerializeField] private GarageResourceBackendScript garageResourceBackendScript;
+    [SerializeField] private GarageResourceManagerScript garageResourceBackendScript;
 
     private int _woodAmount , _metalAmount , _tapeAmount; //necessary resource for upgrade
 

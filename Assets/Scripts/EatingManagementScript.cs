@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EatingManagementScript : MonoBehaviour
 {
     [SerializeField] private CharacterStatScript CharacterStatScript;
-    [SerializeField] private KitchenResourceBackendScript kitchenResourceBackendScript;
+    [SerializeField] private KitchenResourceManagerScript kitchenResourceBackendScript;
     [SerializeField] private Button _rawFoodButton, _canFoodButton, _cookedFoodButton, _waterDrinkButton, _bandageButton, _medicineButton;
 
     // Start is called before the first frame update
