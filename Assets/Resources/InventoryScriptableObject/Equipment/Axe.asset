@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060c3819cc54cad42a8246cb7caea457, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  equiptmentName: Axe
-  equipmentID: 1
+  equipmentName: Axe
+  ID: 0
   description: An Axe that used to either chop down wood nor chop down zombie head.
-  equiptmentdurability: 0
-  equiptmentIcon: {fileID: 0}
+  durability: 0
+  Icon: {fileID: 0}
   isConsumable: 0
+  isCraftAble: 1

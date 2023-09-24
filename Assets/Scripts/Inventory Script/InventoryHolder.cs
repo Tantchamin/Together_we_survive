@@ -8,18 +8,25 @@ public class InventoryHolder : MonoBehaviour
     public Equipment axe;
     public Equipment bullet; 
     public Equipment handGun;
+
+    [SerializeField] private List<CraftedEquipment> craftedEquipmentList = new List<CraftedEquipment>();
+
     void Start()
 
     {
-        HouseInventory.AddInventory(axe , 1);
-        HouseInventory.AddInventory(bullet , 50);
-        HouseInventory.AddInventory(handGun , 1);
-        HouseInventory.PrintInventory();
-        HouseInventory.RemoveFromInventory(1);
-        Debug.Log("--------");
-        HouseInventory.PrintInventory();
+        // HouseInventorySystem.AddEquipment(axe , 1);
+        // HouseInventorySystem.AddEquipment(bullet , 50);
+        // HouseInventorySystem.AddEquipment(handGun , 1);
+        // HouseInventorySystem.PrintInventory();
+        // HouseInventorySystem.RemoveEquipment(1);
+        // Debug.Log("--------");
+        // HouseInventorySystem.PrintInventory();
 
+        // Debug.Log( HouseInventorySystem.CheckEquipment("bullet").ToString());
+        // Debug.Log( HouseInventorySystem.CheckEquipment("Ammuniation").ToString());
 
+       
+        // Debug.Log( HouseInventorySystem.CheckEquipment("Hello").ToString());
     }
 
     // Update is called once per frame
@@ -27,4 +34,5 @@ public class InventoryHolder : MonoBehaviour
     {
         
     }
+
 }

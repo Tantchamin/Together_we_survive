@@ -17,5 +17,11 @@ MonoBehaviour:
   description: 
   equiptmentdurability: 0
   equiptmentIcon: {fileID: 0}
-  equiptmentStackSize: 0
   isConsumable: 1
+  isCraftAble: 1
+  woodAmount: 0
+  metalAmount: 0
+  tapeAmount: 0
+  _clotherAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 0
