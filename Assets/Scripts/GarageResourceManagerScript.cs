@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarageResourceBackendScript : MonoBehaviour
+public class GarageResourceManagerScript : MonoBehaviour
 {
-    GarageResourceFrontendScript garageResourceFrontendScript;
+    GarageResourceDisplayScript garageResourceDisplayScript;
     private int _woodAmount, _metalAmount, _tapeAmount, _clotheAmount, 
      _gunComponentAmount,  _gunPowderAmount , _herbAmount;
 

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenResourceBackendScript : MonoBehaviour
+public class KitchenResourceManagerScript : MonoBehaviour
 {
-    KitchenResourceFrontendScript kitchenResourceFrontendScript;
+    KitchenResourceDisplayScript kitchenResourceFrontendScript;
     [SerializeField] private int _rawFoodAmount = 0 , _vegetableFoodAmount = 0, _cannedFoodAmount = 0 , 
     _medicineAmount = 0 , _waterAmount = 0, _bandageAmount = 0 , _cookedFoodAmount = 0;
     void Start()

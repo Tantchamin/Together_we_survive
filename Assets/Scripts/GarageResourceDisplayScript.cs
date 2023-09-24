@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GarageResourceFrontendScript : MonoBehaviour
+public class GarageResourceDisplayScript : MonoBehaviour
 {
 
     [SerializeField] private Camera _roomCamera;
@@ -18,11 +18,11 @@ public class GarageResourceFrontendScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gunPowderDisplayAmount;
     [SerializeField] private TextMeshProUGUI _herbDisplayAmount;
 
-    GarageResourceBackendScript garageResourceBackendScript;
+    GarageResourceManagerScript garageResourceManagerScript;
     void Start()
     {
         _garageUI = GameObject.Find("GarageResourceUI");
-        garageResourceBackendScript = GetComponent<GarageResourceBackendScript>();
+        garageResourceManagerScript = GetComponent<GarageResourceManagerScript>();
     }
 
     // Update is called once per frame
@@ -42,13 +42,13 @@ public class GarageResourceFrontendScript : MonoBehaviour
     }
 
     private void DisplayGarageResource(){
-        _woodDisplayAmount.text =  garageResourceBackendScript.GetResourceFromList(0).ToString();
-        _metalDisplayAmount.text = garageResourceBackendScript.GetResourceFromList(1).ToString();
-        _tapeDisplayAmount.text =  garageResourceBackendScript.GetResourceFromList(2).ToString();
-        _clotheDisplayAmount.text =  garageResourceBackendScript.GetResourceFromList(3).ToString();
-        _gunComponentDisplayAmount.text =  garageResourceBackendScript.GetResourceFromList(4).ToString();
-        _gunPowderDisplayAmount.text =  garageResourceBackendScript.GetResourceFromList(5).ToString();
-        _herbDisplayAmount.text = garageResourceBackendScript.GetResourceFromList(6).ToString();
+        _woodDisplayAmount.text =  garageResourceManagerScript.GetResourceFromList(0).ToString();
+        _metalDisplayAmount.text = garageResourceManagerScript.GetResourceFromList(1).ToString();
+        _tapeDisplayAmount.text =  garageResourceManagerScript.GetResourceFromList(2).ToString();
+        _clotheDisplayAmount.text =  garageResourceManagerScript.GetResourceFromList(3).ToString();
+        _gunComponentDisplayAmount.text =  garageResourceManagerScript.GetResourceFromList(4).ToString();
+        _gunPowderDisplayAmount.text =  garageResourceManagerScript.GetResourceFromList(5).ToString();
+        _herbDisplayAmount.text = garageResourceManagerScript.GetResourceFromList(6).ToString();
 
     }
 }

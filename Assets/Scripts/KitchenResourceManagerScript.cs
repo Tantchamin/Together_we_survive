@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class KitchenResourceFrontendScript : MonoBehaviour
+public class KitchenResourceDisplayScript : MonoBehaviour
 {
     [SerializeField] private Camera _roomCamera;
     [SerializeField] private GameObject _kitchenBG;
@@ -15,13 +15,13 @@ public class KitchenResourceFrontendScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _medicineDisplayAmount;
     [SerializeField] private TextMeshProUGUI _waterDisplayAmount;
     [SerializeField] private TextMeshProUGUI _bandageDisplayAmount;
-    KitchenResourceBackendScript kitchenResourceBackendScript;
+    KitchenResourceManagerScript kitchenResourceManagerScript;
 
 
     void Start()
     {
         _kitchenUI = GameObject.Find("KitchenResourceUI");
-        kitchenResourceBackendScript = GetComponent<KitchenResourceBackendScript>();
+        kitchenResourceManagerScript = GetComponent<KitchenResourceManagerScript>();
     }
 
 
@@ -52,29 +52,29 @@ public class KitchenResourceFrontendScript : MonoBehaviour
     }
 
     private void DisplayRawFoodAmount(){
-        _rawFoodDisplayAmount.text = kitchenResourceBackendScript.GetRawFoodAmount().ToString();
+        _rawFoodDisplayAmount.text = kitchenResourceManagerScript.GetRawFoodAmount().ToString();
     }
 
     private void DisplayCannedFoodAmount(){
-        _cannedFoodDisplayAmount.text = kitchenResourceBackendScript.GetCannedFoodAmount().ToString();
+        _cannedFoodDisplayAmount.text = kitchenResourceManagerScript.GetCannedFoodAmount().ToString();
     }
 
     private void DisplayMedicineAmount(){
-        _medicineDisplayAmount.text = kitchenResourceBackendScript.GetMedicineAmount().ToString();
+        _medicineDisplayAmount.text = kitchenResourceManagerScript.GetMedicineAmount().ToString();
     }
 
     private void DisplayWaterAmount(){
-        _waterDisplayAmount.text = kitchenResourceBackendScript.GetWaterAmount().ToString();
+        _waterDisplayAmount.text = kitchenResourceManagerScript.GetWaterAmount().ToString();
     }
 
     private void DisplayVegetableFoddAmount()
     {
-        _vegetableFoodDisplayAmount.text = kitchenResourceBackendScript.GetVegetableAmount().ToString();
+        _vegetableFoodDisplayAmount.text = kitchenResourceManagerScript.GetVegetableAmount().ToString();
     }
 
     private void DisplayBandageAmount()
     {
-        _bandageDisplayAmount.text = kitchenResourceBackendScript.GetBandageAmount().ToString();
+        _bandageDisplayAmount.text = kitchenResourceManagerScript.GetBandageAmount().ToString();
     }
 
 }

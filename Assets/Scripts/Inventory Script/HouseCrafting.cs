@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class HouseCrafting : MonoBehaviour
 {
-    GarageResourceBackendScript garageResourceBackendScript;
-    KitchenResourceBackendScript kitchenResourceBackendScript;
+    GarageResourceManagerScript garageResourceManagerScript;
+    KitchenResourceManagerScript KitchenResourceManagerScript;
     [SerializeField] private List<CraftedEquipment> CraftedEquipmentList = new List<CraftedEquipment>();
 
     private string craftedEquipmentName;
@@ -17,7 +17,7 @@ public class HouseCrafting : MonoBehaviour
     [SerializeField] private CraftedEquipment axe;
     void Start()
     {
-        garageResourceBackendScript = FindObjectOfType<GarageResourceBackendScript>();
+        garageResourceManagerScript = FindObjectOfType<GarageResourceManagerScript>();
         FillCraftingEquipmentList();
     }
 
@@ -40,25 +40,25 @@ public class HouseCrafting : MonoBehaviour
 
     private bool CheckResource(CraftedEquipment equipment){
 
-        int wood = garageResourceBackendScript.GetResourceFromList(0);
-        int metal = garageResourceBackendScript.GetResourceFromList(1);
-        int tape = garageResourceBackendScript.GetResourceFromList(2);
-        int clothe = garageResourceBackendScript.GetResourceFromList(3);
-        int gunComponent = garageResourceBackendScript.GetResourceFromList(4);
-        int gunPowder = garageResourceBackendScript.GetResourceFromList(5);
-        int herb = garageResourceBackendScript.GetResourceFromList(6);
+        int wood = garageResourceManagerScript.GetResourceFromList(0);
+        int metal = garageResourceManagerScript.GetResourceFromList(1);
+        int tape = garageResourceManagerScript.GetResourceFromList(2);
+        int clothe = garageResourceManagerScript.GetResourceFromList(3);
+        int gunComponent = garageResourceManagerScript.GetResourceFromList(4);
+        int gunPowder = garageResourceManagerScript.GetResourceFromList(5);
+        int herb = garageResourceManagerScript.GetResourceFromList(6);
     
         if(wood >= equipment.woodAmount && metal >= equipment.metalAmount && tape >= equipment.tapeAmount 
         && clothe >= equipment._clotheAmount && gunPowder >= equipment._gunPowderAmount && gunComponent >= equipment._gunComponentAmount &&
         herb >= equipment._herbAmount){
 
-            garageResourceBackendScript.UseResourceFromList(equipment.woodAmount , 0);
-            garageResourceBackendScript.UseResourceFromList(equipment.metalAmount , 1);
-            garageResourceBackendScript.UseResourceFromList(equipment.tapeAmount  , 2);
-            garageResourceBackendScript.UseResourceFromList(equipment._clotheAmount , 3);
-            garageResourceBackendScript.UseResourceFromList(equipment._gunPowderAmount , 4);
-            garageResourceBackendScript.UseResourceFromList(equipment._gunComponentAmount , 5);
-            garageResourceBackendScript.UseResourceFromList(equipment._herbAmount , 6);
+            garageResourceManagerScript.UseResourceFromList(equipment.woodAmount , 0);
+            garageResourceManagerScript.UseResourceFromList(equipment.metalAmount , 1);
+            garageResourceManagerScript.UseResourceFromList(equipment.tapeAmount  , 2);
+            garageResourceManagerScript.UseResourceFromList(equipment._clotheAmount , 3);
+            garageResourceManagerScript.UseResourceFromList(equipment._gunPowderAmount , 4);
+            garageResourceManagerScript.UseResourceFromList(equipment._gunComponentAmount , 5);
+            garageResourceManagerScript.UseResourceFromList(equipment._herbAmount , 6);
 
             return true;
 

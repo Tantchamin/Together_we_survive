@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bdd94faef6d68840966a8534f02e81e, type: 3}
   m_Name: Backpack
   m_EditorClassIdentifier: 
-  equipmentName: 
-  ID: 0
-  description: 
+  equipmentName: Backpack
+  ID: 2
+  description: backpack made from leather
   durability: 0
-  Icon: {fileID: 0}
+  equipmentIcon: {fileID: 21300000, guid: 349f8c6c2024d174aa738b8fb65a4aa9, type: 3}
   isConsumable: 0
-  isCraftAble: 0
+  isCraftAble: 1
   woodAmount: 0
   metalAmount: 0
-  tapeAmount: 0
-  _clotheAmount: 0
+  tapeAmount: 20
+  _clotheAmount: 20
   _gunComponentAmount: 0
   _gunPowderAmount: 0
   _herbAmount: 0
