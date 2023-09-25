@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &25067610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5516,7 +5516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &342764063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7457,7 +7457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -255, y: -19.3332}
+  m_AnchoredPosition: {x: -244, y: -19.3332}
   m_SizeDelta: {x: 64.9844, y: 168.004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472616038
@@ -7473,15 +7473,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e57f30df0bc616d4fbe9edb7b779410c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8119,7 +8119,7 @@ GameObject:
   - component: {fileID: 525458939}
   - component: {fileID: 525458938}
   m_Layer: 5
-  m_Name: UpgradeHousebtn
+  m_Name: FrontyardUpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8354,7 +8354,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533679290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -8364,7 +8364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96, y: 193}
+  m_AnchoredPosition: {x: 96.000046, y: 193}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533679292
@@ -8654,7 +8654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -104, y: -155}
+  m_AnchoredPosition: {x: -111, y: -155}
   m_SizeDelta: {x: 698.5737, y: 308.336}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &549416734
@@ -11520,7 +11520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &791611162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12311,7 +12311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859340451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13174,7 +13174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterStatScript: {fileID: 1666945656}
-  kitchenResourceManagerScript: {fileID: 0}
+  kitchenResourceManagerScript: {fileID: 25067611}
   _rawFoodButton: {fileID: 1572058545}
   _canFoodButton: {fileID: 258584864}
   _cookedFoodButton: {fileID: 40871107}
@@ -14076,7 +14076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.158783, y: -241.15634}
+  m_AnchoredPosition: {x: 13, y: -252.85542}
   m_SizeDelta: {x: 678.7638, y: 1114.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1027744423
@@ -18571,7 +18571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.99997, y: 31.000011}
+  m_AnchoredPosition: {x: 185.4, y: 31.000011}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353617022
@@ -18587,7 +18587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterStatScript: {fileID: 1802925206}
-  kitchenResourceManagerScript: {fileID: 0}
+  kitchenResourceManagerScript: {fileID: 25067611}
   _rawFoodButton: {fileID: 2040979750}
   _canFoodButton: {fileID: 896845590}
   _cookedFoodButton: {fileID: 1559744294}
@@ -19474,7 +19474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterStatScript: {fileID: 1391178597}
-  kitchenResourceManagerScript: {fileID: 0}
+  kitchenResourceManagerScript: {fileID: 25067611}
   _rawFoodButton: {fileID: 758705298}
   _canFoodButton: {fileID: 467928869}
   _cookedFoodButton: {fileID: 16236363}
@@ -19813,7 +19813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447579847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19844,9 +19844,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447579846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add9d44cd6edf824da382bdc3a0bdb12, type: 3}
+  m_Script: {fileID: 11500000, guid: 9323274681452ed4abf6b7d8098ff031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dayText: {fileID: 1286714429}
 --- !u!1 &1454296256
 GameObject:
   m_ObjectHideFlags: 0
@@ -20578,7 +20579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterStatScript: {fileID: 1744604710}
-  kitchenResourceManagerScript: {fileID: 0}
+  kitchenResourceManagerScript: {fileID: 25067611}
   _rawFoodButton: {fileID: 1978732151}
   _canFoodButton: {fileID: 1746284929}
   _cookedFoodButton: {fileID: 1535901017}
@@ -25528,7 +25529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1806250652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25564,7 +25565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomCamera: {fileID: 519420031}
   _frontYardBG: {fileID: 1069847313}
-  _frontYardUpgradeButton: {fileID: 0}
+  _frontYardUpgradeButton: {fileID: 525458936}
   frontYardUpgradeHouseManagerScript: {fileID: 1806250654}
 --- !u!114 &1806250654
 MonoBehaviour:
@@ -26234,7 +26235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1846082318
 RectTransform:
   m_ObjectHideFlags: 0

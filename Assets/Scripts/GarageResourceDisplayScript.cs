@@ -18,10 +18,14 @@ public class GarageResourceDisplayScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gunPowderDisplayAmount;
     [SerializeField] private TextMeshProUGUI _herbDisplayAmount;
 
+    [SerializeField] private GameObject _craftUI;
+
     GarageResourceManagerScript garageResourceManagerScript;
     void Start()
     {
         _garageUI = GameObject.Find("GarageResourceUI");
+        _craftUI = GameObject.Find("CraftedItemUI");
+        _craftUI.SetActive(false);
         garageResourceManagerScript = GetComponent<GarageResourceManagerScript>();
     }
 
