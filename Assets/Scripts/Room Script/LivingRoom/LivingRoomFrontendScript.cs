@@ -33,11 +33,12 @@ public class LivingRoomFrontendScript : MonoBehaviour
     public void SetLivingRoomUIActive(bool _uiActive)
     {
         _livingRoomFrontUI.SetActive(_uiActive);
+        _endDayButton.SetActive(_uiActive);
     }
 
     public void DisplayEatingManageUI(bool _isDisplay)
     {
         _eatingManageUI.SetActive(_isDisplay);
-        _endDayButton.SetActive(!_isDisplay);
+        
     }
 }
