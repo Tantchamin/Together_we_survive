@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bdd94faef6d68840966a8534f02e81e, type: 3}
-  m_Name: Wrench
+  m_Name: Iron Spear
   m_EditorClassIdentifier: 
-  equipmentName: Wrench
-  ID: 3
-  description: Basic wrench can be use in mechanic or defend yourself
-  durability: 20
-  equipmentIcon: {fileID: 21300000, guid: 2cc157748db13f242bbf8b9660afd279, type: 3}
+  equipmentName: Iron spear
+  ID: 0
+  description: 'A spear  , powerful 2-handed weapon that require strength to yield
+    it. made from an iron '
+  durability: 0
+  equipmentIcon: {fileID: 21300000, guid: 649067a90a60c5b4cb88cb4e12bf4379, type: 2}
   isConsumable: 0
   isCraftAble: 1
   woodAmount: 0
-  metalAmount: 10
+  metalAmount: 20
   tapeAmount: 0
   _clotheAmount: 0
   _gunComponentAmount: 0

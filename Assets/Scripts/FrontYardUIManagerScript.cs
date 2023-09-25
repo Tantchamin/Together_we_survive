@@ -9,7 +9,7 @@ public class FrontYardUIManagerScript : MonoBehaviour
     [SerializeField] private GameObject _frontYardBG;
 
     [SerializeField] private GameObject _frontYardUpgradeButton;
-    [SerializeField] private FrontYardUpgradeHouseManager frontYardUpgradeHouseManagerScript;
+    [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManagerScript;
     private byte _houseLevel;
 
 

@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bdd94faef6d68840966a8534f02e81e, type: 3}
   m_Name: Ammuniation
   m_EditorClassIdentifier: 
-  equipmentName: 
+  equipmentName: Ammo
   ID: 0
-  description: 
+  description: A pack of bullet that fitable for small fire-arms deadly enough to
+    any living-creature
   durability: 0
-  equipmentIcon: {fileID: 0}
-  isConsumable: 0
+  equipmentIcon: {fileID: 21300000, guid: dfec40433a48f1e45a3881af3d44d76e, type: 3}
+  isConsumable: 1
   isCraftAble: 0
   woodAmount: 0
-  metalAmount: 0
+  metalAmount: 5
   tapeAmount: 0
   _clotheAmount: 0
   _gunComponentAmount: 0
-  _gunPowderAmount: 0
+  _gunPowderAmount: 10
   _herbAmount: 0

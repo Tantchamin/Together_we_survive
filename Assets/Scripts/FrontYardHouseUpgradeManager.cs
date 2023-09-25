@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrontYardUpgradeHouseManager : MonoBehaviour
+public class FrontYardHouseUpgradeManager : MonoBehaviour
 {   
     [SerializeField] private GarageResourceManagerScript garageResourceBackendScript;
 

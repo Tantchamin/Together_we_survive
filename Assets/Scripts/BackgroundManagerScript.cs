@@ -11,7 +11,7 @@ public class BackgroundManagerScript : MonoBehaviour
     [SerializeField] private  List<Sprite> _garageSprites;
     [SerializeField] private  List<Sprite> _frontYardSprites;
 
-    [SerializeField] private FrontYardUpgradeHouseManager frontYardUpgradeHouseManager;
+    [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManager;
 
     private byte _houseLevel;
     private void Start()

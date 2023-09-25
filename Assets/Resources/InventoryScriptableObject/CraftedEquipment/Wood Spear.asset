@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bdd94faef6d68840966a8534f02e81e, type: 3}
-  m_Name: Wrench
+  m_Name: Wood Spear
   m_EditorClassIdentifier: 
-  equipmentName: Wrench
-  ID: 3
-  description: Basic wrench can be use in mechanic or defend yourself
-  durability: 20
-  equipmentIcon: {fileID: 21300000, guid: 2cc157748db13f242bbf8b9660afd279, type: 3}
+  equipmentName: Wood spear
+  ID: 0
+  description: A ligtht weighted  spear . 2-handed weapon that anyone can yield it. 
+    made from a wood
+  durability: 0
+  equipmentIcon: {fileID: 21300000, guid: 4331eae025c15c544b94725e7a61da8e, type: 2}
   isConsumable: 0
   isCraftAble: 1
-  woodAmount: 0
-  metalAmount: 10
+  woodAmount: 20
+  metalAmount: 0
   tapeAmount: 0
   _clotheAmount: 0
   _gunComponentAmount: 0
