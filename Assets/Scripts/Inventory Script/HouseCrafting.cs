@@ -13,8 +13,6 @@ public class HouseCrafting : MonoBehaviour
     [SerializeField] private List<CraftedEquipment> CraftedEquipmentList = new List<CraftedEquipment>();
 
     private string craftedEquipmentName;
-
-    [SerializeField] private CraftedEquipment axe;
     void Start()
     {
         garageResourceManagerScript = FindObjectOfType<GarageResourceManagerScript>();

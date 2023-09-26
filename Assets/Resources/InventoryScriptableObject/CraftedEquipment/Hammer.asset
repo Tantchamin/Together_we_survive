@@ -18,8 +18,8 @@ MonoBehaviour:
     zombie head
   durability: 30
   equipmentIcon: {fileID: 21300000, guid: 5c3ec88130af26d41916473ac0de25d3, type: 3}
-  isConsumable: 0
   isCraftAble: 1
+  itemType: 2
   woodAmount: 0
   metalAmount: 25
   tapeAmount: 5

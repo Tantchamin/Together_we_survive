@@ -17,8 +17,8 @@ MonoBehaviour:
   description: A backpack that help you carry a lot more items
   durability: 0
   equipmentIcon: {fileID: 21300000, guid: 349f8c6c2024d174aa738b8fb65a4aa9, type: 3}
-  isConsumable: 0
   isCraftAble: 1
+  itemType: 2
   woodAmount: 0
   metalAmount: 0
   tapeAmount: 20

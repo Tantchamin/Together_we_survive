@@ -12,41 +12,34 @@ public static class HouseInventorySystem {
     // [SerializeField] private Equipment equipmentData;
 
 
-
-    private static Dictionary<Equipment , int > inventoryDictionary = new Dictionary<Equipment, int>();
-    public static List<Dictionary<Equipment , int >> houseInventoryList = new List<Dictionary<Equipment , int >>();
-    public static void AddEquipment(Equipment equipment , int amount){  
-        Dictionary<Equipment , int> addedEqiupment = new Dictionary<Equipment, int>();
+    private static List<CraftedEquipment> houseInventoryListWithoutAMount = new List<CraftedEquipment>();
+    private static Dictionary<CraftedEquipment , int > inventoryDictionary = new Dictionary<CraftedEquipment, int>();
+    public static List<Dictionary<CraftedEquipment , int >> houseInventoryList = new List<Dictionary<CraftedEquipment , int >>();
+    public static void AddEquipment(CraftedEquipment equipment , int amount){  
+        Dictionary<CraftedEquipment , int> addedEqiupment = new Dictionary<CraftedEquipment, int>();
         addedEqiupment.Add(equipment , amount);
         houseInventoryList.Add(addedEqiupment);
     }
 
-    public static Equipment GetEquipment(int equipmentID){
-        Equipment searchedEquipment = null;
+    public static List<CraftedEquipment> GetEquipmentList(){
+        CraftedEquipment searchedEquipment = null;
         int searchedEqipmentAmount = 0;
-        int searchedEqipmentID = 0;
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){
+        foreach(Dictionary<CraftedEquipment , int> allEquiptment in houseInventoryList){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in allEquiptment){
                 searchedEquipment = kvp.Key;
                 searchedEqipmentAmount = kvp.Value;
-                searchedEqipmentID = searchedEquipment. ID;
-                if(equipmentID == searchedEqipmentID){
-                    break;
-                }
-                else
-                    return null; 
+                houseInventoryListWithoutAMount.Add(searchedEquipment);            
             }
         }
-
-        return searchedEquipment;
+        return houseInventoryListWithoutAMount;
     }
 
     public static bool CompareEquipment(int equipmentID){
-        Equipment searchedEquipment;
+        CraftedEquipment searchedEquipment;
         int searchedEqipmentID = 0;
 
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList.ToList()){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){ 
+        foreach(Dictionary<CraftedEquipment , int> allEquiptment in houseInventoryList.ToList()){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in allEquiptment){ 
                 searchedEquipment = kvp.Key;
                 searchedEqipmentID = searchedEquipment.ID;
                 if(equipmentID == searchedEqipmentID){
@@ -60,12 +53,12 @@ public static class HouseInventorySystem {
     }
 
     public static void RemoveEquipment(int equipmentID){
-        Equipment searchedEquipment = null;
+        CraftedEquipment searchedEquipment = null;
         int searchedEqipmentAmount = 0;
         int searchedEqipmentID = -1;
 
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList.ToList()){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){ 
+        foreach(Dictionary<CraftedEquipment , int> allEquiptment in houseInventoryList.ToList()){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in allEquiptment){ 
                 searchedEquipment = kvp.Key;
                 searchedEqipmentAmount = kvp.Value;
                 searchedEqipmentID = searchedEquipment.ID;
@@ -78,9 +71,9 @@ public static class HouseInventorySystem {
     }
 
     public static void PrintInventory(){
-        Equipment searchedEquipment = null;
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){        
+        CraftedEquipment searchedEquipment = null;
+        foreach(Dictionary<CraftedEquipment , int> allEquiptment in houseInventoryList){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in allEquiptment){        
                 searchedEquipment = kvp.Key;
                 Debug.Log(searchedEquipment.equipmentName.ToString());
             }
@@ -90,9 +83,9 @@ public static class HouseInventorySystem {
 
     public static bool CheckEquipment(string equipmentName){
         string searchedEquipmentName = null;
-        Equipment searchedEquipment = null;
-        foreach(Dictionary<Equipment,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in equipment){        
+        CraftedEquipment searchedEquipment = null;
+        foreach(Dictionary<CraftedEquipment,int> equipment in houseInventoryList){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in equipment){        
                 searchedEquipment = kvp.Key;
                 searchedEquipmentName = searchedEquipment.equipmentName;
                 if(searchedEquipmentName == equipmentName){
@@ -105,4 +98,22 @@ public static class HouseInventorySystem {
         return false;
     }
 
+    public static int GetEquipmentAmount(CraftedEquipment craftedEquipment){
+        CraftedEquipment searchedEquipment = null;
+        int searchedEqipmentAmount = 0;
+        int equipmentAmount =0;
+        foreach(Dictionary<CraftedEquipment,int> equipment in houseInventoryList){
+            foreach(KeyValuePair<CraftedEquipment , int > kvp in equipment){        
+                searchedEquipment = kvp.Key;
+                searchedEqipmentAmount = kvp.Value;
+                if(searchedEquipment == craftedEquipment){
+                    return equipmentAmount = searchedEqipmentAmount;
+                }
+            }
+            
+        }
+
+
+        return equipmentAmount;
+    }
 }

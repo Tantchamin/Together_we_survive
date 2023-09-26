@@ -18,8 +18,8 @@ MonoBehaviour:
     it. made from an iron '
   durability: 0
   equipmentIcon: {fileID: 21300000, guid: 649067a90a60c5b4cb88cb4e12bf4379, type: 2}
-  isConsumable: 0
   isCraftAble: 1
+  itemType: 1
   woodAmount: 0
   metalAmount: 20
   tapeAmount: 0

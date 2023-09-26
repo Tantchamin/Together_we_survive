@@ -19,7 +19,11 @@ public class GarageResourceDisplayScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _herbDisplayAmount;
 
     [SerializeField] private GameObject _craftUI;
+    [SerializeField] private GameObject _inventoryUI;
+
     [SerializeField] private GameObject _craftUIฺButton;
+
+    [SerializeField] private GameObject _inventoryUIButton;
 
     private bool isCameraHere = false;
 
@@ -29,7 +33,10 @@ public class GarageResourceDisplayScript : MonoBehaviour
         _garageUI = GameObject.Find("GarageResourceUI");
         _craftUI = GameObject.Find("CraftedItemUI");
         _craftUIฺButton = GameObject.Find("CraftedItemButton");
+        _inventoryUIButton = GameObject.Find("InventoryButton");
+        _inventoryUI = GameObject.Find("InventoryUI");
         _craftUI.SetActive(false);
+        _inventoryUI.SetActive(false);
         garageResourceManagerScript = GetComponent<GarageResourceManagerScript>();
     }
 
@@ -55,6 +62,7 @@ public class GarageResourceDisplayScript : MonoBehaviour
     private void SetGarageUIActive(bool _isUIActive){
         _garageUI.SetActive(_isUIActive);
         _craftUIฺButton.SetActive(_isUIActive);
+        _inventoryUIButton.SetActive(_isUIActive);
         
     }
 

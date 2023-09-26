@@ -18,8 +18,8 @@ MonoBehaviour:
     that any other weapon need a bullet to put it on a work.
   durability: 30
   equipmentIcon: {fileID: 21300000, guid: 718b23dd2db195b40bf1364e83d66cf2, type: 3}
-  isConsumable: 0
   isCraftAble: 1
+  itemType: 1
   woodAmount: 0
   metalAmount: 20
   tapeAmount: 20

@@ -17,9 +17,9 @@ MonoBehaviour:
   description: A heavy metal rod that can be use to remove some bardicade or fighting
     with zombies
   durability: 20
-  equipmentIcon: {fileID: 0}
-  isConsumable: 0
+  equipmentIcon: {fileID: 21300000, guid: 7b0f7fe1e4aa2314793cd98ef79718d8, type: 3}
   isCraftAble: 1
+  itemType: 2
   woodAmount: 0
   metalAmount: 20
   tapeAmount: 0

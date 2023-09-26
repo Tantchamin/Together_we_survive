@@ -18,8 +18,8 @@ MonoBehaviour:
     either the zombie or human corpse
   durability: 20
   equipmentIcon: {fileID: 21300000, guid: a84e160f435ea4042baabf76d50c135d, type: 3}
-  isConsumable: 0
   isCraftAble: 1
+  itemType: 2
   woodAmount: 0
   metalAmount: 15
   tapeAmount: 5

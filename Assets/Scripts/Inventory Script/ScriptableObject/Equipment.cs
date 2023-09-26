@@ -12,8 +12,17 @@ public class Equipment : ScriptableObject {
    
     public int durability;
     public Sprite equipmentIcon;
-    public bool isConsumable = false;
+
     public bool isCraftAble = false;
+
+    public ItemType itemType;
+
+    public enum ItemType{
+        Consumable ,
+        Weapon ,
+        Tool,
+
+    }
     
     
 
