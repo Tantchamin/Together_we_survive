@@ -12,8 +12,9 @@ public class GarageResourceManagerScript : MonoBehaviour
 
     void Start()
     {
-        FillResourceToList();
         SetStartingResource();
+        FillResourceToList();
+        
     }
 
     public int GetResourceFromList(int _listIndex){
@@ -41,12 +42,13 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
 
     private void SetStartingResource(){
-        _woodAmount = 0;
-        _metalAmount = 0;  
-        _tapeAmount = 0;  
-        _clotheAmount = 0; 
-        _gunComponentAmount = 0;   
-        _gunPowderAmount = 0;
+        _woodAmount = 40;
+        _metalAmount = 40;  
+        _tapeAmount = 40;  
+        _clotheAmount = 40; 
+        _gunComponentAmount = 40;   
+        _gunPowderAmount = 40;
+        _herbAmount = 40;
     }
 
     

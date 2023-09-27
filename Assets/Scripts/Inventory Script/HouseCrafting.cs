@@ -68,7 +68,7 @@ public class HouseCrafting : MonoBehaviour
     private void AddEquipment(CraftedEquipment equipment){
         HouseInventorySystem.AddEquipment(equipment , 1);
         
-        HouseInventorySystem.PrintInventory();
+        // HouseInventorySystem.PrintInventory();
         
     }
 
