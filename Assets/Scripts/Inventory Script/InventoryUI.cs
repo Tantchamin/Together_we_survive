@@ -6,8 +6,15 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private CraftedEquipment craftedEquipment;
     [SerializeField] private TextMeshProUGUI equipmentName;
     [SerializeField] private TextMeshProUGUI equipmentAmount;
+    [SerializeField] private TextMeshProUGUI equipmentDescription;
+
+    [SerializeField] private GameObject equipmentDescriptionPanel;
     [SerializeField] private Image equipmentSprite;
 
+
+    private void Start() {
+        equipmentDescriptionPanel.SetActive(false);
+    }
     private void OnEnable() {
         InventoryManager.OnStack += UpdateText;
     }
@@ -24,6 +31,7 @@ public class InventoryUI : MonoBehaviour
     private void SetInvetoryItem(){
         equipmentName.text = craftedEquipment.equipmentName;
         equipmentSprite.sprite  = craftedEquipment.equipmentIcon;
+        equipmentDescription.text = craftedEquipment.description;
         
     }
 

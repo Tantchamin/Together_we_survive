@@ -28,17 +28,20 @@ public class InventoryManager : MonoBehaviour
         // Debug.Log(inventoryContent.transform.ToString());    
     }
     public void ShowList(){
-        HouseInventorySystem.PrintInventory();
-        ClearList();
+
         craftedEquipmentList = HouseInventorySystem.GetEquipmentListWithOutAMount();
 
+        
+
+
         foreach (CraftedEquipment equipment in craftedEquipmentList){       
+            Debug.Log(equipment.equipmentName);
             if(IsEquipmentInstantiated(equipment) == false){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
                 inventoryUIscript.SetCraftedEquipment(equipment);    
             }
-            else if((equipment.itemType == Equipment.ItemType.Weapon || equipment.itemType == Equipment.ItemType.Weapon) 
+            else if((equipment.itemType == Equipment.ItemType.Weapon || equipment.itemType == Equipment.ItemType.Tool) 
             && IsEquipmentInstantiated(equipment) == true){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
@@ -51,7 +54,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void ClearList(){
+    public void ClearList(){
         foreach (Transform item in inventoryContent){
            Debug.Log(item.ToString());
            Destroy(item.gameObject);
