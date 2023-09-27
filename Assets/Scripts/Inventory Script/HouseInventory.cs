@@ -17,13 +17,20 @@ public static class HouseInventorySystem {
     private static Dictionary<CraftedEquipment , int > inventoryDictionary = new Dictionary<CraftedEquipment, int>();
     public static List<Dictionary<CraftedEquipment , int >> houseInventoryList = new List<Dictionary<CraftedEquipment , int >>();
     public static void AddEquipment(CraftedEquipment equipment , int amount){  
-        if(CheckEquipment(equipment) == false ){
+        if(CheckEquipment(equipment) == false){
             Dictionary<CraftedEquipment , int> addedEqiupment = new Dictionary<CraftedEquipment, int>
             {
                 { equipment, amount }
             };
             houseInventoryList.Add(addedEqiupment);
-        }else if (CheckEquipment(equipment) == true){
+        }else if(CheckEquipment(equipment) == true && (equipment.itemType == Equipment.ItemType.Tool || 
+        equipment.itemType == Equipment.ItemType.Weapon)){
+            Dictionary<CraftedEquipment , int> addedEqiupment = new Dictionary<CraftedEquipment, int>
+            {
+                { equipment, amount }
+            };
+            houseInventoryList.Add(addedEqiupment);
+        }else if (CheckEquipment(equipment) == true && equipment.itemType == Equipment.ItemType.Consumable){
             Debug.Log("Stacking " + equipment.equipmentName);
             StackEquipmentAmount(equipment , amount);
         }

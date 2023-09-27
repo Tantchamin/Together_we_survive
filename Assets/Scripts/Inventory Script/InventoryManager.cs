@@ -33,27 +33,29 @@ public class InventoryManager : MonoBehaviour
         craftedEquipmentList = HouseInventorySystem.GetEquipmentListWithOutAMount();
 
         foreach (CraftedEquipment equipment in craftedEquipmentList){       
-            if(equipment.itemType == Equipment.ItemType.Consumable && IsEquipmentInstantiated(equipment)){
-                OnStack?.Invoke();
-            }
-            else{
+            if(IsEquipmentInstantiated(equipment) == false){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
-                inventoryUIscript.SetCraftedEquipment(equipment);
-                
+                inventoryUIscript.SetCraftedEquipment(equipment);    
+            }
+            else if((equipment.itemType == Equipment.ItemType.Weapon || equipment.itemType == Equipment.ItemType.Weapon) 
+            && IsEquipmentInstantiated(equipment) == true){
+                GameObject obj = Instantiate(inventoryUI , inventoryContent);
+                inventoryUIscript = obj.GetComponent<InventoryUI>();
+                inventoryUIscript.SetCraftedEquipment(equipment);    
+            }
+            else if(equipment.itemType == Equipment.ItemType.Consumable && IsEquipmentInstantiated(equipment) == true){
+                OnStack?.Invoke();
             }
 
         }
     }
 
     private void ClearList(){
-        // foreach (Transform item in inventoryContent){
-        //     Debug.Log(item.ToString());
-        //     Destroy(item.gameObject);
-        // }
-
-
-        if(craftedEquipmentList.Any() == false) return;
+        foreach (Transform item in inventoryContent){
+           Debug.Log(item.ToString());
+           Destroy(item.gameObject);
+        }
         craftedEquipmentList.Clear();
         
     }
