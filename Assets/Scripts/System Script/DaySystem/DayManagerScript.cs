@@ -1,24 +1,31 @@
 using UnityEngine;
-using TMPro;
-
+using System;
 public class DayManagerScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _dayText;
-    private int _dayNumber = 1;
+    [SerializeField] MapSelectScript mapSelectScript;
+    [SerializeField] private int day = 1;
+    public event Action OnDayEnd = delegate{};
+    public event Action OnDayStart = delegate{};
 
-    void Update()
+    private void Awake() 
     {
-        _dayText.text = "Day " + _dayNumber;
+        mapSelectScript = FindObjectOfType<MapSelectScript>();
+        mapSelectScript.OnDayStart += DayStart;
+    }
+    public void IncreaseDays()
+    {
+        OnDayEnd();
+        day +=1;
     }
 
-    public void IncreaseDays(int _day)
+    public void DayStart()
     {
-        _dayNumber += _day;
+        OnDayStart();    
     }
 
     public int GetDays()
     {
-        return _dayNumber;
+        return day;
     }
 
 }

@@ -12,6 +12,16 @@ public class BackgroundManagerScript : MonoBehaviour
     [SerializeField] private  List<Sprite> _frontYardSprites;
     [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManager;
     private byte _houseLevel;
+
+    private void OnEnable() 
+    {
+        frontYardUpgradeHouseManager.OnHouseFinishUpgrade += DisplayHouseLevel;
+    }
+
+    private void OnDisable() 
+    {
+        frontYardUpgradeHouseManager.OnHouseFinishUpgrade -= DisplayHouseLevel;
+    }
     private void Start()
     {
         _houseLevel = (byte ) frontYardUpgradeHouseManager.GetHouseLevel();

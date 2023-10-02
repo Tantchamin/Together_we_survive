@@ -6,11 +6,11 @@ public class HouseUpgradeMaterial : ScriptableObject
     [SerializeField] private int metalAmount;
     [SerializeField] private int tapeAmount;
 
-    [SerializeField] private int upgradeDays;
+    [SerializeField] private byte upgradeDays;
     public int WoodAmount{get {return woodAmount;} private set{}}
     public int MetalAmount{get{return metalAmount;} private set{}}
     public int TapeAmount{get {return tapeAmount;} private set{}}
-    public int UpgradeDays{get {return upgradeDays;} private set{}}
+    public byte UpgradeDays{get {return upgradeDays;} private set{}}
     
         
     

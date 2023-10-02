@@ -9,14 +9,19 @@ public class OnEndDayScript : MonoBehaviour
     [SerializeField] private CharacterStatScript _father, _mother, _sister, _brother;
     [SerializeField] private TemperatureManagerScript temperatureManagerScript;
     [SerializeField] private DayManagerScript dayManagerScript;
-    int _day = 1;
+    int days = 0;
 
-    private void Start()
+    private void Awake()
     {
         _father = GameObject.FindWithTag("Father").GetComponent<CharacterStatScript>();
         _mother = GameObject.FindWithTag("Mother").GetComponent<CharacterStatScript>();
         _sister = GameObject.FindWithTag("Sister").GetComponent<CharacterStatScript>();
         _brother = GameObject.FindWithTag("Brother").GetComponent<CharacterStatScript>();
+        dayManagerScript.GetComponent<DayManagerScript>().OnDayEnd += OnEndDayButtonClick;
+    }
+    private void OnDisable() 
+    {
+        dayManagerScript.GetComponent<DayManagerScript>().OnDayEnd -= OnEndDayButtonClick;
     }
 
     public void OnEndDayButtonClick()
@@ -76,25 +81,25 @@ public class OnEndDayScript : MonoBehaviour
 
     void SetNextDayTemperature()
     {
-        _day = dayManagerScript.GetDays();
+        days = dayManagerScript.GetDays();
 
-        if (_day <= 7)
+        if (days <= 7)
         {
             RandomSetTemperature(20,28);
         }
-        else if (_day >= 8 && _day <= 14)
+        else if (days >= 8 && days <= 14)
         {
             RandomSetTemperature(16, 26);
         }
-        else if (_day >= 15 && _day <= 21)
+        else if (days >= 15 && days <= 21)
         {
             RandomSetTemperature(12, 22);
         }
-        else if (_day >= 22 && _day <= 29)
+        else if (days >= 22 && days <= 29)
         {
             RandomSetTemperature(8, 18);
         }
-        else if (_day == 30)
+        else if (days == 30)
         {
             RandomSetTemperature(20, 28);
         }

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,12 +14,17 @@ public class MapSelectScript : MonoBehaviour
     [SerializeField] private ZombieRaidChance zombieManager;
     ChooseCharacterManagerScript chooseCharacterManagerScript;
 
-    private void Start()
+    public event Action OnDayStart;
+
+    private void Awake()
     {
         garageResourceManagerScript.GetComponent<GarageResourceManagerScript>();
         kitchenResorceManagerScript.GetComponent<KitchenResourceManagerScript>();
         zombieManager = FindObjectOfType<ZombieRaidChance>();
-        dayManagerScript.GetComponent<DayManagerScript>();
+        dayManagerScript =FindAnyObjectByType<DayManagerScript>();
+    }
+    private void Start()
+    {
         chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
     }
 
@@ -30,7 +34,7 @@ public class MapSelectScript : MonoBehaviour
         {
             for(int i = 0; i < 10; i++)
             {
-                int randomNumber = Random.Range(1, 101);
+                int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
                     case <=25:
@@ -70,7 +74,7 @@ public class MapSelectScript : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                int randomNumber = Random.Range(1, 101);
+                int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
                     case <=20:
@@ -114,7 +118,7 @@ public class MapSelectScript : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                int randomNumber = Random.Range(1, 101);
+                int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
                     case <= 5:
@@ -150,7 +154,7 @@ public class MapSelectScript : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                int randomNumber = Random.Range(1, 101);
+                int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
                     case <= 25:
@@ -187,6 +191,7 @@ public class MapSelectScript : MonoBehaviour
             gameObject.SetActive(false);
         }
         zombieManager.ZombieRaidChanceFromDays();
-        dayManagerScript.IncreaseDays(1);
+        dayManagerScript.IncreaseDays();
+        OnDayStart?.Invoke();
     }
 }

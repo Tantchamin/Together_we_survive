@@ -12,7 +12,7 @@ public class ChooseCharacterLabelScript : MonoBehaviour
     private void Start()
     {
         _chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
-        _dayManagerScript.GetComponent<DayManagerScript>();
+        _dayManagerScript =FindObjectOfType<DayManagerScript>();
         _zombieManager = FindObjectOfType<ZombieRaidChance>();
     }
 
@@ -21,13 +21,12 @@ public class ChooseCharacterLabelScript : MonoBehaviour
         if (_chooseCharacterManagerScript.IsHaveScavenger() == true)
         {
             _mapLabel.SetActive(true);
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
         else
         {
             gameObject.SetActive(false);
             _zombieManager.ZombieRaidChanceFromDays();
-            _dayManagerScript.IncreaseDays(1);
             
         }
     }

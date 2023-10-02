@@ -19,85 +19,85 @@ public class KitchenResourceManagerScript : MonoBehaviour
     }
     public void ReceiveRawFood(int _amount){
         _rawFoodAmount += _amount;
-        Debug.Log("Current Rawfood : " + _rawFoodAmount);
+        //Debug.Log("Current Rawfood : " + _rawFoodAmount);
     }    
 
     public void ReceiveVegetableFood(int _amount)
     {
         _vegetableFoodAmount += _amount;
-        Debug.Log("Current VegetableFood : " + _vegetableFoodAmount);
+        //Debug.Log("Current VegetableFood : " + _vegetableFoodAmount);
     }
 
     public void ReceiveCannedFood(int _amount){
         _cannedFoodAmount += _amount;
-        Debug.Log("Current Cannedfood : " + _cannedFoodAmount);
+        //Debug.Log("Current Cannedfood : " + _cannedFoodAmount);
     }
 
     public void ReceiveMedicine(int _amount){
         _medicineAmount += _amount;
-        Debug.Log("Current Medicine : " + _medicineAmount);
+        //Debug.Log("Current Medicine : " + _medicineAmount);
     }
 
     public void ReceiveWater(int _amount){
         _waterAmount += _amount;
-        Debug.Log("Current Water : " + _waterAmount);
+        // Debug.Log("Current Water : " + _waterAmount);
     }
 
     public void ReceiveBandage(int _amount)
     {
         _bandageAmount += _amount;
-        Debug.Log("Current Bandage : " + _bandageAmount);
+        //Debug.Log("Current Bandage : " + _bandageAmount);
     }
 
     public void ReceiveCookedFood(int _amount)
     {
         _cookedFoodAmount += _amount;
-        Debug.Log("Current CookedFood : " + _cookedFoodAmount);
+        //Debug.Log("Current CookedFood : " + _cookedFoodAmount);
     }
 
     public void UseRawFood(int _amount){
         if(_rawFoodAmount <= 0) return;
         _rawFoodAmount -= _amount;
-        Debug.Log("Current Rawfood : " + _rawFoodAmount);
+        //Debug.Log("Current Rawfood : " + _rawFoodAmount);
     }
 
     public void UseVegetableFood(int _amount)
     {
         if (_vegetableFoodAmount <= 0) return;
         _vegetableFoodAmount -= _amount;
-        Debug.Log("Current Vegetable : " + _vegetableFoodAmount);
+        //Debug.Log("Current Vegetable : " + _vegetableFoodAmount);
     }
 
     public void UseCannedFood(int _amount){
         if(_cannedFoodAmount <= 0) return;
         _cannedFoodAmount -= _amount;
-        Debug.Log("Current Cannedfood : " + _cannedFoodAmount);
+        //Debug.Log("Current Cannedfood : " + _cannedFoodAmount);
     }
 
     public void UseMedicine(int _amount){
         if(_medicineAmount <=0) return;
         _medicineAmount -= _amount;
-        Debug.Log("Current Medicine : " + _medicineAmount);
+        //Debug.Log("Current Medicine : " + _medicineAmount);
     }
 
     public void UseWater(int _amount){
         if(_waterAmount <= 0 ) return;
         _waterAmount -= _amount;
-        Debug.Log("Current Water : " + _waterAmount);
+        //Debug.Log("Current Water : " + _waterAmount);
     }
 
     public void UseBandage(int _amount)
     {
         if (_bandageAmount <= 0) return;
         _bandageAmount -= _amount;
-        Debug.Log("Current Bandage : " + _bandageAmount);
+        //Debug.Log("Current Bandage : " + _bandageAmount);
     }
 
     public void UseCookedFood(int _amount)
     {
         if (_cookedFoodAmount <= 0) return;
         _cookedFoodAmount -= _amount;
-        Debug.Log("Current Bandage : " + _cookedFoodAmount);
+        //Debug.Log("Current Bandage : " + _cookedFoodAmount);
     }
 
     public int GetRawFoodAmount(){

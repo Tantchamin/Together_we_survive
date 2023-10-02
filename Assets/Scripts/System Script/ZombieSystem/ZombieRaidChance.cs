@@ -5,6 +5,7 @@ using System;
 public class ZombieRaidChance : MonoBehaviour
 {
     [SerializeField] private DayManagerScript dayManagerScript;
+    [SerializeField] private FrontYardHouseUpgradeManager frontYardHouseUpgradeManager;
     [SerializeField] private float chance; // Min % that it would come
     [SerializeField] private byte days = 5;
     private byte raidedDays = 0;
@@ -19,16 +20,14 @@ public class ZombieRaidChance : MonoBehaviour
         earlyDays ,
         midDays ,
         lateDays,
-        massacreDays, //
+        massacreDays, 
         finalDays
-
     }
-
     void Start()
     {
+        frontYardHouseUpgradeManager = FindObjectOfType<FrontYardHouseUpgradeManager>();
         dayManagerScript = FindObjectOfType<DayManagerScript>();
     }
-
     public void assignDays()
     {
         days = (byte)dayManagerScript.GetDays();
@@ -39,7 +38,6 @@ public class ZombieRaidChance : MonoBehaviour
         (days > 25 || days <= 27) ? DayAmountState.massacreDays :
         (days> 28 || days < 30) ? DayAmountState.noRaidDays : DayAmountState.finalDays;
     }
-
     public float ZombieRaidChanceFromDays()
     {
         if(dayAmountState == DayAmountState.noRaidDays) return 0;
@@ -54,17 +52,16 @@ public class ZombieRaidChance : MonoBehaviour
 
         return chance;
     }
-
     private float ZombieRaidChanceFromNoise(float chance)
     {
-        if (isHouseUpgrading)
+        if (frontYardHouseUpgradeManager.IsHouseUpgrading())
         {
+            Debug.Log("It's getting attract");
             chance *= 0.5f;
         }
 
         return chance;
     } 
-
     private void ZombieRandomChance()
     {
         float chance = ZombieRaidChanceFromNoise(ZombieRaidChanceFromDays());
@@ -77,7 +74,6 @@ public class ZombieRaidChance : MonoBehaviour
         }
 
     }
-
     private void ZombieRaid()
     {
         OnZombieRaid(ZombieRaidLevel());
