@@ -12,7 +12,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     private bool isUpgrading;
     private bool isUpgradable = false;
 
-    private byte currentDays　=1 , daysLeftToFinish , finishedDays;
+    private byte currentDays=1 , daysLeftToFinish , finishedDays;
     public HouseState houseState;
     [SerializeField] private HouseUpgradeMaterial houseLevel1;
     [SerializeField] private HouseUpgradeMaterial houseLevel2;
@@ -64,7 +64,9 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     public void StartUpgrade()
     {
+        Debug.Log("Start upgrading");
         isUpgradable = false;
+        isUpgrading = false;
         if(isUpgrading == false)
         {
             GetFinishDays();
@@ -90,6 +92,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     private byte GetFinishDays()
     {
+        Debug.Log("Get finish days");
         finishedDays = (houseState == HouseState.level0) ? (byte)(houseLevel1.UpgradeDays + currentDays) :
         (houseState == HouseState.level1) ? (byte)(houseLevel2.UpgradeDays + currentDays) :
         (houseState == HouseState.level2) ? (byte)(houseLevel3.UpgradeDays + currentDays) : (byte)0;

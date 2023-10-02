@@ -6,14 +6,15 @@ public class ChooseCharacterLabelScript : MonoBehaviour
 {
     [SerializeField] private GameObject _mapLabel;
     [SerializeField] private DayManagerScript _dayManagerScript;
-    [SerializeField] private ZombieRaidChance _zombieManager;
+    [SerializeField] private ZombieRaidChance zombieRaidChance;
     ChooseCharacterManagerScript _chooseCharacterManagerScript;
 
     private void Start()
     {
         _chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
         _dayManagerScript =FindObjectOfType<DayManagerScript>();
-        _zombieManager = FindObjectOfType<ZombieRaidChance>();
+        zombieRaidChance = FindObjectOfType<ZombieRaidChance>();
+
     }
 
     public void NextButton()
@@ -26,8 +27,8 @@ public class ChooseCharacterLabelScript : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            _zombieManager.ZombieRaidChanceFromDays();
-            
+            zombieRaidChance.ZombieRaidChanceFromDays();
+            _dayManagerScript.IncreaseDays();
         }
     }
 }

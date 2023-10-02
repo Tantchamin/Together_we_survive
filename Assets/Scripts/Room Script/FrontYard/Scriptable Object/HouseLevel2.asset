@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a754b679f6075c747807fea3b1c7beb9, type: 3}
   m_Name: HouseLevel2
   m_EditorClassIdentifier: 
-  woodAmount: 0
-  metalAmount: 0
-  tapeAmount: 0
+  woodAmount: 16
+  metalAmount: 16
+  tapeAmount: 6
+  upgradeDays: 5
