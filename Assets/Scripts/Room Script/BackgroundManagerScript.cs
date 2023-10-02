@@ -10,18 +10,16 @@ public class BackgroundManagerScript : MonoBehaviour
     [SerializeField] private  List<Sprite> _kitchenSprites;
     [SerializeField] private  List<Sprite> _garageSprites;
     [SerializeField] private  List<Sprite> _frontYardSprites;
-
     [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManager;
-
     private byte _houseLevel;
     private void Start()
     {
-        _houseLevel = frontYardUpgradeHouseManager.GetHouseLevel();
+        _houseLevel = (byte ) frontYardUpgradeHouseManager.GetHouseLevel();
 
     }
     public void DisplayHouseLevel()
     {
-        _houseLevel = frontYardUpgradeHouseManager.GetHouseLevel();
+        _houseLevel = (byte ) frontYardUpgradeHouseManager.GetHouseLevel();
         if(_houseLevel > 3) return;
         _livingRoomBG.sprite = _livingRoomSprites[_houseLevel];
         _KitchenBG.sprite = _kitchenSprites[_houseLevel];

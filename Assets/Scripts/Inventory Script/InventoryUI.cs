@@ -15,13 +15,6 @@ public class InventoryUI : MonoBehaviour
     private void Start() {
         equipmentDescriptionPanel.SetActive(false);
     }
-    private void OnEnable() {
-        InventoryManager.OnStack += UpdateText;
-    }
-
-    private void OnDisable() {
-        InventoryManager.OnStack -= UpdateText;
-    }
     public void SetCraftedEquipment(CraftedEquipment equipment){
         craftedEquipment = equipment;
         SetInvetoryItem();

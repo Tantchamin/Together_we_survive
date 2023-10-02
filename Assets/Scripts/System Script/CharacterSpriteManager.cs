@@ -7,6 +7,12 @@ public class CharacterSpriteManager : MonoBehaviour
     [SerializeField] private CharacterStatScript characterStatScript;
     [SerializeField] private GameObject _injuredSprite, _tiredSprite, _sickSprite, _infectedSprite, _hungrySprite, _thirstySprite, _deadSprite, _characterSprite;
 
+    private enum characterState
+    {
+        isHungry,
+        isFever,
+        isWounded,
+    }
     private void Start()
     {
         characterStatScript = GetComponent<CharacterStatScript>();

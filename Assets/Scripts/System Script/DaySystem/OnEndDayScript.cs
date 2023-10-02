@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class OnEndDayScript : MonoBehaviour
 
     void RandomSickChance(int _chance, CharacterStatScript _character)
     {
-        int _sickChance = Random.Range(1, 101);
+        int _sickChance = UnityEngine.Random.Range(1, 101);
         Debug.Log("Random Chance: " + _sickChance + " Chance to Sick: " + _chance);
         if(_sickChance <= _chance)
         {
@@ -75,7 +76,7 @@ public class OnEndDayScript : MonoBehaviour
 
     void SetNextDayTemperature()
     {
-        _day = dayManagerScript.GetDay();
+        _day = dayManagerScript.GetDays();
 
         if (_day <= 7)
         {
@@ -101,7 +102,7 @@ public class OnEndDayScript : MonoBehaviour
 
     void RandomSetTemperature(int _lowestChance, int highestChance)
     {
-        int _randomNumber = Random.Range(_lowestChance, highestChance);
+        int _randomNumber = UnityEngine.Random.Range(_lowestChance, highestChance);
         temperatureManagerScript.SetTemperature(_randomNumber);
         Debug.Log("Set Temperature: " + _randomNumber);
     }

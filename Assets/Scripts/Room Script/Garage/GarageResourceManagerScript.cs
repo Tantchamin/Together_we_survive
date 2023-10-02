@@ -9,7 +9,7 @@ public class GarageResourceManagerScript : MonoBehaviour
      _gunComponentAmount,  _gunPowderAmount , _herbAmount;
 
     [SerializeField] List<int> _garageResource;
-
+    private int CheatStartingResource = 100000;
     void Start()
     {
         SetStartingResource();
@@ -42,13 +42,13 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
 
     private void SetStartingResource(){
-        _woodAmount = 40;
-        _metalAmount = 40;  
-        _tapeAmount = 40;  
-        _clotheAmount = 40; 
-        _gunComponentAmount = 40;   
-        _gunPowderAmount = 40;
-        _herbAmount = 40;
+        _woodAmount = CheatStartingResource;
+        _metalAmount = CheatStartingResource;  
+        _tapeAmount = CheatStartingResource;  
+        _clotheAmount = CheatStartingResource; 
+        _gunComponentAmount = CheatStartingResource;   
+        _gunPowderAmount = CheatStartingResource;
+        _herbAmount = CheatStartingResource;
     }
 
     

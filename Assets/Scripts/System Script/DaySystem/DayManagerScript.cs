@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DayManagerScript : MonoBehaviour
@@ -14,12 +11,12 @@ public class DayManagerScript : MonoBehaviour
         _dayText.text = "Day " + _dayNumber;
     }
 
-    public void DayIncrese(int _day)
+    public void IncreaseDays(int _day)
     {
         _dayNumber += _day;
     }
 
-    public int GetDay()
+    public int GetDays()
     {
         return _dayNumber;
     }

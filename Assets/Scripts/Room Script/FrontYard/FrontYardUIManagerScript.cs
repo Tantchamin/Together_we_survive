@@ -11,12 +11,9 @@ public class FrontYardUIManagerScript : MonoBehaviour
     [SerializeField] private GameObject _frontYardUpgradeButton;
     [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManagerScript;
     private byte _houseLevel;
-
-
-
     void Start()
     {
-        _houseLevel = frontYardUpgradeHouseManagerScript.GetHouseLevel();
+        _houseLevel = (byte )frontYardUpgradeHouseManagerScript.GetHouseLevel();
         _roomCamera = Camera.main;
         _frontYardUpgradeButton = GameObject.Find("BuildResourceUI");
     }
@@ -24,7 +21,7 @@ public class FrontYardUIManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _houseLevel = frontYardUpgradeHouseManagerScript.GetHouseLevel();
+        _houseLevel = (byte) frontYardUpgradeHouseManagerScript.GetHouseLevel();
         if(_roomCamera.transform.position.x == _frontYardBG.transform.position.x && _houseLevel <3){
                 
             SetFrontYardUI(true);

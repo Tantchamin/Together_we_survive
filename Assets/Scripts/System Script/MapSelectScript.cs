@@ -12,14 +12,14 @@ public class MapSelectScript : MonoBehaviour
     [SerializeField] private GarageResourceManagerScript garageResourceManagerScript;
     [SerializeField] private KitchenResourceManagerScript kitchenResorceManagerScript;
     [SerializeField] private DayManagerScript dayManagerScript;
-    [SerializeField] private ZombieManagerScript zombieManager;
+    [SerializeField] private ZombieRaidChance zombieManager;
     ChooseCharacterManagerScript chooseCharacterManagerScript;
 
     private void Start()
     {
         garageResourceManagerScript.GetComponent<GarageResourceManagerScript>();
         kitchenResorceManagerScript.GetComponent<KitchenResourceManagerScript>();
-        zombieManager.GetComponent<ZombieManagerScript>();
+        zombieManager = FindObjectOfType<ZombieRaidChance>();
         dayManagerScript.GetComponent<DayManagerScript>();
         chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
     }
@@ -186,7 +186,7 @@ public class MapSelectScript : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
-        zombieManager.ZombieRaidChanceAfterEndDay();
-        dayManagerScript.DayIncrese(1);
+        zombieManager.ZombieRaidChanceFromDays();
+        dayManagerScript.IncreaseDays(1);
     }
 }

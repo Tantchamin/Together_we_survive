@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class GarageResourceDisplayScript : MonoBehaviour
 {
+    public static event Action<bool> OnGarageDisplay;
 
     [SerializeField] private Camera _roomCamera;
     [SerializeField] private GameObject _garageBG;
@@ -17,26 +17,19 @@ public class GarageResourceDisplayScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gunComponentDisplayAmount;
     [SerializeField] private TextMeshProUGUI _gunPowderDisplayAmount;
     [SerializeField] private TextMeshProUGUI _herbDisplayAmount;
-
-    [SerializeField] private GameObject _craftUI;
-    [SerializeField] private GameObject _inventoryUI;
-
-    [SerializeField] private GameObject _craftUIฺButton;
-
-    [SerializeField] private GameObject _inventoryUIButton;
-
     private bool isCameraHere = false;
 
     GarageResourceManagerScript garageResourceManagerScript;
+
+    private void OnEnable() {
+        OnGarageDisplay += SetGarageUIActive;
+    }
+    private void OnDisable() {
+        OnGarageDisplay -= SetGarageUIActive;
+    }
     void Start()
     {
         _garageUI = GameObject.Find("GarageResourceUI");
-        _craftUI = GameObject.Find("CraftedItemUI");
-        _craftUIฺButton = GameObject.Find("CraftedItemButton");
-        _inventoryUIButton = GameObject.Find("InventoryButton");
-        _inventoryUI = GameObject.Find("InventoryUI");
-        _craftUI.SetActive(false);
-        _inventoryUI.SetActive(false);
         garageResourceManagerScript = GetComponent<GarageResourceManagerScript>();
     }
 
@@ -47,13 +40,13 @@ public class GarageResourceDisplayScript : MonoBehaviour
         if(_roomCamera.transform.position.x == _garageBG.transform.position.x){    
             if(isCameraHere == false){
                 isCameraHere = true;
-                SetGarageUIActive(true);
+                OnGarageDisplay?.Invoke(true);
             }
             else return;
             
         }
         else{
-            SetGarageUIActive(false);
+            OnGarageDisplay?.Invoke(false);
             isCameraHere = false;
         }
         
@@ -61,9 +54,7 @@ public class GarageResourceDisplayScript : MonoBehaviour
 
     private void SetGarageUIActive(bool _isUIActive){
         _garageUI.SetActive(_isUIActive);
-        _craftUIฺButton.SetActive(_isUIActive);
-        _inventoryUIButton.SetActive(_isUIActive);
-        
+  
     }
 
     private void DisplayGarageResource(){

@@ -1,90 +1,103 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// NOT OPEN-CLOSED PRINCIPLE
 public class FrontYardHouseUpgradeManager : MonoBehaviour
 {   
     [SerializeField] private GarageResourceManagerScript garageResourceBackendScript;
+    [SerializeField] private DayManagerScript dayManagerScript;
 
-    private int _woodAmount , _metalAmount , _tapeAmount; //necessary resource for upgrade
+    private int woodAmount , metalAmount , tapeAmount; //necessary resource for upgrade
+    private bool isUpgrading;
+    private bool isUpgradable = false;
 
-    private byte _houseLevel;
+    private byte currentDays;
+    public HouseState houseState;
+    [SerializeField] private HouseUpgradeMaterial houseLevel1;
+    [SerializeField] private HouseUpgradeMaterial houseLevel2;
+    [SerializeField] private HouseUpgradeMaterial houseLevel3;
+
+    public enum HouseState 
+    {
+        level0,
+        level1,
+        level2,
+        level3
+    }
     void Start()
     {
-        _houseLevel = 0;
+        houseState = HouseState.level0;
+    }
 
+    private void UpdateDays()
+    {
+        currentDays = (byte) dayManagerScript.GetDays();
     }   
 
-    private void UpdateResource(){
-        _woodAmount = garageResourceBackendScript.GetResourceFromList(0);
-        _metalAmount = garageResourceBackendScript.GetResourceFromList(1);
-        _tapeAmount = garageResourceBackendScript.GetResourceFromList(2);
+    private void UpdateResource()
+    {
+        woodAmount = garageResourceBackendScript.GetResourceFromList(0);
+        metalAmount = garageResourceBackendScript.GetResourceFromList(1);
+        tapeAmount = garageResourceBackendScript.GetResourceFromList(2);
 
 
     }
 
     public void UpgradeHouse(){
-        bool _upgradable = UpgradeHouseCondition(_houseLevel);
-        if(_upgradable == true){
-            _houseLevel +=1;
-            _upgradable = false;
-            
-        }
+        isUpgradable = UpgradeHouseCondition(houseState);
+        if(isUpgradable == false) return;
+            houseState += 1;
+            isUpgradable = false;
+        
     }
 
-    private bool UpgradeHouseCondition(int _level){
+    private bool UpgradeHouseCondition(HouseState houseState){
         UpdateResource();
-        if(_level == 0){
-            return HouseLevelOneCondition();
-        }
-        else if(_level == 1){
-            return HouseLevelTwoCondition();
-        }
-        else if(_level == 2){
-            return HouseLevelThreeCondition();
-        }
 
-        return false;
+        return (houseState == HouseState.level0) ? HouseLevelOneCondition() : 
+        (houseState == HouseState.level1) ? HouseLevelTwoCondition() :
+        (houseState == HouseState.level2 ) ? HouseLevelThreeCondition() : false;
+
     }
 
     private bool HouseLevelOneCondition(){
-        if(_woodAmount < 8) return false;
-        else if(_metalAmount <8) return false;
-        else if(_tapeAmount < 3) return false;
+        if(woodAmount < houseLevel1.WoodAmount) return false;
+        if(metalAmount < houseLevel1.MetalAmount) return false;
+        if(tapeAmount < houseLevel1.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(8,0);
-        garageResourceBackendScript.UseResourceFromList(8,1);
-        garageResourceBackendScript.UseResourceFromList(8,2);
+        garageResourceBackendScript.UseResourceFromList(houseLevel1.WoodAmount,0);
+        garageResourceBackendScript.UseResourceFromList(houseLevel1.MetalAmount,1);
+        garageResourceBackendScript.UseResourceFromList(houseLevel1.TapeAmount,2);
 
         return true;
     }
 
     private bool HouseLevelTwoCondition(){
-        if(_woodAmount < 15) return false;
-        if(_metalAmount <15) return false;
-        if(_tapeAmount < 6) return false;
+        if(woodAmount < houseLevel2.WoodAmount) return false;
+        if(metalAmount <houseLevel2.MetalAmount) return false;
+        if(tapeAmount < houseLevel2.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(15,0);
-        garageResourceBackendScript.UseResourceFromList(15,1);
-        garageResourceBackendScript.UseResourceFromList(6,2);
+        garageResourceBackendScript.UseResourceFromList(houseLevel2.WoodAmount,0);
+        garageResourceBackendScript.UseResourceFromList(houseLevel2.MetalAmount,1);
+        garageResourceBackendScript.UseResourceFromList(houseLevel2.TapeAmount,2);
 
         return true;
     }
 
     private bool HouseLevelThreeCondition(){
-        if(_woodAmount < 20) return false;
-        if(_metalAmount <20) return false;
-        if(_tapeAmount < 10) return false;
+        if(woodAmount < houseLevel3.WoodAmount) return false;
+        if(metalAmount <houseLevel3.MetalAmount) return false;
+        if(tapeAmount < houseLevel3.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(20,0);
-        garageResourceBackendScript.UseResourceFromList(20,1);
-        garageResourceBackendScript.UseResourceFromList(10,2);
+        garageResourceBackendScript.UseResourceFromList(houseLevel3.WoodAmount,0);
+        garageResourceBackendScript.UseResourceFromList(houseLevel3.MetalAmount,1);
+        garageResourceBackendScript.UseResourceFromList(houseLevel3.TapeAmount,2);
 
         return true;
     }
 
-    public byte GetHouseLevel(){
-        return _houseLevel;
+    public HouseState GetHouseLevel(){
+        return houseState;
     }
 
 }

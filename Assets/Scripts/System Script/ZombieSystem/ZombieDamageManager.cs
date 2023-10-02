@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieDefendScript : MonoBehaviour
+public class ZombieDamageManager : MonoBehaviour
 {
     [SerializeField] private CharacterStatScript _father;
     [SerializeField] private CharacterStatScript _mother;
     [SerializeField] private CharacterStatScript _sister;
     [SerializeField] private CharacterStatScript _brother;
     private int randomNumber;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -23,16 +20,7 @@ public class ZombieDefendScript : MonoBehaviour
         
     }
 
-    public void EndRaidButton(GameObject zommbieRaidUI)
-    {
-        randomAttackChance(_father);
-        randomAttackChance(_mother);
-        randomAttackChance(_sister);
-        randomAttackChance(_brother);
-        zommbieRaidUI.SetActive(false);        
-    }
-
-    private void randomAttackChance(CharacterStatScript character)
+     private void randomAttackChance(CharacterStatScript character)
     {
         randomNumber = Random.Range(0, 101);
         Debug.Log("Attack Chance: " + randomNumber);
@@ -40,5 +28,14 @@ public class ZombieDefendScript : MonoBehaviour
         {
             character.CharacterHealthAdjust(-1);
         }
+    }
+
+    public void EndRaidButton(GameObject zommbieRaidUI)
+    {
+        randomAttackChance(_father);
+        randomAttackChance(_mother);
+        randomAttackChance(_sister);
+        randomAttackChance(_brother);
+        zommbieRaidUI.SetActive(false);        
     }
 }

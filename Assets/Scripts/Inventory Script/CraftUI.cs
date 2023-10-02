@@ -11,6 +11,7 @@ public class CraftUI : MonoBehaviour
 
     [SerializeField] private Image equipmentSprite;
 
+
     void Start()
     {
         equipmentName.text = craftedEquipment.equipmentName;

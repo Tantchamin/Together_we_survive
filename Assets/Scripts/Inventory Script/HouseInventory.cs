@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEditor.Search;
 using System.Linq;
-using System.Security.Cryptography;
+
 
 public static class HouseInventorySystem {
 
@@ -150,6 +149,15 @@ public static class HouseInventorySystem {
             }
             
         }
+    }
+
+    public static CraftedEquipment RandomEquipment()
+    {
+        float totalWeight = 0;
+        float value = UnityEngine.Random.value * totalWeight;
+
+
+        return null;
     }
 
 
