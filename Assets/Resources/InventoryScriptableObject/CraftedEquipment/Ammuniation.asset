@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdd94faef6d68840966a8534f02e81e, type: 3}
+  m_Name: Ammuniation
+  m_EditorClassIdentifier: 
+  equipmentName: Ammo
+  ID: 0
+  description: A pack of bullet that fitable for small fire-arms deadly enough to
+    any living-creature
+  durability: 0
+  equipmentIcon: {fileID: 21300000, guid: dfec40433a48f1e45a3881af3d44d76e, type: 3}
+  isConsumable: 1
+  isCraftAble: 0
+  woodAmount: 0
+  metalAmount: 5
+  tapeAmount: 0
+  _clotheAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 10
+  _herbAmount: 0
