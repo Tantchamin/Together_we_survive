@@ -5,15 +5,13 @@ using UnityEngine;
 public class ChooseCharacterLabelScript : MonoBehaviour
 {
     [SerializeField] private GameObject _mapLabel;
-    [SerializeField] private DayManagerScript _dayManagerScript;
-    [SerializeField] private ZombieRaidChance zombieRaidChance;
+    [SerializeField] private DayManagerScript dayManagerScript;
     ChooseCharacterManagerScript _chooseCharacterManagerScript;
 
     private void Start()
     {
         _chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
-        _dayManagerScript =FindObjectOfType<DayManagerScript>();
-        zombieRaidChance = FindObjectOfType<ZombieRaidChance>();
+        dayManagerScript =FindObjectOfType<DayManagerScript>();
 
     }
 
@@ -27,8 +25,8 @@ public class ChooseCharacterLabelScript : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            zombieRaidChance.ZombieRaidChanceFromDays();
-            _dayManagerScript.IncreaseDays();
+            dayManagerScript.IncreaseDays();
+            
         }
     }
 }

@@ -8,7 +8,7 @@ public class DayDisplayUI : MonoBehaviour
     [SerializeField] private DayManagerScript dayManagerScript;
     private void Awake() {
         dayManagerScript.GetComponent<DayManagerScript>();
-        dayManagerScript.OnDayStart += UpdateDay;
+        dayManagerScript.OnDayEnd += UpdateDay;
     }
     private void UpdateDay()
     {

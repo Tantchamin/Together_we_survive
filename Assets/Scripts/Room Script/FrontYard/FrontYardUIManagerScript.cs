@@ -31,7 +31,7 @@ public class FrontYardUIManagerScript : MonoBehaviour
     {
         _houseLevel = (byte) frontYardUpgradeHouseManagerScript.GetHouseLevel();
         if(_roomCamera.transform.position.x == _frontYardBG.transform.position.x && _houseLevel <3){
-            Debug.Log(frontYardUpgradeHouseManagerScript.IsHouseUpgrading().ToString());
+            // Debug.Log(frontYardUpgradeHouseManagerScript.IsHouseUpgrading().ToString());
             if (frontYardUpgradeHouseManagerScript.IsHouseUpgrading() == false)
             {
                 SetFrontYardUI(true);

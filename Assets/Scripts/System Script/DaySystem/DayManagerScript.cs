@@ -10,12 +10,14 @@ public class DayManagerScript : MonoBehaviour
     private void Awake() 
     {
         mapSelectScript = FindObjectOfType<MapSelectScript>();
-        mapSelectScript.OnDayStart += DayStart;
+        // mapSelectScript.OnDayStart += DayStart;
     }
     public void IncreaseDays()
     {
-        OnDayEnd();
+        Debug.Log($"Current days {day}");
         day +=1;
+        OnDayEnd();
+        DayStart();
     }
 
     public void DayStart()

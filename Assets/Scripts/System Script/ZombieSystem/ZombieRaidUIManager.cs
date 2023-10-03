@@ -18,6 +18,7 @@ public class ZombieRaidUIManager : MonoBehaviour
 
     private void ActiveUI(byte zombieLevel)
     {
+        Debug.Log($"Zombie level {zombieLevel}");
         zombieRaidUI[zombieLevel].gameObject.SetActive(true);
     }
 

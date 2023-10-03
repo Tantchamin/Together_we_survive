@@ -92,7 +92,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     private byte GetFinishDays()
     {
-        Debug.Log("Get finish days");
+        // Debug.Log("Get finish days");
         finishedDays = (houseState == HouseState.level0) ? (byte)(houseLevel1.UpgradeDays + currentDays) :
         (houseState == HouseState.level1) ? (byte)(houseLevel2.UpgradeDays + currentDays) :
         (houseState == HouseState.level2) ? (byte)(houseLevel3.UpgradeDays + currentDays) : (byte)0;

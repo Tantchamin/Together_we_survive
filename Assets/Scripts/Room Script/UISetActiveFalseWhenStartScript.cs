@@ -1,19 +1,18 @@
-using System.Collections;
+  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UISetActiveFalseWhenStartScript : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _chooseCharacterLabel;
-    [SerializeField] private GameObject _mapLabel;
-    [SerializeField] private GameObject _zombieRaid;
+    [SerializeField] private GameObject chooseCharacterLabel;
+    [SerializeField] private GameObject mapLabel;
+    [SerializeField] private GameObject zombieRaidUI;
 
     private void Start()
     {
-        _chooseCharacterLabel.SetActive(false);
-        _mapLabel.SetActive(false);
-        _zombieRaid.SetActive(false);
+        chooseCharacterLabel.SetActive(false);
+        mapLabel.SetActive(false);
     }
 
     //hello world;
