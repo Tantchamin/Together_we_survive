@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
+  m_Name: Wood Spear
+  m_EditorClassIdentifier: 
+  equipmentName: Wood Spear
+  ID: 0
+  description: A ligtht weighted  spear . 2-handed weapon that anyone can yield it. 
+    made from a wood
+  equipmentIcon: {fileID: 21300000, guid: 4331eae025c15c544b94725e7a61da8e, type: 2}
+  itemType: 1
+  woodAmount: 20
+  metalAmount: 0
+  tapeAmount: 5
+  _clotheAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 0
+  _herbAmount: 0
+  strengthRequired: 2
+  durability: 15
+  damage: 70

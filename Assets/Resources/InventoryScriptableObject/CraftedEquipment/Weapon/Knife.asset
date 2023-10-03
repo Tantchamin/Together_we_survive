@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  equipmentName: 
+  ID: 0
+  description: A pocket knife easy to use, It's fast and deadly , can be use to sharpen
+    some wood and cooking.
+  equipmentIcon: {fileID: 21300000, guid: c656f0b4a8bf2e54ea617f7ede06a000, type: 3}
+  itemType: 1
+  woodAmount: 0
+  metalAmount: 10
+  tapeAmount: 5
+  _clotheAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 0
+  _herbAmount: 0
+  strengthRequired: 1
+  durability: 15
+  damage: 50

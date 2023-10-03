@@ -10,7 +10,7 @@ public class HouseCrafting : MonoBehaviour
 {
     GarageResourceManagerScript garageResourceManagerScript;
     KitchenResourceManagerScript KitchenResourceManagerScript;
-    [SerializeField] private List<CraftedEquipment> CraftedEquipmentList = new List<CraftedEquipment>();
+    [SerializeField] private List<Equipment> CraftedEquipmentList = new List<Equipment>();
 
     private string craftedEquipmentName;
     void Start()
@@ -22,7 +22,7 @@ public class HouseCrafting : MonoBehaviour
     [ContextMenu ("FillCraftingEquipmentList")]
     void FillCraftingEquipmentList() {
         CraftedEquipmentList = Resources.LoadAll("InventoryScriptableObject" , 
-        typeof(CraftedEquipment)).Cast<CraftedEquipment>().ToList();
+        typeof(Equipment)).Cast<Equipment>().ToList();
         
     }
 
@@ -65,10 +65,24 @@ public class HouseCrafting : MonoBehaviour
         return false;
     }
 
-    private void AddEquipment(CraftedEquipment equipment){
-        HouseInventorySystem.AddEquipment(equipment , 1);
+    private void AddEquipment(Equipment equipment){
         
-        // HouseInventorySystem.PrintInventory();
+        if(equipment.itemType == Equipment.ItemType.Weapon)
+        {
+            var equipmentAsWeapon = equipment as Weapon;
+            HouseInventorySystem.AddWeaponToWeaponList(equipmentAsWeapon);
+            HouseInventorySystem.AddEquipment(equipment , 1);
+        }
+        else if(equipment.itemType == Equipment.ItemType.Tool)
+        {
+            var equipmentAsTool = equipment as Tool;
+            HouseInventorySystem.AddToolToToolList(equipmentAsTool);
+            HouseInventorySystem.AddEquipment(equipment , 1);
+        }
+        else 
+        {
+            HouseInventorySystem.AddEquipment(equipment , 1);
+        }
         
     }
 

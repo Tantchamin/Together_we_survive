@@ -1,7 +1,7 @@
 using UnityEngine;
 [CreateAssetMenu(fileName = "CraftedEquipment", menuName = "SeniorProjectGame/CraftedEquipment", order = 0)]
 
-public class CraftedEquipment : Equipment{
+public abstract class CraftedEquipment : Equipment{
  
     public byte woodAmount;
     public byte metalAmount;

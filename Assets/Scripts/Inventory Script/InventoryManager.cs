@@ -11,9 +11,11 @@ public class InventoryManager : MonoBehaviour
     // [SerializeField] private  List<Dictionary<CraftedEquipment , int >> craftedEquipmentList 
     // = new List<Dictionary<CraftedEquipment , int >>();
 
-    [SerializeField] private List<CraftedEquipment> craftedEquipmentList = new List<CraftedEquipment>();
+    [SerializeField] private List<Equipment> craftedEquipmentList = new List<Equipment>();
+    [SerializeField] private List<Weapon> weaponList = new List<Weapon>();
+    [SerializeField] private List<Tool> toolList = new List<Tool>();
 
-    [SerializeField] private Dictionary<CraftedEquipment , int > houseEquipmentList = new Dictionary<CraftedEquipment , int>();
+    [SerializeField] private Dictionary<Equipment , int > houseEquipmentList = new Dictionary<Equipment , int>();
     [SerializeField] private Transform inventoryContent;
 
     [SerializeField] private GameObject inventoryUI;
@@ -30,11 +32,9 @@ public class InventoryManager : MonoBehaviour
     public void ShowList(){
 
         craftedEquipmentList = HouseInventorySystem.GetEquipmentListWithOutAMount();
-
-        
-
-
-        foreach (CraftedEquipment equipment in craftedEquipmentList){       
+        weaponList = HouseInventorySystem.GetWeaponList();
+        toolList = HouseInventorySystem.GetToolsList();
+        foreach (Equipment equipment in craftedEquipmentList){       
             Debug.Log(equipment.equipmentName);
             if(IsEquipmentInstantiated(equipment) == false){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
@@ -50,21 +50,18 @@ public class InventoryManager : MonoBehaviour
             else if(equipment.itemType == Equipment.ItemType.Consumable && IsEquipmentInstantiated(equipment) == true){
                 OnStack?.Invoke();
             }
-
         }
     }
-
     public void ClearList(){
         foreach (Transform item in inventoryContent){
-           Debug.Log(item.ToString());
            Destroy(item.gameObject);
         }
         craftedEquipmentList.Clear();
         
     }
 
-    private bool IsEquipmentInstantiated(CraftedEquipment craftedEquipment){
-        CraftedEquipment searchedEquipment = null;
+    private bool IsEquipmentInstantiated(Equipment craftedEquipment){
+        Equipment searchedEquipment = null;
         foreach(Transform item in inventoryContent){
             inventoryUIscript = item.gameObject.GetComponent<InventoryUI>();
             searchedEquipment = inventoryUIscript.GetCraftedEquipment();

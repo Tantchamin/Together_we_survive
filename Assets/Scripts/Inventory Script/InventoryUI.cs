@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private CraftedEquipment craftedEquipment;
+    [SerializeField] private Equipment craftedEquipment;
     [SerializeField] private TextMeshProUGUI equipmentName;
     [SerializeField] private TextMeshProUGUI equipmentAmount;
     [SerializeField] private TextMeshProUGUI equipmentDescription;
@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     private void Start() {
         equipmentDescriptionPanel.SetActive(false);
     }
-    public void SetCraftedEquipment(CraftedEquipment equipment){
+    public void SetCraftedEquipment(Equipment equipment){
         craftedEquipment = equipment;
         SetInvetoryItem();
         ConsumableItem();
@@ -41,7 +41,7 @@ public class InventoryUI : MonoBehaviour
         equipmentAmount.text = HouseInventorySystem.GetEquipmentAmount(craftedEquipment).ToString();   
     }
 
-    public CraftedEquipment GetCraftedEquipment(){
+    public Equipment GetCraftedEquipment(){
         return craftedEquipment;
     }
 

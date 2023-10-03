@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
+  m_Name: Iron Spear
+  m_EditorClassIdentifier: 
+  equipmentName: Iron spear
+  ID: 0
+  description: 'A spear  , powerful 2-handed weapon that require strength to yield
+    it. made from an iron '
+  equipmentIcon: {fileID: 21300000, guid: 649067a90a60c5b4cb88cb4e12bf4379, type: 2}
+  itemType: 1
+  woodAmount: 0
+  metalAmount: 20
+  tapeAmount: 0
+  _clotheAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 0
+  _herbAmount: 0
+  strengthRequired: 4
+  durability: 20
+  damage: 90

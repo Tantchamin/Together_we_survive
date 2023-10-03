@@ -1,21 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 public class ZombieDefendManager : MonoBehaviour
 {
 
     //calculate percentage of getting hit from Zombie base on guarded person and weapon.
-    [SerializeField] private List<CraftedEquipment> houseEquipmentList;
-    [SerializeField] private List<CraftedEquipment> weaponList;
-
+    [SerializeField] private List<Equipment> houseEquipmentList;
+    [SerializeField] private List<Weapon> weaponList;
     private byte weaponAmount;
     [SerializeField] private byte hitChance;
-    private short zombieHealth = 0;
-    private short currentZombieHealth;
+    private int zombieHealth = 0 , damage;
+    private int currentZombieHealth;
+    private byte peopleGuardAmount　=4;
+
+    private ChooseCharacterLabelScript chooseCharacterLabelScript;
     private void Awake() 
     {
         FillToWeaponList();
         GetComponent<ZombieRaidChance>().OnZombieRaid += OnZombieRaid;
+        chooseCharacterLabelScript = FindObjectOfType<ChooseCharacterLabelScript>();
     }
 
     private void OnDisable() 
@@ -23,9 +27,9 @@ public class ZombieDefendManager : MonoBehaviour
         GetComponent<ZombieRaidChance>().OnZombieRaid -= OnZombieRaid; 
     }
 
-
-    private void Start() {
-        
+    public void TestButtonZombieRaid()
+    {
+        OnZombieRaid(1);
     }
 
     private void OnZombieRaid(byte zombieLevel)
@@ -38,49 +42,69 @@ public class ZombieDefendManager : MonoBehaviour
     private void SetZombieHealth(byte zombieLevel)
     {
         ResetZombieHealth();
-        zombieLevel += 1;
         zombieHealth = (zombieLevel == 1 ) ? (short) 100 : 
         zombieHealth *= zombieLevel;
-        currentZombieHealth = zombieHealth;
+        currentZombieHealth = (int) zombieHealth;
+        Debug.Log($"Zombie health : {zombieHealth}");
     }
 
     private void ResetZombieHealth ()
     {
-        zombieHealth = 100;
+        zombieHealth = 0;
         currentZombieHealth = 0;
     }
 
-    private short CalculateZombieDamage()
+    private void FillToWeaponList()
     {
-        weaponAmount = (byte) weaponList.Count;
-
-        return 0;
-    }
-
-    //max helath / 100 * percentage
-
-    public void FillToWeaponList()
-    {
-        
         ClearWeaponList();
-        houseEquipmentList = HouseInventorySystem.GetEquipmentListWithOutAMount();
-        foreach(CraftedEquipment item in houseEquipmentList)
-        {
-            if(item.itemType == Equipment.ItemType.Weapon)
-            {
-                weaponList.Add(item);
-            }
-        }
+        weaponList = HouseInventorySystem.GetWeaponList();
+        
     }
 
     private void ClearWeaponList()
     {
         if(weaponList.Any()) return;
-        foreach(CraftedEquipment item in weaponList)
+        foreach(Weapon item in weaponList)
         {
             weaponList.Remove(item);
         }
     }
+
+    private int CalculateZombieDamage()
+    {
+        var weaponListOrdered = weaponList.OrderByDescending(weapon => weapon.damage);
+        
+        byte counter = 0;
+        byte Maxcounter = GetPeopleGuardAmount();
+        ResetDamage();
+        foreach(Weapon weapon in weaponListOrdered)
+        {
+            // Debug.Log("weapon " + weapon.equipmentName);
+            damage += (short) weapon.damage;
+            counter += 1;
+            if(counter >= peopleGuardAmount) break;
+        }
+        counter = 0;
+    
+        return damage;
+    }
+
+    private byte GetPeopleGuardAmount()
+    {
+
+
+
+        return peopleGuardAmount;
+    }
+
+    private void ResetDamage()
+    {
+        damage = 0;
+    }
+
+    //max helath / 100 * percentage
+
+    
 
     private void Update() {
         

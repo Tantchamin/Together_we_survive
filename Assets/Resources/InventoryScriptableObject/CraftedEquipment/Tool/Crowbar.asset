@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9e761a663f1214085b60f6ae8dd317, type: 3}
+  m_Name: Crowbar
+  m_EditorClassIdentifier: 
+  equipmentName: Crowbar
+  ID: 2
+  description: A heavy metal rod that can be use to remove some bardicade or fighting
+    with zombies
+  equipmentIcon: {fileID: 21300000, guid: 7b0f7fe1e4aa2314793cd98ef79718d8, type: 3}
+  itemType: 2
+  woodAmount: 0
+  metalAmount: 20
+  tapeAmount: 0
+  _clotheAmount: 0
+  _gunComponentAmount: 0
+  _gunPowderAmount: 0
+  _herbAmount: 0
+  strengthRequired: 3
+  durability: 20
