@@ -12,14 +12,14 @@ public class ZombieDefendManager : MonoBehaviour
     [SerializeField] private byte hitChance;
     private int zombieHealth = 0 , damage;
     private int currentZombieHealth;
-    private byte peopleGuardAmount　=4;
+    private byte peopleGuardAmount　= 0;
 
-    private ChooseCharacterLabelScript chooseCharacterLabelScript;
+    private ChooseCharacterManagerScript chooseCharacterManagerScript;
     private void Awake() 
     {
         FillToWeaponList();
         GetComponent<ZombieRaidChance>().OnZombieRaid += OnZombieRaid;
-        chooseCharacterLabelScript = FindObjectOfType<ChooseCharacterLabelScript>();
+        chooseCharacterManagerScript = FindObjectOfType<ChooseCharacterManagerScript>();
     }
 
     private void OnDisable() 
@@ -75,13 +75,14 @@ public class ZombieDefendManager : MonoBehaviour
         var weaponListOrdered = weaponList.OrderByDescending(weapon => weapon.damage);
         
         byte counter = 0;
-        byte Maxcounter = GetPeopleGuardAmount();
+        peopleGuardAmount = GetPeopleGuardAmount();
+        Debug.Log($"People guard amoujt {peopleGuardAmount}");
         ResetDamage();
         foreach(Weapon weapon in weaponListOrdered)
         {
-            // Debug.Log("weapon " + weapon.equipmentName);
             damage += (short) weapon.damage;
             counter += 1;
+            Debug.Log($"Damage : {damage}");
             if(counter >= peopleGuardAmount) break;
         }
         counter = 0;
@@ -91,10 +92,7 @@ public class ZombieDefendManager : MonoBehaviour
 
     private byte GetPeopleGuardAmount()
     {
-
-
-
-        return peopleGuardAmount;
+        return chooseCharacterManagerScript.GetGuardPeopleAmount();;
     }
 
     private void ResetDamage()

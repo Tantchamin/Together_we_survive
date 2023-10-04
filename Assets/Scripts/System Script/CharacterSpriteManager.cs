@@ -1,94 +1,169 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSpriteManager : MonoBehaviour
 {
-    [SerializeField] private CharacterStatScript characterStatScript;
-    [SerializeField] private GameObject _injuredSprite, _tiredSprite, _sickSprite, _infectedSprite, _hungrySprite, _thirstySprite, _deadSprite, _characterSprite;
+    private CharacterStatManager characterStatManager;
+    [SerializeField] private GameObject injuredSprite, tiredSprite, sickSprite,
+     infectedSprite, hungrySprite, thirstySprite, deadSprite, characterSprite;
 
-    private enum characterState
+    private List<GameObject> spriteList = new List<GameObject>();
+    public void Awake()
     {
-        isHungry,
-        isFever,
-        isWounded,
+        characterStatManager = GetComponent<CharacterStatManager>();
+
+        TriggerEvent();
+       
     }
-    private void Start()
+
+    private void OnDisable()
     {
-        characterStatScript = GetComponent<CharacterStatScript>();
+        UnTriggerEvent();
     }
 
-    private void Update()
+    private void TriggerEvent()
     {
-        if (characterStatScript.GetHungry() == true)
-        {
-            _hungrySprite.SetActive(true);
-        }
-        else
-        {
-            _hungrySprite.SetActive(false);
-        }
+        characterStatManager.OnHungry += HungryState;
+        characterStatManager.OnStopHungry += DeHungryState;
 
-        if (characterStatScript.GetThirsty() == true)
-        {
-            _thirstySprite.SetActive(true);
-        }
-        else
-        {
-            _thirstySprite.SetActive(false);
-        }
+        characterStatManager.OnThirsty += ThirstyState;
+        characterStatManager.OnStopThirsty += DeThirstyState;
 
-        if (characterStatScript.GetInjured() == true)
-        {
-            _injuredSprite.SetActive(true);
-        }
-        else
-        {
-            _injuredSprite.SetActive(false);
-        }
+        characterStatManager.OnTired += TiredState;
+        characterStatManager.OnStopTired += DeTiredState;
 
-        if (characterStatScript.GetTired() == true)
-        {
-            _tiredSprite.SetActive(true);
-        }
-        else
-        {
-            _tiredSprite.SetActive(false);
-        }
+        characterStatManager.OnWound += WoundState;
+        characterStatManager.OnStopWound += DeWoundState;
 
-        if (characterStatScript.GetSick() == true)
-        {
-            _sickSprite.SetActive(true);
-        }
-        else
-        {
-            _sickSprite.SetActive(false);
-        }
+        characterStatManager.OnSick += SickState;
+        characterStatManager.OnStopSick += DeSickState;
 
-        if (characterStatScript.GetInfected() == true)
-        {
-            _infectedSprite.SetActive(true);
-        }
-        else
-        {
-            _infectedSprite.SetActive(false);
-        }
+        characterStatManager.OnInfected += InfectState;
+        characterStatManager.OnStopInfected += DeInfectState;
 
-        if(characterStatScript.GetIsDead() == true)
-        {
-            _deadSprite.SetActive(true);
-            _injuredSprite.SetActive(false);
-            _tiredSprite.SetActive(false);
-            _sickSprite.SetActive(false);
-            _infectedSprite.SetActive(false);
-            _hungrySprite.SetActive(false); 
-            _thirstySprite.SetActive(false);
-            _characterSprite.SetActive(false);
-        }
-        else
-        {
-            _deadSprite.SetActive(false);
-        }
-
+        characterStatManager.OnDead += DeadState;
     }
+
+    private void UnTriggerEvent()
+    {
+        characterStatManager.OnHungry -= HungryState;
+        characterStatManager.OnStopHungry -= DeHungryState;
+
+        characterStatManager.OnThirsty -= ThirstyState;
+        characterStatManager.OnStopThirsty -= DeThirstyState;
+
+        characterStatManager.OnTired -= TiredState;
+        characterStatManager.OnStopTired -= DeTiredState;
+
+        characterStatManager.OnWound -= WoundState;
+        characterStatManager.OnStopWound -= DeWoundState;
+
+        characterStatManager.OnSick -= SickState;
+        characterStatManager.OnStopSick -= DeSickState;
+
+        characterStatManager.OnInfected -= InfectState;
+        characterStatManager.OnStopInfected -= DeInfectState;
+
+        characterStatManager.OnDead -= DeadState;
+    }
+    public void Start()
+    {
+        spriteList.Add(injuredSprite);
+        spriteList.Add(tiredSprite);
+        spriteList.Add(sickSprite);
+        spriteList.Add(infectedSprite);
+        spriteList.Add(hungrySprite);
+        spriteList.Add(thirstySprite);
+        spriteList.Add(deadSprite);
+
+        foreach (GameObject sprite in spriteList)
+        {
+            sprite.SetActive(false);
+        }
+    }
+    // HUNGRY
+    private void HungryState()
+    {
+        hungrySprite.SetActive(true);
+    }
+    private void DeHungryState()
+    {
+        if(hungrySprite.activeSelf == false) return;
+        hungrySprite.SetActive(false);
+    }
+    // THIRSTY
+
+    private void ThirstyState()
+    {
+        thirstySprite.SetActive(true);
+    }
+    private void DeThirstyState()
+    {
+        if(thirstySprite.activeSelf == false) return;
+        thirstySprite.SetActive(false);
+    }
+
+    //WOUND
+
+    private void WoundState()
+    {
+        injuredSprite.SetActive(true);
+    }
+    private void DeWoundState()
+    {
+        if(injuredSprite.activeSelf == false) return;
+        injuredSprite.SetActive(false);
+    }
+
+    // TIRED
+
+    private void TiredState()
+    {
+        tiredSprite.SetActive(true);
+    }
+    private void DeTiredState()
+    {
+        if(tiredSprite.activeSelf == false) return;
+        tiredSprite.SetActive(false);
+    }
+
+    // SICK
+
+    private void SickState()
+    {
+        sickSprite.SetActive(true);
+    }
+    private void DeSickState()
+    {
+        if(sickSprite.activeSelf == false) return;
+        sickSprite.SetActive(false);
+    }
+
+    // INFECT
+
+    private void InfectState()
+    {
+        infectedSprite.SetActive(true);
+    }
+    private void DeInfectState()
+    {
+        if(infectedSprite.activeSelf == false) return;
+        infectedSprite.SetActive(false);
+    }
+
+    // DEAD
+    private void DeadState()
+    {
+        foreach(GameObject sprite in spriteList)
+        {
+            sprite.SetActive(false);
+        }
+        deadSprite.SetActive(true);
+        characterSprite.SetActive(false);
+        this.enabled = false;
+    }
+
 }

@@ -989,7 +989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &61646112
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,90 +2044,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &113430106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 113430108}
-  - component: {fileID: 113430107}
-  m_Layer: 0
-  m_Name: Dad_Hungry (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &113430107
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113430106}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8785ece6af22f1f489a78d5884d5e7d3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &113430108
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113430106}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1916616303}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116610340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,7 +3308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &148478336
 Transform:
   m_ObjectHideFlags: 0
@@ -4144,7 +4060,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &201297977
 MonoBehaviour:
@@ -7010,7 +6926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &418981409
 Transform:
   m_ObjectHideFlags: 0
@@ -9183,36 +9099,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea79e43fa84afe742985020f6413c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fatherToggleList:
-  - {fileID: 1642888418}
-  - {fileID: 86321467}
-  - {fileID: 724973580}
-  _motherToggleList:
-  - {fileID: 1850903491}
-  - {fileID: 1641936086}
-  - {fileID: 176898665}
-  _sisterToggleList:
-  - {fileID: 1376785100}
-  - {fileID: 437499424}
-  - {fileID: 95282553}
-  _brotherToggleList:
-  - {fileID: 101727189}
-  - {fileID: 957641883}
-  - {fileID: 749983289}
-  _isFatherScavenger: {fileID: 1642888418}
-  _isFatherGuard: {fileID: 86321467}
-  _isFatherSleep: {fileID: 724973580}
-  _isMotherScavenger: {fileID: 1850903491}
-  _isMotherGuard: {fileID: 1641936086}
-  _isMotherSleep: {fileID: 176898665}
-  _isSisterScavenger: {fileID: 1376785100}
-  _isSisterGuard: {fileID: 437499424}
-  _isSisterSleep: {fileID: 95282553}
-  _isBrotherScavenger: {fileID: 101727189}
-  _isBrotherGuard: {fileID: 957641883}
-  _isBrotherSleep: {fileID: 749983289}
-  _nextMapButton: {fileID: 2142327229}
-  _isHaveScavenger: 0
+  isFatherScravenger: {fileID: 1642888418}
+  isFatherGuard: {fileID: 86321467}
+  isFatherSleep: {fileID: 724973580}
+  isMotherScavenger: {fileID: 1850903491}
+  isMotherGuard: {fileID: 1641936086}
+  isMotherSleep: {fileID: 176898665}
+  isSisterScavenger: {fileID: 1376785100}
+  isSisterGuard: {fileID: 437499424}
+  isSisterSleep: {fileID: 95282553}
+  isBrotherScavenger: {fileID: 101727189}
+  isBrotherGuard: {fileID: 957641883}
+  isBrotherSleep: {fileID: 749983289}
+  nextMapButton: {fileID: 2142327229}
+  guardPeopleAmount: 0
 --- !u!4 &536082653
 Transform:
   m_ObjectHideFlags: 0
@@ -9226,7 +9126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &541806883
 GameObject:
@@ -9943,7 +9843,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 559147093}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.16840728
+  m_Size: 0.16840725
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12932,7 +12832,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843635161
 GameObject:
@@ -16365,7 +16265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096204082
 GameObject:
@@ -16997,7 +16897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1120890860
 Transform:
   m_ObjectHideFlags: 0
@@ -17011,7 +16911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1916616303}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1120890861
 SpriteRenderer:
@@ -17656,7 +17556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1169013410
 Transform:
   m_ObjectHideFlags: 0
@@ -17670,7 +17570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1916616303}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1169013411
 SpriteRenderer:
@@ -18816,7 +18716,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251856793
 GameObject:
@@ -20120,8 +20020,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1391178595}
-  - component: {fileID: 1391178597}
   - component: {fileID: 1391178596}
+  - component: {fileID: 1391178598}
+  - component: {fileID: 1391178599}
   m_Layer: 0
   m_Name: Brother
   m_TagString: Brother
@@ -20144,7 +20045,7 @@ Transform:
   - {fileID: 1485535102}
   - {fileID: 584403442}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1391178596
 MonoBehaviour:
@@ -20158,16 +20059,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d76a65676645424b9920fb0a78182ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatScript: {fileID: 1391178597}
-  _injuredSprite: {fileID: 474100159}
-  _tiredSprite: {fileID: 2007000270}
-  _sickSprite: {fileID: 2142380040}
-  _infectedSprite: {fileID: 2063357746}
-  _hungrySprite: {fileID: 341830359}
-  _thirstySprite: {fileID: 768934870}
-  _deadSprite: {fileID: 1875553251}
-  _characterSprite: {fileID: 1485535101}
---- !u!114 &1391178597
+  injuredSprite: {fileID: 0}
+  tiredSprite: {fileID: 0}
+  sickSprite: {fileID: 0}
+  infectedSprite: {fileID: 0}
+  hungrySprite: {fileID: 0}
+  thirstySprite: {fileID: 0}
+  deadSprite: {fileID: 0}
+  characterSprite: {fileID: 0}
+--- !u!114 &1391178598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20176,23 +20076,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391178594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f5048d4a63a3e4bb7974f57c61fe29, type: 3}
+  m_Script: {fileID: 11500000, guid: b0bf0fc35da5799458ba7ae2fe4d8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInjured: 0
-  _isTired: 0
-  _isInfected: 0
-  _isFevered: 0
-  _isHungry: 0
-  _isThirsty: 0
-  _isDead: 0
-  _healthyMaxValue: 7
-  _hungryMaxValue: 10
-  _thirstyMaxValue: 8
-  _infectedMaxValue: 8
-  _StrengthMaxValue: 10
-  _healthMaxValue: 4
-  _characterStat: 
+  isInjured: 0
+  isTired: 0
+  isInfected: 0
+  isFevered: 0
+  isHungry: 0
+  isThirsty: 0
+  isHealthy: 0
+  isDead: 0
+  healthMaxValue: 4
+  healthyMaxValue: 4
+  hungryMaxValue: 10
+  thirstyMaxValue: 8
+  infectedMaxValue: 6
+  strengthMaxValue: 8
+  energyMaxValue: 6
+  _textForEditor: 
+  healthCurrentValue: 0
+  healthyCurrentValue: 0
+  hungryCurrentValue: 0
+  thristyCurrentValue: 0
+  infectedCurrentValue: 0
+  strengthCurrentValue: 0
+  energyCurrentValue: 0
+--- !u!114 &1391178599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391178594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de2859ad9986b7469e2b694a9507358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1400557889
 GameObject:
   m_ObjectHideFlags: 0
@@ -24236,7 +24157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1631608314
 MonoBehaviour:
@@ -24380,7 +24301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639837624
 MonoBehaviour:
@@ -24884,8 +24805,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666945654}
-  - component: {fileID: 1666945656}
   - component: {fileID: 1666945655}
+  - component: {fileID: 1666945657}
+  - component: {fileID: 1666945658}
   m_Layer: 0
   m_Name: Sister
   m_TagString: Sister
@@ -24908,7 +24830,7 @@ Transform:
   - {fileID: 1078491096}
   - {fileID: 1617279188}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1666945655
 MonoBehaviour:
@@ -24922,16 +24844,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d76a65676645424b9920fb0a78182ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatScript: {fileID: 1666945656}
-  _injuredSprite: {fileID: 39686684}
-  _tiredSprite: {fileID: 262611815}
-  _sickSprite: {fileID: 1112123613}
-  _infectedSprite: {fileID: 467050023}
-  _hungrySprite: {fileID: 1632470856}
-  _thirstySprite: {fileID: 849177459}
-  _deadSprite: {fileID: 1460519947}
-  _characterSprite: {fileID: 1078491095}
---- !u!114 &1666945656
+  injuredSprite: {fileID: 0}
+  tiredSprite: {fileID: 0}
+  sickSprite: {fileID: 0}
+  infectedSprite: {fileID: 0}
+  hungrySprite: {fileID: 0}
+  thirstySprite: {fileID: 0}
+  deadSprite: {fileID: 0}
+  characterSprite: {fileID: 0}
+--- !u!114 &1666945657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24940,23 +24861,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666945653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f5048d4a63a3e4bb7974f57c61fe29, type: 3}
+  m_Script: {fileID: 11500000, guid: b0bf0fc35da5799458ba7ae2fe4d8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInjured: 0
-  _isTired: 0
-  _isInfected: 0
-  _isFevered: 0
-  _isHungry: 0
-  _isThirsty: 0
-  _isDead: 0
-  _healthyMaxValue: 7
-  _hungryMaxValue: 10
-  _thirstyMaxValue: 8
-  _infectedMaxValue: 8
-  _StrengthMaxValue: 10
-  _healthMaxValue: 3
-  _characterStat: 
+  isInjured: 0
+  isTired: 0
+  isInfected: 0
+  isFevered: 0
+  isHungry: 0
+  isThirsty: 0
+  isHealthy: 0
+  isDead: 0
+  healthMaxValue: 3
+  healthyMaxValue: 4
+  hungryMaxValue: 10
+  thirstyMaxValue: 8
+  infectedMaxValue: 6
+  strengthMaxValue: 4
+  energyMaxValue: 4
+  _textForEditor: 
+  healthCurrentValue: 0
+  healthyCurrentValue: 0
+  hungryCurrentValue: 0
+  thristyCurrentValue: 0
+  infectedCurrentValue: 0
+  strengthCurrentValue: 0
+  energyCurrentValue: 0
+--- !u!114 &1666945658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666945653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de2859ad9986b7469e2b694a9507358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1678230292
 GameObject:
   m_ObjectHideFlags: 0
@@ -25685,8 +25627,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744604708}
-  - component: {fileID: 1744604710}
   - component: {fileID: 1744604709}
+  - component: {fileID: 1744604711}
+  - component: {fileID: 1744604712}
   m_Layer: 0
   m_Name: Mother
   m_TagString: Mother
@@ -25709,7 +25652,7 @@ Transform:
   - {fileID: 1686744005}
   - {fileID: 514977196}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1744604709
 MonoBehaviour:
@@ -25723,16 +25666,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d76a65676645424b9920fb0a78182ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatScript: {fileID: 1744604710}
-  _injuredSprite: {fileID: 176020654}
-  _tiredSprite: {fileID: 456177366}
-  _sickSprite: {fileID: 1788072711}
-  _infectedSprite: {fileID: 334751755}
-  _hungrySprite: {fileID: 77570242}
-  _thirstySprite: {fileID: 1782805049}
-  _deadSprite: {fileID: 729100774}
-  _characterSprite: {fileID: 1686744004}
---- !u!114 &1744604710
+  injuredSprite: {fileID: 0}
+  tiredSprite: {fileID: 0}
+  sickSprite: {fileID: 0}
+  infectedSprite: {fileID: 0}
+  hungrySprite: {fileID: 0}
+  thirstySprite: {fileID: 0}
+  deadSprite: {fileID: 0}
+  characterSprite: {fileID: 0}
+--- !u!114 &1744604711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25741,23 +25683,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744604707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f5048d4a63a3e4bb7974f57c61fe29, type: 3}
+  m_Script: {fileID: 11500000, guid: b0bf0fc35da5799458ba7ae2fe4d8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInjured: 0
-  _isTired: 0
-  _isInfected: 0
-  _isFevered: 0
-  _isHungry: 0
-  _isThirsty: 0
-  _isDead: 0
-  _healthyMaxValue: 7
-  _hungryMaxValue: 10
-  _thirstyMaxValue: 8
-  _infectedMaxValue: 8
-  _StrengthMaxValue: 10
-  _healthMaxValue: 3
-  _characterStat: 
+  isInjured: 0
+  isTired: 0
+  isInfected: 0
+  isFevered: 0
+  isHungry: 0
+  isThirsty: 0
+  isHealthy: 0
+  isDead: 0
+  healthMaxValue: 3
+  healthyMaxValue: 5
+  hungryMaxValue: 10
+  thirstyMaxValue: 8
+  infectedMaxValue: 6
+  strengthMaxValue: 6
+  energyMaxValue: 6
+  _textForEditor: 
+  healthCurrentValue: 0
+  healthyCurrentValue: 0
+  hungryCurrentValue: 0
+  thristyCurrentValue: 0
+  infectedCurrentValue: 0
+  strengthCurrentValue: 0
+  energyCurrentValue: 0
+--- !u!114 &1744604712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744604707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de2859ad9986b7469e2b694a9507358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745237314
 GameObject:
   m_ObjectHideFlags: 0
@@ -26229,7 +26192,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765475979
 GameObject:
@@ -27088,8 +27051,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1802925205}
-  - component: {fileID: 1802925206}
   - component: {fileID: 1802925207}
+  - component: {fileID: 1802925209}
+  - component: {fileID: 1802925208}
   m_Layer: 0
   m_Name: Father
   m_TagString: Father
@@ -27112,34 +27076,8 @@ Transform:
   - {fileID: 1749403161}
   - {fileID: 1916616303}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1802925206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802925204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f5048d4a63a3e4bb7974f57c61fe29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isInjured: 0
-  _isTired: 0
-  _isInfected: 0
-  _isFevered: 0
-  _isHungry: 0
-  _isThirsty: 0
-  _isDead: 0
-  _healthyMaxValue: 7
-  _hungryMaxValue: 10
-  _thirstyMaxValue: 8
-  _infectedMaxValue: 8
-  _StrengthMaxValue: 10
-  _healthMaxValue: 5
-  _characterStat: 
 --- !u!114 &1802925207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27152,15 +27090,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d76a65676645424b9920fb0a78182ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatScript: {fileID: 1802925206}
-  _injuredSprite: {fileID: 1120890859}
-  _tiredSprite: {fileID: 61646111}
-  _sickSprite: {fileID: 418981408}
-  _infectedSprite: {fileID: 148478335}
-  _hungrySprite: {fileID: 1814409465}
-  _thirstySprite: {fileID: 113430106}
-  _deadSprite: {fileID: 1169013409}
-  _characterSprite: {fileID: 1749403160}
+  injuredSprite: {fileID: 0}
+  tiredSprite: {fileID: 0}
+  sickSprite: {fileID: 0}
+  infectedSprite: {fileID: 0}
+  hungrySprite: {fileID: 1814409465}
+  thirstySprite: {fileID: 0}
+  deadSprite: {fileID: 0}
+  characterSprite: {fileID: 0}
+--- !u!114 &1802925208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802925204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de2859ad9986b7469e2b694a9507358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1802925209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802925204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bf0fc35da5799458ba7ae2fe4d8188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInjured: 0
+  isTired: 0
+  isInfected: 0
+  isFevered: 0
+  isHungry: 0
+  isThirsty: 0
+  isHealthy: 0
+  isDead: 0
+  healthMaxValue: 5
+  healthyMaxValue: 6
+  hungryMaxValue: 10
+  thirstyMaxValue: 8
+  infectedMaxValue: 8
+  strengthMaxValue: 10
+  energyMaxValue: 8
+  _textForEditor: 
+  healthCurrentValue: 0
+  healthyCurrentValue: 0
+  hungryCurrentValue: 0
+  thristyCurrentValue: 0
+  infectedCurrentValue: 0
+  strengthCurrentValue: 0
+  energyCurrentValue: 0
 --- !u!1 &1806250651
 GameObject:
   m_ObjectHideFlags: 0
@@ -27250,7 +27234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1814409466
 Transform:
   m_ObjectHideFlags: 0
@@ -27264,7 +27248,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1916616303}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1814409467
 SpriteRenderer:
@@ -29486,12 +29470,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1120890860}
   - {fileID: 1814409466}
+  - {fileID: 1120890860}
   - {fileID: 61646112}
   - {fileID: 418981409}
   - {fileID: 148478336}
-  - {fileID: 113430108}
   - {fileID: 1169013410}
   m_Father: {fileID: 1802925205}
   m_RootOrder: 1
@@ -30168,7 +30151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1964622151
 MonoBehaviour:
@@ -31298,10 +31281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de95dee1d98e48e4da791bfc74cafe03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _father: {fileID: 1802925206}
-  _mother: {fileID: 1744604710}
-  _sister: {fileID: 1666945656}
-  _brother: {fileID: 1391178597}
+  _father: {fileID: 0}
+  _mother: {fileID: 0}
+  _sister: {fileID: 0}
+  _brother: {fileID: 0}
   _ending1_BadEnd: {fileID: 188497758}
 --- !u!1 &2050751903
 GameObject:

@@ -5,180 +5,230 @@ using UnityEngine.UI;
 
 public class ChooseCharacterManagerScript : MonoBehaviour
 {
-    [SerializeField] private List<Toggle> _fatherToggleList;
-    [SerializeField] private List<Toggle> _motherToggleList;
-    [SerializeField] private List<Toggle> _sisterToggleList;
-    [SerializeField] private List<Toggle> _brotherToggleList;
-    [SerializeField] private Toggle _isFatherScavenger;
-    [SerializeField] private Toggle _isFatherGuard;
-    [SerializeField] private Toggle _isFatherSleep;
-    [SerializeField] private Toggle _isMotherScavenger;
-    [SerializeField] private Toggle _isMotherGuard;
-    [SerializeField] private Toggle _isMotherSleep;
-    [SerializeField] private Toggle _isSisterScavenger;
-    [SerializeField] private Toggle _isSisterGuard;
-    [SerializeField] private Toggle _isSisterSleep;
-    [SerializeField] private Toggle _isBrotherScavenger;
-    [SerializeField] private Toggle _isBrotherGuard;
-    [SerializeField] private Toggle _isBrotherSleep;
-    [SerializeField] private Button _nextMapButton;
-    bool _isFatherToggle = false;
-    bool _isMotherToggle = false;
-    bool _isSisterToggle = false;
-    bool _isBrotherToggle = false;
-    int _fatherScavengerCounter = 0;
-    int _motherScavengerCounter = 0;
-    int _sisterScavengerCounter = 0;
-    int _brotherScavengerCounter = 0;
-    bool _isOnlyScavenger = false;
-    public bool _isHaveScavenger = false;
+    [SerializeField] private Toggle isFatherScravenger;
+    [SerializeField] private Toggle isFatherGuard;
+    [SerializeField] private Toggle isFatherSleep;
+    [SerializeField] private Toggle isMotherScavenger;
+    [SerializeField] private Toggle isMotherGuard;
+    [SerializeField] private Toggle isMotherSleep;
+    [SerializeField] private Toggle isSisterScavenger;
+    [SerializeField] private Toggle isSisterGuard;
+    [SerializeField] private Toggle isSisterSleep;
+    [SerializeField] private Toggle isBrotherScavenger;
+    [SerializeField] private Toggle isBrotherGuard;
+    [SerializeField] private Toggle isBrotherSleep;
+    [SerializeField] private Button nextMapButton;
 
-    // Start is called before the first frame update
+    private List<Toggle> guardToggleList = new List<Toggle>();
+    bool isFatherToggle = false;
+    bool isMotherToggle = false;
+    bool isSisterToggle = false;
+    bool isBrotherToggle = false;
+    byte fatherScavengerCounter = 0;
+    byte motherScavengerCounter = 0;
+    byte sisterScavengerCounter = 0;
+    byte brotherScavengerCounter = 0;
+    bool isOnlyScavenger = false;
+    private bool isHaveScavenger = false;
+    [SerializeField] private byte guardPeopleAmount = 0;
+
     void Start()
     {
-        _isFatherScavenger.isOn = false;
-        _isFatherGuard.isOn = false;
-        _isFatherSleep.isOn = false;
-        _isMotherScavenger.isOn = false;
-        _isMotherGuard.isOn = false;
-        _isMotherSleep.isOn = false;
-        _isSisterScavenger.isOn = false;
-        _isSisterGuard.isOn = false;
-        _isSisterSleep.isOn = false;
-        _isBrotherScavenger.isOn = false;
-        _isBrotherGuard.isOn = false;
-        _isBrotherSleep.isOn = false;
+        isFatherScravenger.isOn = false;
+        isFatherGuard.isOn = false;
+        isFatherSleep.isOn = false;
+        isMotherScavenger.isOn = false;
+        isMotherGuard.isOn = false;
+        isMotherSleep.isOn = false;
+        isSisterScavenger.isOn = false;
+        isSisterGuard.isOn = false;
+        isSisterSleep.isOn = false;
+        isBrotherScavenger.isOn = false;
+        isBrotherGuard.isOn = false;
+        isBrotherSleep.isOn = false;
 
-        //foreach (Toggle _toggle in _fatherToggleList)
-        //{
-        //    _toggle.isOn = false;
-        //}
-        //foreach (Toggle _toggle in _motherToggleList)
-        //{
-        //    _toggle.isOn = false;
-        //}
-        //foreach (Toggle _toggle in _sisterToggleList)
-        //{
-        //    _toggle.isOn = false;
-        //}
-        //foreach (Toggle _toggle in _brotherToggleList)
-        //{
-        //    _toggle.isOn = false;
-        //}
+        guardToggleList.Add(isFatherGuard);
+        guardToggleList.Add(isBrotherGuard);
+        guardToggleList.Add(isMotherGuard);
+        guardToggleList.Add(isSisterGuard);
     }
 
+    
     private void Update()
+    {  
+        CheclAllToggleList();
+    }
+
+      private void CheclAllToggleList()
     {
-        // ToggleList
-        if (_isFatherScavenger.isOn == false && _isFatherGuard.isOn == false && _isFatherSleep.isOn == false)
+        isFatherToggle = CheckFatherToogleList();
+        isMotherToggle = CheckMotherToggleList();
+        isBrotherToggle = CheckBrotherToggleList();
+        isSisterToggle = CheckSisterToogleList();
+        CheckAllCondition();
+        CheckFatherScavenger();
+        CheckMotherScavenger();
+        CheckBrotherScavenger();
+        CheckSisterScavenger();
+        GetGuardPeopleAmount();
+        CheckScavengerCondition();
+        
+
+    }
+
+    private bool CheckFatherToogleList()
+    {
+
+        if (isFatherScravenger.isOn == false && isFatherGuard.isOn == false && isFatherSleep.isOn == false)
         {
-            _nextMapButton.interactable = false;
-            _isFatherToggle = false;
+            NextMapInteraction(false);
+            return false;
         }
         else
         {
-            _isFatherToggle = true;
+            return true;
         }
 
-        if (_isMotherScavenger.isOn == false && _isMotherGuard.isOn == false && _isMotherSleep.isOn == false)
+    }
+
+    private bool CheckMotherToggleList()
+    {
+        if (isMotherScavenger.isOn == false && isMotherGuard.isOn == false && isMotherSleep.isOn == false)
         {
-            _nextMapButton.interactable = false;
-            _isMotherToggle = false;
+            NextMapInteraction(false);
+            return false;
         }
         else
         {
-            _isMotherToggle = true;
+            return true;
         }
-
-        if (_isSisterScavenger.isOn == false && _isSisterGuard.isOn == false && _isSisterSleep.isOn == false)
+    }
+    private bool CheckBrotherToggleList()
+    {
+        if (isBrotherScavenger.isOn == false && isBrotherGuard.isOn == false && isBrotherSleep.isOn == false)
         {
-            _nextMapButton.interactable = false;
-            _isSisterToggle = false;
+            NextMapInteraction(false);
+            return false;
         }
         else
         {
-            _isSisterToggle = true;
+            return true;
         }
+    }
 
-        if (_isBrotherScavenger.isOn == false && _isBrotherGuard.isOn == false && _isBrotherSleep.isOn == false)
+    private bool CheckSisterToogleList()
+    {
+        if (isSisterScavenger.isOn == false && isSisterGuard.isOn == false && isSisterSleep.isOn == false)
         {
-            _nextMapButton.interactable = false;
-            _isBrotherToggle = false;
+            NextMapInteraction(false);
+            return false;
         }
         else
         {
-            _isBrotherToggle = true;
+            return true;
         }
+    }
 
-        // Check scavenger is there more than 2 scavenger
-        if (_isFatherScavenger.isOn == true)
+    private void NextMapInteraction(bool _enabled)
+    {
+        nextMapButton.interactable = _enabled;
+    }
+
+    private void CheckFatherScavenger()
+    {
+        if (isFatherScravenger.isOn == true)
         {
-            _fatherScavengerCounter = 1;
+            fatherScavengerCounter = 1;
         }
         else
         {
-            _fatherScavengerCounter = 0;
+            fatherScavengerCounter = 0;
         }
+    }
 
-        if (_isMotherScavenger.isOn == true)
+    private void CheckMotherScavenger()
+    {
+        if (isMotherScavenger.isOn == true)
         {
-            _motherScavengerCounter = 1;
+            motherScavengerCounter = 1;
         }
         else
         {
-            _motherScavengerCounter = 0;
+            motherScavengerCounter = 0;
         }
+    }
 
-        if (_isSisterScavenger.isOn == true)
+    private void CheckBrotherScavenger()
+    {
+        if (isBrotherScavenger.isOn == true)
         {
-            _sisterScavengerCounter = 1;
+            brotherScavengerCounter = 1;
         }
         else
         {
-            _sisterScavengerCounter = 0;
+            brotherScavengerCounter = 0;
         }
+        
+    }
 
-        if (_isBrotherScavenger.isOn == true)
+    private void CheckSisterScavenger()
+    {
+        if (isSisterScavenger.isOn == true)
         {
-            _brotherScavengerCounter = 1;
+            sisterScavengerCounter = 1;
         }
         else
         {
-            _brotherScavengerCounter = 0;
+            sisterScavengerCounter = 0;
         }
+    }
 
-        if(_fatherScavengerCounter + _motherScavengerCounter +_sisterScavengerCounter+ _brotherScavengerCounter == 1)
+    private void CheckScavengerCondition()
+    {
+        if(fatherScavengerCounter + motherScavengerCounter +sisterScavengerCounter+ brotherScavengerCounter == 1)
         {
-           _isOnlyScavenger = true;
-           _isHaveScavenger = true;
+           isOnlyScavenger = true;
+           isHaveScavenger = true;
         }
-        else if(_fatherScavengerCounter + _motherScavengerCounter + _sisterScavengerCounter + _brotherScavengerCounter == 0)
+        else if(fatherScavengerCounter + motherScavengerCounter + sisterScavengerCounter + brotherScavengerCounter == 0)
         {
-            _isOnlyScavenger = true;
-            _isHaveScavenger = false;
+            // there is no scravenger here
+            isOnlyScavenger = true;
+            isHaveScavenger = false;
         }
         else
         {
-            _isOnlyScavenger = false;
-            _isHaveScavenger = false;
+            isOnlyScavenger = false;
+            isHaveScavenger = false;
         }
-
-
-        // check all requirement
-        if (_isFatherToggle == true && _isMotherToggle == true && _isSisterToggle == true && _isBrotherToggle == true && _isOnlyScavenger == true)
+    }
+    private void CheckAllCondition()
+    {
+        if (isFatherToggle == true && isMotherToggle == true && isSisterToggle == true && isBrotherToggle == true && isOnlyScavenger == true)
         {
-            _nextMapButton.interactable = true;
+            NextMapInteraction(true);
         }
         else
         {
-            _nextMapButton.interactable = false;
+            NextMapInteraction(false);
         }
-
     }
 
     public bool IsHaveScavenger()
     {
-        return _isHaveScavenger;
+        return isHaveScavenger;
+    }
+
+    public byte GetGuardPeopleAmount()
+    {
+        guardPeopleAmount = 0;
+        foreach(Toggle guardToggle in guardToggleList)
+        {
+            if(guardToggle.isOn == true) guardPeopleAmount +=1;
+        }
+
+        
+        return guardPeopleAmount;
     }
 
 }
