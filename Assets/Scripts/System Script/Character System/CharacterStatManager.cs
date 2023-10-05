@@ -8,7 +8,7 @@ public class CharacterStatManager : MonoBehaviour
 {   
 
     private bool isDead;
-    private byte hungerDailyDecre , thirtstyDailyDecre , energyDailyDecre , healthyDailyDecre
+    private byte hungerDailyDecre , thirtstyDailyDecre , energyDailyDecre , healthyDailyDecre , healthDailyDecre
     , strengthDailyDecre;
     private CharacterStat characterStat;
     private CharacterStatManager characterStatManager;
@@ -32,17 +32,23 @@ public class CharacterStatManager : MonoBehaviour
         characterStatManager = GetComponent<CharacterStatManager>();
         dayManagerScript = FindObjectOfType<DayManagerScript>();
         dayManagerScript.OnDayStart += DailyStatsDecrease;
+        dayManagerScript.OnDayStart += SetDailyHealthDecrease;
+        dayManagerScript.OnDayStart += DailyHealthDecrease;
     }
     private void OnDisable() 
     {
         dayManagerScript.OnDayStart -= DailyStatsDecrease;
+        dayManagerScript.OnDayStart -= SetDailyHealthDecrease;
+        dayManagerScript.OnDayStart -= DailyHealthDecrease;
     }
     private void Start()
     {
         SetDailyDecreaseStats();
+        SetDailyHealthDecrease();
     }
-    private void Update()
+    public void Update()
     {
+        
         CheckDead();
         CheckHungry();
         CheckThirsty();
@@ -59,9 +65,23 @@ public class CharacterStatManager : MonoBehaviour
     
     private void DailyStatsDecrease()
     {
-        characterStat.DecreHungryValue = hungerDailyDecre;
-        characterStat.DecreThirstyValue = thirtstyDailyDecre;
-        characterStat.DecreEnergyValue = energyDailyDecre;
+       
+        if(characterStat.HungryCurrentValue >= 0 && characterStat.IsHungry == false)
+        {
+            characterStat.DecreHungryValue = hungerDailyDecre;
+        }
+        if(characterStat.ThirstyCurrentValue >= 0 && characterStat.IsThirsty == false)
+        {
+            characterStat.DecreThirstyValue = thirtstyDailyDecre;
+        }
+        if(characterStat.EnergyCurrentValue >= 0 && characterStat.IsTired == false)
+        {
+            characterStat.DecreEnergyValue = energyDailyDecre;
+        }
+    }
+    private void DailyHealthDecrease()
+    {
+        characterStat.DecreHealthValue = healthDailyDecre; 
     }
     private void SetDailyDecreaseStats()
     {
@@ -70,6 +90,30 @@ public class CharacterStatManager : MonoBehaviour
         energyDailyDecre = 2;
         healthyDailyDecre = 1;
         strengthDailyDecre = 1;
+
+        
+    }
+
+    private void SetDailyHealthDecrease()
+    {
+        healthyDailyDecre = 0;
+        if(characterStat.IsFevered)
+        {
+            healthDailyDecre += 2;
+        }
+        if(characterStat.IsHungry)
+        {
+            healthDailyDecre += 1;
+        }
+        if(characterStat.IsThirsty)
+        {
+            healthDailyDecre += 1;
+        }
+        if(characterStat.IsInfedcted)
+        {
+            healthDailyDecre += 3;
+        }
+
     }
 
     private void CheckHungry()
@@ -77,9 +121,14 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.HungryCurrentValue <= Math.Floor((double) characterStat.HungryMaxValue / 2))
         {
             OnHungry?.Invoke();
+            if(characterStat.HungryCurrentValue == 0)
+            {
+                characterStat.IsHungry = true;
+            }
         }
         else{
             OnStopHungry?.Invoke();
+            characterStat.IsHungry = false;
         }
     }
 
@@ -88,9 +137,14 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.ThirstyCurrentValue <= Math.Floor((double) characterStat.ThirstyMaxValue / 2))
         {
             OnThirsty?.Invoke();
+            if(characterStat.ThirstyCurrentValue == 0)
+            {
+                characterStat.IsThirsty = true;
+            }
         }
         else{
             OnStopThirsty?.Invoke();
+            characterStat.IsThirsty = false;
         }
     }
 
@@ -99,8 +153,13 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.EnergyCurrentValue <= Math.Floor((double) characterStat.HealthyMaxValue / 2))
         {
             OnTired?.Invoke();
+            if(characterStat.EnergyCurrentValue == 0)
+            {
+                characterStat.IsTired = true;
+            }
         }
         else{
+            characterStat.IsTired = false;
             OnStopTired?.Invoke();
         }
     }
@@ -110,6 +169,10 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.HealthCurrentValue <= Math.Floor((double) characterStat.HealthMaxValue / 2))
         {
             OnWound?.Invoke();
+            if(characterStat.HealthCurrentValue == 0)
+            {
+                CheckDead();
+            }
         }
         else{
             OnStopWound?.Invoke();
@@ -121,8 +184,13 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.HealthyCurrentValue <= Math.Floor((double) characterStat.HealthyMaxValue / 2))
         {
             OnSick?.Invoke();
+            if(characterStat.HealthyCurrentValue == 0)
+            {
+                characterStat.IsFevered = true;
+            }
         }
         else{
+            characterStat.IsFevered = false;
             OnStopSick?.Invoke();
         }
     }
@@ -132,9 +200,14 @@ public class CharacterStatManager : MonoBehaviour
         if(characterStat.InfectedCurrentValue <= Math.Floor((double) characterStat.InfectedMaxValue / 2))
         {
             OnInfected?.Invoke();
+            if(characterStat.InfectedCurrentValue == 0)
+            {
+                characterStat.IsInfedcted = true;
+            }
         }
         else{
             OnStopInfected?.Invoke();
+            characterStat.IsInfedcted = false;
         }
     }
 

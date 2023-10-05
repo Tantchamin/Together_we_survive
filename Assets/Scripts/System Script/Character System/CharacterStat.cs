@@ -10,14 +10,14 @@ public class CharacterStat : MonoBehaviour
     //BOOLEAN 
     [SerializeField] private bool isInjured , isTired , isInfected , isFevered 
     , isHungry , isThirsty ,isHealthy , isDead = false;
-    public bool IsInjured {get => isInjured; private set => IsInjured = value;}
-    public bool IsTired {get => isTired; private set => isTired = value;}
-    public bool IsInfedcted {get => isInfected; private set {isInfected = value;}}
-    public bool IsFevered {get => isFevered; private set{isFevered = value;}}
-    public bool IsHungry {get => isHungry; private set{isHungry = value;}}
-    public bool IsThirsty {get => isThirsty; private set{isThirsty = value;}}
-    public bool IsDead {get => isDead; private set{isDead = value;}}
-    public bool IsHealthy {get => isHealthy; private set {isHealthy = value;}}
+    public bool IsInjured {get => isInjured;  set => IsInjured = value;}
+    public bool IsTired {get => isTired;  set => isTired = value;}
+    public bool IsInfedcted {get => isInfected;  set {isInfected = value;}}
+    public bool IsFevered {get => isFevered;  set{isFevered = value;}}
+    public bool IsHungry {get => isHungry;  set{isHungry = value;}}
+    public bool IsThirsty {get => isThirsty;  set{isThirsty = value;}}
+    public bool IsDead {get => isDead;  set{isDead = value;}}
+    public bool IsHealthy {get => isHealthy;  set {isHealthy = value;}}
 
     public bool SetCharacterDead {set => isDead = value;}
     public bool SetCharacterTired {set => isTired = value;}
@@ -35,8 +35,8 @@ public class CharacterStat : MonoBehaviour
     //Health Value
     public short HealthCurrentValue {get => healthCurrentValue; private set => healthCurrentValue = value;}
     public short HealthMaxValue {get => healthMaxValue;}
-    public short IncreHealthCurrentValue{set => healthCurrentValue += value;}
-    public short DecreHealthCurrentValue{set => healthCurrentValue -= value;}
+    public short IncreHealthValue{set => healthCurrentValue += value;}
+    public short DecreHealthValue{set => healthCurrentValue -= value;}
 
     //Healthy Value 
     public short HealthyCurrentValue {get => healthyCurrentValue; private set => healthyCurrentValue = value;}
