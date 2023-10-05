@@ -9,6 +9,7 @@ public class ZombieRaidUIManager : MonoBehaviour
     private void Awake() 
     {
         GetComponent<ZombieRaidChance>().OnZombieRaid += ActiveUI;
+        UnActiveUI();
     }
 
     private void OnDisable() 
@@ -18,6 +19,7 @@ public class ZombieRaidUIManager : MonoBehaviour
 
     private void ActiveUI(byte zombieLevel)
     {
+        zombieLevel -= 1;
         Debug.Log($"Zombie level {zombieLevel}");
         zombieRaidUI[zombieLevel].gameObject.SetActive(true);
     }

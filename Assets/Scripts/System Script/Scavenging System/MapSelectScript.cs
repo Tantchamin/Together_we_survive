@@ -11,7 +11,7 @@ public class MapSelectScript : MonoBehaviour
     [SerializeField] private GarageResourceManagerScript garageResourceManagerScript;
     [SerializeField] private KitchenResourceManagerScript kitchenResorceManagerScript;
     [SerializeField] private DayManagerScript dayManagerScript;
-    ChooseCharacterManagerScript chooseCharacterManagerScript;
+    ChooseCharacterManager chooseCharacterManager;
 
     // public event Action OnDayStart;
 
@@ -23,7 +23,7 @@ public class MapSelectScript : MonoBehaviour
     }
     private void Start()
     {
-        chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
+        chooseCharacterManager = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManager>();
     }
 
     public void NextDayButtonClick()

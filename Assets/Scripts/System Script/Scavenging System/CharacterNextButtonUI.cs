@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseCharacterLabelScript : MonoBehaviour
+public class CharacterNextButtonUI : MonoBehaviour
 {
     [SerializeField] private GameObject _mapLabel;
     [SerializeField] private DayManagerScript dayManagerScript;
-    ChooseCharacterManagerScript _chooseCharacterManagerScript;
+    ChooseCharacterManager chooseCharacterManager;
 
     private void Start()
     {
-        _chooseCharacterManagerScript = GameObject.FindGameObjectWithTag("ChooseCharacterManager").GetComponent<ChooseCharacterManagerScript>();
+        chooseCharacterManager = GameObject.FindGameObjectWithTag("ChooseCharacterManager").
+        GetComponent<ChooseCharacterManager>();
         dayManagerScript =FindObjectOfType<DayManagerScript>();
 
     }
 
     public void NextButton()
     {
-        if (_chooseCharacterManagerScript.IsHaveScavenger() == true)
+        if (chooseCharacterManager.IsHaveScavenger() == true)
         {
             _mapLabel.SetActive(true);
             this.gameObject.SetActive(false);

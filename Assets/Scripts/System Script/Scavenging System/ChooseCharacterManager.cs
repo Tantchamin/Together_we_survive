@@ -1,9 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChooseCharacterManagerScript : MonoBehaviour
+public class ChooseCharacterManager : MonoBehaviour
 {
     [SerializeField] private Toggle isFatherScravenger;
     [SerializeField] private Toggle isFatherGuard;
@@ -32,20 +32,22 @@ public class ChooseCharacterManagerScript : MonoBehaviour
     private bool isHaveScavenger = false;
     [SerializeField] private byte guardPeopleAmount = 0;
 
+    public event Action OnFatherScavenger , OnMotherScavenger , OnBrotherScavenger , OnSisterScavenger;
+
     void Start()
     {
         isFatherScravenger.isOn = false;
         isFatherGuard.isOn = false;
-        isFatherSleep.isOn = false;
+        isFatherSleep.isOn = true;
         isMotherScavenger.isOn = false;
         isMotherGuard.isOn = false;
-        isMotherSleep.isOn = false;
+        isMotherSleep.isOn = true;
         isSisterScavenger.isOn = false;
         isSisterGuard.isOn = false;
-        isSisterSleep.isOn = false;
+        isSisterSleep.isOn = true;
         isBrotherScavenger.isOn = false;
         isBrotherGuard.isOn = false;
-        isBrotherSleep.isOn = false;
+        isBrotherSleep.isOn = true;
 
         guardToggleList.Add(isFatherGuard);
         guardToggleList.Add(isBrotherGuard);
@@ -54,7 +56,7 @@ public class ChooseCharacterManagerScript : MonoBehaviour
     }
 
     
-    private void Update()
+    public void Update()
     {  
         CheclAllToggleList();
     }

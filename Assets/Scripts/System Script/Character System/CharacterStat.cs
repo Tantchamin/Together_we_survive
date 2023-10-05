@@ -9,15 +9,16 @@ public class CharacterStat : MonoBehaviour
 
     //BOOLEAN 
     [SerializeField] private bool isInjured , isTired , isInfected , isFevered 
-    , isHungry , isThirsty ,isHealthy , isDead = false;
+    , isHungry , isThirsty ,isHealthy , isDead , isBitten= false;
     public bool IsInjured {get => isInjured;  set => IsInjured = value;}
     public bool IsTired {get => isTired;  set => isTired = value;}
-    public bool IsInfedcted {get => isInfected;  set {isInfected = value;}}
+    public bool IsInfected {get => isInfected;  set {isInfected = value;}}
     public bool IsFevered {get => isFevered;  set{isFevered = value;}}
     public bool IsHungry {get => isHungry;  set{isHungry = value;}}
     public bool IsThirsty {get => isThirsty;  set{isThirsty = value;}}
     public bool IsDead {get => isDead;  set{isDead = value;}}
     public bool IsHealthy {get => isHealthy;  set {isHealthy = value;}}
+    public bool IsBitten {get => isBitten; set {isBitten = value;}}
 
     public bool SetCharacterDead {set => isDead = value;}
     public bool SetCharacterTired {set => isTired = value;}
@@ -41,8 +42,8 @@ public class CharacterStat : MonoBehaviour
     //Healthy Value 
     public short HealthyCurrentValue {get => healthyCurrentValue; private set => healthyCurrentValue = value;}
     public short HealthyMaxValue {get => healthMaxValue;}
-    public short IncreHealthyCurrentValue { set => healthyCurrentValue += value;}
-    public short DecreHealthyCurrentValue {set => healthCurrentValue -= value;}
+    public short IncreHealthyValue { set => healthyCurrentValue += value;}
+    public short DecreHealthyValue {set => healthyCurrentValue -= value;}
 
 
     // Hungry Value
@@ -67,7 +68,7 @@ public class CharacterStat : MonoBehaviour
     public short StrengthCurrentValue { get => strengthCurrentValue; private set => strengthCurrentValue = value;}
     public short StrengthMaxValue{ get=> strengthMaxValue;}
     public short IncreStrengthValue { set => strengthCurrentValue += value;}
-    public short DecreStrngthValue { set => strengthCurrentValue -= value;}
+    public short DecreStrengthValue { set => strengthCurrentValue -= value;}
 
     // Energy Value 
 

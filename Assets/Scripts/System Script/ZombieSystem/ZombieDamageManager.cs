@@ -1,41 +1,61 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieDamageManager : MonoBehaviour
 {
-    [SerializeField] private CharacterStatScript _father;
-    [SerializeField] private CharacterStatScript _mother;
-    [SerializeField] private CharacterStatScript _sister;
-    [SerializeField] private CharacterStatScript _brother;
+    [SerializeField] private CharacterStatManager _father;
+    [SerializeField] private CharacterStatManager _mother;
+    [SerializeField] private CharacterStatManager _sister;
+    [SerializeField] private CharacterStatManager _brother;
+    [SerializeField] private ZombieDefendManager zombieDefendManager;
+    private FrontYardHouseUpgradeManager frontYardHouseUpgradeManager;
     private int randomNumber;
+    private byte houseLevel;
     void Start()
     {
+        zombieDefendManager.GetComponent<ZombieDefendManager>();
+        frontYardHouseUpgradeManager = FindObjectOfType<FrontYardHouseUpgradeManager>();
         
     }
 
-    // Update is called once per frame
+    private void OnEnable() 
+    {
+        zombieDefendManager.OnZombieDamage += randomAttackChance;
+    }
     void Update()
     {
         
     }
 
-     private void randomAttackChance(CharacterStatScript character)
-    {
-        randomNumber = Random.Range(0, 101);
+    private void randomAttackChance(int zombieHealth)
+    {   
+        GetHouseLevel();
+
+        double damageToHealth = Math.Floor(zombieHealth / 1.0);
+        Debug.Log($"Total damage {damageToHealth}");
+        double hitChance = Math.Floor(1.0f);  
+        hitChance = (float) hitChance;
+        randomNumber = (int) UnityEngine.Random.Range(1, (float)hitChance );
         Debug.Log("Attack Chance: " + randomNumber);
         if(randomNumber <= 60)
         {
-            character.CharacterHealthAdjust(-1);
+            //character.CharacterHealthAdjust(-1);
         }
     }
 
-    public void EndRaidButton(GameObject zommbieRaidUI)
+    private void GetHouseLevel()
     {
-        randomAttackChance(_father);
-        randomAttackChance(_mother);
-        randomAttackChance(_sister);
-        randomAttackChance(_brother);
-        zommbieRaidUI.SetActive(false);        
+        houseLevel = (byte) frontYardHouseUpgradeManager.GetHouseLevel();
     }
+
+    // public void EndRaidButton(GameObject zommbieRaidUI)
+    // {
+    //     randomAttackChance(_father);
+    //     randomAttackChance(_mother);
+    //     randomAttackChance(_sister);
+    //     randomAttackChance(_brother);
+    //     zommbieRaidUI.SetActive(false);        
+    // }
 }

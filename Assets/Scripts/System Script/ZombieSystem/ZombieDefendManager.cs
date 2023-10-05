@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,12 +15,14 @@ public class ZombieDefendManager : MonoBehaviour
     private int currentZombieHealth;
     private byte peopleGuardAmount　= 0;
 
-    private ChooseCharacterManagerScript chooseCharacterManagerScript;
+    public event Action<int> OnZombieDamage;
+
+    private ChooseCharacterManager chooseCharacterManagerScript;
     private void Awake() 
     {
         FillToWeaponList();
         GetComponent<ZombieRaidChance>().OnZombieRaid += OnZombieRaid;
-        chooseCharacterManagerScript = FindObjectOfType<ChooseCharacterManagerScript>();
+        chooseCharacterManagerScript = FindObjectOfType<ChooseCharacterManager>();
     }
 
     private void OnDisable() 
@@ -35,17 +38,21 @@ public class ZombieDefendManager : MonoBehaviour
     private void OnZombieRaid(byte zombieLevel)
     {
         FillToWeaponList();
-        SetZombieHealth(zombieLevel);
-        currentZombieHealth = CalculateZombieDamage();
+        currentZombieHealth = SetZombieHealth(zombieLevel);
+        damage = CalculateZombieDamage();
+        CalculateZombieHealth(currentZombieHealth , damage);
+        OnZombieDamage?.Invoke(CalculateZombieHealth(currentZombieHealth , damage));
     }
 
-    private void SetZombieHealth(byte zombieLevel)
+    private int SetZombieHealth(byte zombieLevel)
     {
+        zombieHealth = 100;
         ResetZombieHealth();
         zombieHealth = (zombieLevel == 1 ) ? (short) 100 : 
         zombieHealth *= zombieLevel;
         currentZombieHealth = (int) zombieHealth;
         Debug.Log($"Zombie health : {zombieHealth}");
+        return currentZombieHealth;
     }
 
     private void ResetZombieHealth ()
@@ -86,8 +93,15 @@ public class ZombieDefendManager : MonoBehaviour
             if(counter >= peopleGuardAmount) break;
         }
         counter = 0;
+        
     
         return damage;
+    }
+
+    private int CalculateZombieHealth(int currentZombieHealth , int damage)
+    {
+        zombieHealth = currentZombieHealth - damage;
+        return zombieHealth;
     }
 
     private byte GetPeopleGuardAmount()
