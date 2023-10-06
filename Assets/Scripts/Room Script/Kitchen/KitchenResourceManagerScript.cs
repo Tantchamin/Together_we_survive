@@ -1,81 +1,159 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class KitchenResourceDisplayScript : MonoBehaviour
+public class KitchenResourceManagerScript : MonoBehaviour
 {
-    [SerializeField] private Camera _roomCamera;
-    [SerializeField] private GameObject _kitchenBG;
-    [SerializeField] private GameObject _kitchenUI;
-    [SerializeField] private TextMeshProUGUI _rawFoodDisplayAmount;
-    [SerializeField] private TextMeshProUGUI _vegetableFoodDisplayAmount;
-    [SerializeField] private TextMeshProUGUI _cannedFoodDisplayAmount;
-    [SerializeField] private TextMeshProUGUI _medicineDisplayAmount;
-    [SerializeField] private TextMeshProUGUI _waterDisplayAmount;
-    [SerializeField] private TextMeshProUGUI _bandageDisplayAmount;
-    KitchenResourceManagerScript kitchenResourceManagerScript;
+    KitchenResourceDisplayScript kitchenResourceFrontendScript;
+    [SerializeField] private int rawFoodAmount = 0 , rawVegetableAmount = 0, canFoodAmount = 0 , 
+    medicineAmount = 0 , waterAmount = 0, bandageAmount = 0 , potatoAmount = 0 , carrotAmount  = 0 , tomatoAmount = 0 , cabbageAmount = 0 , cucumberAmount = 0;
+    public event Action OnValueChanged , OnVegetableValueChanged;
 
-
-    void Start()
+    void Start() 
     {
-        _kitchenUI = GameObject.Find("KitchenResourceUI");
-        kitchenResourceManagerScript = GetComponent<KitchenResourceManagerScript>();
+        SetStartingResource();
+        SumRawVegetable();   
+
+    }
+    private void OnEnable() 
+    {
+        OnVegetableValueChanged += SumRawVegetable; 
     }
 
-
-    private void Update()
+    private void OnDisable() 
     {
-        if(_roomCamera.transform.position.x == _kitchenBG.transform.position.x){    
-            SetKitchenUIActive(true);
+        OnVegetableValueChanged -= SumRawVegetable; 
+    }
+
+    private void SumRawVegetable()
+    {
+        RawVegetableAmount = 0;
+        int allVeggie =   cabbageAmount + carrotAmount + tomatoAmount + cucumberAmount + potatoAmount;
+        RawVegetableAmount += allVeggie;
+        OnValueChanged?.Invoke();
+    }
+
+    private void SetStartingResource()
+    {
+        // Maybe Change Difficulty And this will change
+        RawFoodAmount = 4;
+        CanFoodAmount = 0;
+        MedicineAmount = 0;
+        BandageAmount = 0;
+        PotatoAmount = 0;
+        CarrotAmount = 0;
+        CabbageAmount = 0;
+        TomatoAmount = 0;
+    }
+    
+    public int RawFoodAmount
+    {
+        get => rawFoodAmount ; 
+        set {
+            rawFoodAmount = value;   
+            OnValueChanged?.Invoke();
+    }}
+    
+    public int RawVegetableAmount
+    {
+        get => rawVegetableAmount;
+        set {
+            OnValueChanged?.Invoke();
+            rawVegetableAmount = value;
         }
-        else{
-            SetKitchenUIActive(false);
+    }
+    public int CanFoodAmount
+    {
+        get => canFoodAmount;
+        set{
+            OnValueChanged?.Invoke();
+            canFoodAmount = value;  
         }
-        DisplayKitchenResource();
+    }
+
+    public int MedicineAmount
+    {
+        get => medicineAmount;
+        set {
+            OnValueChanged?.Invoke();
+            medicineAmount = value;
+           
+        }
+    }
+    public int WaterAmount
+    {
+        get => waterAmount;
+        set{
+            OnValueChanged?.Invoke();
+            waterAmount = value;
+            
+        }
+    }
+    public int BandageAmount
+    {
+        get => bandageAmount;
+        set{
+            OnValueChanged?.Invoke();
+            bandageAmount = value;
+            
+        }
+    }
+    public int PotatoAmount
+    {
+        get => potatoAmount;
+        set{
+            OnVegetableValueChanged?.Invoke();
+            potatoAmount = value;
+
+        }
+    }
+    public int CarrotAmount
+    {
+        get => carrotAmount;
+        set{
+            OnVegetableValueChanged?.Invoke();
+            carrotAmount = value;
+        }
+    }
+    public int TomatoAmount
+    {
+        get => tomatoAmount;
+        set{
+            OnVegetableValueChanged?.Invoke();
+            tomatoAmount = value;
+            
+        }
+    }
+    public int CabbageAmount
+    {
+        get => cabbageAmount;
+        set{
+            OnVegetableValueChanged?.Invoke();
+            cabbageAmount = value;
+            
+        }
+    }
+
+    public int CucumberAmount
+    {
+        get => cucumberAmount;
+        set{
+            cucumberAmount = value;
+            OnVegetableValueChanged?.Invoke();
+        }
+
+    }
+
+    public void TestValueChanged()
+    {
+        PotatoAmount +=2 ;
+        CabbageAmount +=2;
+        CarrotAmount +=2;
+        TomatoAmount +=2;
+        CucumberAmount +=2;
         
     }
 
-    public void SetKitchenUIActive(bool _uiActive){
-        _kitchenUI.SetActive(_uiActive);
-    }
-
-    private void DisplayKitchenResource(){
-        DisplayRawFoodAmount();
-        DisplayCannedFoodAmount();
-        DisplayMedicineAmount();
-        DisplayWaterAmount();
-        DisplayVegetableFoddAmount();
-        DisplayBandageAmount();
-        
-    }
-
-    private void DisplayRawFoodAmount(){
-        _rawFoodDisplayAmount.text = kitchenResourceManagerScript.GetRawFoodAmount().ToString();
-    }
-
-    private void DisplayCannedFoodAmount(){
-        _cannedFoodDisplayAmount.text = kitchenResourceManagerScript.GetCannedFoodAmount().ToString();
-    }
-
-    private void DisplayMedicineAmount(){
-        _medicineDisplayAmount.text = kitchenResourceManagerScript.GetMedicineAmount().ToString();
-    }
-
-    private void DisplayWaterAmount(){
-        _waterDisplayAmount.text = kitchenResourceManagerScript.GetWaterAmount().ToString();
-    }
-
-    private void DisplayVegetableFoddAmount()
-    {
-        _vegetableFoodDisplayAmount.text = kitchenResourceManagerScript.GetVegetableAmount().ToString();
-    }
-
-    private void DisplayBandageAmount()
-    {
-        _bandageDisplayAmount.text = kitchenResourceManagerScript.GetBandageAmount().ToString();
-    }
 
 }
-

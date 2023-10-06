@@ -10,7 +10,7 @@ public class HouseCrafting : MonoBehaviour
 {
     GarageResourceManagerScript garageResourceManagerScript;
     KitchenResourceManagerScript KitchenResourceManagerScript;
-    [SerializeField] private List<Item> CraftedEquipmentList = new List<Item>();
+    [SerializeField] private List<Item> CraftedItemList = new List<Item>();
 
     private string craftedEquipmentName;
     void Start()
@@ -21,7 +21,7 @@ public class HouseCrafting : MonoBehaviour
 
     [ContextMenu ("FillCraftingEquipmentList")]
     void FillCraftingEquipmentList() {
-        CraftedEquipmentList = Resources.LoadAll("InventoryScriptableObject" , 
+        CraftedItemList = Resources.LoadAll("InventoryScriptableObject" , 
         typeof(Item)).Cast<Item>().ToList();
         
     }
@@ -30,13 +30,13 @@ public class HouseCrafting : MonoBehaviour
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         CraftUI craftUIScript =  clickedButton.GetComponentInParent<CraftUI>();
 
-        CraftedItem equipment = craftUIScript.GetCraftedEquipment();
-        if(CheckResource(equipment) == false) return;
-        AddEquipment(equipment); 
+        CraftedItem item = craftUIScript.GetCraftedEquipment();
+        if(CheckResource(item) == false) return;
+        AddEquipment(item); 
     }
     
 
-    private bool CheckResource(CraftedItem equipment){
+    private bool CheckResource(CraftedItem item){
 
         int wood = garageResourceManagerScript.GetResourceFromList(0);
         int metal = garageResourceManagerScript.GetResourceFromList(1);
@@ -46,17 +46,17 @@ public class HouseCrafting : MonoBehaviour
         int gunPowder = garageResourceManagerScript.GetResourceFromList(5);
         int herb = garageResourceManagerScript.GetResourceFromList(6);
     
-        if(wood >= equipment.woodAmount && metal >= equipment.metalAmount && tape >= equipment.tapeAmount 
-        && clothe >= equipment._clotheAmount && gunPowder >= equipment._gunPowderAmount && gunComponent >= equipment._gunComponentAmount &&
-        herb >= equipment._herbAmount){
+        if(wood >= item.woodAmount && metal >= item.metalAmount && tape >= item.tapeAmount 
+        && clothe >= item._clotheAmount && gunPowder >= item._gunPowderAmount && gunComponent >= item._gunComponentAmount &&
+        herb >= item._herbAmount){
 
-            garageResourceManagerScript.UseResourceFromList(equipment.woodAmount , 0);
-            garageResourceManagerScript.UseResourceFromList(equipment.metalAmount , 1);
-            garageResourceManagerScript.UseResourceFromList(equipment.tapeAmount  , 2);
-            garageResourceManagerScript.UseResourceFromList(equipment._clotheAmount , 3);
-            garageResourceManagerScript.UseResourceFromList(equipment._gunPowderAmount , 4);
-            garageResourceManagerScript.UseResourceFromList(equipment._gunComponentAmount , 5);
-            garageResourceManagerScript.UseResourceFromList(equipment._herbAmount , 6);
+            garageResourceManagerScript.UseResourceFromList(item.woodAmount , 0);
+            garageResourceManagerScript.UseResourceFromList(item.metalAmount , 1);
+            garageResourceManagerScript.UseResourceFromList(item.tapeAmount  , 2);
+            garageResourceManagerScript.UseResourceFromList(item._clotheAmount , 3);
+            garageResourceManagerScript.UseResourceFromList(item._gunPowderAmount , 4);
+            garageResourceManagerScript.UseResourceFromList(item._gunComponentAmount , 5);
+            garageResourceManagerScript.UseResourceFromList(item._herbAmount , 6);
 
             return true;
 
@@ -65,23 +65,23 @@ public class HouseCrafting : MonoBehaviour
         return false;
     }
 
-    private void AddEquipment(Item equipment){
+    private void AddEquipment(Item item){
         
-        if(equipment.itemType == Item.ItemType.Weapon)
+        if(item.itemType == Item.ItemType.Weapon)
         {
-            var equipmentAsWeapon = equipment as Weapon;
+            var equipmentAsWeapon = item as Weapon;
             HouseInventorySystem.AddWeaponToWeaponList(equipmentAsWeapon);
-            HouseInventorySystem.AddEquipment(equipment , 1);
+            HouseInventorySystem.AddEquipment(item , 1);
         }
-        else if(equipment.itemType == Item.ItemType.Tool)
+        else if(item.itemType == Item.ItemType.Tool)
         {
-            var equipmentAsTool = equipment as Tool;
+            var equipmentAsTool = item as Tool;
             HouseInventorySystem.AddToolToToolList(equipmentAsTool);
-            HouseInventorySystem.AddEquipment(equipment , 1);
+            HouseInventorySystem.AddEquipment(item , 1);
         }
         else 
         {
-            HouseInventorySystem.AddEquipment(equipment , 1);
+            HouseInventorySystem.AddEquipment(item , 1);
         }
         
     }

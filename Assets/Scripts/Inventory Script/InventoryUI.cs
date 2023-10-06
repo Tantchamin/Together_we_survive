@@ -3,46 +3,46 @@ using UnityEngine.UI;
 using TMPro;
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private Item craftedEquipment;
-    [SerializeField] private TextMeshProUGUI equipmentName;
-    [SerializeField] private TextMeshProUGUI equipmentAmount;
-    [SerializeField] private TextMeshProUGUI equipmentDescription;
+    [SerializeField] private Item craftedItem;
+    [SerializeField] private TextMeshProUGUI itemName;
+    [SerializeField] private TextMeshProUGUI itemAmount;
+    [SerializeField] private TextMeshProUGUI itemDescription;
 
-    [SerializeField] private GameObject equipmentDescriptionPanel;
-    [SerializeField] private Image equipmentSprite;
+    [SerializeField] private GameObject itemDescriptionPanel;
+    [SerializeField] private Image itemSprite;
 
 
     private void Start() {
-        equipmentDescriptionPanel.SetActive(false);
+        itemDescriptionPanel.SetActive(false);
     }
-    public void SetCraftedEquipment(Item equipment){
-        craftedEquipment = equipment;
+    public void SetCraftedEquipment(Item item){
+        craftedItem = item;
         SetInvetoryItem();
         ConsumableItem();
     }
 
     private void SetInvetoryItem(){
-        equipmentName.text = craftedEquipment.itemName;
-        equipmentSprite.sprite  = craftedEquipment.equipmentIcon;
-        equipmentDescription.text = craftedEquipment.description;
+        itemName.text = craftedItem.itemName;
+        itemSprite.sprite  = craftedItem.equipmentIcon;
+        itemDescription.text = craftedItem.description;
         
     }
 
     private void ConsumableItem(){
-        if(craftedEquipment.itemType == Item.ItemType.Consumable){
-            equipmentAmount.text = HouseInventorySystem.GetEquipmentAmount(craftedEquipment).ToString();   
+        if(craftedItem.itemType == Item.ItemType.Consumable){
+            itemAmount.text = HouseInventorySystem.GetEquipmentAmount(craftedItem).ToString();   
         }
         else{
-            equipmentAmount.enabled = false;
+            itemAmount.enabled = false;
         }
     }
 
     public void UpdateText(){
-        equipmentAmount.text = HouseInventorySystem.GetEquipmentAmount(craftedEquipment).ToString();   
+        itemAmount.text = HouseInventorySystem.GetEquipmentAmount(craftedItem).ToString();   
     }
 
     public Item GetCraftedEquipment(){
-        return craftedEquipment;
+        return craftedItem;
     }
 
     

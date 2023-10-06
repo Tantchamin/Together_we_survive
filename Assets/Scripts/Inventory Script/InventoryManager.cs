@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     // [SerializeField] private  List<Dictionary<CraftedEquipment , int >> craftedEquipmentList 
     // = new List<Dictionary<CraftedEquipment , int >>();
 
-    [SerializeField] private List<Item> craftedEquipmentList = new List<Item>();
+    [SerializeField] private List<Item> craftedItemList = new List<Item>();
     [SerializeField] private List<Weapon> weaponList = new List<Weapon>();
     [SerializeField] private List<Tool> toolList = new List<Tool>();
 
@@ -31,23 +31,23 @@ public class InventoryManager : MonoBehaviour
     }
     public void ShowList(){
 
-        craftedEquipmentList = HouseInventorySystem.GetEquipmentListWithOutAMount();
+        craftedItemList = HouseInventorySystem.GetEquipmentListWithOutAMount();
         weaponList = HouseInventorySystem.GetWeaponList();
         toolList = HouseInventorySystem.GetToolsList();
-        foreach (Item equipment in craftedEquipmentList){       
-            Debug.Log(equipment.itemName);
-            if(IsEquipmentInstantiated(equipment) == false){
+        foreach (Item item in craftedItemList){       
+            Debug.Log(item.itemName);
+            if(IsEquipmentInstantiated(item) == false){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
-                inventoryUIscript.SetCraftedEquipment(equipment);    
+                inventoryUIscript.SetCraftedEquipment(item);    
             }
-            else if((equipment.itemType == Item.ItemType.Weapon || equipment.itemType == Item.ItemType.Tool) 
-            && IsEquipmentInstantiated(equipment) == true){
+            else if((item.itemType == Item.ItemType.Weapon || item.itemType == Item.ItemType.Tool) 
+            && IsEquipmentInstantiated(item) == true){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
-                inventoryUIscript.SetCraftedEquipment(equipment);    
+                inventoryUIscript.SetCraftedEquipment(item);    
             }
-            else if(equipment.itemType == Item.ItemType.Consumable && IsEquipmentInstantiated(equipment) == true){
+            else if(item.itemType == Item.ItemType.Consumable && IsEquipmentInstantiated(item) == true){
                 OnStack?.Invoke();
             }
         }
@@ -56,7 +56,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Transform item in inventoryContent){
            Destroy(item.gameObject);
         }
-        craftedEquipmentList.Clear();
+        craftedItemList.Clear();
         
     }
 

@@ -12,12 +12,12 @@ public class Cooking : MonoBehaviour
     [SerializeField] private int _cookedFoodAmount = 2;
 
 
-    public void CookRawFood(){
-        if(kitchenResourceBackendScript.GetRawFoodAmount() > 0  && garageResourceBackendScript.GetResourceFromList(0) > 0){
-            kitchenResourceBackendScript.UseRawFood(_rawFood);
-            Debug.Log(kitchenResourceBackendScript.GetRawFoodAmount().ToString());
-            garageResourceBackendScript.UseResourceFromList(0 , _wood);
-            kitchenResourceBackendScript.ReceiveCookedFood(_cookedFoodAmount);
-        }
-    }
+    // public void CookRawFood(){
+    //     if(kitchenResourceBackendScript.GetRawFoodAmount() > 0  && garageResourceBackendScript.GetResourceFromList(0) > 0){
+    //         kitchenResourceBackendScript.UseRawFood(_rawFood);
+    //         Debug.Log(kitchenResourceBackendScript.GetRawFoodAmount().ToString());
+    //         garageResourceBackendScript.UseResourceFromList(0 , _wood);
+    //         kitchenResourceBackendScript.ReceiveCookedFood(_cookedFoodAmount);
+    //     }
+    // }
 }

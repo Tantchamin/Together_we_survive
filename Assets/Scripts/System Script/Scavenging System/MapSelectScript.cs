@@ -49,17 +49,17 @@ public class MapSelectScript : MonoBehaviour
                         garageResourceManagerScript.ReceiveResourceToList(1, 6);
                         break;
 
-                    case <=80:
-                        kitchenResorceManagerScript.ReceiveRawFood(1);
-                        break;
+                    // case <=80:
+                    //     kitchenResorceManagerScript.ReceiveRawFood(1);
+                    //     break;
 
-                    case <=90:
-                        kitchenResorceManagerScript.ReceiveCannedFood(1);
-                        break;
+                    // case <=90:
+                    //     kitchenResorceManagerScript.ReceiveCannedFood(1);
+                    //     break;
 
-                    case <=100:
-                        kitchenResorceManagerScript.ReceiveWater(1);
-                        break;
+                    // case <=100:
+                    //     kitchenResorceManagerScript.ReceiveWater(1);
+                    //     break;
 
                 }
 
@@ -85,25 +85,25 @@ public class MapSelectScript : MonoBehaviour
                         garageResourceManagerScript.ReceiveResourceToList(1, 3);
                         break;
 
-                    case <=60:
-                        kitchenResorceManagerScript.ReceiveRawFood(1);
-                        break;
+                    // case <=60:
+                    //     kitchenResorceManagerScript.ReceiveRawFood(1);
+                    //     break;
 
-                    case <=70:
-                        kitchenResorceManagerScript.ReceiveVegetableFood(1);
-                        break;
+                    // case <=70:
+                    //     kitchenResorceManagerScript.ReceiveVegetableFood(1);
+                    //     break;
 
-                    case <=80:
-                        kitchenResorceManagerScript.ReceiveCannedFood(1);
-                        break;
+                    // case <=80:
+                    //     kitchenResorceManagerScript.ReceiveCannedFood(1);
+                    //     break;
 
-                    case <=95:
-                        kitchenResorceManagerScript.ReceiveWater(1);
-                        break;
+                    // case <=95:
+                    //     kitchenResorceManagerScript.ReceiveWater(1);
+                    //     break;
 
-                    case <= 100:
-                        kitchenResorceManagerScript.ReceiveBandage(1);
-                        break;
+                    // case <= 100:
+                    //     kitchenResorceManagerScript.ReceiveBandage(1);
+                    //     break;
 
                 }
 
@@ -129,17 +129,17 @@ public class MapSelectScript : MonoBehaviour
                         garageResourceManagerScript.ReceiveResourceToList(1, 3);
                         break;
 
-                    case <= 45:
-                        kitchenResorceManagerScript.ReceiveWater(1);
-                        break;
+                    // case <= 45:
+                    //     kitchenResorceManagerScript.ReceiveWater(1);
+                    //     break;
 
-                    case <= 75:
-                        kitchenResorceManagerScript.ReceiveMedicine(1);
-                        break;
+                    // case <= 75:
+                    //     kitchenResorceManagerScript.ReceiveMedicine(1);
+                    //     break;
 
-                    case <= 100:
-                        kitchenResorceManagerScript.ReceiveBandage(1);
-                        break;
+                    // case <= 100:
+                    //     kitchenResorceManagerScript.ReceiveBandage(1);
+                    //     break;
 
                 }
 
@@ -169,17 +169,17 @@ public class MapSelectScript : MonoBehaviour
                         garageResourceManagerScript.ReceiveResourceToList(1, 6);
                         break;
 
-                    case <= 80:
-                        kitchenResorceManagerScript.ReceiveRawFood(1);
-                        break;
+                    // case <= 80:
+                    //     kitchenResorceManagerScript.ReceiveRawFood(1);
+                    //     break;
 
-                    case <= 90:
-                        kitchenResorceManagerScript.ReceiveCannedFood(1);
-                        break;
+                    // case <= 90:
+                    //     kitchenResorceManagerScript.ReceiveCannedFood(1);
+                    //     break;
 
-                    case <= 100:
-                        kitchenResorceManagerScript.ReceiveWater(1);
-                        break;
+                    // case <= 100:
+                    //     kitchenResorceManagerScript.ReceiveWater(1);
+                    //     break;
 
                 }
 
