@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f9e761a663f1214085b60f6ae8dd317, type: 3}
-  m_Name: Showel
+  m_Name: Shovel
   m_EditorClassIdentifier: 
-  equipmentName: Showel
+  itemName: Shovel
   ID: 2
   description: A simple shovel , can be use in digging a hole for farming or burying
     either the zombie or human corpse

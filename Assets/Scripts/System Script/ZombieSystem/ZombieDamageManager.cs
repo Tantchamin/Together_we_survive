@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieDamageManager : MonoBehaviour
@@ -11,8 +9,9 @@ public class ZombieDamageManager : MonoBehaviour
     [SerializeField] private CharacterStatManager _brother;
     [SerializeField] private ZombieDefendManager zombieDefendManager;
     private FrontYardHouseUpgradeManager frontYardHouseUpgradeManager;
-    private int randomNumber;
-    private byte houseLevel;
+    private  byte randomNumber;
+    public static event Action<byte> OnZombieHit;
+    private byte houseLevel , healthDamage , reducePercentDamage;
     void Start()
     {
         zombieDefendManager.GetComponent<ZombieDefendManager>();
@@ -24,30 +23,42 @@ public class ZombieDamageManager : MonoBehaviour
     {
         zombieDefendManager.OnZombieDamage += randomAttackChance;
     }
-    void Update()
-    {
-        
-    }
 
     private void randomAttackChance(int zombieHealth)
     {   
+        float currentZombieHealth = zombieHealth;
         GetHouseLevel();
+        ReduceDamageByHouseLevel();
+        Debug.Log($"Zombie health before damage : {currentZombieHealth}");
+        currentZombieHealth = (float) reducePercentDamage / 100.0f * currentZombieHealth;
+        Debug.Log($"Reduce percent damage : {reducePercentDamage}");
+        Debug.Log($"Current zombie health : {currentZombieHealth}");
+        if(currentZombieHealth <= 0) return;
 
-        double damageToHealth = Math.Floor(zombieHealth / 1.0);
-        Debug.Log($"Total damage {damageToHealth}");
-        double hitChance = Math.Floor(1.0f);  
-        hitChance = (float) hitChance;
-        randomNumber = (int) UnityEngine.Random.Range(1, (float)hitChance );
-        Debug.Log("Attack Chance: " + randomNumber);
-        if(randomNumber <= 60)
+        double damageToHealth = Math.Ceiling(currentZombieHealth / 1.0);
+        Debug.Log($"Total damage : {damageToHealth}");
+        byte highestHitChance = (byte) Math.Ceiling((float)(10 - reducePercentDamage / 2));
+        randomNumber = (byte) UnityEngine.Random.Range(1, highestHitChance);
+        Debug.Log($"Highest hit chance : {highestHitChance}");
+        Debug.Log("RandomNumber: " + randomNumber);
+        if(randomNumber <=  highestHitChance / 2)
         {
-            //character.CharacterHealthAdjust(-1);
+            Debug.Log("Zombit hit you");
+            OnZombieHit?.Invoke((byte) damageToHealth);
         }
     }
 
     private void GetHouseLevel()
     {
         houseLevel = (byte) frontYardHouseUpgradeManager.GetHouseLevel();
+        Debug.Log($"House level : {houseLevel}");
+    }
+    private byte ReduceDamageByHouseLevel()
+    {
+        reducePercentDamage = (byte)((houseLevel == 0) ? 1 :
+        (houseLevel == 1) ? 2 : (houseLevel == 2) ? 3 : (houseLevel == 3) ? 5 : 1);
+        Debug.Log($"Reduce percent damage : {reducePercentDamage}");
+        return reducePercentDamage;
     }
 
     // public void EndRaidButton(GameObject zommbieRaidUI)

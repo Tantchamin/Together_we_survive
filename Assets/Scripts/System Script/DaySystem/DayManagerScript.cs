@@ -3,10 +3,10 @@ using System;
 public class DayManagerScript : MonoBehaviour
 {
     [SerializeField] MapSelectScript mapSelectScript;
-    [SerializeField] private int day = 1;
-    public event Action OnDayEnd = delegate{};
-    public event Action OnDayStart = delegate{};
-    [SerializeField] private DayAmountState dayAmountState;
+    [SerializeField] private static int day = 1;
+    public static event Action OnDayEnd = delegate{};
+    public static event Action OnDayStart = delegate{};
+    [SerializeField] private static DayAmountState dayAmountState;
     public enum DayAmountState
     {
         earlyDays ,
@@ -15,7 +15,7 @@ public class DayManagerScript : MonoBehaviour
         finalDays
     }
 
-    private void SetDayState()
+    private static void SetDayState()
     {
         dayAmountState = (day <= 10 && day >0) ? dayAmountState = DayAmountState.earlyDays :
         (day > 11 && day <= 20) ? dayAmountState = DayAmountState.midDays :
@@ -28,7 +28,7 @@ public class DayManagerScript : MonoBehaviour
         mapSelectScript = FindObjectOfType<MapSelectScript>();
         // mapSelectScript.OnDayStart += DayStart;
     }
-    public void IncreaseDays()
+    public static void IncreaseDays()
     {
         Debug.Log($"Current days {day}");
         day +=1;
@@ -37,19 +37,19 @@ public class DayManagerScript : MonoBehaviour
         DayStart();
     }
 
-    public void DayStart()
+    public static void DayStart()
     {
         OnDayStart();    
     }
 
-    public int GetDays()
+    public static int GetDays()
     {
         return day;
     }
 
-    public DayAmountState GetDaysState()
+    public static DayAmountState GetDaysState()
     {
-        return this.dayAmountState;
+        return dayAmountState;
     }
 
 }

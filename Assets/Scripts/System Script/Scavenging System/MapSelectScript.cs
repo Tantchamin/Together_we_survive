@@ -10,7 +10,6 @@ public class MapSelectScript : MonoBehaviour
     [SerializeField] private Toggle gasStationToggle;
     [SerializeField] private GarageResourceManagerScript garageResourceManagerScript;
     [SerializeField] private KitchenResourceManagerScript kitchenResorceManagerScript;
-    [SerializeField] private DayManagerScript dayManagerScript;
     ChooseCharacterManager chooseCharacterManager;
 
     // public event Action OnDayStart;
@@ -19,7 +18,6 @@ public class MapSelectScript : MonoBehaviour
     {
         garageResourceManagerScript.GetComponent<GarageResourceManagerScript>();
         kitchenResorceManagerScript.GetComponent<KitchenResourceManagerScript>();
-        dayManagerScript =FindAnyObjectByType<DayManagerScript>();
     }
     private void Start()
     {
@@ -189,7 +187,7 @@ public class MapSelectScript : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        dayManagerScript.IncreaseDays();
+        DayManagerScript.IncreaseDays();
 
     }
 }

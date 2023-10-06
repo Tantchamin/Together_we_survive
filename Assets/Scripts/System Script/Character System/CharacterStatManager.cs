@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
+
 
 public class CharacterStatManager : MonoBehaviour
 {   
@@ -11,12 +9,15 @@ public class CharacterStatManager : MonoBehaviour
     private byte hungerDailyDecre , thirtstyDailyDecre , energyDailyDecre , healthyDailyDecre , healthDailyDecre, strengthDailyDecre , infectedDailyDecre;
     private CharacterStat characterStat;
     private CharacterStatManager characterStatManager;
-    private DayManagerScript dayManagerScript;
+    private DayManagerScript DayManagerScript;
     private TemperatureManager temperatureManager;
     public event Action OnHungry , OnThirsty , OnTired , OnWound , OnInfected , OnSick , OnDead;
     public event Action OnStopHungry , OnStopThirsty , OnStopTired , OnStopWound , OnStopInfected , OnStopSick;
     private CharacterState characterState;
     public CharacterTemperatureState characterTemperatureState;
+
+    private byte damage;
+    private bool isCharacterGuarding;
 
     [SerializeField] private bool isImmortal ;
     private enum CharacterState
@@ -42,17 +43,22 @@ public class CharacterStatManager : MonoBehaviour
     {
         characterStat = GetComponent<CharacterStat>();
         characterStatManager = GetComponent<CharacterStatManager>();
-        dayManagerScript = FindObjectOfType<DayManagerScript>();
+        DayManagerScript = FindObjectOfType<DayManagerScript>();
         temperatureManager = FindObjectOfType<TemperatureManager>();
-        dayManagerScript.OnDayStart += DailyStatsDecrease;
-        dayManagerScript.OnDayStart += SetDailyHealthDecrease;
-        dayManagerScript.OnDayStart += DailyHealthDecrease;
+        DayManagerScript.OnDayStart += DailyStatsDecrease;
+        DayManagerScript.OnDayStart += SetDailyHealthDecrease;
+        DayManagerScript.OnDayStart += DailyHealthDecrease;
+
+        ZombieDamageManager.OnZombieHit += ZombieHit;
+        
     }
     private void OnDisable() 
     {
-        dayManagerScript.OnDayStart -= DailyStatsDecrease;
-        dayManagerScript.OnDayStart -= SetDailyHealthDecrease;
-        dayManagerScript.OnDayStart -= DailyHealthDecrease;
+        DayManagerScript.OnDayStart -= DailyStatsDecrease;
+        DayManagerScript.OnDayStart -= SetDailyHealthDecrease;
+        DayManagerScript.OnDayStart -= DailyHealthDecrease;
+
+        ZombieDamageManager.OnZombieHit -= ZombieHit;
     }
     private void Start()
     {
@@ -290,11 +296,6 @@ public class CharacterStatManager : MonoBehaviour
         }
     }
 
-    private void CheckSick()
-    {
-        
-    }
-
     private void CheckDead()
     {
         DeadCondition();
@@ -314,6 +315,38 @@ public class CharacterStatManager : MonoBehaviour
         return false;
     }
 
+    private void ZombieHit(byte damageInput)
+    {  
+        damage = damageInput;
+        ReduceDamageByGuarding();
+        Debug.Log($"Got hit {damage} damage");
+        characterStat.DecreHealthValue = damage;
+    }
+
+    public  void CharacterGuarding(bool _isGuard)
+    {
+        isCharacterGuarding = _isGuard;
+    }
+    
+    private void ReduceDamageByGuarding()
+    {
+        string _name = gameObject.name;
+        bool _damageReduced = false;
+        if(isCharacterGuarding == true)
+        {
+            Debug.Log($"This {_name} is guarding!");
+            damage = (byte) Math.Floor((float) damage / 2.0f);
+            _damageReduced = true;
+        }
+        
+        if(isCharacterGuarding == false && _damageReduced == true)
+        {
+            damage *=2;
+            _damageReduced =false;
+        }
+    }
+
+
     // private bool IsCharacterDead()
     // {
     //     isDead = characterStat.IsDead;
@@ -324,5 +357,5 @@ public class CharacterStatManager : MonoBehaviour
     // {
     //     return true;
     // }
-    
+
 }

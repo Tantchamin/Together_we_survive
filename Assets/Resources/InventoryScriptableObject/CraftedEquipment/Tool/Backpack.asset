@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9e761a663f1214085b60f6ae8dd317, type: 3}
   m_Name: Backpack
   m_EditorClassIdentifier: 
-  equipmentName: Backpack
+  itemName: Backpack
   ID: 2
   description: A backpack that help you carry a lot more items during scravenging
   equipmentIcon: {fileID: 21300000, guid: 349f8c6c2024d174aa738b8fb65a4aa9, type: 3}

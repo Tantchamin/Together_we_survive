@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
   m_Name: Wood Spear
   m_EditorClassIdentifier: 
-  equipmentName: Wood Spear
+  itemName: Wood spear
   ID: 0
   description: A ligtht weighted  spear . 2-handed weapon that anyone can yield it. 
     made from a wood

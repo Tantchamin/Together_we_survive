@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
   m_Name: Iron Spear
   m_EditorClassIdentifier: 
-  equipmentName: Iron spear
+  itemName: Iron spear
   ID: 0
   description: 'A spear  , powerful 2-handed weapon that require strength to yield
     it. made from an iron '

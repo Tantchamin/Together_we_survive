@@ -22,6 +22,8 @@ public class ChooseCharacterManager : MonoBehaviour
     , brotherToggleGroup;
     [SerializeField] private Button nextMapButton;
     [SerializeField]private CharacterStat fatherCharacterStat , motherCharacterStat , sisterCharacterStat , brotherCharacterStat;
+    [SerializeField] private CharacterStatManager fatherCharacterStatManager , motherCharacterStatManager
+    , brotherCharacterStatManager , sisterCharacterStatManager;
 
     private List<Toggle> guardToggleList = new List<Toggle>();
     bool isFatherToggle = false;
@@ -36,8 +38,17 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool isHaveScavenger = false;
     [SerializeField] private byte guardPeopleAmount = 0;
 
-    public event Action OnFatherScavenger , OnMotherScavenger , OnBrotherScavenger , OnSisterScavenger;
+    public static event Action OnFatherScavenger , OnMotherScavenger , OnBrotherScavenger , OnSisterScavenger;
+    public static event Action<bool> OnFatherGuard , OnMotherGuard , OnBrotherGuard , OnSisterGuard;
 
+
+    void Awake()
+    {
+        OnFatherGuard += fatherCharacterStatManager.CharacterGuarding;
+        OnMotherGuard += motherCharacterStatManager.CharacterGuarding;
+        OnSisterGuard += sisterCharacterStatManager.CharacterGuarding;
+        OnBrotherGuard += brotherCharacterStatManager.CharacterGuarding;
+    }
     void Start()
     {
         isFatherScravenger.isOn = false;
@@ -118,8 +129,14 @@ public class ChooseCharacterManager : MonoBehaviour
             NextMapInteraction(false);
             return false;
         }
+        else if(isFatherGuard.isOn == true)
+        {
+            OnFatherGuard?.Invoke(true);
+            return true;
+        }
         else
         {
+            OnFatherGuard?.Invoke(false);
             return true;
         }
 
@@ -133,8 +150,14 @@ public class ChooseCharacterManager : MonoBehaviour
             NextMapInteraction(false);
             return false;
         }
+        else if(isMotherGuard.isOn == true)
+        {
+            OnMotherGuard?.Invoke(true);
+            return true;
+        }
         else
         {
+            OnMotherGuard?.Invoke(false);
             return true;
         }
     }
@@ -146,8 +169,14 @@ public class ChooseCharacterManager : MonoBehaviour
             NextMapInteraction(false);
             return false;
         }
+        else if(isBrotherGuard.isOn == true)
+        {
+            OnBrotherGuard?.Invoke(true);
+            return true;
+        }
         else
         {
+            OnBrotherGuard?.Invoke(false);
             return true;
         }
     }
@@ -160,8 +189,14 @@ public class ChooseCharacterManager : MonoBehaviour
             NextMapInteraction(false);
             return false;
         }
+        else if(isSisterGuard.isOn == true)
+        {
+            OnSisterGuard?.Invoke(true);
+            return true;
+        }
         else
         {
+            OnSisterGuard?.Invoke(false);
             return true;
         }
     }

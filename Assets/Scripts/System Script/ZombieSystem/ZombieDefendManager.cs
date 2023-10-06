@@ -10,11 +10,12 @@ public class ZombieDefendManager : MonoBehaviour
     [SerializeField] private List<Item> houseEquipmentList;
     [SerializeField] private List<Weapon> weaponList;
     private byte weaponAmount;
-    [SerializeField] private byte hitChance;
+    [SerializeField] private byte hitChance , testZombieLevel;
+    
     private int zombieHealth = 0 , damage;
     private int currentZombieHealth;
-    private byte peopleGuardAmount　= 0;
-
+    private byte peopleGuardAmount = 0;
+    private byte peopleUnarmedDamage = 50;
     public event Action<int> OnZombieDamage;
 
     private ChooseCharacterManager chooseCharacterManagerScript;
@@ -32,22 +33,25 @@ public class ZombieDefendManager : MonoBehaviour
 
     public void TestButtonZombieRaid()
     {
-        OnZombieRaid(1);
+        OnZombieRaid(testZombieLevel);
     }
 
-    private void OnZombieRaid(byte zombieLevel)
+    private void OnZombieRaid(byte _zombieLevel)
     {
         FillToWeaponList();
-        currentZombieHealth = SetZombieHealth(zombieLevel);
+        currentZombieHealth = SetZombieHealth(_zombieLevel);
         damage = CalculateZombieDamage();
         CalculateZombieHealth(currentZombieHealth , damage);
-        OnZombieDamage?.Invoke(CalculateZombieHealth(currentZombieHealth , damage));
+        byte _damage = (byte)CalculateZombieHealth(currentZombieHealth , damage);
+        if (_damage == 0) return;
+        OnZombieDamage?.Invoke(_damage);
     }
 
     private int SetZombieHealth(byte zombieLevel)
     {
-        zombieHealth = 100;
         ResetZombieHealth();
+        zombieHealth = 100;
+        Debug.Log($"Zombielevel : {zombieLevel}");
         zombieHealth = (zombieLevel == 1 ) ? (short) 100 : 
         zombieHealth *= zombieLevel;
         currentZombieHealth = (int) zombieHealth;
@@ -89,18 +93,24 @@ public class ZombieDefendManager : MonoBehaviour
         {
             damage += (short) weapon.damage;
             counter += 1;
-            Debug.Log($"Damage : {damage}");
+            
             if(counter >= peopleGuardAmount) break;
+        }
+        if(counter < peopleGuardAmount)
+        {
+            damage += (peopleGuardAmount - counter) * peopleUnarmedDamage;
         }
         counter = 0;
         
-    
+        Debug.Log($"Damage : {damage}");
         return damage;
     }
 
     private int CalculateZombieHealth(int currentZombieHealth , int damage)
     {
         zombieHealth = currentZombieHealth - damage;
+        if(zombieHealth <= 0) zombieHealth = 0;
+        Debug.Log($"Total zombie health before passing {zombieHealth}");
         return zombieHealth;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class FrontYardHouseUpgradeManager : MonoBehaviour
 {   
     [SerializeField] private GarageResourceManagerScript garageResourceBackendScript;
-    [SerializeField] private DayManagerScript dayManagerScript;
+    [SerializeField] private DayManagerScript DayManagerScript;
 
     private int woodAmount , metalAmount , tapeAmount; //necessary resource for upgrade
     private bool isUpgrading;
@@ -35,14 +35,14 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     private void Awake() 
     {
-        dayManagerScript = FindObjectOfType<DayManagerScript>();
-        dayManagerScript.OnDayStart += UpdateDays;
+        DayManagerScript = FindObjectOfType<DayManagerScript>();
+    DayManagerScript.OnDayStart += UpdateDays;
         
     }
 
     private void OnDisable() 
     {
-        dayManagerScript.OnDayStart -= UpdateDays;
+    DayManagerScript.OnDayStart -= UpdateDays;
     }
 
     private void UpdateResource()
@@ -77,7 +77,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     private void UpdateDays()
     {
-        currentDays = (byte) dayManagerScript.GetDays();
+        currentDays = (byte) DayManagerScript.GetDays();
         Debug.Log($"Days is updating today is {currentDays} days");
         Upgrading();
     }   

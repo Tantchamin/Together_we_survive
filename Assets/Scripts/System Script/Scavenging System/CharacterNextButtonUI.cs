@@ -5,14 +5,12 @@ using UnityEngine;
 public class CharacterNextButtonUI : MonoBehaviour
 {
     [SerializeField] private GameObject mapLabel , inventoryLabel;
-    [SerializeField] private DayManagerScript dayManagerScript;
     ChooseCharacterManager chooseCharacterManager;
 
     private void Start()
     {
         chooseCharacterManager = GameObject.FindGameObjectWithTag("ChooseCharacterManager").
         GetComponent<ChooseCharacterManager>();
-        dayManagerScript =FindObjectOfType<DayManagerScript>();
 
     }
 
@@ -26,7 +24,7 @@ public class CharacterNextButtonUI : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            dayManagerScript.IncreaseDays();
+            DayManagerScript.IncreaseDays();
             
         }
     }

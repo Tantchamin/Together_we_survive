@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7939e75b98990a543bc75549ef201784, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  equipmentName: 
+  itemName: Knife
   ID: 0
   description: A pocket knife easy to use, It's fast and deadly , can be use to sharpen
     some wood and cooking.

@@ -4,7 +4,6 @@ using System;
 
 public class ZombieRaidChance : MonoBehaviour
 {
-    [SerializeField] private DayManagerScript dayManagerScript;
     [SerializeField] private FrontYardHouseUpgradeManager frontYardHouseUpgradeManager;
     [SerializeField] private float chance; // Min % that it would come
     [SerializeField] private byte days = 5;
@@ -26,13 +25,12 @@ public class ZombieRaidChance : MonoBehaviour
     private void Awake() 
     {
         frontYardHouseUpgradeManager = FindObjectOfType<FrontYardHouseUpgradeManager>();
-        dayManagerScript = FindObjectOfType<DayManagerScript>();
-        dayManagerScript.OnDayStart += ZombieRaidRandomChance;
+        DayManagerScript.OnDayStart += ZombieRaidRandomChance;
     }
 
     private void OnDisable() 
     {
-        dayManagerScript.OnDayStart -= ZombieRaidRandomChance;
+        DayManagerScript.OnDayStart -= ZombieRaidRandomChance;
     }
     public void ZombieRaidRandomChance() // init function of this script
     {
@@ -50,7 +48,7 @@ public class ZombieRaidChance : MonoBehaviour
     }
     private void assignDays()
     {
-        days = (byte)dayManagerScript.GetDays();
+        days = (byte)DayManagerScript.GetDays();
         dayAmountState = (days <=4 ) ? DayAmountState.noRaidDays :
         (days >= 5 && days <= 10) ? DayAmountState.earlyDays :
         (days > 10 && days <= 16) ? DayAmountState.midDays :

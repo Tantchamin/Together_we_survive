@@ -1,5 +1,4 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "CraftedEquipment", menuName = "SeniorProjectGame/CraftedEquipment", order = 0)]
 
 public abstract class CraftedItem : Item{
  

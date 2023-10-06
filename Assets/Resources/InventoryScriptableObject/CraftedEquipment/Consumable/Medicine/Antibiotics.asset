@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783072b2dec7f4e418127d01f94c717f, type: 3}
-  m_Name: Fuel (Wood)
+  m_Script: {fileID: 11500000, guid: 7cb933a1a95479447a40ad35e8b0e831, type: 3}
+  m_Name: Antibiotics
   m_EditorClassIdentifier: 
-  equipmentName: Fuel (Wood)
+  itemName: Antibiotics
   ID: 0
-  description: A Fuel that made from a dry wood , extremly flammable can be use for
-    igniting a fire.
-  equipmentIcon: {fileID: 21300000, guid: 2b49a50d3817bab468eaa181c2286900, type: 3}
+  description: 'A small pills of medicine that fight against infection. pretty hard
+    to made. need medcine knowledge to be able to craft.
+
+    very valuable'
+  equipmentIcon: {fileID: 21300000, guid: 57b0419212afb4b4db9d5829ff06e180, type: 3}
   itemType: 0
   woodAmount: 0
   metalAmount: 0
@@ -25,5 +27,7 @@ MonoBehaviour:
   _gunComponentAmount: 0
   _gunPowderAmount: 0
   _herbAmount: 0
-  craftStackSize: 5
-  maxStackSize: 0
+  craftStackSize: 0
+  healAmount: 3
+  infectedAmount: 3
+  isCureInfected: 1

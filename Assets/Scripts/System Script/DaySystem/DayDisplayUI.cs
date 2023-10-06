@@ -4,14 +4,12 @@ using TMPro;
 
 public class DayDisplayUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private DayManagerScript dayManagerScript;
+    [SerializeField] private TextMeshProUGUI dayText;   
     private void Awake() {
-        dayManagerScript.GetComponent<DayManagerScript>();
-        dayManagerScript.OnDayEnd += UpdateDay;
+        DayManagerScript.OnDayEnd += UpdateDay;
     }
     private void UpdateDay()
     {
-        dayText.text = "Day : " + dayManagerScript.GetDays();
+        dayText.text = "Day : " + DayManagerScript.GetDays();
     }
 }

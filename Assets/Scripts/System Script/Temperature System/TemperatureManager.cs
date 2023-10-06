@@ -5,39 +5,39 @@ public class TemperatureManager : MonoBehaviour
 {
     [SerializeField] private byte temperature = 25;
     private byte currentDays = 0;
-    private DayManagerScript dayManagerScript;
+    private DayManagerScript DayManagerScript;
 
     public event Action<byte> OnTemperatureChanged;
 
     private void Awake() 
     {
-        dayManagerScript = FindObjectOfType<DayManagerScript>();
-        dayManagerScript.OnDayEnd += NextDayTemperature;
+        
+        DayManagerScript.OnDayEnd += NextDayTemperature;
         OnTemperatureChanged?.Invoke(temperature);
     }
 
     private void OnDisable() 
     {
-        dayManagerScript.OnDayEnd -= NextDayTemperature;
+        DayManagerScript.OnDayEnd -= NextDayTemperature;
     }
 
     private void NextDayTemperature()
     {
-        currentDays = (byte) dayManagerScript.GetDays();
+        currentDays = (byte) DayManagerScript.GetDays();
         TemperatureCondition();
     }
 
     private void TemperatureCondition()
     {
-        if(dayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.earlyDays)
+        if(DayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.earlyDays)
         {
             SetNextDayTemperature(RandomNextDayTemperature(22,28));
         }
-        else if(dayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.midDays)
+        else if(DayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.midDays)
         {
             SetNextDayTemperature(RandomNextDayTemperature(15,23));
         }
-        else if(dayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.lateDays)
+        else if(DayManagerScript.GetDaysState() == DayManagerScript.DayAmountState.lateDays)
         {
             SetNextDayTemperature(RandomNextDayTemperature(10,18));
         }
