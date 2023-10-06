@@ -59,7 +59,6 @@ public class KitchenResourceDisplayScript : MonoBehaviour
         cabbageDisplayAmount.text = kitchenResourceManagerScript.CabbageAmount.ToString();
         cucumberDisplayAmount.text = kitchenResourceManagerScript.CucumberAmount.ToString();
 
-        Debug.Log("THIS SHIT WORK");
     }
 }
 

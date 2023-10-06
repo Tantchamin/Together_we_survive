@@ -4,47 +4,47 @@ using UnityEngine;
 
 public class FrontYardUIManagerScript : MonoBehaviour
 {
-    [SerializeField] private Camera _roomCamera;
-
-    [SerializeField] private GameObject _frontYardBG;
 
     [SerializeField] private GameObject _frontYardUpgradeButton;
     [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManagerScript;
-    private byte _houseLevel;
+    private byte houseLevel;
     void Start()
     {
-        _houseLevel = (byte )frontYardUpgradeHouseManagerScript.GetHouseLevel();
-        _roomCamera = Camera.main;
+        houseLevel = (byte )frontYardUpgradeHouseManagerScript.GetHouseLevel();
     }
 
     private void OnEnable()
     {
+        SwitchRoomScript.OnEnterFrontYard += EnterFrontYard;
+        SwitchRoomScript.OnLeave += LeaveFrontYard;
         frontYardUpgradeHouseManagerScript.OnHouseStartUpgrade += SetFrontYardUI;
+        FrontYardHouseUpgradeManager.OnHouseFinishUpgrade += GetHouseLevel;
     }
 
     private void OnDisable()
     {
+        SwitchRoomScript.OnEnterFrontYard -= EnterFrontYard;
+        SwitchRoomScript.OnLeave -= LeaveFrontYard;
         frontYardUpgradeHouseManagerScript.OnHouseStartUpgrade -= SetFrontYardUI;
+        FrontYardHouseUpgradeManager.OnHouseFinishUpgrade -= GetHouseLevel;
+
     }
 
-    void Update()
+    private void GetHouseLevel()
     {
-        _houseLevel = (byte) frontYardUpgradeHouseManagerScript.GetHouseLevel();
-        if(_roomCamera.transform.position.x == _frontYardBG.transform.position.x && _houseLevel <3){
-            // Debug.Log(frontYardUpgradeHouseManagerScript.IsHouseUpgrading().ToString());
-            if (frontYardUpgradeHouseManagerScript.IsHouseUpgrading() == false)
+        houseLevel = (byte) frontYardUpgradeHouseManagerScript.GetHouseLevel();
+    }
+    private void EnterFrontYard()
+    {
+        if (frontYardUpgradeHouseManagerScript.IsHouseUpgrading() == false || houseLevel < 3)
             {
                 SetFrontYardUI(true);
             }    
-        }
-        else
-        {
-            SetFrontYardUI(false);
-        }
-
-        
     }
-
+    private void LeaveFrontYard()
+    {
+        SetFrontYardUI(false);
+    }
     private void SetFrontYardUI(bool isUIActive){
         _frontYardUpgradeButton.gameObject.SetActive(isUIActive);
 

@@ -15,12 +15,12 @@ public class BackgroundManagerScript : MonoBehaviour
 
     private void OnEnable() 
     {
-        frontYardUpgradeHouseManager.OnHouseFinishUpgrade += DisplayHouseLevel;
+        FrontYardHouseUpgradeManager.OnHouseFinishUpgrade += DisplayHouseLevel;
     }
 
     private void OnDisable() 
     {
-        frontYardUpgradeHouseManager.OnHouseFinishUpgrade -= DisplayHouseLevel;
+        FrontYardHouseUpgradeManager.OnHouseFinishUpgrade -= DisplayHouseLevel;
     }
     private void Start()
     {

@@ -18,7 +18,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     [SerializeField] private HouseUpgradeMaterial houseLevel2;
     [SerializeField] private HouseUpgradeMaterial houseLevel3;
 
-    public event Action OnHouseFinishUpgrade;
+    public static event Action OnHouseFinishUpgrade;
     public event Action<bool>OnHouseStartUpgrade;
 
     public enum HouseState 
@@ -104,6 +104,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     {
         isUpgrading = false;
         houseState += 1;
+
         Debug.Log(houseState);
         OnHouseFinishUpgrade?.Invoke();
         Debug.Log("Finish Upgrade");
