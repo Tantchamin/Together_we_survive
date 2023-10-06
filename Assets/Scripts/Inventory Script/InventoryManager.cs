@@ -36,18 +36,18 @@ public class InventoryManager : MonoBehaviour
         toolList = HouseInventorySystem.GetToolsList();
         foreach (Item item in craftedItemList){       
             Debug.Log(item.itemName);
-            if(IsEquipmentInstantiated(item) == false){
+            if(IsItemInstantiated(item) == false){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
                 inventoryUIscript.SetCraftedEquipment(item);    
             }
             else if((item.itemType == Item.ItemType.Weapon || item.itemType == Item.ItemType.Tool) 
-            && IsEquipmentInstantiated(item) == true){
+            && IsItemInstantiated(item) == true){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
                 inventoryUIscript.SetCraftedEquipment(item);    
             }
-            else if(item.itemType == Item.ItemType.Consumable && IsEquipmentInstantiated(item) == true){
+            else if(item.itemType == Item.ItemType.Consumable && IsItemInstantiated(item) == true){
                 OnStack?.Invoke();
             }
         }
@@ -60,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    private bool IsEquipmentInstantiated(Item craftedEquipment){
+    private bool IsItemInstantiated(Item craftedEquipment){
         Item searchedEquipment = null;
         foreach(Transform item in inventoryContent){
             inventoryUIscript = item.gameObject.GetComponent<InventoryUI>();

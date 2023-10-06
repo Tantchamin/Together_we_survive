@@ -9,7 +9,7 @@ public abstract class Item : ScriptableObject
 
     [TextArea (4,4)]
     public string description;
-    public Sprite equipmentIcon;
+    public Sprite itemIcon;
     public ItemType  itemType;
     public  enum ItemType{
         Consumable ,

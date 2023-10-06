@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
 
     private void SetInvetoryItem(){
         itemName.text = craftedItem.itemName;
-        itemSprite.sprite  = craftedItem.equipmentIcon;
+        itemSprite.sprite  = craftedItem.itemIcon;
         itemDescription.text = craftedItem.description;
         
     }

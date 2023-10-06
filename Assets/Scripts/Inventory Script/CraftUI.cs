@@ -16,7 +16,7 @@ public class CraftUI : MonoBehaviour
     {
         equipmentName.text = craftedEquipment.itemName;
         equipmentDescirption.text = craftedEquipment.description;
-        equipmentSprite.sprite  = craftedEquipment.equipmentIcon;
+        equipmentSprite.sprite  = craftedEquipment.itemIcon;
     }
 
     public CraftedItem GetCraftedEquipment(){

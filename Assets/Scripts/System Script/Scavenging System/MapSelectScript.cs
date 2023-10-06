@@ -33,21 +33,21 @@ public class MapSelectScript : MonoBehaviour
                 int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
-                    case <=25:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 0);
-                        break;
+                    // case <=25:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 0);
+                    //     break;
 
-                    case <=45:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 1);
-                        break;
+                    // case <=45:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 1);
+                    //     break;
 
-                    case <=55:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 5);
-                        break;
+                    // case <=55:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 5);
+                    //     break;
 
-                    case <=70:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 6);
-                        break;
+                    // case <=70:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 6);
+                    //     break;
 
                     // case <=80:
                     //     kitchenResorceManagerScript.ReceiveRawFood(1);
@@ -73,17 +73,17 @@ public class MapSelectScript : MonoBehaviour
                 int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
-                    case <=20:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 1);
-                        break;
+                    // case <=20:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 1);
+                    //     break;
 
-                    case <=30:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 2);
-                        break;
+                    // case <=30:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 2);
+                    //     break;
 
-                    case <=50:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 3);
-                        break;
+                    // case <=50:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 3);
+                    //     break;
 
                     // case <=60:
                     //     kitchenResorceManagerScript.ReceiveRawFood(1);
@@ -117,17 +117,17 @@ public class MapSelectScript : MonoBehaviour
                 int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
-                    case <= 5:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 2);
-                        break;
+                    // case <= 5:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 2);
+                    //     break;
 
-                    case <= 15:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 3);
-                        break;
+                    // case <= 15:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 3);
+                    //     break;
 
-                    case <= 35:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 3);
-                        break;
+                    // case <= 35:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 3);
+                    //     break;
 
                     // case <= 45:
                     //     kitchenResorceManagerScript.ReceiveWater(1);
@@ -153,21 +153,21 @@ public class MapSelectScript : MonoBehaviour
                 int randomNumber = UnityEngine.Random.Range(1, 101);
                 switch (randomNumber)
                 {
-                    case <= 25:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 0);
-                        break;
+                    // case <= 25:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 0);
+                    //     break;
 
-                    case <= 45:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 1);
-                        break;
+                    // case <= 45:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 1);
+                    //     break;
 
-                    case <= 55:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 5);
-                        break;
+                    // case <= 55:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 5);
+                    //     break;
 
-                    case <= 70:
-                        garageResourceManagerScript.ReceiveResourceToList(1, 6);
-                        break;
+                    // case <= 70:
+                    //     garageResourceManagerScript.ReceiveResourceToList(1, 6);
+                    //     break;
 
                     // case <= 80:
                     //     kitchenResorceManagerScript.ReceiveRawFood(1);

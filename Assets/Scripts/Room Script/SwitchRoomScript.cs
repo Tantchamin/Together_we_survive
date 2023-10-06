@@ -10,7 +10,10 @@ public class SwitchRoomScript : MonoBehaviour
 
     public static event Action OnEnterKitchen , OnEnterLivingRoom , OnEnterGarage , OnEnterFrontYard , OnLeave;
 
-
+    private void Start() {
+        OnLeave?.Invoke();
+        OnEnterLivingRoom?.Invoke();
+    }
 
     public void GoToLivingRoom()
     {
@@ -30,7 +33,7 @@ public class SwitchRoomScript : MonoBehaviour
     {
         OnLeave?.Invoke();
         _roomCamera.transform.position = new Vector3(_GarageBG.transform.position.x, 0, -15);
-       
+        OnEnterGarage?.Invoke();
     }
     public void GoToFrontYard()
     {

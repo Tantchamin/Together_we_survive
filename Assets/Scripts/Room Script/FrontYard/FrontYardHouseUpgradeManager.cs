@@ -47,9 +47,9 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     private void UpdateResource()
     {
-        woodAmount = garageResourceBackendScript.GetResourceFromList(0);
-        metalAmount = garageResourceBackendScript.GetResourceFromList(1);
-        tapeAmount = garageResourceBackendScript.GetResourceFromList(2);
+        woodAmount = garageResourceBackendScript.WoodAmount;
+        metalAmount = garageResourceBackendScript.MetalAmount;
+        tapeAmount = garageResourceBackendScript.TapeAmount;
     }
 
     public void UpgradeHouse(){
@@ -124,9 +124,9 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
         if(metalAmount < houseLevel1.MetalAmount) return false;
         if(tapeAmount < houseLevel1.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(houseLevel1.WoodAmount,0);
-        garageResourceBackendScript.UseResourceFromList(houseLevel1.MetalAmount,1);
-        garageResourceBackendScript.UseResourceFromList(houseLevel1.TapeAmount,2);
+        garageResourceBackendScript.WoodAmount -= houseLevel1.WoodAmount;
+        garageResourceBackendScript.MetalAmount -= houseLevel1.MetalAmount;
+        garageResourceBackendScript.TapeAmount -= houseLevel1.TapeAmount;
 
         return true;
     }
@@ -137,9 +137,9 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
         if(metalAmount <houseLevel2.MetalAmount) return false;
         if(tapeAmount < houseLevel2.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(houseLevel2.WoodAmount,0);
-        garageResourceBackendScript.UseResourceFromList(houseLevel2.MetalAmount,1);
-        garageResourceBackendScript.UseResourceFromList(houseLevel2.TapeAmount,2);
+        garageResourceBackendScript.WoodAmount -= houseLevel2.WoodAmount;
+        garageResourceBackendScript.MetalAmount -= houseLevel2.MetalAmount;
+        garageResourceBackendScript.TapeAmount -= houseLevel2.TapeAmount;
 
         return true;
     }
@@ -149,9 +149,9 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
         if(metalAmount <houseLevel3.MetalAmount) return false;
         if(tapeAmount < houseLevel3.TapeAmount) return false;
 
-        garageResourceBackendScript.UseResourceFromList(houseLevel3.WoodAmount,0);
-        garageResourceBackendScript.UseResourceFromList(houseLevel3.MetalAmount,1);
-        garageResourceBackendScript.UseResourceFromList(houseLevel3.TapeAmount,2);
+        garageResourceBackendScript.WoodAmount -= houseLevel3.WoodAmount;
+        garageResourceBackendScript.MetalAmount -= houseLevel3.MetalAmount;
+        garageResourceBackendScript.TapeAmount -= houseLevel3.TapeAmount;
 
         return true;
     }

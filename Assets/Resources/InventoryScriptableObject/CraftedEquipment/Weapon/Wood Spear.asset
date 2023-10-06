@@ -16,15 +16,15 @@ MonoBehaviour:
   ID: 0
   description: A ligtht weighted  spear . 2-handed weapon that anyone can yield it. 
     made from a wood
-  equipmentIcon: {fileID: 21300000, guid: 4331eae025c15c544b94725e7a61da8e, type: 2}
+  itemIcon: {fileID: 21300000, guid: 4331eae025c15c544b94725e7a61da8e, type: 2}
   itemType: 1
   woodAmount: 20
   metalAmount: 0
   tapeAmount: 5
-  _clotheAmount: 0
-  _gunComponentAmount: 0
-  _gunPowderAmount: 0
-  _herbAmount: 0
+  clotheAmount: 0
+  gunComponentAmount: 0
+  gunPowderAmount: 0
+  herbAmount: 0
   strengthRequired: 2
   durability: 15
   damage: 70

@@ -767,12 +767,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a32fe197a1cbe4299ca618911c0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftedEquipment: {fileID: 0}
-  equipmentName: {fileID: 8288282677990905175}
-  equipmentAmount: {fileID: 6208427411266223282}
-  equipmentDescription: {fileID: 2845228821621907514}
-  equipmentDescriptionPanel: {fileID: 2137424221573576115}
-  equipmentSprite: {fileID: 3385793008274743829}
+  craftedItem: {fileID: 0}
+  itemName: {fileID: 8288282677990905175}
+  itemAmount: {fileID: 6208427411266223282}
+  itemDescription: {fileID: 2845228821621907514}
+  itemDescriptionPanel: {fileID: 2137424221573576115}
+  itemSprite: {fileID: 3385793008274743829}
 --- !u!1 &6751737354763789993
 GameObject:
   m_ObjectHideFlags: 0

@@ -1414,14 +1414,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75791010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1448444613}
-  m_Father: {fileID: 1693771282}
-  m_RootOrder: 6
+  m_Father: {fileID: 978295539}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14018,16 +14018,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5904b6ee6a9894c80299e07b44043f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roomCamera: {fileID: 519420031}
-  _garageBG: {fileID: 513049314}
-  _garageUI: {fileID: 0}
-  _woodDisplayAmount: {fileID: 1187411515}
-  _metalDisplayAmount: {fileID: 674863645}
-  _tapeDisplayAmount: {fileID: 1839111208}
-  _clotheDisplayAmount: {fileID: 1191046118}
-  _gunComponentDisplayAmount: {fileID: 1547501951}
-  _gunPowderDisplayAmount: {fileID: 1586246982}
-  _herbDisplayAmount: {fileID: 1678230294}
+  garageUI: {fileID: 380712137}
+  woodDisplayAmount: {fileID: 1187411515}
+  metalDisplayAmount: {fileID: 674863645}
+  tapeDisplayAmount: {fileID: 1839111208}
+  clotheDisplayAmount: {fileID: 1191046118}
+  gunComponentDisplayAmount: {fileID: 1547501951}
+  gunPowderDisplayAmount: {fileID: 1586246982}
+  herbDisplayAmount: {fileID: 1678230294}
 --- !u!114 &859340453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14040,7 +14038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a697d2684662c409c9baf2a7279d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _garageResource: 
 --- !u!114 &859340454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15312,6 +15309,8 @@ RectTransform:
   m_Children:
   - {fileID: 791611162}
   - {fileID: 342764063}
+  - {fileID: 1447579847}
+  - {fileID: 75791011}
   m_Father: {fileID: 1693771282}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15332,11 +15331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b111047adb67004d84b3e75d5c8fdc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roomCamera: {fileID: 519420031}
-  _livingRoomBG: {fileID: 1982485864}
-  _livingRoomFrontUI: {fileID: 791611161}
-  _eatingManageUI: {fileID: 208159425}
-  _endDayButton: {fileID: 342764062}
+  livingRoomBG: {fileID: 1982485864}
+  livingRoomFrontUI: {fileID: 791611161}
+  eatingManageUI: {fileID: 208159425}
+  endDayButton: {fileID: 342764062}
+  temperatureText: {fileID: 75791010}
+  dayText: {fileID: 1447579846}
 --- !u!224 &980221344 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3221905531274652286, guid: cb75160665cf32348885ed9f039b1e1c, type: 3}
@@ -22083,14 +22083,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447579846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1286714428}
-  m_Father: {fileID: 1693771282}
-  m_RootOrder: 5
+  m_Father: {fileID: 978295539}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22155,7 +22155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Temperature
+  m_text: 'Temperature : 25'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26649,8 +26649,6 @@ RectTransform:
   - {fileID: 25067610}
   - {fileID: 859340451}
   - {fileID: 1806250652}
-  - {fileID: 1447579847}
-  - {fileID: 75791011}
   m_Father: {fileID: 1317974168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28555,8 +28553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e7b817633965d4ab4a50443705180c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roomCamera: {fileID: 519420031}
-  _frontYardBG: {fileID: 1069847313}
   _frontYardUpgradeButton: {fileID: 525458936}
   frontYardUpgradeHouseManagerScript: {fileID: 1806250654}
 --- !u!114 &1806250654
@@ -29514,7 +29510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1859623083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29580,9 +29576,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 25067612}
-        m_TargetAssemblyTypeName: KitchenResourceManagerScript, Assembly-CSharp
-        m_MethodName: TestValueChanged
+      - m_Target: {fileID: 859340453}
+        m_TargetAssemblyTypeName: GarageResourceManagerScript, Assembly-CSharp
+        m_MethodName: TestButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

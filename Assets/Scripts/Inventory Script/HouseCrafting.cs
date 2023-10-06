@@ -38,25 +38,25 @@ public class HouseCrafting : MonoBehaviour
 
     private bool CheckResource(CraftedItem item){
 
-        int wood = garageResourceManagerScript.GetResourceFromList(0);
-        int metal = garageResourceManagerScript.GetResourceFromList(1);
-        int tape = garageResourceManagerScript.GetResourceFromList(2);
-        int clothe = garageResourceManagerScript.GetResourceFromList(3);
-        int gunComponent = garageResourceManagerScript.GetResourceFromList(4);
-        int gunPowder = garageResourceManagerScript.GetResourceFromList(5);
-        int herb = garageResourceManagerScript.GetResourceFromList(6);
+        int wood = garageResourceManagerScript.WoodAmount;
+        int metal = garageResourceManagerScript.MetalAmount;
+        int tape = garageResourceManagerScript.TapeAmount;
+        int clothe = garageResourceManagerScript.ClotheAmount;
+        int gunComponent = garageResourceManagerScript.GunComponentAmount;
+        int gunPowder = garageResourceManagerScript.GunPowderAmount;
+        int herb = garageResourceManagerScript.HerbAmount;
     
         if(wood >= item.woodAmount && metal >= item.metalAmount && tape >= item.tapeAmount 
-        && clothe >= item._clotheAmount && gunPowder >= item._gunPowderAmount && gunComponent >= item._gunComponentAmount &&
-        herb >= item._herbAmount){
+        && clothe >= item.clotheAmount && gunPowder >= item.gunPowderAmount && gunComponent >= item.gunComponentAmount &&
+        herb >= item.herbAmount){
 
-            garageResourceManagerScript.UseResourceFromList(item.woodAmount , 0);
-            garageResourceManagerScript.UseResourceFromList(item.metalAmount , 1);
-            garageResourceManagerScript.UseResourceFromList(item.tapeAmount  , 2);
-            garageResourceManagerScript.UseResourceFromList(item._clotheAmount , 3);
-            garageResourceManagerScript.UseResourceFromList(item._gunPowderAmount , 4);
-            garageResourceManagerScript.UseResourceFromList(item._gunComponentAmount , 5);
-            garageResourceManagerScript.UseResourceFromList(item._herbAmount , 6);
+            garageResourceManagerScript.WoodAmount -= item.woodAmount;
+            garageResourceManagerScript.MetalAmount -= item.woodAmount;
+            garageResourceManagerScript.TapeAmount -= item.tapeAmount;
+            garageResourceManagerScript.ClotheAmount -= item.clotheAmount;
+            garageResourceManagerScript.GunComponentAmount -= item.gunComponentAmount;
+            garageResourceManagerScript.GunPowderAmount -= item.gunPowderAmount;
+            garageResourceManagerScript.HerbAmount -= item.herbAmount;
 
             return true;
 

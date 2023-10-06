@@ -60,5 +60,7 @@ public class KitchenResourceDisplayScript : MonoBehaviour
         cucumberDisplayAmount.text = kitchenResourceManagerScript.CucumberAmount.ToString();
 
     }
+
+    
 }
 
