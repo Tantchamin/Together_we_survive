@@ -7,7 +7,7 @@ public class ZombieDefendManager : MonoBehaviour
 {
 
     //calculate percentage of getting hit from Zombie base on guarded person and weapon.
-    [SerializeField] private List<Equipment> houseEquipmentList;
+    [SerializeField] private List<Item> houseEquipmentList;
     [SerializeField] private List<Weapon> weaponList;
     private byte weaponAmount;
     [SerializeField] private byte hitChance;

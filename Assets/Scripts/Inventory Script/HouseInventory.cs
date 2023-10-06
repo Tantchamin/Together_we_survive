@@ -7,37 +7,33 @@ using System.Linq;
 
 
 public static class HouseInventorySystem {
-
-
     private static List<Weapon> houseWeaponList = new List<Weapon>();
     private static List<Tool> houseToolList = new List<Tool>();
 
     // houseWeaponList.Cast<CraftedEquipment>().ToList() + 
     // houseToolList.Cast<CraftedEquipment>().ToList();
-    private static List<Equipment> houseInventoryListWithoutAMount = new List<Equipment>();
-    private static Dictionary<Equipment , int > inventoryDictionary = new Dictionary<Equipment, int>();
-    public static List<Dictionary<Equipment , int >> houseInventoryList = new List<Dictionary<Equipment , int >>();
-    public static void AddEquipment(Equipment equipment , int amount){  
-        if(CheckEquipment(equipment) == false){
-            Dictionary<Equipment , int> addedEqiupment = new Dictionary<Equipment, int>
+    private static List<Item> houseInventoryListWithoutAMount = new List<Item>();
+    private static Dictionary<Item , int > inventoryDictionary = new Dictionary<Item, int>();
+    public static List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
+    public static void AddEquipment(Item item , int amount){  
+        if(CheckEquipment(item) == false){
+            Dictionary<Item , int> addedEqiupment = new Dictionary<Item, int>
             {
-                { equipment, amount }
+                { item, amount }
             };
             houseInventoryList.Add(addedEqiupment);
-        }else if(CheckEquipment(equipment) == true && (equipment.itemType == Equipment.ItemType.Tool || 
-        equipment.itemType == Equipment.ItemType.Weapon)){
-            Dictionary<Equipment , int> addedEqiupment = new Dictionary<Equipment, int>
+        }else if(CheckEquipment(item) == true && (item.itemType == Item.ItemType.Tool || 
+        item.itemType == Item.ItemType.Weapon)){
+            Dictionary<Item , int> addedEqiupment = new Dictionary<Item, int>
             {
-                { equipment, amount }
+                { item, amount }
             };
             houseInventoryList.Add(addedEqiupment);
-        }else if (CheckEquipment(equipment) == true && equipment.itemType == Equipment.ItemType.Consumable){
-            Debug.Log("Stacking " + equipment.equipmentName);
-            StackEquipmentAmount(equipment , amount);
-        }
-        
+        }else if (CheckEquipment(item) == true && item.itemType == Item.ItemType.Consumable){
+            Debug.Log("Stacking " + item.itemName);
+            StackEquipmentAmount(item , amount);
+        }   
     }
-
     public static void AddWeaponToWeaponList(Weapon weapon)
     {
         houseWeaponList.Add(weapon);
@@ -47,21 +43,20 @@ public static class HouseInventorySystem {
     {
         houseToolList.Add(tool);
     }
-
-    public static List<Equipment> GetEquipmentListWithOutAMount(){
-        Equipment searchedEquipment = null;
-        int searchedEqipmentAmount = 0;
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){
-                searchedEquipment = kvp.Key;
-                searchedEqipmentAmount = kvp.Value;
-                houseInventoryListWithoutAMount.Add(searchedEquipment);            
+    public static List<Item> GetEquipmentListWithOutAMount(){
+        Item searchedItem = null;
+        int searchedItemAmount = 0;
+        foreach(Dictionary<Item , int> allItem in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in allItem){
+                searchedItem = kvp.Key;
+                searchedItemAmount = kvp.Value;
+                houseInventoryListWithoutAMount.Add(searchedItem);            
             }
         }
         return houseInventoryListWithoutAMount;
     }
 
-    public static Dictionary<Equipment , int > GetEquipmentDictionary(){
+    public static Dictionary<Item , int > GetEquipmentDictionary(){
         return inventoryDictionary;
     }
 
@@ -75,49 +70,47 @@ public static class HouseInventorySystem {
         return houseToolList;
     }
 
-    public static bool CheckEquipment(Equipment craftedEquipment){
-        Equipment searchedEquipment;
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){ 
-                searchedEquipment = kvp.Key;
-                Debug.Log(craftedEquipment.equipmentName);
-                Debug.Log(searchedEquipment.equipmentName);
-                if(craftedEquipment == searchedEquipment){
+    public static bool CheckEquipment(Item craftedItem){
+        Item searchedItem;
+        foreach(Dictionary<Item , int> allEquiptment in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in allEquiptment){ 
+                searchedItem = kvp.Key;
+                Debug.Log(craftedItem.itemName);
+                Debug.Log(searchedItem.itemName);
+                if(craftedItem == searchedItem){
                     return true;
                 }     
             }
         }
         return false;
     }
-
-     public static bool CheckEquipment(string equipmentName){
-        string searchedEquipmentName = null;
-        Equipment searchedEquipment = null;
-        foreach(Dictionary<Equipment,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in equipment){        
-                searchedEquipment = kvp.Key;
-                searchedEquipmentName = searchedEquipment.equipmentName;
-                if(searchedEquipmentName == equipmentName){
+     public static bool CheckEquipment(string itemName){
+        string searchedItemName = null;
+        Item searchedItem = null;
+        foreach(Dictionary<Item,int> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in equipment){        
+                searchedItem = kvp.Key;
+                searchedItemName = searchedItem.itemName;
+                if(searchedItemName == itemName){
                     return true;
                 }
             }
-            
         }
         return false;
     }
 
-    public static void RemoveEquipment(int equipmentID){
-        Equipment searchedEquipment = null;
-        int searchedEqipmentAmount = 0;
-        int searchedEqipmentID = -1;
+    public static void RemoveEquipment(int itemID){
+        Item searchedItem = null;
+        int searchedItemAmount = 0;
+        int searchedItemID = -1;
 
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList.ToList()){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){ 
-                searchedEquipment = kvp.Key;
-                searchedEqipmentAmount = kvp.Value;
-                searchedEqipmentID = searchedEquipment.ID;
-                if(equipmentID == searchedEqipmentID){
-                    houseInventoryList.Remove(allEquiptment);
+        foreach(Dictionary<Item , int> allItem in houseInventoryList.ToList()){
+            foreach(KeyValuePair<Item , int > kvp in allItem){ 
+                searchedItem = kvp.Key;
+                searchedItemAmount = kvp.Value;
+                searchedItemID = searchedItem.ID;
+                if(itemID == searchedItemID){
+                    houseInventoryList.Remove(allItem);
                     break;
                 }       
             }
@@ -125,14 +118,14 @@ public static class HouseInventorySystem {
     }
 
     public static void PrintInventory(){
-        Equipment searchedEquipment = null;
-        int searchedEqipmentAmount = 0;
+        Item searchedItem = null;
+        int searchedItemAmount = 0;
         Debug.Log("_____________________________________________________________________");
-        foreach(Dictionary<Equipment , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in allEquiptment){        
-                searchedEquipment = kvp.Key;
-                searchedEqipmentAmount = kvp.Value;
-                Debug.Log($"{searchedEquipment.equipmentName} : {searchedEqipmentAmount}");
+        foreach(Dictionary<Item , int> allEquiptment in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in allEquiptment){        
+                searchedItem = kvp.Key;
+                searchedItemAmount = kvp.Value;
+                Debug.Log($"{searchedItem.itemName} : {searchedItemAmount}");
             }
         }
         Debug.Log("_____________________________________________________________________");
@@ -140,55 +133,42 @@ public static class HouseInventorySystem {
 
    
 
-    public static int GetEquipmentAmount(Equipment craftedEquipment){
-        Equipment searchedEquipment = null;
-        int searchedEqipmentAmount = 0;
-        int equipmentAmount =0;
-        foreach(Dictionary<Equipment,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Equipment , int > kvp in equipment){        
-                searchedEquipment = kvp.Key;
-                searchedEqipmentAmount = kvp.Value;
-                if(searchedEquipment == craftedEquipment){
-                    return equipmentAmount = searchedEqipmentAmount;
+    public static int GetEquipmentAmount(Item craftedItem){
+        Item searchedItem = null;
+        int searchedItemAmount = 0;
+        int itemAmount =0;
+        foreach(Dictionary<Item,int> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in equipment){        
+                searchedItem = kvp.Key;
+                searchedItemAmount = kvp.Value;
+                if(searchedItem == craftedItem){
+                    return itemAmount = searchedItemAmount;
                 }
             }
         }
-        return equipmentAmount;
+        return itemAmount;
     }
 
-    public static void StackEquipmentAmount(Equipment craftedEquipment , int amount){
-        Equipment searchedEquipment = null;
-        foreach(Dictionary<Equipment,int> equipment in houseInventoryList){
+    public static void StackEquipmentAmount(Item craftedItem , int amount){
+        Item searchedItem = null;
+        foreach(Dictionary<Item,int> equipment in houseInventoryList){
             for(int index = 0 ; index < equipment.Count; index ++){
-                KeyValuePair <Equipment , int> kvp = equipment.ElementAt(index);
-                searchedEquipment = kvp.Key;
-                if(searchedEquipment == craftedEquipment){
-                    Debug.Log(searchedEquipment.equipmentName + "stacked");
-                    if(equipment.TryGetValue(craftedEquipment , out int currentAmount)){
-                        equipment[craftedEquipment] = currentAmount + amount;
+                KeyValuePair <Item , int> kvp = equipment.ElementAt(index);
+                searchedItem = kvp.Key;
+                if(searchedItem == craftedItem){
+                    Debug.Log(searchedItem.itemName + "stacked");
+                    if(equipment.TryGetValue(craftedItem , out int currentAmount)){
+                        equipment[craftedItem] = currentAmount + amount;
                     }
                 }
-            }
-            
+            }     
         }
     }
 
-    public static Equipment RandomEquipment()
+    public static Item RandomEquipment()
     {
         float totalWeight = 0;
         float value = UnityEngine.Random.value * totalWeight;
-
-
         return null;
     }
-
-
 }
-
-// public static class Extensions{
-//     public static void Increment<T>(this Dictionary<T,int> dict , T key , int amount){
-//         int count;
-//         dict.TryGetValue(key, out count);
-//         dict[key] = count + amount;
-//     }
-// }

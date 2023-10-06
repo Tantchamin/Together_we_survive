@@ -10,7 +10,7 @@ public class HouseCrafting : MonoBehaviour
 {
     GarageResourceManagerScript garageResourceManagerScript;
     KitchenResourceManagerScript KitchenResourceManagerScript;
-    [SerializeField] private List<Equipment> CraftedEquipmentList = new List<Equipment>();
+    [SerializeField] private List<Item> CraftedEquipmentList = new List<Item>();
 
     private string craftedEquipmentName;
     void Start()
@@ -22,7 +22,7 @@ public class HouseCrafting : MonoBehaviour
     [ContextMenu ("FillCraftingEquipmentList")]
     void FillCraftingEquipmentList() {
         CraftedEquipmentList = Resources.LoadAll("InventoryScriptableObject" , 
-        typeof(Equipment)).Cast<Equipment>().ToList();
+        typeof(Item)).Cast<Item>().ToList();
         
     }
 
@@ -30,13 +30,13 @@ public class HouseCrafting : MonoBehaviour
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         CraftUI craftUIScript =  clickedButton.GetComponentInParent<CraftUI>();
 
-        CraftedEquipment equipment = craftUIScript.GetCraftedEquipment();
+        CraftedItem equipment = craftUIScript.GetCraftedEquipment();
         if(CheckResource(equipment) == false) return;
         AddEquipment(equipment); 
     }
     
 
-    private bool CheckResource(CraftedEquipment equipment){
+    private bool CheckResource(CraftedItem equipment){
 
         int wood = garageResourceManagerScript.GetResourceFromList(0);
         int metal = garageResourceManagerScript.GetResourceFromList(1);
@@ -65,15 +65,15 @@ public class HouseCrafting : MonoBehaviour
         return false;
     }
 
-    private void AddEquipment(Equipment equipment){
+    private void AddEquipment(Item equipment){
         
-        if(equipment.itemType == Equipment.ItemType.Weapon)
+        if(equipment.itemType == Item.ItemType.Weapon)
         {
             var equipmentAsWeapon = equipment as Weapon;
             HouseInventorySystem.AddWeaponToWeaponList(equipmentAsWeapon);
             HouseInventorySystem.AddEquipment(equipment , 1);
         }
-        else if(equipment.itemType == Equipment.ItemType.Tool)
+        else if(equipment.itemType == Item.ItemType.Tool)
         {
             var equipmentAsTool = equipment as Tool;
             HouseInventorySystem.AddToolToToolList(equipmentAsTool);

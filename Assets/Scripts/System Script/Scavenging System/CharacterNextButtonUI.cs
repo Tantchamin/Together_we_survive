@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterNextButtonUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _mapLabel;
+    [SerializeField] private GameObject mapLabel , inventoryLabel;
     [SerializeField] private DayManagerScript dayManagerScript;
     ChooseCharacterManager chooseCharacterManager;
 
@@ -20,7 +20,7 @@ public class CharacterNextButtonUI : MonoBehaviour
     {
         if (chooseCharacterManager.IsHaveScavenger() == true)
         {
-            _mapLabel.SetActive(true);
+            inventoryLabel.SetActive(true);
             this.gameObject.SetActive(false);
         }
         else

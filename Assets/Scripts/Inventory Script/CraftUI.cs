@@ -4,7 +4,7 @@ using TMPro;
 public class CraftUI : MonoBehaviour
 {
     
-    [SerializeField] private CraftedEquipment craftedEquipment;
+    [SerializeField] private CraftedItem craftedEquipment;
 
     [SerializeField] private TextMeshProUGUI equipmentName;
     [SerializeField] private TextMeshProUGUI equipmentDescirption;
@@ -14,12 +14,12 @@ public class CraftUI : MonoBehaviour
 
     void Start()
     {
-        equipmentName.text = craftedEquipment.equipmentName;
+        equipmentName.text = craftedEquipment.itemName;
         equipmentDescirption.text = craftedEquipment.description;
         equipmentSprite.sprite  = craftedEquipment.equipmentIcon;
     }
 
-    public CraftedEquipment GetCraftedEquipment(){
+    public CraftedItem GetCraftedEquipment(){
         return craftedEquipment;
     }
 }

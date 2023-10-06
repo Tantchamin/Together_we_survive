@@ -17,7 +17,11 @@ public class ChooseCharacterManager : MonoBehaviour
     [SerializeField] private Toggle isBrotherScavenger;
     [SerializeField] private Toggle isBrotherGuard;
     [SerializeField] private Toggle isBrotherSleep;
+
+    [SerializeField] private ToggleGroup fatherToggleGroup , motherToggleGroup , sisterToggleGroup
+    , brotherToggleGroup;
     [SerializeField] private Button nextMapButton;
+    [SerializeField]private CharacterStat fatherCharacterStat , motherCharacterStat , sisterCharacterStat , brotherCharacterStat;
 
     private List<Toggle> guardToggleList = new List<Toggle>();
     bool isFatherToggle = false;
@@ -53,15 +57,17 @@ public class ChooseCharacterManager : MonoBehaviour
         guardToggleList.Add(isBrotherGuard);
         guardToggleList.Add(isMotherGuard);
         guardToggleList.Add(isSisterGuard);
+
     }
 
     
     public void Update()
     {  
-        CheclAllToggleList();
+        CheckAllToggleList();
+        DisableToggleGroup();
     }
 
-      private void CheclAllToggleList()
+    private void CheckAllToggleList()
     {
         isFatherToggle = CheckFatherToogleList();
         isMotherToggle = CheckMotherToggleList();
@@ -74,13 +80,39 @@ public class ChooseCharacterManager : MonoBehaviour
         CheckSisterScavenger();
         GetGuardPeopleAmount();
         CheckScavengerCondition();
-        
+    }
 
+    private void DisableToggleGroup()
+    {
+        if(fatherCharacterStat.IsDead == true)
+        {
+            isFatherGuard.isOn = false;
+            fatherToggleGroup.enabled = false;
+            fatherToggleGroup.gameObject.SetActive(false);
+        }
+        if(motherCharacterStat.IsDead == true)
+        {
+            isMotherGuard.isOn = false;
+            motherToggleGroup.enabled = false;
+            motherToggleGroup.gameObject.SetActive(false);
+        }
+        if(sisterCharacterStat.IsDead == true)
+        {
+            isSisterGuard.isOn = false;
+            sisterToggleGroup.enabled = false;
+            sisterToggleGroup.gameObject.SetActive(false);
+        }
+        if(brotherCharacterStat.IsDead == true)
+        {
+            isBrotherGuard.isOn = false;
+            brotherToggleGroup.enabled = false;
+            brotherToggleGroup.gameObject.SetActive(false);
+        }
     }
 
     private bool CheckFatherToogleList()
     {
-
+        if(fatherToggleGroup.isActiveAndEnabled == false) return true;
         if (isFatherScravenger.isOn == false && isFatherGuard.isOn == false && isFatherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -95,6 +127,7 @@ public class ChooseCharacterManager : MonoBehaviour
 
     private bool CheckMotherToggleList()
     {
+        if(motherToggleGroup.isActiveAndEnabled == false) return true;
         if (isMotherScavenger.isOn == false && isMotherGuard.isOn == false && isMotherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -107,6 +140,7 @@ public class ChooseCharacterManager : MonoBehaviour
     }
     private bool CheckBrotherToggleList()
     {
+        if(brotherToggleGroup.isActiveAndEnabled == false) return true;
         if (isBrotherScavenger.isOn == false && isBrotherGuard.isOn == false && isBrotherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -120,6 +154,7 @@ public class ChooseCharacterManager : MonoBehaviour
 
     private bool CheckSisterToogleList()
     {
+        if(sisterToggleGroup.isActiveAndEnabled == false) return true;
         if (isSisterScavenger.isOn == false && isSisterGuard.isOn == false && isSisterSleep.isOn == false)
         {
             NextMapInteraction(false);
