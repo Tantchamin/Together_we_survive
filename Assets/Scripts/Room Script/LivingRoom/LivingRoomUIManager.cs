@@ -5,7 +5,7 @@ using UnityEngine;
 public class LivingRoomUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject livingRoomBG, livingRoomFrontUI, eatingManageUI, endDayButton
-    , temperatureText , dayText; 
+    , temperatureText , dayText , furnanceUIButton; 
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,7 @@ public class LivingRoomUIManager : MonoBehaviour
         endDayButton.SetActive(_uiActive);
         temperatureText.SetActive(_uiActive);
         dayText.SetActive(_uiActive);
+        furnanceUIButton.SetActive(_uiActive);
     }
 
     public void DisplayEatingManageUI(bool _isDisplay)

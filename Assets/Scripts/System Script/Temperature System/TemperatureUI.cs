@@ -8,6 +8,9 @@ public class TemperatureUI : MonoBehaviour
     public void Awake() 
     {
         temperatureManager = GetComponent<TemperatureManager>();
+    }
+
+    private void OnEnable() {
         temperatureManager.OnTemperatureChanged += SetTemperatureUI;
     }
 
@@ -17,9 +20,9 @@ public class TemperatureUI : MonoBehaviour
     }
 
 
-    private void SetTemperatureUI(byte temperature)
+    private void SetTemperatureUI(float temperature)
     {
-        temperatureText.text = $"Temperature : {temperature}";
+        temperatureText.text = $"Temperature :  {temperature:0.00}";
     }
 
     

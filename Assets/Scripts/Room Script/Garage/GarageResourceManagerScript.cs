@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class GarageResourceManagerScript : MonoBehaviour
 {
+    
     GarageResourceDisplayScript garageResourceDisplayScript;
     [SerializeField] private int woodAmount, metalAmount, tapeAmount, clotheAmount, 
      gunComponentAmount,  gunPowderAmount , herbAmount;
+    
     public static event Action OnValueChanged;
     private int CheatStartingResource = 100000;
     void Start()
@@ -17,13 +19,13 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
     private void SetStartingResource()
     {
-        WoodAmount = 0; 
-        MetalAmount = 0;
-        TapeAmount = 0;
-        ClotheAmount = 0;
-        GunComponentAmount = 0;
-        GunPowderAmount = 0;
-        HerbAmount = 0;
+        WoodAmount = CheatStartingResource; 
+        MetalAmount = CheatStartingResource;
+        TapeAmount = CheatStartingResource;
+        ClotheAmount = CheatStartingResource;
+        GunComponentAmount = CheatStartingResource;
+        GunPowderAmount = CheatStartingResource;
+        HerbAmount = CheatStartingResource;
     }
 
     public int WoodAmount
@@ -95,6 +97,10 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
    
 }
+
+
+
+
 
   
     

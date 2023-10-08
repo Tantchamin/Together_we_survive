@@ -66,22 +66,36 @@ public class HouseCrafting : MonoBehaviour
     }
 
     private void AddEquipment(Item item){
-        
-        if(item.itemType == Item.ItemType.Weapon)
+
+        if(item is Weapon)
         {
             var equipmentAsWeapon = item as Weapon;
             HouseInventorySystem.AddWeaponToWeaponList(equipmentAsWeapon);
-            HouseInventorySystem.AddEquipment(item , 1);
+            HouseInventorySystem.AddItem(item , 1);
         }
-        else if(item.itemType == Item.ItemType.Tool)
+        else if(item is Tool)
         {
             var equipmentAsTool = item as Tool;
             HouseInventorySystem.AddToolToToolList(equipmentAsTool);
-            HouseInventorySystem.AddEquipment(item , 1);
+            HouseInventorySystem.AddItem(item , 1);
         }
-        else 
+        else if(item is Fuel)
         {
-            HouseInventorySystem.AddEquipment(item , 1);
+            var equipmentAsFuel = item as Fuel;
+            HouseInventorySystem.AddFuelToFuelList(equipmentAsFuel);
+            HouseInventorySystem.AddItem(item , 1);
+        }
+        else if(item is Medicine)
+        {
+            var equipmentAsMed = item as Medicine;
+            HouseInventorySystem.AddMedicineToMedList(equipmentAsMed);
+            HouseInventorySystem.AddItem(item , 1);
+        }
+        else if(item is Ammo)
+        {
+            var equipmentAsAmmo = item as Ammo;
+            HouseInventorySystem.AddAmmoToAmmoList(equipmentAsAmmo);
+            HouseInventorySystem.AddItem(item , 1);
         }
         
     }

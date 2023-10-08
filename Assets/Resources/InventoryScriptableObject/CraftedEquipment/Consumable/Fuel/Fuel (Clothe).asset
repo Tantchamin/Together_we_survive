@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4543fcb05312a847a85a7056766032b, type: 3}
   m_Name: Fuel (Clothe)
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Fuel(Clothe)
   ID: 0
   description: A fuel that made from clothe and flamable herb. not good at conducting
     a fire but can be use in some specific reason
@@ -21,9 +21,9 @@ MonoBehaviour:
   woodAmount: 0
   metalAmount: 0
   tapeAmount: 0
-  clotheAmount: 0
+  clotheAmount: 4
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
   craftStackSize: 0
-  fuelAmount: 3
+  fuelAmount: 2

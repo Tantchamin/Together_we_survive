@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         
@@ -120,3 +121,19 @@ public class NewBehaviourScript : MonoBehaviour
 
     } */
 }
+
+// [Serializable]
+//     public class ResourceData
+//     {
+//         public string resourceName;
+//         private int amount;
+
+//         public int Amount
+//         {
+//             get => amount;
+//             set
+//             {
+//                 amount = value;
+//             }
+//         } 
+//     }

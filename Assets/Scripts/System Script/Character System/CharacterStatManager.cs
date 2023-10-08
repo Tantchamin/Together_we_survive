@@ -169,12 +169,12 @@ public class CharacterStatManager : MonoBehaviour
 
     private void CheckTemperatureLevel()
     {
-        byte _temperature = temperatureManager.GetTemperature();
+        float _temperature = temperatureManager.GetTemperature();
         characterTemperatureState = (_temperature >= 35) ? CharacterTemperatureState.Burn :
-        (_temperature >= 28 && _temperature <= 34) ? CharacterTemperatureState.Hot :
-        (_temperature >= 22 && _temperature <= 27) ? CharacterTemperatureState.Normal :
+        (_temperature >= 27 && _temperature <= 34) ? CharacterTemperatureState.Hot :
+        (_temperature >= 23 && _temperature <= 26) ? CharacterTemperatureState.Normal :
         (_temperature >= 18 && _temperature <= 22) ? CharacterTemperatureState.Cold :
-        (_temperature < 22 ) ? CharacterTemperatureState.Freeze : characterTemperatureState;
+        (_temperature < 18 ) ? CharacterTemperatureState.Freeze : characterTemperatureState;
     }
     private void SetDailyHealthDecrease()
     {

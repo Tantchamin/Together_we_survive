@@ -12,8 +12,10 @@ public abstract class Item : ScriptableObject
     public Sprite itemIcon;
     public ItemType  itemType;
     public  enum ItemType{
-        Consumable ,
+        Fuel,
         Weapon ,
         Tool,
+        Medicine,
+        Ammo
     }
 }
