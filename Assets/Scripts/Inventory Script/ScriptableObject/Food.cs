@@ -1,14 +1,13 @@
 using System;
-using Mono.Cecil;
 using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "SeniorProjectGame/CraftedItem/Consumable/Food", order =4)]
 
 public class Food : Consumable
 {
-    [SerializeField] private byte hungerRestoreAmount;
-    [SerializeField] private byte fuelAmount;
+    public  byte hungerRestoreAmount;
+    public  byte fuelAmount;
     
-    [SerializeField] private byte meatAmount, potatoAmount, 
+    public byte meatAmount, potatoAmount, 
     cucumberAmount ,tomatoAmount , cabbageAmount , carrotAmount;
 
 

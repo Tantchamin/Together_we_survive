@@ -12,9 +12,7 @@ public class FuelUI : MonoBehaviour
     [SerializeField] public Item craftedItem;
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] public TextMeshProUGUI fuelAmount;
-    [SerializeField] private TextMeshProUGUI itemDescription;
-
-    [SerializeField] private GameObject itemDescriptionPanel;
+    [SerializeField] private Button furnanceButton;
     [SerializeField] private Image itemSprite;
     public static event Action<Fuel> OnFuelUse; 
     Fuel fuel;
@@ -26,10 +24,6 @@ public class FuelUI : MonoBehaviour
         UpdateText();
     }
 
-
-    private void Start() {
-        itemDescriptionPanel.SetActive(false);
-    }
     public void SetCraftedEquipment(Item item){
         craftedItem = item;
         SetInvetoryItem();
@@ -39,20 +33,24 @@ public class FuelUI : MonoBehaviour
     private void OnEnable() {
         HouseInventorySystem.OnValueChanged += UpdateText;
         HouseInventorySystem.OnItemDepleted += DestroyItem;
-        Furnance.OnPutFuel += UpdateText;
+
+        Furnace.OnFurnaceSwitch += DisableFurnanceButton;
+        Furnace.OnPutFuel += UpdateText;
+
+        DisableFurnanceButton(false);
     }
     private void OnDisable() {
         HouseInventorySystem.OnValueChanged -= UpdateText;
         HouseInventorySystem.OnItemDepleted -= DestroyItem;
 
-        Furnance.OnPutFuel += UpdateText;
+        Furnace.OnFurnaceSwitch -= DisableFurnanceButton;
+        Furnace.OnPutFuel -= UpdateText;
 
     }
 
     private void SetInvetoryItem(){
         itemName.text = craftedItem.itemName;
         itemSprite.sprite  = craftedItem.itemIcon;
-        itemDescription.text = craftedItem.description;
         
     }
 
@@ -80,10 +78,23 @@ public class FuelUI : MonoBehaviour
         }
 
     }
+    private void DisableFurnanceButton(bool _isEnabled)
+    {
+        if(Furnace.isFurnaceOn == true)
+        {
+            Debug.Log("Hello");
+            furnanceButton.interactable = false;
+        }
+        else{
+            furnanceButton.interactable = true;
+        }
         
 
+        
+    }
 
-    public Item GetCraftedEquipment(){
+
+    public Item GetCraftedItem(){
 
         return craftedItem;
     }

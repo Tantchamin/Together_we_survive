@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Furnance : MonoBehaviour
+public class Furnace : MonoBehaviour
 {
     [SerializeField] private byte maxFuel = 10;
     public byte MaxFuel
@@ -22,7 +22,7 @@ public class Furnance : MonoBehaviour
         }
     }
     private float fuelHeat = 0.2f;
-    [SerializeField] private bool isFurnanceOn =false;
+    public static bool isFurnaceOn =false;
     public int FuelConsumption
     {
         get => fuelConsumption;
@@ -35,6 +35,7 @@ public class Furnance : MonoBehaviour
     }
     private TemperatureManager temperatureManager;
     public static event Action OnPutFuel , OnValueChanged;
+    public static event Action<bool> OnFurnaceSwitch;
     private void Awake() {
         temperatureManager = FindObjectOfType<TemperatureManager>();
     }
@@ -42,12 +43,17 @@ public class Furnance : MonoBehaviour
     {
         DayManagerScript.OnDayStart += ReduceFuelDaily;
         DayManagerScript.OnDayStart += TemperatureReduceByFuel;
+        
+
+
         FuelUI.OnFuelUse += AddFuel;
     }
     private void OnDisable() 
     {
         DayManagerScript.OnDayStart -= ReduceFuelDaily;
         DayManagerScript.OnDayStart -= TemperatureReduceByFuel;
+
+
         FuelUI.OnFuelUse -= AddFuel;
     }
     private void Start() 
@@ -57,6 +63,7 @@ public class Furnance : MonoBehaviour
 
     public void AddFuel(Fuel fuel)
     {
+        if(isFurnaceOn == true) return;
         if(HouseInventorySystem.GetItemAmount(fuel) <= 0) return;
         if(currentFuel == maxFuel) return;
         if(currentFuel < maxFuel)
@@ -73,7 +80,7 @@ public class Furnance : MonoBehaviour
     }
     private void ReduceFuelDaily()
     {
-        if(isFurnanceOn == false) return;
+        if(isFurnaceOn == false) return;
         if(currentFuel >= 0)
         {
             CurrentFuel-= fuelConsumption;
@@ -84,22 +91,29 @@ public class Furnance : MonoBehaviour
         }
         
     }
-    public void ToggleFurnance()
+    public void ToggleFurnace()
     {
-        isFurnanceOn = !isFurnanceOn;
+        if(currentFuel == 0) return;
+        isFurnaceOn = !isFurnaceOn;
+        if(isFurnaceOn == true)
+        {
+            CurrentFuel -= 1;
+
+        }
+        OnFurnaceSwitch?.Invoke(isFurnaceOn);
         TemperatureReduceByFuel();
     }
 
     public void TemperatureReduceByFuel()
     {
-        float _temperatureReduce = currentFuel * fuelHeat;
-        if(isFurnanceOn == true)
+        float _temperatureIncrease = currentFuel * fuelHeat;
+        if(isFurnaceOn == true)
         {
-            temperatureManager.Temperature += _temperatureReduce;
+            temperatureManager.Temperature += _temperatureIncrease;
         }
         else
         {
-            temperatureManager.Temperature -= _temperatureReduce;
+            temperatureManager.Temperature -= _temperatureIncrease;
         }
         
 

@@ -23,11 +23,11 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable() {
        // HouseInventorySystem.OnValueChanged += UpdateText;
-        Furnance.OnPutFuel += UpdateText;
+        Furnace.OnPutFuel += UpdateText;
     }
     private void OnDisable() {
        // HouseInventorySystem.OnValueChanged -= UpdateText;
-        Furnance.OnPutFuel += UpdateText;
+        Furnace.OnPutFuel += UpdateText;
 
     }
 

@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnanceFuel : MonoBehaviour
+public class FurnaceFuel : MonoBehaviour
 {
     [SerializeField] private GameObject fuelUI;
     [SerializeField] private Transform inventoryContent;
     private FuelUI fuelUIScript;
     [SerializeField]  List<Item> itemList = new List<Item>();
     [SerializeField] List<int> itemAmountList = new List<int>();
+    public static event Action OnShowList;
 
     public void ShowList()
     {
@@ -31,10 +32,12 @@ public class FurnanceFuel : MonoBehaviour
         //         }
         //     }
         // }
+        OnShowList?.Invoke();
         itemList = HouseInventorySystem.GetItemListWithOutAmount();
         itemAmountList = HouseInventorySystem.GetItemAmountList();
-        foreach(Fuel fuel in itemList)
+        foreach(Item item in itemList)
         {
+            Fuel fuel = item as Fuel;
             if(IsItemInstantiated(fuel) == false)
             {
                 GameObject obj = Instantiate(fuelUI , inventoryContent);
@@ -58,7 +61,7 @@ public class FurnanceFuel : MonoBehaviour
         Item searchedItem = null;
         foreach(Transform item in inventoryContent){
             fuelUIScript = item.gameObject.GetComponent<FuelUI>();
-            searchedItem = fuelUIScript.GetCraftedEquipment();
+            searchedItem = fuelUIScript.GetCraftedItem();
             if(fuel == searchedItem){
                 return true;
             }
