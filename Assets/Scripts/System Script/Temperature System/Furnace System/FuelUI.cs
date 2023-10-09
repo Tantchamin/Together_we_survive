@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 
 public class FuelUI : MonoBehaviour
 {
-
     [SerializeField] public Item craftedItem;
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] public TextMeshProUGUI fuelAmount;
-    [SerializeField] private Button furnanceButton;
+    [SerializeField] private Button button;
     [SerializeField] private Image itemSprite;
     public static event Action<Fuel> OnFuelUse; 
     Fuel fuel;
@@ -27,7 +23,6 @@ public class FuelUI : MonoBehaviour
     public void SetCraftedEquipment(Item item){
         craftedItem = item;
         SetInvetoryItem();
-        ConsumableItem();
     }
 
     private void OnEnable() {
@@ -35,6 +30,8 @@ public class FuelUI : MonoBehaviour
         HouseInventorySystem.OnItemDepleted += DestroyItem;
 
         Furnace.OnFurnaceSwitch += DisableFurnanceButton;
+        CookStove.OnLightedSwitch += DisableCookStoveButton;
+
         Furnace.OnPutFuel += UpdateText;
 
         DisableFurnanceButton(false);
@@ -44,6 +41,8 @@ public class FuelUI : MonoBehaviour
         HouseInventorySystem.OnItemDepleted -= DestroyItem;
 
         Furnace.OnFurnaceSwitch -= DisableFurnanceButton;
+        CookStove.OnLightedSwitch -= DisableCookStoveButton;
+
         Furnace.OnPutFuel -= UpdateText;
 
     }
@@ -52,15 +51,6 @@ public class FuelUI : MonoBehaviour
         itemName.text = craftedItem.itemName;
         itemSprite.sprite  = craftedItem.itemIcon;
         
-    }
-
-    private void ConsumableItem(){
-        if(craftedItem is Fuel || craftedItem is Medicine || craftedItem is Food){
-            fuelAmount.text = HouseInventorySystem.GetItemAmount(craftedItem).ToString();   
-        }
-        else{
-            fuelAmount.enabled = false;
-        }
     }
 
     public virtual void UpdateText()
@@ -80,20 +70,30 @@ public class FuelUI : MonoBehaviour
     }
     private void DisableFurnanceButton(bool _isEnabled)
     {
-        if(Furnace.isFurnaceOn == true)
+
+        if(Furnace.isIgnited == true)
         {
-            Debug.Log("Hello");
-            furnanceButton.interactable = false;
+            button.interactable = false;
+            UpdateText();
         }
         else{
-            furnanceButton.interactable = true;
+            button.interactable = true;
+            UpdateText();
         }
-        
-
-        
     }
 
-
+    private void DisableCookStoveButton(bool _isEnabled)
+    {
+        if(CookStove.isIgnited == true)
+        {
+            button.interactable = false;
+            UpdateText();
+        }
+        else{
+            button.interactable = true;
+            UpdateText();
+        }
+    }
     public Item GetCraftedItem(){
 
         return craftedItem;

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ab5ddfc2627242b5f6466d4e56361, type: 3}
+  m_Name: Steak & Egg
+  m_EditorClassIdentifier: 
+  itemName: Steak & Egg
+  ID: 0
+  description: The best dish that could ever be cooked in the apocalypse is a well-done
+    steak with tomato sauce topped with an egg and mashed potatoes. Taste amazing
+    would fill up a growth man.
+  itemIcon: {fileID: 21300000, guid: b2921e23047f1d4469fd9d9876e575a9, type: 3}
+  itemType: 5
+  hungerRestoreAmount: 10
+  fuelAmount: 8
+  meatAmount: 4
+  potatoAmount: 3
+  vegetableAmount: 0
+  cucumberAmount: 0
+  tomatoAmount: 3
+  cabbageAmount: 0
+  carrotAmount: 0
+  taste: 2
+  foodGrade: 3

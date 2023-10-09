@@ -26,7 +26,7 @@ MonoBehaviour:
   clotheAmount: 0
   gunComponentAmount: 0
   gunPowderAmount: 0
-  herbAmount: 0
+  herbAmount: 20
   craftStackSize: 0
   healAmount: 3
   infectedAmount: 3

@@ -16,6 +16,8 @@ public abstract class Item : ScriptableObject
         Weapon ,
         Tool,
         Medicine,
-        Ammo
+        Ammo, 
+        Food,
+        Condiment
     }
 }

@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -13,10 +10,6 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private List<Item> craftedItemList = new List<Item>();
     [SerializeField] public List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
-    // [SerializeField] private List<Weapon> weaponList = new List<Weapon>();
-    // [SerializeField] private List<Tool> toolList = new List<Tool>();
-    // [SerializeField] private List<Medicine> medicineList = new List<Medicine>();
-    // [SerializeField] private List<Ammo> ammoList = new List<Ammo>();
 
     [SerializeField] private Transform inventoryContent;
 
@@ -30,7 +23,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Item item in craftedItemList){   
             if(HouseInventorySystem.GetItemAmount(item) == 0) return;    
             Debug.Log(item.itemName);
-            if(IsItemInstantiated(item) == false){
+            if(IsItemInstantiated(item) == false && item.itemType != Item.ItemType.Food){
                 GameObject obj = Instantiate(inventoryUI , inventoryContent);
                 inventoryUIscript = obj.GetComponent<InventoryUI>();
                 inventoryUIscript.SetCraftedEquipment(item);    
@@ -55,10 +48,6 @@ public class InventoryManager : MonoBehaviour
     {
         houseInventoryList = HouseInventorySystem.GetItemListWithAmount();
         craftedItemList = HouseInventorySystem.GetItemListWithOutAmount();
-        // weaponList = HouseInventorySystem.GetWeaponList();
-        // toolList = HouseInventorySystem.GetToolsList();
-        // ammoList = HouseInventorySystem.GetAmmoList();
-        // medicineList = HouseInventorySystem.GetMedicineList();
     }
 
     private bool IsItemInstantiated(Item craftedEquipment){

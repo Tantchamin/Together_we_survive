@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ab5ddfc2627242b5f6466d4e56361, type: 3}
+  m_Name: Meat Salad
+  m_EditorClassIdentifier: 
+  itemName: Vegetable Salad
+  ID: 0
+  description: A vegetable salad with sliced grilled meat, will give few amount of
+    calories but still with kids and women. looks common but not bad.
+  itemIcon: {fileID: 21300000, guid: 013bfad3b1936e64e90750f413602455, type: 3}
+  itemType: 5
+  hungerRestoreAmount: 5
+  fuelAmount: 4
+  meatAmount: 2
+  potatoAmount: 0
+  vegetableAmount: 3
+  cucumberAmount: 0
+  tomatoAmount: 0
+  cabbageAmount: 0
+  carrotAmount: 0
+  taste: 0
+  foodGrade: 2

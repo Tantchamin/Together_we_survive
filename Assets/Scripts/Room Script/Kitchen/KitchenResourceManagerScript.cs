@@ -1,19 +1,27 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class KitchenResourceManagerScript : MonoBehaviour
 {
     KitchenResourceDisplayScript kitchenResourceFrontendScript;
-    [SerializeField] private int rawFoodAmount = 0 , rawVegetableAmount = 0, canFoodAmount = 0 , 
-    medicineAmount = 0 , waterAmount = 0, bandageAmount = 0 , potatoAmount = 0 , carrotAmount  = 0 , tomatoAmount = 0 , cabbageAmount = 0 , cucumberAmount = 0;
+    [SerializeField] private int rawMeatAmount = 0 , rawVegetableAmount = 0, canFoodAmount = 0 , 
+     waterAmount = 0, potatoAmount = 0 , carrotAmount  = 0 , tomatoAmount = 0 , cabbageAmount = 0 , cucumberAmount = 0;
     public event Action OnValueChanged , OnVegetableValueChanged;
+
+    [SerializeField] public IList<int> veggieList = new List<int>();
 
     void Start() 
     {
+        veggieList.Add(potatoAmount);
+        veggieList.Add(cabbageAmount);
+        veggieList.Add(carrotAmount);
+        veggieList.Add(tomatoAmount);
+        veggieList.Add(cucumberAmount);
+
         SetStartingResource();
-        SumRawVegetable();   
+        SumRawVegetable();
+
 
     }
     private void OnEnable() 
@@ -37,21 +45,19 @@ public class KitchenResourceManagerScript : MonoBehaviour
     private void SetStartingResource()
     {
         // Maybe Change Difficulty And this will change
-        RawFoodAmount = 4;
+        RawMeatAmount = 14;
         CanFoodAmount = 0;
-        MedicineAmount = 0;
-        BandageAmount = 0;
-        PotatoAmount = 0;
+        PotatoAmount = 10;
         CarrotAmount = 0;
         CabbageAmount = 0;
         TomatoAmount = 0;
     }
     
-    public int RawFoodAmount
+    public int RawMeatAmount
     {
-        get => rawFoodAmount ; 
+        get => rawMeatAmount ; 
         set {
-            rawFoodAmount = value;   
+            rawMeatAmount = value;   
             OnValueChanged?.Invoke();
     }}
     
@@ -72,30 +78,12 @@ public class KitchenResourceManagerScript : MonoBehaviour
         }
     }
 
-    public int MedicineAmount
-    {
-        get => medicineAmount;
-        set {
-            OnValueChanged?.Invoke();
-            medicineAmount = value;
-           
-        }
-    }
     public int WaterAmount
     {
         get => waterAmount;
         set{
             OnValueChanged?.Invoke();
             waterAmount = value;
-            
-        }
-    }
-    public int BandageAmount
-    {
-        get => bandageAmount;
-        set{
-            OnValueChanged?.Invoke();
-            bandageAmount = value;
             
         }
     }

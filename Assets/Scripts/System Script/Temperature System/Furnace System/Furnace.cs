@@ -3,39 +3,42 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Furnace : MonoBehaviour
+public class Furnace : Bonfire
 {
-    [SerializeField] private byte maxFuel = 10;
-    public byte MaxFuel
+    [SerializeField] private byte maxFuel;
+    public virtual byte MaxFuel
     {
         get => maxFuel;
-        set => maxFuel = value;
+        private set{}
     }
-    [SerializeField] private byte currentFuel = 0 , fuelConsumption = 2;
-    public byte CurrentFuel 
+    [SerializeField] private byte currentFuel;
+    public virtual byte CurrentFuel 
     {
-        get => currentFuel;
-        set
-        {
+        get => currentFuel; 
+        set {
             currentFuel = value;
             OnValueChanged?.Invoke();
         }
     }
-    private float fuelHeat = 0.2f;
-    public static bool isFurnaceOn =false;
-    public int FuelConsumption
+    [SerializeField] public static bool isIgnited;
+    public virtual bool IsIgnited
     {
-        get => fuelConsumption;
-        set => fuelConsumption = (byte)value;
+        get => isIgnited;
+        set => isIgnited = value;
     }
+    public static event Action OnPutFuel , OnValueChanged;
+    public static event Action<bool> OnLightedSwitch;
+    [SerializeField] private byte fuelConsumption;
+    private float fuelHeat = 0.2f;
+    bool _isThisActive = false;
     public float FuelHeat 
     {
         get => fuelHeat;
         set => fuelHeat = value;
-    }
-    private TemperatureManager temperatureManager;
-    public static event Action OnPutFuel , OnValueChanged;
+    }    
     public static event Action<bool> OnFurnaceSwitch;
+    private TemperatureManager temperatureManager;
+
     private void Awake() {
         temperatureManager = FindObjectOfType<TemperatureManager>();
     }
@@ -44,6 +47,8 @@ public class Furnace : MonoBehaviour
         DayManagerScript.OnDayStart += ReduceFuelDaily;
         DayManagerScript.OnDayStart += TemperatureReduceByFuel;
         
+        FurnaceFuel.OnFurnaceListShow += FurnaceActive;
+        FurnaceFuel.OnFurnaceListUnShow += FurnaceInActive;
 
 
         FuelUI.OnFuelUse += AddFuel;
@@ -53,61 +58,75 @@ public class Furnace : MonoBehaviour
         DayManagerScript.OnDayStart -= ReduceFuelDaily;
         DayManagerScript.OnDayStart -= TemperatureReduceByFuel;
 
+        FurnaceFuel.OnFurnaceListShow -= FurnaceActive;
+        FurnaceFuel.OnFurnaceListUnShow -= FurnaceInActive;
 
         FuelUI.OnFuelUse -= AddFuel;
     }
     private void Start() 
     {
-        currentFuel = 5;
+        CurrentFuel = 5;
     }
 
-    public void AddFuel(Fuel fuel)
+    public override void AddFuel(Fuel fuel)
     {
-        if(isFurnaceOn == true) return;
+        if(_isThisActive == false) return;
+        if(IsIgnited == true) return;
         if(HouseInventorySystem.GetItemAmount(fuel) <= 0) return;
-        if(currentFuel == maxFuel) return;
-        if(currentFuel < maxFuel)
+        if(CurrentFuel == MaxFuel) return;
+        if(CurrentFuel < MaxFuel)
         {
             CurrentFuel += fuel.FuelAmount;
         }
-        if(currentFuel > maxFuel)
+        if(CurrentFuel > MaxFuel)
         {
-            CurrentFuel = maxFuel;
+            CurrentFuel = MaxFuel;
         }
-        OnPutFuel?.Invoke();
+        
 
         HouseInventorySystem.UseItem(fuel , 1);
     }
+
+    private void FurnaceActive()
+    {
+        _isThisActive = true;
+    }
+    private void FurnaceInActive()
+    {
+        _isThisActive = false;
+    }
     private void ReduceFuelDaily()
     {
-        if(isFurnaceOn == false) return;
-        if(currentFuel >= 0)
+        if(IsIgnited == false) return;
+        if(CurrentFuel > 0)
         {
             CurrentFuel-= fuelConsumption;
         }
-        if(currentFuel < 0)
+        else if(CurrentFuel < 0)
         {
             CurrentFuel = 0;
         }
-        
+        else if(CurrentFuel == 0)
+        {
+            IsIgnited = false;
+        }
     }
-    public void ToggleFurnace()
+    public override void ToggleOnOff()
     {
-        if(currentFuel == 0) return;
-        isFurnaceOn = !isFurnaceOn;
-        if(isFurnaceOn == true)
+        IsIgnited = !IsIgnited;
+        if(IsIgnited == true && CurrentFuel >= 1)
         {
             CurrentFuel -= 1;
 
         }
-        OnFurnaceSwitch?.Invoke(isFurnaceOn);
+        OnFurnaceSwitch?.Invoke(IsIgnited);
         TemperatureReduceByFuel();
     }
 
     public void TemperatureReduceByFuel()
     {
-        float _temperatureIncrease = currentFuel * fuelHeat;
-        if(isFurnaceOn == true)
+        float _temperatureIncrease = CurrentFuel * FuelHeat;
+        if(IsIgnited == true)
         {
             temperatureManager.Temperature += _temperatureIncrease;
         }
@@ -118,6 +137,5 @@ public class Furnace : MonoBehaviour
         
 
     }
-
 
 }

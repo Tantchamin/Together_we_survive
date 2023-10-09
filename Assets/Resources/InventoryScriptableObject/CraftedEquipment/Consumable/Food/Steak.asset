@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ab5ddfc2627242b5f6466d4e56361, type: 3}
+  m_Name: Steak
+  m_EditorClassIdentifier: 
+  itemName: Steak
+  ID: 0
+  description: A properly cooked grilled steak side with some mashed raw potatoes
+    looks pretty tasty and charming to eat. coud raise up the spirit more with extra
+    condiment.
+  itemIcon: {fileID: 21300000, guid: d88a7f23ddff0404f90b5d8fd332b14f, type: 3}
+  itemType: 5
+  hungerRestoreAmount: 6
+  thirstyRestoreAmount: 0
+  fuelAmount: 5
+  meatAmount: 3
+  potatoAmount: 3
+  vegetableAmount: 2
+  cucumberAmount: 0
+  tomatoAmount: 0
+  cabbageAmount: 0
+  carrotAmount: 0
+  waterAmount: 0
+  taste: 4
+  foodGrade: 2

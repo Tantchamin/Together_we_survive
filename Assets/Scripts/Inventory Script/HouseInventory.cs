@@ -11,7 +11,7 @@ public static class HouseInventorySystem {
     private static List<Ammo> houseAmmoList = new List<Ammo>();
     private static List<Medicine> houseMedList = new List<Medicine>();
     private static List<int> houseItemAmountList = new List<int>();
-
+    private static List<Food> houseFoodList = new List<Food>();
     private static List<Item> houseInventoryListWithoutAMount = new List<Item>();
     private static Dictionary<Item , int > inventoryDictionary = new Dictionary<Item, int>();
     public static List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
@@ -19,11 +19,11 @@ public static class HouseInventorySystem {
     public static event Action<Item> OnItemDepleted;
     public static void AddItem(Item item , int amount){  
         if(CheckItem(item) == false){
-            Dictionary<Item , int> addedEqiupment = new Dictionary<Item, int>
+            Dictionary<Item , int> addedItem = new Dictionary<Item, int>
             {
                 { item, amount }
             };
-            houseInventoryList.Add(addedEqiupment);
+            houseInventoryList.Add(addedItem);
         }else if(CheckItem(item) == true && (item.itemType == Item.ItemType.Tool || 
         item.itemType == Item.ItemType.Weapon)){
             Dictionary<Item , int> addedEqiupment = new Dictionary<Item, int>
@@ -55,6 +55,10 @@ public static class HouseInventorySystem {
     public static void AddAmmoToAmmoList(Ammo ammo)
     {
         houseAmmoList.Add(ammo);
+    }
+    public static void AddFoodToFoodList(Food food)
+    {
+        houseFoodList.Add(food);
     }
     public static List<int> GetItemAmountList()
     {
@@ -109,14 +113,23 @@ public static class HouseInventorySystem {
     {
         return houseAmmoList;
     }
+    public static List<Food> GetFoodList()
+    {
+        foreach(Item item in houseInventoryListWithoutAMount)
+        {
+            if(item.itemType == Item.ItemType.Food)
+            {
+                houseFoodList.Add(item as Food);
+            }
+        }
+        return houseFoodList;
+    }
 
     public static bool CheckItem(Item craftedItem){
         Item searchedItem;
         foreach(Dictionary<Item , int> allItem in houseInventoryList){
             foreach(KeyValuePair<Item , int > kvp in allItem){ 
                 searchedItem = kvp.Key;
-                Debug.Log(craftedItem.itemName);
-                Debug.Log(searchedItem.itemName);
                 if(craftedItem == searchedItem){
                     return true;
                 }     
@@ -186,6 +199,23 @@ public static class HouseInventorySystem {
         }
         return searchedItemAmount;
     }
+    public static int GetItemAmount(string craftedItem){
+        Item searchedItem = null;
+        string searchedItemName = "";
+        int searchedItemAmount = 0;
+        foreach(Dictionary<Item,int> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , int > kvp in equipment){        
+                searchedItem = kvp.Key;
+                searchedItemAmount = kvp.Value;
+                searchedItemName = kvp.Key.itemName;
+                if(searchedItemName == craftedItem){
+                    return searchedItemAmount;
+                    
+                }
+            }
+        }
+        return searchedItemAmount;
+    }
 
     public static void StackItemAmount(Item craftedItem , int amount){
         Item searchedItem = null;
@@ -235,7 +265,6 @@ public static class HouseInventorySystem {
             }     
         }
     }
-
 
     public static Item RandomItem()
     {

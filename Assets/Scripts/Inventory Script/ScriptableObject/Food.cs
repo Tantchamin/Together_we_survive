@@ -1,21 +1,35 @@
 using System;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Item", menuName = "SeniorProjectGame/CraftedItem/Consumable/Food", order =4)]
+[CreateAssetMenu(fileName = "Item", menuName = "SeniorProjectGame/Item/Food", order =1)]
 
-public class Food : Consumable
+public class Food : Item
 {
     public  byte hungerRestoreAmount;
+    public byte thirstyRestoreAmount;
     public  byte fuelAmount;
     
-    public byte meatAmount, potatoAmount, 
-    cucumberAmount ,tomatoAmount , cabbageAmount , carrotAmount;
+    public byte meatAmount, potatoAmount , vegetableAmount, 
+    cucumberAmount ,tomatoAmount , cabbageAmount , carrotAmount , waterAmount;
 
+    public Taste taste;
+    public FoodGrade foodGrade;
+    public enum Taste
+    {
+        Plain,
+        Sour ,
+        Salty,
+        Sweet,
+        Spicy
+    }
 
-    public byte HungryRestoreAmount{get => hungerRestoreAmount; private set {}}
-    public byte FuelAMount {get => fuelAmount; private set {}}
-
-    
-    
+    public enum FoodGrade
+    {   
+        Awful,
+        Bad ,
+        Good,
+        Amazing,
+        Highend
+    }
 }
 
 // [Serializable]

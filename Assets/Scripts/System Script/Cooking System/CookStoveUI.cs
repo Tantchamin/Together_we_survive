@@ -1,29 +1,28 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FurnaceUI : BonfireUI
+public class CookStoveUI : BonfireUI
 {
-    [SerializeField] Furnace furnance;
+    [SerializeField] CookStove cookStove;
     [SerializeField] private Slider fuelSlider;
     public Gradient fuelGradient;
     [SerializeField] private Image fill;
-    [SerializeField] private TextMeshProUGUI furnaceStatus;
+    [SerializeField] private TextMeshProUGUI cookStoveStatus;
     private void OnEnable() {
-        Furnace.OnValueChanged += OnSetFuel;
-        Furnace.OnFurnaceSwitch += BonfireStatus;
+        CookStove.OnValueChanged += OnSetFuel;
+        CookStove.OnLightedSwitch += BonfireStatus;
 
-        FurnaceFuel.OnFurnaceListShow += OnSetFuel;
+        CookStoveFuel.OnStoveListShow += OnSetFuel;
 
         OnSetFuel();
     }
 
     private void OnDisable() {
-        Furnace.OnValueChanged -= OnSetFuel;
-        Furnace.OnFurnaceSwitch -= BonfireStatus;
+        CookStove.OnValueChanged -= OnSetFuel;
+        CookStove.OnLightedSwitch -= BonfireStatus;
 
-        FurnaceFuel.OnFurnaceListShow -= OnSetFuel;
+        CookStoveFuel.OnStoveListShow -= OnSetFuel;
     }
 
     public void Start()
@@ -33,15 +32,15 @@ public class FurnaceUI : BonfireUI
 
     protected override void SetSlider()
     {
-        fuelSlider.maxValue = furnance.MaxFuel;
-        fuelSlider.value = furnance.CurrentFuel;
+        fuelSlider.maxValue = cookStove.MaxFuel;
+        fuelSlider.value = cookStove.CurrentFuel;
         fill.color = fuelGradient.Evaluate(fuelSlider.normalizedValue);
         BonfireStatus(false);
     }
 
     public override void OnSetFuel()
     {
-        fuelSlider.value = furnance.CurrentFuel;
+        fuelSlider.value = cookStove.CurrentFuel;
         fill.color = fuelGradient.Evaluate(fuelSlider.normalizedValue);
 
     }
@@ -50,9 +49,9 @@ public class FurnaceUI : BonfireUI
     {
         if(_isLighted == true)
         {
-             furnaceStatus.text = "Ignited";
+             cookStoveStatus.text = "Ignited";
         }
         else
-        furnaceStatus.text = "Exhausted";
+        cookStoveStatus.text = "Exhausted";
     }
 }

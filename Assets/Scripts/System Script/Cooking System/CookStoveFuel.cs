@@ -1,35 +1,36 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnaceFuel : BonfireFuel
+public class CookStoveFuel : BonfireFuel
 {
+
     [SerializeField] protected GameObject fuelUI;
     [SerializeField] protected Transform inventoryContent;
     [SerializeField] protected List<Item> itemList = new List<Item>();
     [SerializeField] protected List<int> itemAmountList = new List<int>();
     protected FuelUI fuelUIScript;
-    public static event Action OnFurnaceListShow , OnFurnaceListUnShow;
+    public static event Action OnStoveListShow , OnStoveListUnShow;
+
     public override void ShowList()
     {
-        OnFurnaceListShow?.Invoke();
+        OnStoveListShow?.Invoke();
         itemList = HouseInventorySystem.GetItemListWithOutAmount();
         itemAmountList = HouseInventorySystem.GetItemAmountList();
         foreach(Item item in itemList)
         {
             if(item is Fuel)
-            {   
+            {
                 GameObject obj = Instantiate(fuelUI , inventoryContent);
                 fuelUIScript = obj.GetComponent<FuelUI>();
                 fuelUIScript.SetCraftedEquipment(item);  
             }
-
             
+
         }
     }
     public override void ClearList(){
-        OnFurnaceListUnShow?.Invoke();
+        OnStoveListUnShow?.Invoke();
         foreach (Transform item in inventoryContent){
            Destroy(item.gameObject);
         }

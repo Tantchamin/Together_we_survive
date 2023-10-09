@@ -10,7 +10,7 @@ public class HouseCrafting : MonoBehaviour
 {
     GarageResourceManagerScript garageResourceManagerScript;
     KitchenResourceManagerScript KitchenResourceManagerScript;
-    [SerializeField] private List<Item> CraftedItemList = new List<Item>();
+    [SerializeField] private List<CraftedItem> CraftedItemList = new List<CraftedItem>();
 
     private string craftedEquipmentName;
     void Start()
@@ -22,17 +22,19 @@ public class HouseCrafting : MonoBehaviour
     [ContextMenu ("FillCraftingEquipmentList")]
     void FillCraftingEquipmentList() {
         CraftedItemList = Resources.LoadAll("InventoryScriptableObject" , 
-        typeof(Item)).Cast<Item>().ToList();
+        typeof(CraftedItem)).Cast<CraftedItem>().ToList();
+
         
     }
 
-    public void CraftingEquipment(){
+    public void CraftItem(){
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         CraftUI craftUIScript =  clickedButton.GetComponentInParent<CraftUI>();
 
-        CraftedItem item = craftUIScript.GetCraftedEquipment();
-        if(CheckResource(item) == false) return;
-        AddEquipment(item); 
+        Item item = craftUIScript.GetCraftedItem();
+        var craftedItem = item as CraftedItem;
+        if(CheckResource(craftedItem) == false) return;
+        AddEquipment(craftedItem); 
     }
     
 
@@ -48,7 +50,8 @@ public class HouseCrafting : MonoBehaviour
     
         if(wood >= item.woodAmount && metal >= item.metalAmount && tape >= item.tapeAmount 
         && clothe >= item.clotheAmount && gunPowder >= item.gunPowderAmount && gunComponent >= item.gunComponentAmount &&
-        herb >= item.herbAmount){
+        herb >= item.herbAmount)
+        {
 
             garageResourceManagerScript.WoodAmount -= item.woodAmount;
             garageResourceManagerScript.MetalAmount -= item.woodAmount;
