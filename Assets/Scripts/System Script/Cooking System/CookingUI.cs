@@ -18,6 +18,7 @@ public class CookingUI : MonoBehaviour
         FillList();
         foreach (Item item in houseFoodList){
             if(HouseInventorySystem.GetItemAmount(item) == 0) return;    
+            if(IsItemInstantiated(item) == true ) return;
             GameObject obj = Instantiate(inventoryUI , inventoryContent);
             inventoryUIscript = obj.GetComponent<InventoryUI>();
             inventoryUIscript.SetCraftedEquipment(item);       
@@ -38,7 +39,7 @@ public class CookingUI : MonoBehaviour
         houseItemList = HouseInventorySystem.GetItemListWithOutAmount();
         foreach(Item item in houseItemList)
         {
-            if(item.itemType == Item.ItemType.Food)
+            if(item.itemType == Item.ItemType.Food && houseFoodList.Contains(item) == false)
             {
                 houseFoodList.Add(item);
             }
