@@ -11,13 +11,9 @@ public class Cooking : MonoBehaviour
     [SerializeField] private CookStove cks;
 
     public static event Action<Food> OnFoodCook;
-    public void Start()
-    {
-        krms = FindObjectOfType<KitchenResourceManagerScript>();
-        cks = GetComponent<CookStove>();
-    }
     public void CookFood()
     {
+        if(cks.IsIgnited == false ) return;
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         CraftUI craftUIScript =  clickedButton.GetComponentInParent<CraftUI>();
 

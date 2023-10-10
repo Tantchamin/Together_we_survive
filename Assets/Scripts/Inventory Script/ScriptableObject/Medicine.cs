@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Medicine : Consumable
 {
-    [SerializeField] private byte healAmount;
-    [SerializeField] private byte infectedAmount;
-    [SerializeField] private bool isCureInfected;
+    public byte healAmount;
+    public byte healthyAmount;
+    public byte infectedAmount; 
+    public bool isCureInfected;
 
-
-    public byte HealAmount{get => healAmount; private set{}}
-    public byte InfectedAmount{get => infectedAmount; private set{}}
-    public bool IsCureInfected{get => isCureInfected; private set{}}
 }

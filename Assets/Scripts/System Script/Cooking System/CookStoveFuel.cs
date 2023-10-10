@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookStoveFuel : BonfireFuel
+public class CookStoveFuel : ItemShowList
 {
 
     [SerializeField] protected GameObject fuelUI;
@@ -14,9 +14,8 @@ public class CookStoveFuel : BonfireFuel
 
     public override void ShowList()
     {
+        RefreshList();
         OnStoveListShow?.Invoke();
-        itemList = HouseInventorySystem.GetItemListWithOutAmount();
-        itemAmountList = HouseInventorySystem.GetItemAmountList();
         foreach(Item item in itemList)
         {
             if(item is Fuel)
@@ -25,9 +24,17 @@ public class CookStoveFuel : BonfireFuel
                 fuelUIScript = obj.GetComponent<FuelUI>();
                 fuelUIScript.SetCraftedEquipment(item);  
             }
-            
-
         }
+    }
+    public void RefreshList()
+    {
+        ClearList();
+        FillList();
+    }
+    public override void FillList()
+    {
+       itemList = HouseInventorySystem.GetItemListWithOutAmount();
+        itemAmountList = HouseInventorySystem.GetItemAmountList();
     }
     public override void ClearList(){
         OnStoveListUnShow?.Invoke();

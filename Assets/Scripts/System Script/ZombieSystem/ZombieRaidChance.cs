@@ -9,8 +9,6 @@ public class ZombieRaidChance : MonoBehaviour
     [SerializeField] private byte days = 5;
     private byte raidedDays = 0;
     private byte breakDays = 3;
-    private bool isHouseUpgrading = false;
-
     public event Action<byte> OnZombieRaid = delegate { };
     [SerializeField] private DayAmountState dayAmountState;
     public enum DayAmountState

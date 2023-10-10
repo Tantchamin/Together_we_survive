@@ -224,7 +224,7 @@ public class CharacterStatManager : MonoBehaviour
             OnThirsty?.Invoke();
             if(characterStat.ThirstyCurrentValue <= 0)
             {
-                characterStat.IsThirsty = true;
+                characterStat.IsThirsty = true; 
             }
         }
         else{

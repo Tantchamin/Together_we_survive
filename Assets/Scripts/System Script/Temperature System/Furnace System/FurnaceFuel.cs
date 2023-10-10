@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnaceFuel : BonfireFuel
+public class FurnaceFuel : ItemShowList
 {
     [SerializeField] protected GameObject fuelUI;
     [SerializeField] protected Transform inventoryContent;
@@ -13,9 +13,9 @@ public class FurnaceFuel : BonfireFuel
     public static event Action OnFurnaceListShow , OnFurnaceListUnShow;
     public override void ShowList()
     {
+        RefreshList();
         OnFurnaceListShow?.Invoke();
-        itemList = HouseInventorySystem.GetItemListWithOutAmount();
-        itemAmountList = HouseInventorySystem.GetItemAmountList();
+        
         foreach(Item item in itemList)
         {
             if(item is Fuel)
@@ -27,6 +27,18 @@ public class FurnaceFuel : BonfireFuel
 
             
         }
+    }
+
+    public void RefreshList()
+    {
+        ClearList();
+        FillList();
+    }
+
+    public override void FillList()
+    {
+        itemList = HouseInventorySystem.GetItemListWithOutAmount();
+        itemAmountList = HouseInventorySystem.GetItemAmountList();
     }
     public override void ClearList(){
         OnFurnaceListUnShow?.Invoke();

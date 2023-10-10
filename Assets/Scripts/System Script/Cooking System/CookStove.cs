@@ -30,7 +30,7 @@ public class CookStove : Bonfire
 
     public static event Action OnPutFuel , OnValueChanged;
     public static event Action<bool> OnLightedSwitch;
-    bool _isThisActive = false;
+    [SerializeField] bool _isThisActive = false;
 
     [SerializeField] private Button lightStoveOnOff;
 

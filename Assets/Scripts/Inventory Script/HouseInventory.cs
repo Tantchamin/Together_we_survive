@@ -12,6 +12,8 @@ public static class HouseInventorySystem {
     private static List<Medicine> houseMedList = new List<Medicine>();
     private static List<int> houseItemAmountList = new List<int>();
     private static List<Food> houseFoodList = new List<Food>();
+
+    private static List<Item> consumableList = new List<Item>();
     private static List<Item> houseInventoryListWithoutAMount = new List<Item>();
     private static Dictionary<Item , int > inventoryDictionary = new Dictionary<Item, int>();
     public static List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
@@ -74,6 +76,7 @@ public static class HouseInventorySystem {
         return houseItemAmountList;
     }
     public static List<Item> GetItemListWithOutAmount(){
+        houseInventoryListWithoutAMount.Clear();
         Item searchedItem = null;
         int searchedItemAmount = 0;
         foreach(Dictionary<Item , int> allItem in houseInventoryList){
@@ -113,17 +116,32 @@ public static class HouseInventorySystem {
     {
         return houseAmmoList;
     }
-    public static List<Food> GetFoodList()
+    public static List<Item> GetFoodList()
     {
+        List<Item> foodList = new List<Item>();
         foreach(Item item in houseInventoryListWithoutAMount)
         {
             if(item.itemType == Item.ItemType.Food)
             {
-                houseFoodList.Add(item as Food);
+                foodList.Add(item as Food);
             }
         }
-        return houseFoodList;
+        return foodList;
     }
+    public static List<Item> GetConsumableItemList()
+    {
+        consumableList.Clear();
+        
+        foreach(Item item in GetItemListWithOutAmount())
+        {
+            if(item.itemType == Item.ItemType.Food || item.itemType == Item.ItemType.Medicine)
+            {
+                consumableList.Add(item);
+            }
+        }
+        return consumableList;
+    }
+
 
     public static bool CheckItem(Item craftedItem){
         Item searchedItem;

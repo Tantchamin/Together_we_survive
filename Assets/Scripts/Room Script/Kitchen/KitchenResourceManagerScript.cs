@@ -51,6 +51,7 @@ public class KitchenResourceManagerScript : MonoBehaviour
         CarrotAmount = 0;
         CabbageAmount = 0;
         TomatoAmount = 0;
+        WaterAmount = 20;
     }
     
     public int RawMeatAmount

@@ -19,7 +19,7 @@ MonoBehaviour:
 
     very valuable'
   itemIcon: {fileID: 21300000, guid: 57b0419212afb4b4db9d5829ff06e180, type: 3}
-  itemType: 0
+  itemType: 3
   woodAmount: 0
   metalAmount: 0
   tapeAmount: 0
@@ -29,5 +29,6 @@ MonoBehaviour:
   herbAmount: 20
   craftStackSize: 0
   healAmount: 3
+  healthyAmount: 3
   infectedAmount: 3
   isCureInfected: 1
