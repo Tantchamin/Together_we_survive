@@ -4,6 +4,7 @@ using UnityEngine;
 public class SisterConsumeManager : MonoBehaviour
 {
     [SerializeField] private CharacterStat characterStat;
+    [SerializeField] private GameObject folder;
     KitchenResourceManagerScript krms;
     public static event Action OnConsumableConsume;
     private void Start()
@@ -13,6 +14,7 @@ public class SisterConsumeManager : MonoBehaviour
     }
     private void OnEnable() 
     {
+        CheckIfCharacterDead();
         SisterConsumableUI.OnUseConsumable += UseConsumable;
     }
 
@@ -57,5 +59,28 @@ public class SisterConsumeManager : MonoBehaviour
             krms.WaterAmount -= 1;
         }
         characterStat.ThirstyCurrentValue += 3;
+    }
+    public void UseCanFood()
+    {
+        if(krms.CanFoodAmount == 0) return;
+        if (krms.CanFoodAmount >= 1)
+        {
+            krms.CanFoodAmount -= 1;
+        }
+        characterStat.HungryCurrentValue += 3;
+    }
+    private void CheckIfCharacterDead()
+    {
+        if(characterStat.IsDead == true)
+        {
+            var components = folder.GetComponentsInChildren<Component>();
+            foreach(var component in components)
+            {
+                var behaivour = component as Behaviour;
+                if(behaivour) behaivour.enabled = false;
+            }
+            folder.SetActive(false);
+            
+        }
     }
 }

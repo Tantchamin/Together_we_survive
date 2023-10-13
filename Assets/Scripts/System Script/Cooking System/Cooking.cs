@@ -11,6 +11,7 @@ public class Cooking : MonoBehaviour
     [SerializeField] private CookStove cks;
 
     public static event Action<Food> OnFoodCook;
+    public static event Action OnVegetableListUpdate;
     public void CookFood()
     {
         if(cks.IsIgnited == false ) return;
@@ -26,15 +27,14 @@ public class Cooking : MonoBehaviour
 
     private bool ReduceIngredient(Food cookedFood)
     {
-        
-        byte meat =(byte) krms.RawMeatAmount;
-        byte water = (byte) krms.WaterAmount;
-        byte potato = (byte) krms.PotatoAmount;
-        byte cabbage = (byte) krms.CabbageAmount;
-        byte carrot = (byte) krms.CarrotAmount;
-        byte cucumber = (byte) krms.CucumberAmount;
-        byte tomato = (byte) krms.TomatoAmount;
-        byte veggies = (byte) krms.RawVegetableAmount;
+        int meat = krms.RawMeatAmount;
+        int water = krms.WaterAmount;
+        int potato =  krms.PotatoAmount;
+        int cabbage = krms.CabbageAmount;
+        int carrot = krms.CarrotAmount;
+        int cucumber = krms.CucumberAmount;
+        int tomato = krms.TomatoAmount;
+        int veggies = krms.RawVegetableAmount;
         
         if(meat >= cookedFood.meatAmount && water >= cookedFood.waterAmount && potato >= cookedFood.potatoAmount
         && cabbage >= cookedFood.cabbageAmount && carrot >= cookedFood.carrotAmount && cucumber >= cookedFood.cucumberAmount
@@ -48,24 +48,36 @@ public class Cooking : MonoBehaviour
             krms.CucumberAmount -= cookedFood.cucumberAmount;
             krms.TomatoAmount -= cookedFood.tomatoAmount;
 
-            byte vegetableAmount = cookedFood.vegetableAmount;
-            List<byte> hasVegetableList = new List<byte>();
+            int vegetableAmount = cookedFood.vegetableAmount;
             
-
-            for(byte counter = 0; counter < vegetableAmount ; counter++)
+            
+            Debug.Log($"vegetable amount : {vegetableAmount}");
+            for(int counter = 0; counter < vegetableAmount ; counter++)
             {
-                for(byte counters = 0 ; counters < krms.veggieList.Count ; counters++)
+                List<int> availableVegetables = new List<int>();
+                for(int counters = 0 ; counters < krms.veggieList.Count ; counters++)
                 {
-                    if(krms.veggieList[counters] >= 1)
+                    if(krms.veggieList[counters] >= 1) // if vegetable value more than or equal to 1
                     {
-                        hasVegetableList.Add((byte) krms.veggieList[counters]);
-                    }
-                    byte randomVeg = (byte)UnityEngine.Random.Range(0 , hasVegetableList.Count);
-                    hasVegetableList[randomVeg] -= (byte) 1;
-                    Debug.Log($"The reduce vegetable {krms.veggieList[randomVeg]}");
-                }           
+                        availableVegetables.Add(counters); //  add in to this list with that index
+                        /*
+                        tomato 0 , potato 1 , cabbage 2, carrot 0, cucumber 3
+
+
+                        abaliblevegetable index 0 =1 , index 1 = 2 , index 2 = 3;
+
+                        */
+                        // 0 1 2 3 -> 6 7 8 9
+                    }                
+                }
+                int randomVeg = UnityEngine.Random.Range(0 , availableVegetables.Count);
+                int selectIndex =  availableVegetables[randomVeg];
+                Debug.Log(selectIndex);
+                krms.veggieList[selectIndex] -= 1;   
+                
                 
             }
+            OnVegetableListUpdate?.Invoke();
             OnFoodCook?.Invoke(cookedFood);
             return true;
         }

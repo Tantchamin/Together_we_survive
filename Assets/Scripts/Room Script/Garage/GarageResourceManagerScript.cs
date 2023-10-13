@@ -19,13 +19,13 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
     private void SetStartingResource()
     {
-        WoodAmount = CheatStartingResource; 
-        MetalAmount = CheatStartingResource;
-        TapeAmount = CheatStartingResource;
-        ClotheAmount = CheatStartingResource;
-        GunComponentAmount = CheatStartingResource;
-        GunPowderAmount = CheatStartingResource;
-        HerbAmount = CheatStartingResource;
+        WoodAmount = 0; 
+        MetalAmount = 0;
+        TapeAmount = 0;
+        ClotheAmount = 0;
+        GunComponentAmount = 0;
+        GunPowderAmount = 0;
+        HerbAmount = 0;
     }
 
     public int WoodAmount

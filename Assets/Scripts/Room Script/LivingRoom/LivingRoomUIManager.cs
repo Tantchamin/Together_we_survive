@@ -10,7 +10,6 @@ public class LivingRoomUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        livingRoomFrontUI = GameObject.Find("LivingRoomFrontUI");
         eatingManageUI.SetActive(false);
     }
 

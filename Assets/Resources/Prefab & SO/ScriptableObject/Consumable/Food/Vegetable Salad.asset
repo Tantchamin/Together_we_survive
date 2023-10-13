@@ -21,8 +21,8 @@ MonoBehaviour:
   itemType: 5
   hungerRestoreAmount: 5
   thirstyRestoreAmount: 0
-  fuelAmount: 3
-  meatAmount: 2
+  fuelAmount: 0
+  meatAmount: 0
   potatoAmount: 0
   vegetableAmount: 3
   cucumberAmount: 0

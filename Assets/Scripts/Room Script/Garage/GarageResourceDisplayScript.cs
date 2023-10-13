@@ -14,11 +14,15 @@ public class GarageResourceDisplayScript : MonoBehaviour
     private void OnEnable() {
         SwitchRoomScript.OnEnterGarage += EnterGarage;
         SwitchRoomScript.OnLeave += LevaeGarage;
+
         GarageResourceManagerScript.OnValueChanged += UpdateResourceValue;
+        SwitchRoomScript.OnEnterGarage += UpdateResourceValue;
     }
     private void OnDisable() {
         SwitchRoomScript.OnEnterGarage -= EnterGarage;
         SwitchRoomScript.OnLeave -= LevaeGarage;
+
+        SwitchRoomScript.OnEnterGarage -= UpdateResourceValue;
     }
     void Start()
     {

@@ -9,29 +9,44 @@ public class KitchenResourceManagerScript : MonoBehaviour
      waterAmount = 0, potatoAmount = 0 , carrotAmount  = 0 , tomatoAmount = 0 , cabbageAmount = 0 , cucumberAmount = 0;
     public event Action OnValueChanged , OnVegetableValueChanged;
 
-    [SerializeField] public IList<int> veggieList = new List<int>();
+    [SerializeField] public List<int> veggieList = new List<int>();
 
     void Start() 
     {
-        veggieList.Add(potatoAmount);
-        veggieList.Add(cabbageAmount);
-        veggieList.Add(carrotAmount);
-        veggieList.Add(tomatoAmount);
-        veggieList.Add(cucumberAmount);
-
         SetStartingResource();
         SumRawVegetable();
+        veggieList.Add(PotatoAmount);
+        veggieList.Add(CabbageAmount);
+        veggieList.Add(CarrotAmount);
+        veggieList.Add(TomatoAmount);
+        veggieList.Add(CucumberAmount);
+        UpdateVegetableList();
 
+    }
 
+    private void UpdateVegetableList()
+    {
+        if(veggieList.Count <= 0) return;
+        PotatoAmount = veggieList[0];
+        CabbageAmount = veggieList[1];
+        CarrotAmount = veggieList[2];
+        TomatoAmount = veggieList[3];
+        CucumberAmount = veggieList[4];
     }
     private void OnEnable() 
     {
-        OnVegetableValueChanged += SumRawVegetable; 
+        OnVegetableValueChanged += SumRawVegetable;
+        SwitchRoomScript.OnEnterKitchen += SumRawVegetable; 
+
+        Cooking.OnVegetableListUpdate += UpdateVegetableList;
     }
 
     private void OnDisable() 
     {
         OnVegetableValueChanged -= SumRawVegetable; 
+        SwitchRoomScript.OnEnterKitchen -= SumRawVegetable; 
+
+        Cooking.OnVegetableListUpdate -= UpdateVegetableList;
     }
 
     private void SumRawVegetable()
@@ -45,13 +60,14 @@ public class KitchenResourceManagerScript : MonoBehaviour
     private void SetStartingResource()
     {
         // Maybe Change Difficulty And this will change
-        RawMeatAmount = 14;
+        RawMeatAmount = 0;
         CanFoodAmount = 0;
-        PotatoAmount = 10;
+        PotatoAmount = 0;
         CarrotAmount = 0;
-        CabbageAmount = 0;
-        TomatoAmount = 0;
-        WaterAmount = 20;
+        CabbageAmount = 10;
+        TomatoAmount = 10;
+        CucumberAmount = 0;
+        WaterAmount = 0;
     }
     
     public int RawMeatAmount

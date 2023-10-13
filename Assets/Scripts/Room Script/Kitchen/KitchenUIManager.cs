@@ -14,6 +14,13 @@ public class KitchenUIManager : MonoBehaviour
     {
         SwitchRoomScript.OnEnterKitchen += EnterKitchen;
         SwitchRoomScript.OnLeave += LeaveKitchen;
+        
+    }
+
+    private void OnDisable() {
+        SwitchRoomScript.OnEnterKitchen -= EnterKitchen;
+        SwitchRoomScript.OnLeave -= LeaveKitchen;
+        
     }
 
     private void EnterKitchen()

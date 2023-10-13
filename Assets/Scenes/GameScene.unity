@@ -678,8 +678,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 518101416}
   m_HandleRect: {fileID: 518101415}
   m_Direction: 0
-  m_Value: -0.000000035465625
-  m_Size: 0.40000245
+  m_Value: 0
+  m_Size: 0.40000242
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1338,13 +1338,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4612,7 +4612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Food
+  m_text: Consumable
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4639,13 +4639,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7053,7 +7053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 282.8, y: -182}
+  m_AnchoredPosition: {x: 258, y: -182}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342764064
@@ -7200,7 +7200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 282, y: -136}
+  m_AnchoredPosition: {x: 257.2, y: -136}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346523888
@@ -8067,13 +8067,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8457,7 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1144246247}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -11599,7 +11599,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1691673898}
   m_HandleRect: {fileID: 1691673897}
   m_Direction: 2
-  m_Value: 0.9999997
+  m_Value: 0.99999964
   m_Size: 0.43357632
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12363,7 +12363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 501241696}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -12514,8 +12514,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559147094}
   m_HandleRect: {fileID: 559147093}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.16840725
+  m_Value: 0.9999998
+  m_Size: 0.16840723
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13767,8 +13767,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2136236878}
   m_HandleRect: {fileID: 2136236877}
   m_Direction: 0
-  m_Value: -0.00000010639686
-  m_Size: 0.40000242
+  m_Value: -0.000000106396875
+  m_Size: 0.40000245
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13983,7 +13983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: -199.4}
+  m_AnchoredPosition: {x: 231.4, y: -172}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674662218
@@ -14816,7 +14816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1131497498}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -15203,7 +15203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791611162}
   m_Layer: 5
-  m_Name: LivingRoomFrontUI
+  m_Name: EatingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15639,10 +15639,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159128041}
+      - m_Target: {fileID: 1744110793}
         m_TargetAssemblyTypeName: MapSelectScript, Assembly-CSharp
         m_MethodName: NextDayButtonClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1159128039}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18032,8 +18044,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.300003, y: 0}
+  m_SizeDelta: {x: -0.0000011920929, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055185761
 MonoBehaviour:
@@ -18082,13 +18094,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -19967,7 +19979,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159128040}
-  - component: {fileID: 1159128041}
   m_Layer: 5
   m_Name: MapLabel
   m_TagString: Untagged
@@ -19999,24 +20010,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1159128041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159128039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f1881c7a3fe024b8b38e9fef2aa35b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  villageToggle: {fileID: 2079812378}
-  marketToggle: {fileID: 1794493640}
-  hospitalToggle: {fileID: 1454296258}
-  gasStationToggle: {fileID: 172221363}
-  garageResourceManagerScript: {fileID: 859340453}
-  kitchenResorceManagerScript: {fileID: 25067612}
 --- !u!1 &1167695191
 GameObject:
   m_ObjectHideFlags: 0
@@ -22475,7 +22468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: 0}
+  m_AnchoredPosition: {x: -18, y: 35}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1330997163
@@ -22548,7 +22541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1051928158}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -23766,7 +23759,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1419017460
 GameObject:
@@ -25154,7 +25147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285.4, y: -131}
+  m_AnchoredPosition: {x: 230.6, y: -131}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472690864
@@ -29603,8 +29596,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1503053958}
   m_HandleRect: {fileID: 1503053957}
   m_Direction: 0
-  m_Value: -0.00000010639686
-  m_Size: 0.40000242
+  m_Value: -0.000000106396875
+  m_Size: 0.40000245
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -30027,6 +30020,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735726755}
   m_CullTransparentMesh: 1
+--- !u!1 &1744110791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744110794}
+  - component: {fileID: 1744110793}
+  - component: {fileID: 1744110792}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1744110792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744110791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b745800c954bd1478fde86d6245333e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grms: {fileID: 859340453}
+  krms: {fileID: 25067612}
+  bandage: {fileID: 11400000, guid: 644418937ebe1014cb0d5fe649d82475, type: 2}
+  antibiotics: {fileID: 11400000, guid: 4185675fbb84e3a4d8e1351055f200e7, type: 2}
+  kitchenKnife: {fileID: 11400000, guid: 99d1b6072f46801408dfebe711c351ce, type: 2}
+  crowbar: {fileID: 11400000, guid: 8d4c93c00f80a4b489187490cb3479d5, type: 2}
+  hammer: {fileID: 11400000, guid: 7afa88034337af748a68017958470b1a, type: 2}
+  wrench: {fileID: 11400000, guid: 75ef54227e9a59445aab8cf8b7b4f595, type: 2}
+  fireAxe: {fileID: 11400000, guid: d9bf9d945ac425f408e4b1b21640aecf, type: 2}
+  ammo: {fileID: 11400000, guid: 94e2c60a724562441a83a078f058d4d4, type: 2}
+  roastPotato: {fileID: 11400000, guid: 50ee07b3469c160448a5bbf09cb808da, type: 2}
+  fuelWood: {fileID: 11400000, guid: e59d4643ea7ac784ea57da6874f1ae60, type: 2}
+  fuelClothe: {fileID: 11400000, guid: 323c99963c7960542aab7f572478e463, type: 2}
+  rawMeatAmount: 0
+  canFoodAmount: 0
+  waterAmount: 0
+  potatoAmount: 0
+  carrotAmount: 0
+  tomatoAmount: 0
+  cabbageAmount: 0
+  cucumberAmount: 0
+  woodAmount: 0
+  metalAmount: 0
+  tapeAmount: 0
+  clotheAmount: 0
+  gunComponentAmount: 0
+  gunPowderAmount: 0
+  herbAmount: 0
+  scravengerItemList: []
+--- !u!114 &1744110793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744110791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f1881c7a3fe024b8b38e9fef2aa35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  villageToggle: {fileID: 2079812378}
+  marketToggle: {fileID: 1794493640}
+  hospitalToggle: {fileID: 1454296258}
+  gasStationToggle: {fileID: 172221363}
+--- !u!4 &1744110794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744110791}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.7482195, y: 0.73075956, z: -0.055393625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744604707
 GameObject:
   m_ObjectHideFlags: 0
@@ -33478,8 +33561,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1068091333}
   m_HandleRect: {fileID: 1068091332}
   m_Direction: 0
-  m_Value: -0.00000010639686
-  m_Size: 0.40000242
+  m_Value: -0.000000106396875
+  m_Size: 0.40000245
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33785,7 +33868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa82cb02ee635a408da8393ca36c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSelectScript: {fileID: 1159128041}
+  mapSelectScript: {fileID: 0}
 --- !u!1 &1964806498
 GameObject:
   m_ObjectHideFlags: 0

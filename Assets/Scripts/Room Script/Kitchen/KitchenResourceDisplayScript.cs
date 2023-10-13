@@ -17,10 +17,12 @@ public class KitchenResourceDisplayScript : MonoBehaviour
         kitchenResourceManagerScript = GetComponent<KitchenResourceManagerScript>();
     }
     private void OnEnable() {
+        SwitchRoomScript.OnEnterKitchen += UpdateResourceValue;
         kitchenResourceManagerScript.OnValueChanged += UpdateResourceValue;
     }
 
     private void OnDisable() {
+        SwitchRoomScript.OnEnterKitchen -= UpdateResourceValue;
         kitchenResourceManagerScript.OnValueChanged -= UpdateResourceValue;
     }
     
