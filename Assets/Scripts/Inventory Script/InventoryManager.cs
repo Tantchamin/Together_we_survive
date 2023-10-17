@@ -14,6 +14,18 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Transform inventoryContent;
 
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private StartItem startItem;
+
+
+    public void Awake() 
+    {
+        if(startItem == null) return;
+        foreach(Item item in startItem.startingItemList)
+        {
+            HouseInventorySystem.AddItem(item , 1);
+            Debug.Log("hello");
+        }
+    }
 
     private InventoryUI inventoryUIscript;
 

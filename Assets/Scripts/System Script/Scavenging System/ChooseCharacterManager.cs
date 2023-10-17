@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class ChooseCharacterManager : MonoBehaviour
 {
-    [SerializeField] private Toggle isFatherScravenger;
-    [SerializeField] private Toggle isFatherGuard;
-    [SerializeField] private Toggle isFatherSleep;
+    [SerializeField] private Toggle isFatherScravenger, isFatherGuard, isFatherSleep;
     [SerializeField] private Toggle isMotherScavenger;
     [SerializeField] private Toggle isMotherGuard;
     [SerializeField] private Toggle isMotherSleep;
@@ -38,17 +36,24 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool isHaveScavenger = false;
     [SerializeField] private byte guardPeopleAmount = 0;
 
-    public static event Action OnFatherScavenger , OnMotherScavenger , OnBrotherScavenger , OnSisterScavenger;
+    public static event Action<bool> OnFatherScavenger , OnMotherScavenger , OnBrotherScavenger , OnSisterScavenger;
+    public static event Action<CharacterStat> OnFatherStat , OnMotherStat , OnBrotherStat , OnSisterStat;
     public static event Action<bool> OnFatherGuard , OnMotherGuard , OnBrotherGuard , OnSisterGuard;
 
 
-    void Awake()
+    private void Awake()
     {
         OnFatherGuard += fatherCharacterStatManager.CharacterGuarding;
         OnMotherGuard += motherCharacterStatManager.CharacterGuarding;
         OnSisterGuard += sisterCharacterStatManager.CharacterGuarding;
         OnBrotherGuard += brotherCharacterStatManager.CharacterGuarding;
+
+        OnFatherScavenger += fatherCharacterStatManager.CharacterScravenging;
+        OnMotherScavenger += motherCharacterStatManager.CharacterScravenging;
+        OnSisterScavenger += sisterCharacterStatManager.CharacterScravenging;
+        OnBrotherScavenger += brotherCharacterStatManager.CharacterScravenging;
     }
+        
     void Start()
     {
         isFatherScravenger.isOn = false;
@@ -98,24 +103,28 @@ public class ChooseCharacterManager : MonoBehaviour
         if(fatherCharacterStat.IsDead == true)
         {
             isFatherGuard.isOn = false;
+            isFatherScravenger.isOn = false;
             fatherToggleGroup.enabled = false;
             fatherToggleGroup.gameObject.SetActive(false);
         }
         if(motherCharacterStat.IsDead == true)
         {
             isMotherGuard.isOn = false;
+            isMotherScavenger.isOn =false;
             motherToggleGroup.enabled = false;
             motherToggleGroup.gameObject.SetActive(false);
         }
         if(sisterCharacterStat.IsDead == true)
         {
             isSisterGuard.isOn = false;
+            isMotherScavenger.isOn = false;
             sisterToggleGroup.enabled = false;
             sisterToggleGroup.gameObject.SetActive(false);
         }
         if(brotherCharacterStat.IsDead == true)
         {
             isBrotherGuard.isOn = false;
+            isMotherScavenger.isOn = false;
             brotherToggleGroup.enabled = false;
             brotherToggleGroup.gameObject.SetActive(false);
         }
@@ -124,6 +133,19 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool CheckFatherToogleList()
     {
         if(fatherToggleGroup.isActiveAndEnabled == false) return true;
+        if(fatherCharacterStat.IsTired == true)
+        {
+            isFatherScravenger.interactable = false;
+            isFatherGuard.interactable = false;
+            isFatherGuard.isOn = false;
+            isFatherScravenger.isOn = false;
+        }
+        else
+        {
+            isFatherScravenger.interactable = true;
+            isFatherGuard.interactable = true;
+        }
+
         if (isFatherScravenger.isOn == false && isFatherGuard.isOn == false && isFatherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -145,6 +167,19 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool CheckMotherToggleList()
     {
         if(motherToggleGroup.isActiveAndEnabled == false) return true;
+        if(motherCharacterStat.IsTired == true)
+        {
+            isMotherScavenger.interactable = false;
+            isMotherScavenger.isOn = false;
+            isMotherGuard.interactable = false;
+            isMotherGuard.isOn = false;
+        }
+        else
+        {
+            isMotherScavenger.interactable = true;
+            isMotherGuard.interactable = true;
+        }
+
         if (isMotherScavenger.isOn == false && isMotherGuard.isOn == false && isMotherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -164,6 +199,19 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool CheckBrotherToggleList()
     {
         if(brotherToggleGroup.isActiveAndEnabled == false) return true;
+        if(brotherCharacterStat.IsTired == true)
+        {
+            isBrotherScavenger.interactable = false;
+            isBrotherScavenger.isOn = false;
+            isBrotherGuard.interactable =false;
+            isBrotherGuard.isOn = false;
+        }
+        else
+        {
+            isBrotherScavenger.interactable = true;
+            isBrotherGuard.interactable = true;
+        }
+
         if (isBrotherScavenger.isOn == false && isBrotherGuard.isOn == false && isBrotherSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -184,6 +232,19 @@ public class ChooseCharacterManager : MonoBehaviour
     private bool CheckSisterToogleList()
     {
         if(sisterToggleGroup.isActiveAndEnabled == false) return true;
+        if(sisterCharacterStat.IsTired == true)
+        {
+            isSisterScavenger.interactable = false;
+            isSisterScavenger.isOn = false;
+            isSisterGuard.interactable = false;
+            isSisterGuard.isOn = false;
+        }
+        else
+        {
+            isSisterScavenger.interactable = true;
+            isSisterGuard.interactable = true;
+        }
+        
         if (isSisterScavenger.isOn == false && isSisterGuard.isOn == false && isSisterSleep.isOn == false)
         {
             NextMapInteraction(false);
@@ -211,10 +272,14 @@ public class ChooseCharacterManager : MonoBehaviour
         if (isFatherScravenger.isOn == true)
         {
             fatherScavengerCounter = 1;
+            OnFatherScavenger?.Invoke(true);
+            OnFatherStat?.Invoke(fatherCharacterStat);
+
         }
         else
         {
             fatherScavengerCounter = 0;
+            OnFatherScavenger?.Invoke(false);
         }
     }
 
@@ -223,10 +288,13 @@ public class ChooseCharacterManager : MonoBehaviour
         if (isMotherScavenger.isOn == true)
         {
             motherScavengerCounter = 1;
+            OnMotherScavenger?.Invoke(true);
+            OnMotherStat?.Invoke(motherCharacterStat);
         }
         else
         {
             motherScavengerCounter = 0;
+            OnMotherScavenger?.Invoke(false);
         }
     }
 
@@ -235,10 +303,13 @@ public class ChooseCharacterManager : MonoBehaviour
         if (isBrotherScavenger.isOn == true)
         {
             brotherScavengerCounter = 1;
+            OnBrotherScavenger?.Invoke(true);
+            OnBrotherStat?.Invoke(brotherCharacterStat);
         }
         else
         {
             brotherScavengerCounter = 0;
+            OnBrotherScavenger?.Invoke(false);
         }
         
     }
@@ -248,10 +319,13 @@ public class ChooseCharacterManager : MonoBehaviour
         if (isSisterScavenger.isOn == true)
         {
             sisterScavengerCounter = 1;
+            OnSisterScavenger?.Invoke(true);
+            OnSisterStat?.Invoke(sisterCharacterStat);
         }
         else
         {
             sisterScavengerCounter = 0;
+            OnSisterScavenger?.Invoke(false);
         }
     }
 

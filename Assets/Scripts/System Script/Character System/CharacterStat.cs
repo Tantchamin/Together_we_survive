@@ -43,6 +43,11 @@ public class CharacterStat : MonoBehaviour
             {
                 healthCurrentValue = healthMaxValue;
             }
+            
+            if(healthCurrentValue < 0)
+            {
+                healthCurrentValue = 0;
+            }
         }
     }
     public short HealthMaxValue {get => healthMaxValue;}
@@ -57,12 +62,14 @@ public class CharacterStat : MonoBehaviour
         {
             healthyCurrentValue = healthyMaxValue;
         }
+
+        if(healthyCurrentValue < 0)
+        {
+            healthyCurrentValue = 0;
+        }
     }
     }
     public short HealthyMaxValue {get => healthyMaxValue;}
-    public short IncreHealthyValue { set => healthyCurrentValue += value;}
-    public short DecreHealthyValue {set => healthyCurrentValue -= value;}
-
 
     // Hungry Value
     public short HungryCurrentValue {get => hungryCurrentValue; 
@@ -72,12 +79,13 @@ public class CharacterStat : MonoBehaviour
         {
             hungryCurrentValue = hungryMaxValue;
         }
+        if(hungryCurrentValue < 0)
+        {
+            hungryCurrentValue = 0;
+        }
     }
     }
     public short HungryMaxValue {get => hungryMaxValue;}
-    public short IncreHungryValue {set => hungryCurrentValue += value;}
-    public short DecreHungryValue {set => hungryCurrentValue -= value;}
-
     // Thirsty Value
     public short ThirstyCurrentValue {get => thirstyCurrentValue; 
     set{
@@ -86,11 +94,13 @@ public class CharacterStat : MonoBehaviour
         {
             thirstyCurrentValue = thirstyMaxValue;
         }
+        if(thirstyCurrentValue < 0)
+        {
+            thirstyCurrentValue = 0;
+        }
     }
     }
     public short ThirstyMaxValue {get => thirstyMaxValue;}
-    public short IncreThirstyValue {set => thirstyCurrentValue += value;}
-    public short DecreThirstyValue {set => thirstyCurrentValue -= value;}
 
     //Infect Value
     public short InfectedCurrentValue {get => infectedCurrentValue;
@@ -100,11 +110,13 @@ public class CharacterStat : MonoBehaviour
         {
             infectedCurrentValue = infectedMaxValue;
         }
+        if(infectedCurrentValue < 0)
+        {
+            infectedCurrentValue = 0;
+        }
     }
     }
     public short InfectedMaxValue {get => infectedMaxValue;}
-    public short IncreInfectedValue {set => infectedCurrentValue += value;}
-    public short DecreInfectedValue { set => infectedCurrentValue -= value;}
 
     // Strength Value
     public short StrengthCurrentValue { get => strengthCurrentValue;
@@ -116,22 +128,26 @@ public class CharacterStat : MonoBehaviour
         }
     }}
     public short StrengthMaxValue{ get=> strengthMaxValue;}
-    public short IncreStrengthValue { set => strengthCurrentValue += value;}
-    public short DecreStrengthValue { set => strengthCurrentValue -= value;}
 
     // Energy Value 
 
     public short EnergyCurrentValue {get => energyCurrentValue;
     set{
         energyCurrentValue = value;
-        if(energyCurrentValue >= energyMaxValue)
+        if(energyCurrentValue> energyMaxValue)
         {
             energyCurrentValue = energyMaxValue;
+
         }
+        else if(energyCurrentValue< 0)
+        {
+            energyCurrentValue = 0;
+        }
+
+        
+        
     }}
     public short EnergyMaxValue {get => energyMaxValue;}
-    public short IncreEnergyValue {set => energyCurrentValue += value;}
-    public short DecreEnergyValue {set => energyCurrentValue -= value;}
 
     private void Start()
     {

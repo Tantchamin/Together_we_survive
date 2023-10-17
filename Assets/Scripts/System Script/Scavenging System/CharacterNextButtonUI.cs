@@ -1,12 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CharacterNextButtonUI : MonoBehaviour
 {
-    [SerializeField] private GameObject mapLabel , inventoryLabel;
+    [SerializeField] private GameObject inventoryLabel;
     ChooseCharacterManager chooseCharacterManager;
+    private CharacterStat scravengerStat;
 
+    public static event Action<CharacterStat> OnScravengerInvoke;
+    
+    private void OnEnable() {
+        ChooseCharacterManager.OnFatherStat += ScravengerCharacterStat;
+        ChooseCharacterManager.OnBrotherStat += ScravengerCharacterStat;
+        ChooseCharacterManager.OnMotherStat += ScravengerCharacterStat;
+        ChooseCharacterManager.OnSisterStat += ScravengerCharacterStat;
+    }
+
+    private void OnDisable() {
+        ChooseCharacterManager.OnFatherStat -= ScravengerCharacterStat;
+        ChooseCharacterManager.OnBrotherStat -= ScravengerCharacterStat;
+        ChooseCharacterManager.OnMotherStat -= ScravengerCharacterStat;
+        ChooseCharacterManager.OnSisterStat -= ScravengerCharacterStat;
+    }
     private void Start()
     {
         chooseCharacterManager = GameObject.FindGameObjectWithTag("ChooseCharacterManager").
@@ -20,6 +35,7 @@ public class CharacterNextButtonUI : MonoBehaviour
         {
             inventoryLabel.SetActive(true);
             this.gameObject.SetActive(false);
+            OnScravengerInvoke?.Invoke(scravengerStat);
         }
         else
         {
@@ -27,5 +43,10 @@ public class CharacterNextButtonUI : MonoBehaviour
             DayManagerScript.IncreaseDays();
             
         }
+    }
+
+    private void ScravengerCharacterStat(CharacterStat characterStat)
+    {
+        scravengerStat = characterStat;
     }
 }

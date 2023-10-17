@@ -24,6 +24,7 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
+  itemValue: 8
   strengthRequired: 5
   durability: 20
   damage: 120

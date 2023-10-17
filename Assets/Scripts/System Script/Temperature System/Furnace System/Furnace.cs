@@ -18,6 +18,14 @@ public class Furnace : Bonfire
         set {
             currentFuel = value;
             OnValueChanged?.Invoke();
+            if(currentFuel < 0)
+            {
+                currentFuel = 0;
+            }
+            if(currentFuel >= maxFuel)
+            {
+                currentFuel = maxFuel;
+            }
         }
     }
     [SerializeField] public static bool isIgnited;
@@ -101,10 +109,6 @@ public class Furnace : Bonfire
         if(CurrentFuel > 0)
         {
             CurrentFuel-= fuelConsumption;
-        }
-        else if(CurrentFuel < 0)
-        {
-            CurrentFuel = 0;
         }
         else if(CurrentFuel == 0)
         {

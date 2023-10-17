@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 public class ZombieDefendManager : MonoBehaviour
 {
 
     //calculate percentage of getting hit from Zombie base on guarded person and weapon.
-    [SerializeField] private List<Item> houseEquipmentList;
+    [SerializeField] private List<Item> houseEquipmentList , preWeaponList;
     [SerializeField] private List<Weapon> weaponList;
     private byte weaponAmount;
     [SerializeField] private byte hitChance , testZombieLevel;
@@ -68,7 +69,12 @@ public class ZombieDefendManager : MonoBehaviour
     private void FillToWeaponList()
     {
         ClearWeaponList();
-        weaponList = HouseInventorySystem.GetWeaponList();
+        preWeaponList = HouseInventorySystem.GetWeaponList();
+        foreach(Item item in preWeaponList)
+        {
+            Weapon weapon = item as Weapon;
+            weaponList.Add(weapon);
+        }
         
     }
 
@@ -82,7 +88,7 @@ public class ZombieDefendManager : MonoBehaviour
     }
 
     private int CalculateZombieDamage()
-    {
+    {   
         var weaponListOrdered = weaponList.OrderByDescending(weapon => weapon.damage);
         
         byte counter = 0;

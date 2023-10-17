@@ -10,7 +10,5 @@ public abstract class CraftedItem : Item{
     public byte gunPowderAmount;
     public byte herbAmount;
 
-
-
 }
 

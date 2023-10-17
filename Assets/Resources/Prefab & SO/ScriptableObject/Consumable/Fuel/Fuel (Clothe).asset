@@ -25,5 +25,6 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
+  itemValue: 2
   craftStackSize: 0
   fuelAmount: 2

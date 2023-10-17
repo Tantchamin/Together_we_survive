@@ -93,16 +93,32 @@ public static class HouseInventorySystem {
         return houseInventoryList;
     }
     public static Dictionary<Item , int > GetEquipmentDictionary(){
-        return inventoryDictionary;
+        return inventoryDictionary; 
     }
 
-    public static List<Weapon> GetWeaponList()
+    public static List<Item> GetWeaponList()
     {
-        return houseWeaponList;
+        List<Item> weaponList = new List<Item>();
+        foreach(Item item in GetItemListWithOutAmount())
+        {
+            if(item.itemType == Item.ItemType.Weapon)
+            {
+                weaponList.Add(item as Weapon);
+            }
+        }
+        return weaponList;
     }
-    public static List<Tool> GetToolsList()
+    public static List<Item> GetToolsList()
     {
-        return houseToolList;
+        List<Item> toolList = new List<Item>();
+        foreach(Item item in GetItemListWithOutAmount())
+        {
+            if(item.itemType == Item.ItemType.Tool)
+            {
+                toolList.Add(item as Tool);
+            }
+        }
+        return toolList;
     }
     public static List<Fuel> GetFuelList()
     {

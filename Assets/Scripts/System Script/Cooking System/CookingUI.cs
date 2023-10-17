@@ -10,7 +10,6 @@ public class CookingUI : ItemShowList
     [SerializeField] private Transform inventoryContent;
 
     [SerializeField] private GameObject inventoryUI;
-
     private InventoryUI inventoryUIscript;
 
     public override void  ShowList(){

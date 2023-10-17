@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Burst.Intrinsics;
+using System.Reflection;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,6 +9,7 @@ public class MapResource : MonoBehaviour
 {
     [SerializeField] private GarageResourceManagerScript grms;
     [SerializeField] private KitchenResourceManagerScript krms;
+    [SerializeField] private SResourceCharacter sResourceCharacter;
 
     [SerializeField] private Item bandage , antibiotics , kitchenKnife , crowbar ,
     hammer , wrench , fireAxe , ammo , roastPotato , fuelWood , fuelClothe;
@@ -18,14 +19,12 @@ public class MapResource : MonoBehaviour
     , gunPowderAmount , herbAmount;
 
     private byte maxItemDaily = 10;
-    
 
     [SerializeField] private List<Item> scravengerItemList = new List<Item>();
     private Dictionary<Item , byte> scravengerItemDic = new Dictionary<Item, byte>();
     //private Dictionary<string , byte> ResourceList = new Dictionary<string, byte>();
-    private List<ResourceData>  resourceList = new List<ResourceData>();
-    public static event Action OnListReport;
-
+    [SerializeField] private List<ResourceData>  resourceList = new List<ResourceData>();
+    public static event Action<List<ResourceData> , Dictionary<Item , byte>> OnResourceReport;
     private void OnEnable() 
     {
         MapSelectScript.OnVillageToggle += VillageResource;
@@ -47,7 +46,7 @@ public class MapResource : MonoBehaviour
         grms = FindObjectOfType<GarageResourceManagerScript>();
         krms = FindObjectOfType<KitchenResourceManagerScript>();
         FillResourceList();
-        SetResourceValue();
+
     }
 
     private void FillResourceList()
@@ -67,68 +66,83 @@ public class MapResource : MonoBehaviour
         resourceList.Add(new ResourceData("cabbageAmount",0));
         resourceList.Add(new ResourceData("carrotAmount" ,0));
         resourceList.Add(new ResourceData("tomatoAmount",0));
-        resourceList.Add(new ResourceData("cucumberAmount" , 30));
+        resourceList.Add(new ResourceData("cucumberAmount" , 0));
     }
     private void SetResourceValue()
     {
         var woodResource = resourceList.FirstOrDefault(r => r.resourceName == "woodAmount");
-        woodAmount = woodResource.resourceAmount;
+        woodResource.resourceAmount = woodAmount;
         var metalResource = resourceList.FirstOrDefault(r => r.resourceName == "metalAmount");
-        metalAmount = metalResource.resourceAmount;
+        metalResource.resourceAmount = metalAmount;
         var tapeResource = resourceList.FirstOrDefault(r => r.resourceName == "tapeAmount");
-        tapeAmount = tapeResource.resourceAmount;
+        tapeResource.resourceAmount = tapeAmount;
         var cloteResource = resourceList.FirstOrDefault(r => r.resourceName == "clotheAmount");
-        clotheAmount = cloteResource.resourceAmount;
+        cloteResource.resourceAmount = clotheAmount;
         var gunComponentResource = resourceList.FirstOrDefault(r => r.resourceName == "gunComponentAmount");
-        gunComponentAmount = gunComponentResource.resourceAmount;
+        gunComponentResource.resourceAmount = gunComponentAmount;
         var gunPowderResource = resourceList.FirstOrDefault(r => r.resourceName == "gunPowderAmount");
-        gunPowderAmount = gunPowderResource.resourceAmount;
+        gunPowderResource.resourceAmount = gunPowderAmount;
         var herbResource = resourceList.FirstOrDefault (r => r.resourceName == "herbAmount");
-        herbAmount = herbResource.resourceAmount;
+        herbResource.resourceAmount = herbAmount;
 
         var rawFoodResource = resourceList.FirstOrDefault( r=> r.resourceName == "rawMeatAmount");
-        rawMeatAmount = rawFoodResource.resourceAmount; 
+        rawFoodResource.resourceAmount = rawMeatAmount;
         var canFoodResource = resourceList.FirstOrDefault( r=> r.resourceName == "canFoodAmount");
-        canFoodAmount = canFoodResource.resourceAmount;
+        canFoodResource.resourceAmount = canFoodAmount;
         var waterResource = resourceList.FirstOrDefault(r => r.resourceName == "waterAmount");
-        waterAmount = waterResource.resourceAmount;
+        waterResource.resourceAmount = waterAmount;
         var potatoResource = resourceList.FirstOrDefault(r=> r.resourceName == "potatoAmount");
-        potatoAmount = potatoResource.resourceAmount;
+        potatoResource.resourceAmount = potatoAmount;
         var cabbageResource = resourceList.FirstOrDefault(r=> r.resourceName == "cabbageAmount");
-        cabbageAmount = cabbageResource.resourceAmount;
+        cabbageResource.resourceAmount = cabbageAmount;
         var carrotResource = resourceList.FirstOrDefault(r=> r.resourceName == "carrotAmount");
-        carrotAmount = carrotResource.resourceAmount;
+        carrotResource.resourceAmount = carrotAmount;
         var tomatoResource = resourceList.FirstOrDefault(r=> r.resourceName == "tomatoAmount");
-        tomatoAmount = tomatoResource.resourceAmount;
+        tomatoResource.resourceAmount = tomatoAmount;
         var cucumberResource = resourceList.FirstOrDefault(r=> r.resourceName == "cucumberAmount");
-        cucumberAmount = cucumberResource.resourceAmount;
+        cucumberResource.resourceAmount = cucumberAmount;
 
-        
     }
 
     private void ResetDaily()
     {
-        maxItemDaily = 10;
+        maxItemDaily = sResourceCharacter.GetItemCarryAmount();
         scravengerItemList.Clear();
         scravengerItemDic.Clear();
+        ClearResourceAmount();
+    }
 
-        foreach(ResourceData resourceData in resourceList)
+    private void ClearResourceAmount()
+    {
+        FieldInfo[] fields = GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+
+        foreach (FieldInfo field in fields)
         {
-            resourceData.resourceAmount = 0;
+            if (field.GetCustomAttribute(typeof(SerializeField)) != null)
+            {
+                if (field.FieldType == typeof(byte))
+                {
+                    field.SetValue(this, (byte)0);
+                }
+            }
         }
-        SetResourceValue();
     }
 
     public void CheckItemKey(Item key , byte value)
     {
-        if(scravengerItemDic.ContainsKey(key))
+        if(scravengerItemDic.ContainsKey(key) == true)
         {
-            scravengerItemDic[key] = value;
+            scravengerItemDic[key] += value;
         }
         else
         {
             scravengerItemDic.Add(key , value);
         }
+    }
+
+    public void InvokeList()
+    {   
+        OnResourceReport(resourceList , scravengerItemDic);
     }
 
     private void VillageResource()
@@ -195,6 +209,8 @@ public class MapResource : MonoBehaviour
                     break;
             }
         }
+        SetResourceValue();
+        InvokeList();
     }
 
     private void MarketResource()
@@ -247,6 +263,8 @@ public class MapResource : MonoBehaviour
             }
             
         }
+        SetResourceValue();
+        InvokeList();
     }
     private void HospitalResource()
     {
@@ -301,6 +319,8 @@ public class MapResource : MonoBehaviour
                     break;
             }
         }
+        SetResourceValue();
+        InvokeList();
     }
     private void GasStationResource()
     {
@@ -377,8 +397,12 @@ public class MapResource : MonoBehaviour
 
             }
         }
+        SetResourceValue();
+        InvokeList();
     }
 }
+
+
 
 public class ResourceData
 {

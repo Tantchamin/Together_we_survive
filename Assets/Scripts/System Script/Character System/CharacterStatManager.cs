@@ -6,7 +6,8 @@ public class CharacterStatManager : MonoBehaviour
 {   
 
     private bool isDead;
-    private byte hungerDailyDecre , thirtstyDailyDecre , energyDailyDecre , healthyDailyDecre , healthDailyDecre, strengthDailyDecre , infectedDailyDecre;
+    private short hungerDailyDecre , thirtstyDailyDecre , energyDailyDecre , healthyDailyDecre , healthDailyDecre, strengthDailyDecre , infectedDailyDecre;
+    private byte energyDailyIncre;
     private CharacterStat characterStat;
     private CharacterStatManager characterStatManager;
     private DayManagerScript DayManagerScript;
@@ -17,7 +18,7 @@ public class CharacterStatManager : MonoBehaviour
     public CharacterTemperatureState characterTemperatureState;
 
     private byte damage;
-    private bool isCharacterGuarding;
+    private bool isCharacterGuarding , isCharacterScravenging;
 
     [SerializeField] private bool isImmortal ;
     private enum CharacterState
@@ -90,28 +91,29 @@ public class CharacterStatManager : MonoBehaviour
         // THE THING THAT YOU BASICLLY LOSE DAILY
         if(characterStat.HungryCurrentValue >= 0 && characterStat.IsHungry == false)
         {
-            characterStat.DecreHungryValue = hungerDailyDecre;
+            characterStat.HungryCurrentValue -= hungerDailyDecre;
         }
         if(characterStat.ThirstyCurrentValue >= 0 && characterStat.IsThirsty == false)
         {
-            characterStat.DecreThirstyValue = thirtstyDailyDecre;
+            characterStat.ThirstyCurrentValue -= thirtstyDailyDecre;
         }
         if(characterStat.EnergyCurrentValue >= 0 && characterStat.IsTired == false)
         {
-            characterStat.DecreEnergyValue = energyDailyDecre;
+            characterStat.EnergyCurrentValue -= energyDailyDecre;
         }
         if(characterStat.HealthyCurrentValue >= 0 && characterStat.IsFevered == false)
         {
-            characterStat.DecreHealthyValue = healthyDailyDecre;
+            characterStat.HealthCurrentValue -= healthyDailyDecre;
         }
         if(characterStat.StrengthCurrentValue >= 0)
         {
-            characterStat.DecreStrengthValue = strengthDailyDecre;
+            characterStat.StrengthCurrentValue -= strengthDailyDecre;
         }
         if(characterStat.InfectedCurrentValue >= 0 && characterStat.IsBitten == true)
         {
-            characterStat.DecreInfectedValue = infectedDailyDecre;
+            characterStat.InfectedCurrentValue = infectedDailyDecre;
         }
+        characterStat.EnergyCurrentValue += energyDailyIncre;
         
     }
     
@@ -119,9 +121,10 @@ public class CharacterStatManager : MonoBehaviour
     {
         hungerDailyDecre = 2;
         thirtstyDailyDecre = 2;
-        CheckIsScavenger();
         CheckIsSick();
         CheckIsInfected();
+        CheckIsScavenger();
+        CheckIsGuard();
     }
 
 
@@ -135,14 +138,6 @@ public class CharacterStatManager : MonoBehaviour
         infectedDailyDecre = 0;
     }
 
-    private void CheckIsScavenger()
-    {
-        // CONDITION 
-        energyDailyDecre = 2;
-
-        energyDailyDecre = 0;
-
-    }
     private void CheckIsInfected()
     {
         if(characterStat.IsBitten == true)
@@ -150,6 +145,34 @@ public class CharacterStatManager : MonoBehaviour
             infectedDailyDecre += 2;
         }
     }
+
+    private void CheckIsScavenger()
+    {
+        if(isCharacterScravenging == true)
+        {
+            energyDailyDecre = 3;
+            energyDailyIncre = 0;
+        }
+        else
+        {
+            energyDailyDecre = 0;
+            energyDailyIncre = 2;
+        }
+    }
+    private void CheckIsGuard()
+    {
+        if(isCharacterGuarding == true)
+        {
+            energyDailyDecre = 2;
+            energyDailyIncre = 0;
+        }
+        else if(isCharacterScravenging == false)
+        {
+            energyDailyDecre = 0;
+            energyDailyIncre = 2;
+        }
+    }
+
 
     private void CheckIsSick()
     {
@@ -235,13 +258,10 @@ public class CharacterStatManager : MonoBehaviour
 
     private void CheckEnergy()
     {
-        if(characterStat.EnergyCurrentValue <= Math.Floor((double) characterStat.HealthyMaxValue / 2))
+        if(characterStat.EnergyCurrentValue <= 0)
         {
             OnTired?.Invoke();
-            if(characterStat.EnergyCurrentValue <= 0)
-            {
-                characterStat.IsTired = true;
-            }
+            characterStat.IsTired = true;
         }
         else{
             characterStat.IsTired = false;
@@ -323,7 +343,7 @@ public class CharacterStatManager : MonoBehaviour
         characterStat.DecreHealthValue = damage;
     }
 
-    public  void CharacterGuarding(bool _isGuard)
+    public void CharacterGuarding(bool _isGuard)
     {
         isCharacterGuarding = _isGuard;
     }
@@ -344,6 +364,12 @@ public class CharacterStatManager : MonoBehaviour
             damage *=2;
             _damageReduced =false;
         }
+    }
+
+    
+    public void CharacterScravenging (bool _isSsravenger)
+    {
+        isCharacterScravenging = _isSsravenger;
     }
 
 

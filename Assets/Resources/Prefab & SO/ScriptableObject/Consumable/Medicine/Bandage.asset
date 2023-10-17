@@ -24,6 +24,7 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
+  itemValue: 5
   craftStackSize: 1
   healAmount: 2
   healthyAmount: 1
