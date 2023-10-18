@@ -9,7 +9,7 @@ public class MapResource : MonoBehaviour
 {
     [SerializeField] private GarageResourceManagerScript grms;
     [SerializeField] private KitchenResourceManagerScript krms;
-    [SerializeField] private SResourceCharacter sResourceCharacter;
+    [SerializeField] private SResourceCapacityManager sResourceCharacter;
 
     [SerializeField] private Item bandage , antibiotics , kitchenKnife , crowbar ,
     hammer , wrench , fireAxe , ammo , roastPotato , fuelWood , fuelClothe;

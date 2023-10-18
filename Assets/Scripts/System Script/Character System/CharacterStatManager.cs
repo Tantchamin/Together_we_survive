@@ -18,7 +18,7 @@ public class CharacterStatManager : MonoBehaviour
     public CharacterTemperatureState characterTemperatureState;
 
     private byte damage;
-    private bool isCharacterGuarding , isCharacterScravenging;
+    private bool isCharacterGuarding , isCharacterScavenging;
 
     [SerializeField] private bool isImmortal ;
     private enum CharacterState
@@ -148,7 +148,7 @@ public class CharacterStatManager : MonoBehaviour
 
     private void CheckIsScavenger()
     {
-        if(isCharacterScravenging == true)
+        if(isCharacterScavenging == true)
         {
             energyDailyDecre = 3;
             energyDailyIncre = 0;
@@ -166,7 +166,7 @@ public class CharacterStatManager : MonoBehaviour
             energyDailyDecre = 2;
             energyDailyIncre = 0;
         }
-        else if(isCharacterScravenging == false)
+        else if(isCharacterScavenging == false)
         {
             energyDailyDecre = 0;
             energyDailyIncre = 2;
@@ -367,9 +367,9 @@ public class CharacterStatManager : MonoBehaviour
     }
 
     
-    public void CharacterScravenging (bool _isSsravenger)
+    public void CharacterScavenging (bool _isSsravenger)
     {
-        isCharacterScravenging = _isSsravenger;
+        isCharacterScavenging = _isSsravenger;
     }
 
 

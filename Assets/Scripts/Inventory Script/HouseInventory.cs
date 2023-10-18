@@ -12,23 +12,23 @@ public static class HouseInventorySystem {
     private static List<Medicine> houseMedList = new List<Medicine>();
     private static List<int> houseItemAmountList = new List<int>();
     private static List<Food> houseFoodList = new List<Food>();
-
+    private static Dictionary<Item , byte> houseFuelDic = new Dictionary<Item , byte>();
     private static List<Item> consumableList = new List<Item>();
     private static List<Item> houseInventoryListWithoutAMount = new List<Item>();
-    private static Dictionary<Item , int > inventoryDictionary = new Dictionary<Item, int>();
-    public static List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
+    private static Dictionary<Item , byte > inventoryDictionary = new Dictionary<Item, byte>();
+    public static List<Dictionary<Item , byte >> houseInventoryList = new List<Dictionary<Item , byte >>();
     public static event Action OnValueChanged;
     public static event Action<Item> OnItemDepleted;
-    public static void AddItem(Item item , int amount){  
+    public static void AddItem(Item item , byte amount){  
         if(CheckItem(item) == false){
-            Dictionary<Item , int> addedItem = new Dictionary<Item, int>
+            Dictionary<Item , byte> addedItem = new Dictionary<Item, byte>
             {
                 { item, amount }
             };
             houseInventoryList.Add(addedItem);
         }else if(CheckItem(item) == true && (item.itemType == Item.ItemType.Tool || 
         item.itemType == Item.ItemType.Weapon)){
-            Dictionary<Item , int> addedEqiupment = new Dictionary<Item, int>
+            Dictionary<Item , byte> addedEqiupment = new Dictionary<Item, byte>
             {
                 { item, amount }
             };
@@ -42,13 +42,13 @@ public static class HouseInventorySystem {
     {
         houseWeaponList.Add(weapon);
     }
-    public static void AddToolToToolList(Tool tool)
-    {
-        houseToolList.Add(tool);
-    }
     public static void AddFuelToFuelList(Fuel fuel)
     {
         houseFuelList.Add(fuel);
+    }
+    public static void AddToolToToolList(Tool tool)
+    {
+        houseToolList.Add(tool);
     }
     public static void AddMedicineToMedList(Medicine medicine)
     {
@@ -66,8 +66,8 @@ public static class HouseInventorySystem {
     {
         Item searchedItem = null;
         int searchedItemAmount = 0;
-        foreach(Dictionary<Item , int> allItem in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in allItem){
+        foreach(Dictionary<Item , byte> allItem in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in allItem){
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 houseItemAmountList.Add(searchedItemAmount);            
@@ -79,8 +79,8 @@ public static class HouseInventorySystem {
         houseInventoryListWithoutAMount.Clear();
         Item searchedItem = null;
         int searchedItemAmount = 0;
-        foreach(Dictionary<Item , int> allItem in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in allItem){
+        foreach(Dictionary<Item , byte> allItem in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in allItem){
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 houseInventoryListWithoutAMount.Add(searchedItem);            
@@ -88,11 +88,11 @@ public static class HouseInventorySystem {
         }
         return houseInventoryListWithoutAMount;
     }
-    public static List<Dictionary<Item , int >> GetItemListWithAmount()
+    public static List<Dictionary<Item , byte >> GetItemListWithAmount()
     {
         return houseInventoryList;
     }
-    public static Dictionary<Item , int > GetEquipmentDictionary(){
+    public static Dictionary<Item , byte > GetEquipmentDictionary(){
         return inventoryDictionary; 
     }
 
@@ -120,9 +120,20 @@ public static class HouseInventorySystem {
         }
         return toolList;
     }
-    public static List<Fuel> GetFuelList()
+    public static Dictionary<Item,byte> GetFuelList()
     {
-        return houseFuelList;
+        foreach(Dictionary<Item , byte> allItem in houseInventoryList)
+        {
+            foreach(KeyValuePair<Item , byte> kvp in allItem)
+        {
+            if(kvp.Key.itemType == Item.ItemType.Fuel)
+            {
+                houseFuelDic.Add(kvp.Key , kvp.Value);
+            }
+        }
+        }
+        
+        return houseFuelDic;
     }
     public static List<Medicine> GetMedicineList()
     {
@@ -161,8 +172,8 @@ public static class HouseInventorySystem {
 
     public static bool CheckItem(Item craftedItem){
         Item searchedItem;
-        foreach(Dictionary<Item , int> allItem in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in allItem){ 
+        foreach(Dictionary<Item , byte> allItem in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in allItem){ 
                 searchedItem = kvp.Key;
                 if(craftedItem == searchedItem){
                     return true;
@@ -174,8 +185,8 @@ public static class HouseInventorySystem {
      public static bool CheckItem(string itemName){
         string searchedItemName = null;
         Item searchedItem = null;
-        foreach(Dictionary<Item,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in equipment){        
+        foreach(Dictionary<Item,byte> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in equipment){        
                 searchedItem = kvp.Key;
                 searchedItemName = searchedItem.itemName;
                 if(searchedItemName == itemName){
@@ -190,8 +201,8 @@ public static class HouseInventorySystem {
         Item searchedItem = null;
         int searchedItemAmount = 0;
 
-        foreach(Dictionary<Item , int> item in houseInventoryList.ToList()){
-            foreach(KeyValuePair<Item , int > kvp in item){ 
+        foreach(Dictionary<Item , byte> item in houseInventoryList.ToList()){
+            foreach(KeyValuePair<Item , byte > kvp in item){ 
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 if(removeItem == searchedItem){
@@ -206,8 +217,8 @@ public static class HouseInventorySystem {
         Item searchedItem = null;
         int searchedItemAmount = 0;
         Debug.Log("_____________________________________________________________________");
-        foreach(Dictionary<Item , int> allEquiptment in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in allEquiptment){        
+        foreach(Dictionary<Item , byte> allEquiptment in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in allEquiptment){        
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 Debug.Log($"{searchedItem.itemName} : {searchedItemAmount}");
@@ -221,8 +232,8 @@ public static class HouseInventorySystem {
     public static int GetItemAmount(Item craftedItem){
         Item searchedItem = null;
         int searchedItemAmount = 0;
-        foreach(Dictionary<Item,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in equipment){        
+        foreach(Dictionary<Item,byte> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in equipment){        
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 if(searchedItem == craftedItem){
@@ -237,8 +248,8 @@ public static class HouseInventorySystem {
         Item searchedItem = null;
         string searchedItemName = "";
         int searchedItemAmount = 0;
-        foreach(Dictionary<Item,int> equipment in houseInventoryList){
-            foreach(KeyValuePair<Item , int > kvp in equipment){        
+        foreach(Dictionary<Item,byte> equipment in houseInventoryList){
+            foreach(KeyValuePair<Item , byte > kvp in equipment){        
                 searchedItem = kvp.Key;
                 searchedItemAmount = kvp.Value;
                 searchedItemName = kvp.Key.itemName;
@@ -253,13 +264,13 @@ public static class HouseInventorySystem {
 
     public static void StackItemAmount(Item craftedItem , int amount){
         Item searchedItem = null;
-        foreach(Dictionary<Item,int> item in houseInventoryList){
+        foreach(Dictionary<Item,byte> item in houseInventoryList){
             for(int index = 0 ; index < item.Count; index ++){
-                KeyValuePair <Item , int> kvp = item.ElementAt(index);
+                KeyValuePair <Item , byte> kvp = item.ElementAt(index);
                 searchedItem = kvp.Key;
                 if(searchedItem == craftedItem){
-                    if(item.TryGetValue(craftedItem , out int currentAmount)){
-                        item[craftedItem] = currentAmount + amount;
+                    if(item.TryGetValue(craftedItem , out byte currentAmount)){
+                        item[craftedItem] = (byte)(currentAmount + amount);
                     }
                 }
             }     
@@ -269,23 +280,23 @@ public static class HouseInventorySystem {
     public static void UseItem(Item usedItem , int amount)
     {
         Item searchedItem = null;
-        foreach(Dictionary<Item,int> item in houseInventoryList.ToList()){
+        foreach(Dictionary<Item,byte> item in houseInventoryList.ToList()){
             if(item == null) continue;
             for(int index = 0 ; index < item.Count; index ++){
-                KeyValuePair <Item , int> kvp = item.ElementAt(index);
+                KeyValuePair <Item , byte> kvp = item.ElementAt(index);
                 searchedItem = kvp.Key;
                 if(searchedItem == usedItem){
-                item.TryGetValue(usedItem , out int currentAmount);
+                item.TryGetValue(usedItem , out byte currentAmount);
                     if(item[usedItem] > 1)
                     {
-                        item[usedItem] = currentAmount - amount;
+                        item[usedItem] = (byte)(currentAmount - amount);
                         Debug.Log($"amount left:{kvp.Key.name} + {item[usedItem]}");
                         OnValueChanged?.Invoke();
                         break; 
                     }
                     else if(item[usedItem] == 1)
                     {
-                        item[usedItem] = currentAmount - amount;
+                        item[usedItem] = (byte)(currentAmount - amount);
                         Debug.Log($"remove {usedItem}");
                         RemoveEquipment(usedItem);
                         OnValueChanged?.Invoke();

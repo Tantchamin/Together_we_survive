@@ -5602,7 +5602,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelUI: {fileID: 6609139094953101955, guid: 7342e9a45498b7445860e2f006d9edea, type: 3}
   inventoryContent: {fileID: 1667832111}
-  itemList: []
   itemAmountList: 
 --- !u!4 &244911866
 Transform:
@@ -12249,7 +12248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea79e43fa84afe742985020f6413c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFatherScravenger: {fileID: 1642888418}
+  isFatherScavenger: {fileID: 1642888418}
   isFatherGuard: {fileID: 86321467}
   isFatherSleep: {fileID: 724973580}
   isMotherScavenger: {fileID: 1850903491}
@@ -20978,7 +20977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelUI: {fileID: 6609139094953101955, guid: 7342e9a45498b7445860e2f006d9edea, type: 3}
   inventoryContent: {fileID: 681896423}
-  itemList: []
   itemAmountList: 
 --- !u!1 &1116002955
 GameObject:

@@ -5,22 +5,22 @@ public class CharacterNextButtonUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryLabel;
     ChooseCharacterManager chooseCharacterManager;
-    private CharacterStat scravengerStat;
+    private CharacterStat scavengerStat;
 
-    public static event Action<CharacterStat> OnScravengerInvoke;
+    public static event Action<CharacterStat> OnScavengerInvoke;
     
     private void OnEnable() {
-        ChooseCharacterManager.OnFatherStat += ScravengerCharacterStat;
-        ChooseCharacterManager.OnBrotherStat += ScravengerCharacterStat;
-        ChooseCharacterManager.OnMotherStat += ScravengerCharacterStat;
-        ChooseCharacterManager.OnSisterStat += ScravengerCharacterStat;
+        ChooseCharacterManager.OnFatherStat += ScavengerCharacterStat;
+        ChooseCharacterManager.OnBrotherStat += ScavengerCharacterStat;
+        ChooseCharacterManager.OnMotherStat += ScavengerCharacterStat;
+        ChooseCharacterManager.OnSisterStat += ScavengerCharacterStat;
     }
 
     private void OnDisable() {
-        ChooseCharacterManager.OnFatherStat -= ScravengerCharacterStat;
-        ChooseCharacterManager.OnBrotherStat -= ScravengerCharacterStat;
-        ChooseCharacterManager.OnMotherStat -= ScravengerCharacterStat;
-        ChooseCharacterManager.OnSisterStat -= ScravengerCharacterStat;
+        ChooseCharacterManager.OnFatherStat -= ScavengerCharacterStat;
+        ChooseCharacterManager.OnBrotherStat -= ScavengerCharacterStat;
+        ChooseCharacterManager.OnMotherStat -= ScavengerCharacterStat;
+        ChooseCharacterManager.OnSisterStat -= ScavengerCharacterStat;
     }
     private void Start()
     {
@@ -35,7 +35,7 @@ public class CharacterNextButtonUI : MonoBehaviour
         {
             inventoryLabel.SetActive(true);
             this.gameObject.SetActive(false);
-            OnScravengerInvoke?.Invoke(scravengerStat);
+            OnScavengerInvoke?.Invoke(scavengerStat);
         }
         else
         {
@@ -45,8 +45,8 @@ public class CharacterNextButtonUI : MonoBehaviour
         }
     }
 
-    private void ScravengerCharacterStat(CharacterStat characterStat)
+    private void ScavengerCharacterStat(CharacterStat characterStat)
     {
-        scravengerStat = characterStat;
+        scavengerStat = characterStat;
     }
 }

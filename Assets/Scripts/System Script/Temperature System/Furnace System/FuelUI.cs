@@ -20,9 +20,13 @@ public class FuelUI : MonoBehaviour
         UpdateText();
     }
 
-    public void SetCraftedEquipment(Item item){
+    public void SetItem(Item item){
         craftedItem = item;
         SetInvetoryItem();
+    }
+    public void SetAmount(byte amount)
+    {
+        fuelAmount.text = amount.ToString();
     }
 
     private void OnEnable() {

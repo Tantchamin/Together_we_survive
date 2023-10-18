@@ -7,7 +7,7 @@ public class CookStoveFuel : ItemShowList
 
     [SerializeField] protected GameObject fuelUI;
     [SerializeField] protected Transform inventoryContent;
-    [SerializeField] protected List<Item> itemList = new List<Item>();
+    [SerializeField] protected Dictionary<Item,byte> fuelDic = new Dictionary<Item,byte>();
     [SerializeField] protected List<int> itemAmountList = new List<int>();
     protected FuelUI fuelUIScript;
     public static event Action OnStoveListShow , OnStoveListUnShow;
@@ -16,14 +16,12 @@ public class CookStoveFuel : ItemShowList
     {
         RefreshList();
         OnStoveListShow?.Invoke();
-        foreach(Item item in itemList)
+        foreach(KeyValuePair<Item , byte> kvp in fuelDic)
         {
-            if(item is Fuel)
-            {
-                GameObject obj = Instantiate(fuelUI , inventoryContent);
-                fuelUIScript = obj.GetComponent<FuelUI>();
-                fuelUIScript.SetCraftedEquipment(item);  
-            }
+            GameObject obj = Instantiate(fuelUI , inventoryContent);
+            fuelUIScript = obj.GetComponent<FuelUI>();
+            fuelUIScript.SetItem(kvp.Key);  
+            fuelUIScript.SetAmount(kvp.Value);
         }
     }
     public void RefreshList()
@@ -33,7 +31,7 @@ public class CookStoveFuel : ItemShowList
     }
     public override void FillList()
     {
-       itemList = HouseInventorySystem.GetItemListWithOutAmount();
+        fuelDic = HouseInventorySystem.GetFuelList();
         itemAmountList = HouseInventorySystem.GetItemAmountList();
     }
     public override void ClearList(){
@@ -41,7 +39,7 @@ public class CookStoveFuel : ItemShowList
         foreach (Transform item in inventoryContent){
            Destroy(item.gameObject);
         }
-        itemList.Clear();
+        fuelDic.Clear();
         itemAmountList.Clear();
     }
     protected override bool IsItemInstantiated(Item fuel){

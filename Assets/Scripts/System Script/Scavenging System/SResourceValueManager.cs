@@ -17,11 +17,11 @@ public class SResourceValueManager : MonoBehaviour
     {
         MapResource.OnResourceReport -= ResourceReport;
     }
-    private void ResourceReport(List<ResourceData> resourceListData , Dictionary<Item , byte> scravengeItemDic)
+    private void ResourceReport(List<ResourceData> resourceListData , Dictionary<Item , byte> scavengeItemDic)
     {
         ResetResource();
         ResourceValue(resourceListData);
-        ItemValue(scravengeItemDic);
+        ItemValue(scavengeItemDic);
     }
 
     private void ResourceValue(List<ResourceData> resourceListData)

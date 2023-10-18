@@ -22,12 +22,12 @@ public class SResourceReportUI : MonoBehaviour
         MapResource.OnResourceReport -= ResourceReport;
     } 
 
-    private void ResourceReport(List<ResourceData> resourceListData , Dictionary<Item , byte> scravengedItem)
+    private void ResourceReport(List<ResourceData> resourceListData , Dictionary<Item , byte> scavengedItem)
     {
         gameObjectPanel.SetActive(true);
         ClearContent();
         DisplayResource(resourceListData);
-        DisplayItem(scravengedItem);
+        DisplayItem(scavengedItem);
     }
 
     private void DisplayResource(List<ResourceData> resourceListData)

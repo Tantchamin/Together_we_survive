@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     // = new List<Dictionary<CraftedEquipment , int >>();
 
     [SerializeField] private List<Item> craftedItemList = new List<Item>();
-    [SerializeField] public List<Dictionary<Item , int >> houseInventoryList = new List<Dictionary<Item , int >>();
+    [SerializeField] public List<Dictionary<Item , byte >> houseInventoryList = new List<Dictionary<Item , byte >>();
 
     [SerializeField] private Transform inventoryContent;
 
