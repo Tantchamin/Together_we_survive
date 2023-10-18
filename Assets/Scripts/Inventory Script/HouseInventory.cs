@@ -15,7 +15,7 @@ public static class HouseInventorySystem {
     private static Dictionary<Item , byte> houseFuelDic = new Dictionary<Item , byte>();
     private static List<Item> consumableList = new List<Item>();
     private static List<Item> houseInventoryListWithoutAMount = new List<Item>();
-    private static Dictionary<Item , byte > inventoryDictionary = new Dictionary<Item, byte>();
+    private static Dictionary<Item , byte > houseInventoryDictionary = new Dictionary<Item, byte>();
     public static List<Dictionary<Item , byte >> houseInventoryList = new List<Dictionary<Item , byte >>();
     public static event Action OnValueChanged;
     public static event Action<Item> OnItemDepleted;
@@ -92,9 +92,7 @@ public static class HouseInventorySystem {
     {
         return houseInventoryList;
     }
-    public static Dictionary<Item , byte > GetEquipmentDictionary(){
-        return inventoryDictionary; 
-    }
+ 
 
     public static List<Item> GetWeaponList()
     {
@@ -120,7 +118,7 @@ public static class HouseInventorySystem {
         }
         return toolList;
     }
-    public static Dictionary<Item,byte> GetFuelList()
+    public static Dictionary<Item,byte> GetFuelDictionary()
     {
         foreach(Dictionary<Item , byte> allItem in houseInventoryList)
         {

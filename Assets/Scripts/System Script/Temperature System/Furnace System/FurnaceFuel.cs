@@ -33,7 +33,7 @@ public class FurnaceFuel : ItemShowList
 
     public override void FillList()
     {
-        fuelDic = HouseInventorySystem.GetFuelList();
+        fuelDic = HouseInventorySystem.GetFuelDictionary();
         itemAmountList = HouseInventorySystem.GetItemAmountList();
     }
     public override void ClearList(){

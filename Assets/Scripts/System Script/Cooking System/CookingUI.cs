@@ -7,6 +7,8 @@ public class CookingUI : ItemShowList
     [SerializeField] private List<Item> houseFoodList = new List<Item>();
     [SerializeField] private List<Item> houseItemList = new List<Item>();
 
+    [SerializeField] private Dictionary<Item,byte> foodDic = new Dictionary<Item, byte>();
+
     [SerializeField] private Transform inventoryContent;
 
     [SerializeField] private GameObject inventoryUI;
@@ -23,15 +25,6 @@ public class CookingUI : ItemShowList
             
         }
     }
-    public override void ClearList(){
-        foreach (Transform item in inventoryContent){
-           Destroy(item.gameObject);
-        }
-        houseFoodList.Clear();
-        houseItemList.Clear();
-        
-    }
-
     public void RefreshList()
     {
         ClearList();
@@ -49,6 +42,15 @@ public class CookingUI : ItemShowList
             }
             
         }
+    }
+    public override void ClearList(){
+        foreach (Transform item in inventoryContent)
+        {
+           Destroy(item.gameObject);
+        }
+        houseFoodList.Clear();
+        houseItemList.Clear();
+        
     }
 
     protected override bool IsItemInstantiated(Item cradtedItem){
