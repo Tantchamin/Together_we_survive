@@ -30,22 +30,23 @@ public class FuelUI : MonoBehaviour
     }
 
     private void OnEnable() {
+        CheckFurnaceButton(false);
+        CheckCookStoveButton(false);
         HouseInventorySystem.OnValueChanged += UpdateText;
         HouseInventorySystem.OnItemDepleted += DestroyItem;
 
-        Furnace.OnFurnaceSwitch += DisableFurnanceButton;
-        CookStove.OnLightedSwitch += DisableCookStoveButton;
+        Furnace.OnFurnaceSwitch += CheckFurnaceButton;
+        CookStove.OnLightedSwitch += CheckCookStoveButton;
 
         Furnace.OnPutFuel += UpdateText;
-
-        DisableFurnanceButton(false);
     }
     private void OnDisable() {
+        
         HouseInventorySystem.OnValueChanged -= UpdateText;
         HouseInventorySystem.OnItemDepleted -= DestroyItem;
 
-        Furnace.OnFurnaceSwitch -= DisableFurnanceButton;
-        CookStove.OnLightedSwitch -= DisableCookStoveButton;
+        Furnace.OnFurnaceSwitch -= CheckFurnaceButton;
+        CookStove.OnLightedSwitch -= CheckCookStoveButton;
 
         Furnace.OnPutFuel -= UpdateText;
 
@@ -53,7 +54,7 @@ public class FuelUI : MonoBehaviour
 
     private void SetInvetoryItem(){
         itemName.text = craftedItem.itemName;
-        itemSprite.sprite  = craftedItem.itemIcon;
+        itemSprite.sprite  = craftedItem.itemSprite;
         
     }
 
@@ -72,28 +73,29 @@ public class FuelUI : MonoBehaviour
         }
 
     }
-    private void DisableFurnanceButton(bool _isEnabled)
+    public void CheckFurnaceButton(bool _isenabled)
     {
-
         if(Furnace.isIgnited == true)
         {
             button.interactable = false;
             UpdateText();
         }
-        else{
+        else if(Furnace.isIgnited == false)
+        {
             button.interactable = true;
             UpdateText();
         }
     }
 
-    private void DisableCookStoveButton(bool _isEnabled)
+    public void CheckCookStoveButton(bool _isenabled)
     {
         if(CookStove.isIgnited == true)
         {
             button.interactable = false;
             UpdateText();
         }
-        else{
+        else if(CookStove.isIgnited == false)
+        {
             button.interactable = true;
             UpdateText();
         }

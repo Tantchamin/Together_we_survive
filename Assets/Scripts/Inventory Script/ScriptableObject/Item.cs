@@ -8,7 +8,7 @@ public abstract class Item : ScriptableObject
 
     [TextArea (4,4)]
     public string description;
-    public Sprite itemIcon;
+    public Sprite itemSprite;
     public ItemType  itemType;
     public  enum ItemType{
         Fuel,

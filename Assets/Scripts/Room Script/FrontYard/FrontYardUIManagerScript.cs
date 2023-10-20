@@ -5,7 +5,7 @@ using UnityEngine;
 public class FrontYardUIManagerScript : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _frontYardUpgradeButton;
+    [SerializeField] private GameObject frontYardUpgradeButton , frontYardResourceUI;
     [SerializeField] private FrontYardHouseUpgradeManager frontYardUpgradeHouseManagerScript;
     private byte houseLevel;
     void Start()
@@ -17,7 +17,7 @@ public class FrontYardUIManagerScript : MonoBehaviour
     {
         SwitchRoomScript.OnEnterFrontYard += EnterFrontYard;
         SwitchRoomScript.OnLeave += LeaveFrontYard;
-        frontYardUpgradeHouseManagerScript.OnHouseStartUpgrade += SetFrontYardUI;
+        FrontYardHouseUpgradeManager.OnHouseStartUpgrade += SetFrontYardUI;
         FrontYardHouseUpgradeManager.OnHouseFinishUpgrade += GetHouseLevel;
     }
 
@@ -25,7 +25,7 @@ public class FrontYardUIManagerScript : MonoBehaviour
     {
         SwitchRoomScript.OnEnterFrontYard -= EnterFrontYard;
         SwitchRoomScript.OnLeave -= LeaveFrontYard;
-        frontYardUpgradeHouseManagerScript.OnHouseStartUpgrade -= SetFrontYardUI;
+        FrontYardHouseUpgradeManager.OnHouseStartUpgrade -= SetFrontYardUI;
         FrontYardHouseUpgradeManager.OnHouseFinishUpgrade -= GetHouseLevel;
 
     }
@@ -36,17 +36,22 @@ public class FrontYardUIManagerScript : MonoBehaviour
     }
     private void EnterFrontYard()
     {
-        if (frontYardUpgradeHouseManagerScript.IsHouseUpgrading() == false || houseLevel < 3)
-            {
-                SetFrontYardUI(true);
-            }    
+        if (frontYardUpgradeHouseManagerScript.IsHouseUpgrading() == true || houseLevel == 3)
+        {
+            SetFrontYardUI(false);
+        }
+        else
+        {
+            SetFrontYardUI(true);
+        }  
     }
     private void LeaveFrontYard()
     {
         SetFrontYardUI(false);
     }
-    private void SetFrontYardUI(bool isUIActive){
-        _frontYardUpgradeButton.gameObject.SetActive(isUIActive);
-
+    private void SetFrontYardUI(bool isUIActive)
+    {
+        frontYardUpgradeButton.gameObject.SetActive(isUIActive);
+        frontYardResourceUI.gameObject.SetActive(isUIActive);
     }
 }

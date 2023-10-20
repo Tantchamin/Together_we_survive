@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Axe
   ID: 1
+  itemValue: 8
   description: An Axe that used to either chop down wood nor chop down zombie head.
-  itemIcon: {fileID: 21300000, guid: 805c38e5ba305d6418c5a338d97470a1, type: 3}
+  itemSprite: {fileID: 21300000, guid: 805c38e5ba305d6418c5a338d97470a1, type: 3}
   itemType: 1
   woodAmount: 10
   metalAmount: 10
@@ -24,7 +25,6 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
-  itemValue: 8
   strengthRequired: 5
   durability: 20
   damage: 120

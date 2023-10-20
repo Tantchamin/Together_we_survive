@@ -48,7 +48,7 @@ public class SisterConsumableUI : MonoBehaviour
 
     private void SetInvetoryItem(){
         itemName.text = craftedItem.itemName;
-        itemSprite.sprite  = craftedItem.itemIcon;
+        itemSprite.sprite  = craftedItem.itemSprite;
         
     }
 

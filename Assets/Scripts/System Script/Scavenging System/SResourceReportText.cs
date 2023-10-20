@@ -46,7 +46,7 @@ public class SResourceReportText : MonoBehaviour
                 itemText.text = "We didn't found single item tonight!";
                 break;
             case <= 5 :
-                itemText.text = "Meh, a few item were found hopefully ise useful";
+                itemText.text = "Meh, a few item were found hopefully it's useful";
                 break;
             case <= 10 :
                 itemText.text = "That's some useful item we found right here!";

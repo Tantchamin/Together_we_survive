@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bandage
   ID: 0
+  itemValue: 5
   description: A fabric that coat with herb , can use to treat a wound or infection
-  itemIcon: {fileID: 21300000, guid: 457712de3f724aa4eae48677cc7972ad, type: 3}
+  itemSprite: {fileID: 21300000, guid: 457712de3f724aa4eae48677cc7972ad, type: 3}
   itemType: 3
   woodAmount: 0
   metalAmount: 0
@@ -24,7 +25,6 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
-  itemValue: 5
   craftStackSize: 1
   healAmount: 2
   healthyAmount: 1

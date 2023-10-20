@@ -9,7 +9,7 @@ public class NightToolSelectManager : NightItemSelectUI
     protected override void SetItem(Item item)
     {
         itemName.text = item.itemName;
-        itemSprite.sprite = item.itemIcon;
+        itemSprite.sprite = item.itemSprite;
     }
 
 

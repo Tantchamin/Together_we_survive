@@ -14,7 +14,7 @@ public class NightItemUI  : MonoBehaviour
     public void SetItem(Item item , byte value)
     {
         scavengedItem = item;
-        itemSprite.sprite = item.itemIcon;
+        itemSprite.sprite = item.itemSprite;
         itemAmount.text = value.ToString();
     }
     

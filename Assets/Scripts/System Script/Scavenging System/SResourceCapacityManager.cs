@@ -59,6 +59,7 @@ public class SResourceCapacityManager : MonoBehaviour
     
     private void CalculateCarriedItem()
     {
+        if(selectedTool == null) return;
         Tool tool = selectedTool as Tool;
         if(characterStrength <= tool.strengthRequired)
         {

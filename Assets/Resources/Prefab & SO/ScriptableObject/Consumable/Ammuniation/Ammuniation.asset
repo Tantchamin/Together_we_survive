@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ammuniation
   ID: 0
+  itemValue: 5
   description: A pack of bullet that fitable for small fire-arms deadly enough to
     any living-creature
-  itemIcon: {fileID: 21300000, guid: dfec40433a48f1e45a3881af3d44d76e, type: 3}
+  itemSprite: {fileID: 21300000, guid: dfec40433a48f1e45a3881af3d44d76e, type: 3}
   itemType: 4
   woodAmount: 0
   metalAmount: 6
@@ -25,5 +26,4 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 10
   herbAmount: 0
-  itemValue: 5
   craftStackSize: 0

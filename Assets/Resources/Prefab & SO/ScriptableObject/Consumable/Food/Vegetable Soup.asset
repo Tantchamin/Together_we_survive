@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Vegetable Soup
   ID: 0
+  itemValue: 0
   description: A soup that made from mix vegetable soup. It can be served hot or
     cold, and may be made in a variety of ways. will make you less thirsty too.
-  itemIcon: {fileID: 21300000, guid: 86efbab84eb89cd48af7f7cb647bc5ac, type: 3}
+  itemSprite: {fileID: 21300000, guid: 86efbab84eb89cd48af7f7cb647bc5ac, type: 3}
   itemType: 5
   hungerRestoreAmount: 5
   thirstyRestoreAmount: 0
   fuelAmount: 0
   meatAmount: 0
-  potatoAmount: 0
   vegetableAmount: 8
+  potatoAmount: 0
   cucumberAmount: 0
   tomatoAmount: 2
   cabbageAmount: 0

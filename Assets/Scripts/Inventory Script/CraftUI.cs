@@ -4,10 +4,10 @@ using TMPro;
 public class CraftUI : MonoBehaviour
 {
     
-    [SerializeField] private Item craftedItem;
+    [SerializeField] private CraftedItem craftedItem;
 
     [SerializeField] private TextMeshProUGUI itemName;
-    [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private TextMeshProUGUI itemCrafingRecipe;
 
     [SerializeField] private Image itemSprite;
 
@@ -15,8 +15,8 @@ public class CraftUI : MonoBehaviour
     void Start()
     {
         itemName.text = craftedItem.itemName;
-        itemDescription.text = craftedItem.description;
-        itemSprite.sprite  = craftedItem.itemIcon;
+        itemCrafingRecipe.text = craftedItem.CraftRecipe();
+        itemSprite.sprite  = craftedItem.itemSprite;
     }
 
     public Item GetCraftedItem(){

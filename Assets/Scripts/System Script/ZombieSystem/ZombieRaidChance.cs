@@ -91,7 +91,7 @@ public class ZombieRaidChance : MonoBehaviour
 
         zombielevel = (dayAmountState == DayAmountState.earlyDays) ? 1 :
         (dayAmountState == DayAmountState.midDays) ? UnityEngine.Random.Range (1,2) : 
-        (dayAmountState == DayAmountState.lateDays) ? UnityEngine.Random.Range(1,3) :
+        (dayAmountState == DayAmountState.lateDays) ? UnityEngine.Random.Range(2,3) :
         (dayAmountState == DayAmountState.massacreDays) ? UnityEngine.Random.Range(3,4) : 
         (dayAmountState == DayAmountState.finalDays) ? 4 : 4;
 

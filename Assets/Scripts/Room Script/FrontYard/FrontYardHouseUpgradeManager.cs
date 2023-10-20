@@ -9,17 +9,13 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     [SerializeField] private DayManagerScript DayManagerScript;
 
     private int woodAmount , metalAmount , tapeAmount; //necessary resource for upgrade
-    private bool isUpgrading;
-    private bool isUpgradable = false;
+    private bool isUpgrading = false, isUpgradable = false;
 
     private byte currentDays=1 , daysLeftToFinish , finishedDays;
     public HouseState houseState;
-    [SerializeField] private HouseUpgradeMaterial houseLevel1;
-    [SerializeField] private HouseUpgradeMaterial houseLevel2;
-    [SerializeField] private HouseUpgradeMaterial houseLevel3;
-
+    [SerializeField] private HouseUpgradeMaterial houseLevel1, houseLevel2, houseLevel3;
     public static event Action OnHouseFinishUpgrade;
-    public event Action<bool>OnHouseStartUpgrade;
+    public static event Action<bool>OnHouseStartUpgrade;
 
     public enum HouseState 
     {
@@ -36,13 +32,12 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     private void Awake() 
     {
         DayManagerScript = FindObjectOfType<DayManagerScript>();
-    DayManagerScript.OnDayStart += UpdateDays;
-        
+        DayManagerScript.OnDayStart += UpdateDays;  
     }
 
     private void OnDisable() 
     {
-    DayManagerScript.OnDayStart -= UpdateDays;
+        DayManagerScript.OnDayStart -= UpdateDays;
     }
 
     private void UpdateResource()
@@ -84,8 +79,10 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
 
     public void Upgrading()
     {
+        Debug.Log($"Finish days : {finishedDays}");
         if(currentDays == finishedDays)
         {
+            
             FinishUpgrade();
         }
     }
@@ -95,7 +92,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
         // Debug.Log("Get finish days");
         finishedDays = (houseState == HouseState.level0) ? (byte)(houseLevel1.UpgradeDays + currentDays) :
         (houseState == HouseState.level1) ? (byte)(houseLevel2.UpgradeDays + currentDays) :
-        (houseState == HouseState.level2) ? (byte)(houseLevel3.UpgradeDays + currentDays) : (byte)0;
+        (houseState == HouseState.level2) ? (byte)(houseLevel3.UpgradeDays + currentDays) : (byte) 0;
 
         return finishedDays;
     }

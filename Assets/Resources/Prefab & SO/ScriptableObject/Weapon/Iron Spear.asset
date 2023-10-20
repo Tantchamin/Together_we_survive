@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Iron spear
   ID: 0
+  itemValue: 6
   description: 'A spear  , powerful 2-handed weapon that require strength to yield
     it. made from an iron '
-  itemIcon: {fileID: 21300000, guid: 649067a90a60c5b4cb88cb4e12bf4379, type: 2}
+  itemSprite: {fileID: 21300000, guid: 649067a90a60c5b4cb88cb4e12bf4379, type: 2}
   itemType: 1
   woodAmount: 0
   metalAmount: 20
@@ -25,7 +26,6 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 0
-  itemValue: 6
   strengthRequired: 4
   durability: 20
   damage: 90

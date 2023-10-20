@@ -77,7 +77,6 @@ public class CookStove : Bonfire
     {
         _isThisActive = false;
     }
-
     public void ReduceFuelCooking(Food cookedFood)
     {
         CurrentFuel -= cookedFood.fuelAmount;
@@ -104,8 +103,6 @@ public class CookStove : Bonfire
         }
         return false;
     }
-    
-
     public override void ToggleOnOff()
     {
         IsIgnited = !IsIgnited;

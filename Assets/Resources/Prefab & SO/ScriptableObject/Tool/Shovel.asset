@@ -17,7 +17,7 @@ MonoBehaviour:
   itemValue: 4
   description: A simple shovel , can be use in digging a hole for farming or burying
     either the zombie or human corpse
-  itemIcon: {fileID: 21300000, guid: a84e160f435ea4042baabf76d50c135d, type: 3}
+  itemSprite: {fileID: 21300000, guid: a84e160f435ea4042baabf76d50c135d, type: 3}
   itemType: 2
   woodAmount: 10
   metalAmount: 5

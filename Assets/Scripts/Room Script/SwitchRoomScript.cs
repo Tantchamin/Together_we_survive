@@ -4,8 +4,6 @@ using UnityEngine;
 public class SwitchRoomScript : MonoBehaviour
 {
     public GameObject _roomCamera;
-
-    [SerializeField] private GameObject _frontYardUI;
     [SerializeField] private GameObject _livingRoomBG, _KitchenBG, _GarageBG, _FrontYardBG;
 
     public static event Action OnEnterKitchen , OnEnterLivingRoom , OnEnterGarage , OnEnterFrontYard , OnLeave;

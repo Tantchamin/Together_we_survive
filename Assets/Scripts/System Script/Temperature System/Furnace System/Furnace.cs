@@ -35,7 +35,7 @@ public class Furnace : Bonfire
         set => isIgnited = value;
     }
     public static event Action OnPutFuel , OnValueChanged;
-    public static event Action<bool> OnLightedSwitch;
+    public static event Action OnLightedSwitch;
     [SerializeField] private byte fuelConsumption;
     private float fuelHeat = 0.2f;
     bool _isThisActive = false;

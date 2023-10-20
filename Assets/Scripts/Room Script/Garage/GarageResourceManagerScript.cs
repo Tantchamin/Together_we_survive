@@ -19,9 +19,9 @@ public class GarageResourceManagerScript : MonoBehaviour
     }
     private void SetStartingResource()
     {
-        WoodAmount = 0; 
-        MetalAmount = 0;
-        TapeAmount = 0;
+        WoodAmount = 30; 
+        MetalAmount = 30;
+        TapeAmount = 20;
         ClotheAmount = 0;
         GunComponentAmount = 0;
         GunPowderAmount = 0;

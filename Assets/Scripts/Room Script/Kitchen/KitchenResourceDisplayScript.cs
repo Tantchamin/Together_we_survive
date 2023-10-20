@@ -7,8 +7,8 @@ using TMPro;
 public class KitchenResourceDisplayScript : MonoBehaviour
 {
     
-    [SerializeField] private TextMeshProUGUI rawFoodDisplayAmount, vegetableFoodDisplayAmount, cannedFoodDisplayAmount, medicineDisplayAmount
-    , waterDisplayAmount, bandageDisplayAmount , tomatoDisplayAmount , potatoDisplayAmount , cabbageDisplayAmount
+    [SerializeField] private TextMeshProUGUI rawFoodDisplayAmount, vegetableFoodDisplayAmount, cannedFoodDisplayAmount
+    , waterDisplayAmount, tomatoDisplayAmount , potatoDisplayAmount , cabbageDisplayAmount
     , cucumberDisplayAmount , carrotDisplayAmount ;
     KitchenResourceManagerScript kitchenResourceManagerScript;
 

@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Antibiotics
   ID: 0
+  itemValue: 15
   description: 'A small pills of medicine that fight against infection. pretty hard
     to made. need medcine knowledge to be able to craft.
 
     very valuable'
-  itemIcon: {fileID: 21300000, guid: 57b0419212afb4b4db9d5829ff06e180, type: 3}
+  itemSprite: {fileID: 21300000, guid: 57b0419212afb4b4db9d5829ff06e180, type: 3}
   itemType: 3
   woodAmount: 0
   metalAmount: 0
@@ -27,7 +28,6 @@ MonoBehaviour:
   gunComponentAmount: 0
   gunPowderAmount: 0
   herbAmount: 20
-  itemValue: 15
   craftStackSize: 0
   healAmount: 3
   healthyAmount: 3

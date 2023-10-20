@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Meat Salad
   ID: 0
+  itemValue: 0
   description: A vegetable salad with sliced grilled meat, will give few amount of
     calories but still with kids and women. looks common but not bad.
-  itemIcon: {fileID: 21300000, guid: 013bfad3b1936e64e90750f413602455, type: 3}
+  itemSprite: {fileID: 21300000, guid: 013bfad3b1936e64e90750f413602455, type: 3}
   itemType: 5
   hungerRestoreAmount: 5
   thirstyRestoreAmount: 0
   fuelAmount: 4
   meatAmount: 2
-  potatoAmount: 0
   vegetableAmount: 3
+  potatoAmount: 0
   cucumberAmount: 0
   tomatoAmount: 0
   cabbageAmount: 0

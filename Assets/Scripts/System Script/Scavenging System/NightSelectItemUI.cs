@@ -15,11 +15,9 @@ public class NightSelectItemUI : MonoBehaviour
     public void SetItem(Item item)
     {
         selectItem = item;
-        itemSprite.sprite = item.itemIcon;
+        itemSprite.sprite = item.itemSprite;
         itemName.text = item.itemName;
     }
-
-
     public void SelectItem()
     {
         if(selectItem.itemType == Item.ItemType.Weapon)
