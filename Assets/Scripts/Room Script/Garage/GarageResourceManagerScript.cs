@@ -22,10 +22,10 @@ public class GarageResourceManagerScript : MonoBehaviour
         WoodAmount = 30; 
         MetalAmount = 30;
         TapeAmount = 20;
-        ClotheAmount = 0;
-        GunComponentAmount = 0;
-        GunPowderAmount = 0;
-        HerbAmount = 0;
+        ClotheAmount = 20;
+        GunComponentAmount = 20;
+        GunPowderAmount = 20;
+        HerbAmount = 20;
     }
 
     public int WoodAmount

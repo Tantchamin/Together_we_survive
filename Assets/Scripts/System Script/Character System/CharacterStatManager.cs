@@ -186,8 +186,6 @@ public class CharacterStatManager : MonoBehaviour
         (characterTemperatureState == CharacterTemperatureState.Cold) ? 1 : 
         (characterTemperatureState == CharacterTemperatureState.Freeze) ? 2 : 
         0);
-
-        Debug.Log("Healthy : "  + healthyDailyDecre);
     }
 
     private void DailyHealthDecrease()

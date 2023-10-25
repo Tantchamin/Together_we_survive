@@ -61,16 +61,7 @@ public class RandomEventChance : MonoBehaviour
             Debug.Log("Decision event!");
             if(randomEvent is TradingEvent)
             {
-                TradingEvent tradingEvent = randomEvent as TradingEvent;
-                
-                byte resourceTypeAmount = tradingEvent.GenerateResourceType();
-                tradingEvent.RefreshEvent();
-                tradingEvent.wantResources.GenerateTradeList();
-                tradingEvent.receiveResources.GenerateTradeList();
-                tradingEvent.SaveEvent();
-                // Debug.Log(tradingEvent.wantResources.clotheAmount);
-                // Debug.Log(tradingEvent.wantResources.woodAmount);
-
+                OnTradingEvent?.Invoke(randomEvent);
             }
         }
         eventDays = days;

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed55ffb5331aa545bcfcebfd8ea381d, type: 3}
   m_Name: Material Trader
   m_EditorClassIdentifier: 
-  eventName: Stranger Trader has arrived!
+  eventName: Material Trader has arrived!
   eventDescription: 'Strange trade come in and knockin at ya door and he ask for
     some trading '
   eventType: 1
-  declineDecision: Accept the trade
-  acceptDecision: Decline the trade
+  declineDecision: Accept
+  acceptDecision: Decline
   wantResources:
     resourceTypeAmount: 2
     minResourceAmount: 4
@@ -29,17 +29,17 @@ MonoBehaviour:
   eventData:
     wantResourceTypeAmount: 2
     wantWoodResource: 0
-    wantMetalResouce: 0
-    wantClotheResouce: 4
+    wantMetalResouce: 4
+    wantClotheResouce: 0
     wantTapeResouce: 0
-    wantGuncomponentResource: 0
-    wantGunpowderResource: 7
+    wantGuncomponentResource: 7
+    wantGunpowderResource: 0
     wantHerbResource: 0
     receiveResourceTypeAmount: 4
     receiveWoodResource: 0
-    receiveMetalResouce: 6
-    receiveClotheResouce: 0
-    receiveTapeResouce: 4
-    receiveGuncomponentResource: 5
-    receiveGunpowderResource: 8
-    receiveHerbResource: 0
+    receiveMetalResouce: 0
+    receiveClotheResouce: 7
+    receiveTapeResouce: 8
+    receiveGuncomponentResource: 3
+    receiveGunpowderResource: 0
+    receiveHerbResource: 3

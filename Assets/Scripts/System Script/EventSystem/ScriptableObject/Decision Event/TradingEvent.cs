@@ -32,14 +32,14 @@ public class TradingEvent : DecisionEvent
     {
         public byte resourceTypeAmount;
         public byte minResourceAmount, maxResourceAmount;
-        private List<GameResources> allResourceList, resourceList = new List<GameResources>();
-        public GameResources Wood = new GameResources("woodAmount", 0);
-        public GameResources Metal = new GameResources("metalAmount", 0);
-        public GameResources Tape = new GameResources("tapeAmount", 0);
-        public GameResources Clothe = new GameResources("clotheAmount", 0);
-        public GameResources Guncomponent = new GameResources("guncomponentAmount", 0);
-        public GameResources Gunpowder = new GameResources("gunpowderAmount", 0);
-        public GameResources Herb = new GameResources("herbAmount", 0);
+        public List<GameResources> allResourceList, resourceList = new List<GameResources>();
+        public GameResources Wood = new GameResources("wood", 0);
+        public GameResources Metal = new GameResources("metal", 0);
+        public GameResources Tape = new GameResources("tape", 0);
+        public GameResources Clothe = new GameResources("clothe", 0);
+        public GameResources Guncomponent = new GameResources("guncomponent", 0);
+        public GameResources Gunpowder = new GameResources("gunpowder", 0);
+        public GameResources Herb = new GameResources("herb", 0);
         public void TradeResourceList()
         {
             allResourceList = new List<GameResources>();
