@@ -46,9 +46,12 @@ public class CharacterStatManager : MonoBehaviour
         characterStatManager = GetComponent<CharacterStatManager>();
         DayManagerScript = FindObjectOfType<DayManagerScript>();
         temperatureManager = FindObjectOfType<TemperatureManager>();
+        
         DayManagerScript.OnDayStart += DailyStatsDecrease;
         DayManagerScript.OnDayStart += SetDailyHealthDecrease;
         DayManagerScript.OnDayStart += DailyHealthDecrease;
+
+        DayManagerScript.OnMaxDay += ResetStatDecrease;
 
         ZombieDamageManager.OnZombieHit += ZombieHit;
         
@@ -58,6 +61,8 @@ public class CharacterStatManager : MonoBehaviour
         DayManagerScript.OnDayStart -= DailyStatsDecrease;
         DayManagerScript.OnDayStart -= SetDailyHealthDecrease;
         DayManagerScript.OnDayStart -= DailyHealthDecrease;
+
+        DayManagerScript.OnMaxDay -= ResetStatDecrease;
 
         ZombieDamageManager.OnZombieHit -= ZombieHit;
     }

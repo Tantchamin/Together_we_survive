@@ -3,9 +3,11 @@ using System;
 public class DayManagerScript : MonoBehaviour
 {
     [SerializeField] MapSelectScript mapSelectScript;
-    [SerializeField] private static int day = 1;
+    [SerializeField] private static byte day = 1;
+    [SerializeField] private static byte maxDays = 31; 
     public static event Action OnDayEnd = delegate{};
     public static event Action OnDayStart = delegate{};
+    public static event Action OnMaxDay ; 
     [SerializeField] private static DayAmountState dayAmountState;
     public enum DayAmountState
     {
@@ -30,8 +32,13 @@ public class DayManagerScript : MonoBehaviour
     }
     public static void IncreaseDays()
     {
-        Debug.Log($"Current days {day}");
+        Debug.Log($"Current days : {day}");
         day +=1;
+        if(day >= maxDays)
+        {
+            OnMaxDay?.Invoke();
+            return;
+        }
         OnDayEnd();
         SetDayState();
         DayStart();
@@ -42,9 +49,13 @@ public class DayManagerScript : MonoBehaviour
         OnDayStart();    
     }
 
-    public static int GetDays()
+    public static byte GetDays()
     {
         return day;
+    }
+    public static byte GetMaxDays()
+    {
+        return maxDays;
     }
 
     public static DayAmountState GetDaysState()

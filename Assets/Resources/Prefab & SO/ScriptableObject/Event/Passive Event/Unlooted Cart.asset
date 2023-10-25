@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012020a8c6ce12c42bfe3a06f4db6b08, type: 3}
+  m_Name: Unlooted Cart
+  m_EditorClassIdentifier: 
+  eventName: Unlooted Cart infront of our house!
+  eventDescription: An unlooted resource cart somehow appears in front of our house.
+    Someone said that last night heard a scream from people while they tried to run
+    away. Probably some neighbor went scavenging and couldn't make it to their safe
+    house.
+  eventType: 0
+  damageRequired: 0
+  stateLoses: 0
+  resoueceLoses: 0

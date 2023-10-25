@@ -73,7 +73,7 @@ public class FrontYardHouseUpgradeManager : MonoBehaviour
     private void UpdateDays()
     {
         currentDays = (byte) DayManagerScript.GetDays();
-        Debug.Log($"Days is updating today is {currentDays} days");
+//        Debug.Log($"Days is updating today is {currentDays} days");
         Upgrading();
     }   
 

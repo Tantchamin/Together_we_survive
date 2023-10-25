@@ -23,7 +23,6 @@ public class InventoryManager : MonoBehaviour
         foreach(Item item in startItem.startingItemList)
         {
             HouseInventorySystem.AddItem(item , 1);
-            Debug.Log("hello");
         }
     }
 
