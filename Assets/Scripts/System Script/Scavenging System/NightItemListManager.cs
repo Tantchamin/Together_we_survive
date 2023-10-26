@@ -16,9 +16,12 @@ public class NightItemListManager : MonoBehaviour
 
     public void OnEnable()
     {
+        DisplayList();
         NightSelectItemUI.OnWeaponSelected += DeleteItemFromList;
         NightSelectItemUI.OnToolSelected += DeleteItemFromList;
         NightSelectItemUI.OnItemSelectedBool += FillList;
+
+        DayManagerScript.OnDayStart += RefreshList;
     }
     public void DisplayList()
     {
@@ -30,11 +33,15 @@ public class NightItemListManager : MonoBehaviour
     {   
         toolList = HouseInventorySystem.GetToolsList();
         weaponList = HouseInventorySystem.GetWeaponList();
+
+        DayManagerScript.OnDayStart -= RefreshList;
     }
     
     public void RefreshList()
     {
         RefreshToolList();
+        RefreshInstantiatedTool();
+        RefreshInstantiatedWeapon();
         RefreshWeaponList();
         currentSelectTool = null;
         currentSelectWeapon = null;

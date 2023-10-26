@@ -4418,7 +4418,7 @@ Transform:
   - {fileID: 1391178595}
   - {fileID: 1666945654}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156588455
 GameObject:
@@ -4474,6 +4474,7 @@ GameObject:
   - component: {fileID: 159348321}
   - component: {fileID: 159348323}
   - component: {fileID: 159348322}
+  - component: {fileID: 159348324}
   m_Layer: 0
   m_Name: TradeEventManager
   m_TagString: Untagged
@@ -4509,8 +4510,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tradingEvent: {fileID: 0}
-  krms: {fileID: 25067612}
-  grms: {fileID: 859340453}
 --- !u!114 &159348323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,8 +4528,8 @@ MonoBehaviour:
   wantResourceContent: {fileID: 1717407488}
   receiveResourceContent: {fileID: 1117539159}
   tradeTittle: {fileID: 901554947}
-  acceptText: {fileID: 613176815}
-  declineText: {fileID: 175943208}
+  acceptText: {fileID: 175943208}
+  declineText: {fileID: 613176815}
   wood: {fileID: 21300000, guid: 0b239ad50c2d2444c890b1687b5bf24e, type: 3}
   metal: {fileID: 21300000, guid: 9c5d7f4e0fbc9e04eb078c541ce284d1, type: 3}
   tape: {fileID: 21300000, guid: 7d98e8a2b6e03044eb06c707b05be2ed, type: 3}
@@ -4538,6 +4537,29 @@ MonoBehaviour:
   guncomponent: {fileID: 21300000, guid: 166b94fd17eab38458527842fed66fd6, type: 3}
   gunpowder: {fileID: 21300000, guid: c15ba7621ca0dc341b0bcc8ef9c3babb, type: 3}
   herb: {fileID: 21300000, guid: 610b120011fcbbe4c9c97247334fd53f, type: 3}
+  canfood: {fileID: 21300000, guid: 4eb71d251f6c1874fb709f5279202863, type: 3}
+  meat: {fileID: 21300000, guid: b423c2b23dd708f46a0b9ef5e463ffaf, type: 3}
+  water: {fileID: 21300000, guid: 38da951eb39b7f348b290a958ae396c1, type: 3}
+  carrot: {fileID: 21300000, guid: e36bb2e6f238f1b4ab2f446f7149d412, type: 3}
+  potato: {fileID: 21300000, guid: 9b323906d0b32704aafcfa1a3f89c777, type: 3}
+  tomato: {fileID: 21300000, guid: 8bcecf1b2922dbf45be2c6d77e1ad255, type: 3}
+  cucumber: {fileID: 21300000, guid: 7b172261175d6a14b88079d1fec3a414, type: 3}
+  cabbage: {fileID: 21300000, guid: 281c3c7011a43014ba670d548e480361, type: 3}
+  acceptButton: {fileID: 783027379}
+--- !u!114 &159348324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159348320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5153198a7964c93439b6fbfab4c4dc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  krms: {fileID: 25067612}
+  grms: {fileID: 859340453}
 --- !u!1 &163003609
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,7 +9988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &364827905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9980,8 +10002,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 901554946}
-  - {fileID: 1516121075}
   - {fileID: 783027378}
+  - {fileID: 1516121075}
   - {fileID: 714774233}
   - {fileID: 1703423888}
   - {fileID: 260494698}
@@ -19397,18 +19419,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783027377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 175943207}
   m_Father: {fileID: 364827905}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: -164}
+  m_AnchoredPosition: {x: 229.99998, y: -164.00002}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783027379
@@ -19455,8 +19477,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 159348322}
-        m_TargetAssemblyTypeName: TradingEventManager, Assembly-CSharp
+      - m_Target: {fileID: 159348324}
+        m_TargetAssemblyTypeName: TradingResourceManager, Assembly-CSharp
         m_MethodName: AcceptTrade
         m_Mode: 1
         m_Arguments:
@@ -22103,7 +22125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomEvents:
-  - {fileID: 11400000, guid: e9242a7deb2a4824cb3827f805f995d8, type: 2}
+  - {fileID: 11400000, guid: 9a335a18f2efb5a428c4a843d85c0362, type: 2}
+  - {fileID: 11400000, guid: caf4838a33bc5464da739d6c242a0cdd, type: 2}
   - {fileID: 11400000, guid: 21bea516f12d83745a2602031eab73a3, type: 2}
 --- !u!4 &944391921
 Transform:
@@ -27337,7 +27360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1198435921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33294,7 +33317,7 @@ RectTransform:
   m_Children:
   - {fileID: 364827905}
   m_Father: {fileID: 1693771282}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33507,7 +33530,7 @@ RectTransform:
   - {fileID: 170587076}
   - {fileID: 620774671}
   m_Father: {fileID: 1693771282}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34632,7 +34655,7 @@ RectTransform:
   m_Children:
   - {fileID: 613176814}
   m_Father: {fileID: 364827905}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34683,8 +34706,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 159348322}
-        m_TargetAssemblyTypeName: TradingEventManager, Assembly-CSharp
+      - m_Target: {fileID: 159348324}
+        m_TargetAssemblyTypeName: TradingResourceManager, Assembly-CSharp
         m_MethodName: DeclineTrade
         m_Mode: 1
         m_Arguments:
@@ -35437,7 +35460,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1567683121
 PrefabInstance:
@@ -38565,8 +38588,8 @@ RectTransform:
   - {fileID: 25067610}
   - {fileID: 859340451}
   - {fileID: 1806250652}
-  - {fileID: 1474073879}
   - {fileID: 1470376288}
+  - {fileID: 1474073879}
   m_Father: {fileID: 1317974168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48725,6 +48748,18 @@ MonoBehaviour:
       - m_Target: {fileID: 536082654}
         m_TargetAssemblyTypeName: CharacterUIUpdateManager, Assembly-CSharp
         m_MethodName: SwitchCharacterToogle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 480001863}
+        m_TargetAssemblyTypeName: NightItemListManager, Assembly-CSharp
+        m_MethodName: RefreshList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

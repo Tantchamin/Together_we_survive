@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DecisionEvent : RandomEvent
 {
-    public string declineDecision;
     public string acceptDecision;
+    public string declineDecision;
 
 }

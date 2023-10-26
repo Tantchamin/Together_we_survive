@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70060f9da860f9499f8889973eafacd, type: 3}
+  m_Name: FoodTradingEvent
+  m_EditorClassIdentifier: 
+  eventName: Food Trader has arrived!
+  eventDescription: 'Strange trade come in and knockin at ya door and he ask for
+    some trading '
+  eventType: 0
+  acceptDecision: Accept
+  declineDecision: Decline
+  wantResources:
+    tradeValue: 9
+    minTradeValue: 5
+    maxTradeValue: 10
+    resourceTypeAmount: 3
+    minResourceTypeAmount: 1
+    maxResourceTypeAmount: 4
+    minResourceAmount: 2
+    maxResourceAmount: 4
+  receiveResources:
+    tradeValue: 6
+    minTradeValue: 6
+    maxTradeValue: 12
+    resourceTypeAmount: 3
+    minResourceTypeAmount: 2
+    maxResourceTypeAmount: 4
+    minResourceAmount: 3
+    maxResourceAmount: 5
+  eventData:
+    wantResourceTypeAmount: 0
+    wantMeatResource: 0
+    wantCanfoodResource: 0
+    wantWaterResource: 0
+    wantCucumberResource: 0
+    wantTomatoResource: 0
+    wantCabbageResource: 0
+    wantPotatoResource: 0
+    wantCarrotResource: 0
+    receiveResourceTypeAmount: 0
+    receiveMeatResource: 0
+    receiveCanfoodResouce: 0
+    receiveWaterResouce: 0
+    receiveCucumberResouce: 0
+    receiveTomatoResource: 0
+    receiveCabbageResource: 0
+    receivePotatoResource: 0
+    receiveCarrotResource: 0

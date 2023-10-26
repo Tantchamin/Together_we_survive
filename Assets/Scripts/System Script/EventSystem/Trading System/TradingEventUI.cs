@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class TradingEventUI : MonoBehaviour
 {
@@ -10,18 +11,24 @@ public class TradingEventUI : MonoBehaviour
     [SerializeField] private Transform wantResourceContent , receiveResourceContent;
     [SerializeField] private TextMeshProUGUI tradeTittle , acceptText , declineText;
     [SerializeField] private Sprite wood , metal , tape , clothe , guncomponent , gunpowder , herb;
+    [SerializeField] private Sprite canfood , meat , water , carrot , potato , tomato , cucumber , cabbage;
+    [SerializeField] private Button acceptButton;
     SResourceUI tradeResourceUI;
+
+
     private void OnEnable() 
     {
         RandomEventChance.OnTradingEvent += OnTraderArrive;
 
-        TradingEventManager.OnTradeFinish += TradePanelUI;
+        TradingResourceManager.OnResourceLack += DisableButtonUI;
+        TradingResourceManager.OnTradeFinish += TradePanelUI;
     }
     private void OnDisable() 
     {
         RandomEventChance.OnTradingEvent -= OnTraderArrive;
 
-        TradingEventManager.OnTradeFinish -= TradePanelUI;
+        TradingResourceManager.OnResourceLack -= DisableButtonUI;
+        TradingResourceManager.OnTradeFinish -= TradePanelUI;
     }
 
     private void OnTraderArrive(RandomEvent randomEvent)
@@ -64,6 +71,36 @@ public class TradingEventUI : MonoBehaviour
                 case "herb":
                     tradeResourceUI.SetItem(herb, gameResources.resourcesAmount);
                     break;
+                // FOOD 
+                
+                
+                case "meat":
+                    tradeResourceUI.SetItem(meat, gameResources.resourcesAmount);
+                    break;
+                case "canfood":
+                    tradeResourceUI.SetItem(canfood, gameResources.resourcesAmount);
+                    break;
+                case "water":
+                    tradeResourceUI.SetItem(water, gameResources.resourcesAmount);
+                    break;
+                case "cucumber":
+                    tradeResourceUI.SetItem(cucumber, gameResources.resourcesAmount);
+                    break;
+                case "cabbage":
+                    tradeResourceUI.SetItem(cabbage, gameResources.resourcesAmount);
+                    break;
+                case "tomato":
+                    tradeResourceUI.SetItem(tomato, gameResources.resourcesAmount);
+                    break;
+                case "potato":
+                    tradeResourceUI.SetItem(potato, gameResources.resourcesAmount);
+                    break;
+                case "carrot":
+                    tradeResourceUI.SetItem(carrot, gameResources.resourcesAmount);
+                    break;
+
+
+                
             }
         }
     }
@@ -97,6 +134,33 @@ public class TradingEventUI : MonoBehaviour
                 case "herb":
                     tradeResourceUI.SetItem(herb, gameResources.resourcesAmount);
                     break;
+
+                
+                case "meat":
+                    tradeResourceUI.SetItem(meat, gameResources.resourcesAmount);
+                    break;
+                case "canfood":
+                    tradeResourceUI.SetItem(canfood, gameResources.resourcesAmount);
+                    break;
+                case "water":
+                    tradeResourceUI.SetItem(water, gameResources.resourcesAmount);
+                    break;
+                case "cucumber":
+                    tradeResourceUI.SetItem(cucumber, gameResources.resourcesAmount);
+                    break;
+                case "cabbage":
+                    tradeResourceUI.SetItem(cabbage, gameResources.resourcesAmount);
+                    break;
+                case "tomato":
+                    tradeResourceUI.SetItem(tomato, gameResources.resourcesAmount);
+                    break;
+                case "potato":
+                    tradeResourceUI.SetItem(potato, gameResources.resourcesAmount);
+                    break;
+                case "carrot":
+                    tradeResourceUI.SetItem(carrot, gameResources.resourcesAmount);
+                    break;
+
             }
         }
     }
@@ -127,5 +191,10 @@ public class TradingEventUI : MonoBehaviour
         tradeTittle.text = tradingEvent.eventName.ToString();
         acceptText.text = tradingEvent.acceptDecision.ToString();
         declineText.text = tradingEvent.declineDecision.ToString();
+    }
+
+    private void DisableButtonUI()
+    {
+        acceptButton.interactable = false;
     }
 }

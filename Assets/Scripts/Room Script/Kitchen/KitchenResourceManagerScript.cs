@@ -60,14 +60,14 @@ public class KitchenResourceManagerScript : MonoBehaviour
     private void SetStartingResource()
     {
         // Maybe Change Difficulty And this will change
-        RawMeatAmount = 0;
-        CanFoodAmount = 0;
-        PotatoAmount = 0;
-        CarrotAmount = 0;
+        RawMeatAmount = 10;
+        CanFoodAmount = 10;
+        PotatoAmount = 10;
+        CarrotAmount = 10;
         CabbageAmount = 10;
         TomatoAmount = 10;
-        CucumberAmount = 0;
-        WaterAmount = 0;
+        CucumberAmount = 10;
+        WaterAmount = 10;
     }
     
     public int RawMeatAmount

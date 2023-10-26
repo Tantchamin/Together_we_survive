@@ -9,37 +9,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed55ffb5331aa545bcfcebfd8ea381d, type: 3}
-  m_Name: Material Trader
+  m_Script: {fileID: 11500000, guid: 863fd5d5beac5a24cbbce373a68c246d, type: 3}
+  m_Name: Material Event
   m_EditorClassIdentifier: 
   eventName: Material Trader has arrived!
   eventDescription: 'Strange trade come in and knockin at ya door and he ask for
     some trading '
   eventType: 1
-  declineDecision: Accept
-  acceptDecision: Decline
+  acceptDecision: Accept
+  declineDecision: Decline
   wantResources:
+    tradeValue: 15
+    minTradeValue: 15
+    maxTradeValue: 30
     resourceTypeAmount: 2
-    minResourceAmount: 4
-    maxResourceAmount: 11
-  receiveResources:
-    resourceTypeAmount: 4
+    minResourceTypeAmount: 2
+    maxResourceTypeAmount: 3
     minResourceAmount: 3
     maxResourceAmount: 9
+  receiveResources:
+    tradeValue: 25
+    minTradeValue: 20
+    maxTradeValue: 35
+    resourceTypeAmount: 3
+    minResourceTypeAmount: 3
+    maxResourceTypeAmount: 4
+    minResourceAmount: 4
+    maxResourceAmount: 11
   eventData:
-    wantResourceTypeAmount: 2
+    wantResourceTypeAmount: 0
     wantWoodResource: 0
-    wantMetalResouce: 4
+    wantMetalResouce: 0
     wantClotheResouce: 0
     wantTapeResouce: 0
-    wantGuncomponentResource: 7
+    wantGuncomponentResource: 0
     wantGunpowderResource: 0
     wantHerbResource: 0
-    receiveResourceTypeAmount: 4
+    receiveResourceTypeAmount: 0
     receiveWoodResource: 0
     receiveMetalResouce: 0
-    receiveClotheResouce: 7
-    receiveTapeResouce: 8
-    receiveGuncomponentResource: 3
+    receiveClotheResouce: 0
+    receiveTapeResouce: 0
+    receiveGuncomponentResource: 0
     receiveGunpowderResource: 0
-    receiveHerbResource: 3
+    receiveHerbResource: 0
