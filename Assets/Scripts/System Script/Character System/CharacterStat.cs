@@ -147,6 +147,7 @@ public class CharacterStat : MonoBehaviour
         
         
     }}
+
     public short EnergyMaxValue {get => energyMaxValue;}
 
     private void Start()
@@ -158,5 +159,11 @@ public class CharacterStat : MonoBehaviour
         infectedCurrentValue = infectedMaxValue;
         strengthCurrentValue = strengthMaxValue;
         energyCurrentValue = energyMaxValue;
+        
     }
+    // private void Update()
+    // {
+    //     healthCurrentValue = healthMaxValue;
+    //     healthyCurrentValue = healthyMaxValue;
+    // }
 }
