@@ -550,15 +550,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6856773169db9944853c9e797bbe9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawFoodDisplayAmount: {fileID: 843635163}
-  vegetableFoodDisplayAmount: {fileID: 1096204084}
-  cannedFoodDisplayAmount: {fileID: 163003611}
-  waterDisplayAmount: {fileID: 1458131066}
-  tomatoDisplayAmount: {fileID: 1035259081}
-  potatoDisplayAmount: {fileID: 667599099}
-  cabbageDisplayAmount: {fileID: 1455074597}
-  cucumberDisplayAmount: {fileID: 248836711}
-  carrotDisplayAmount: {fileID: 1379368325}
+  rawMeatAmount: 0
+  rawVegetableAmount: 0
+  canFoodAmount: 0
+  waterAmount: 0
+  potatoAmount: 0
+  carrotAmount: 0
+  tomatoAmount: 0
+  cabbageAmount: 0
+  cucumberAmount: 0
+  veggieList: 
 --- !u!114 &25067612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,16 +572,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf768de37c5b50749a8301a9389ef280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawMeatAmount: 14
-  rawVegetableAmount: 0
-  canFoodAmount: 0
-  waterAmount: 0
-  potatoAmount: 13
-  carrotAmount: 0
-  tomatoAmount: 0
-  cabbageAmount: 0
-  cucumberAmount: 0
-  veggieList: 
+  rawFoodDisplayAmount: {fileID: 843635163}
+  vegetableFoodDisplayAmount: {fileID: 1096204084}
+  cannedFoodDisplayAmount: {fileID: 163003611}
+  waterDisplayAmount: {fileID: 1458131066}
+  tomatoDisplayAmount: {fileID: 1035259081}
+  potatoDisplayAmount: {fileID: 667599099}
+  cabbageDisplayAmount: {fileID: 1455074597}
+  cucumberDisplayAmount: {fileID: 248836711}
+  carrotDisplayAmount: {fileID: 1379368325}
 --- !u!114 &25067613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4558,7 +4558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5153198a7964c93439b6fbfab4c4dc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  krms: {fileID: 25067612}
+  krms: {fileID: 0}
   grms: {fileID: 859340453}
 --- !u!1 &163003609
 GameObject:
@@ -26192,7 +26192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFuel: 10
   currentFuel: 2
-  krms: {fileID: 25067612}
+  krms: {fileID: 25067611}
   _isThisActive: 0
   lightStoveOnOff: {fileID: 1258192703}
 --- !u!4 &1113121775
@@ -32228,7 +32228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1841c937d7fdde2408926bff3febc6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  krms: {fileID: 25067612}
+  krms: {fileID: 25067611}
   cks: {fileID: 1113121774}
 --- !u!4 &1415352719
 Transform:
@@ -40505,7 +40505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grms: {fileID: 859340453}
-  krms: {fileID: 25067612}
+  krms: {fileID: 25067611}
   sResourceCharacter: {fileID: 1744110795}
   bandage: {fileID: 11400000, guid: 644418937ebe1014cb0d5fe649d82475, type: 2}
   antibiotics: {fileID: 11400000, guid: 4185675fbb84e3a4d8e1351055f200e7, type: 2}
