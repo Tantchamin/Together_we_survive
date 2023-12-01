@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ButtonAudio : MonoBehaviour
 {
-    [SerializeField] private AudioSource buttonSource;
+    [SerializeField] private List<AudioSource> buttonSource;
 
     public void PlayButtonAudio()
     {
-        buttonSource.Play();
+        buttonSource[0].Play();
+    }
+
+    public void PlayChangeRoomAudio()
+    {
+        buttonSource[1].Play();
     }
 }
