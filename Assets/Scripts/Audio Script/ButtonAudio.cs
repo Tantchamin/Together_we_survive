@@ -15,4 +15,9 @@ public class ButtonAudio : MonoBehaviour
     {
         buttonSource[1].Play();
     }
+
+    public void PlayCloseButtonAudio()
+    {
+        buttonSource[2].Play();
+    }
 }
