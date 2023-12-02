@@ -20,4 +20,9 @@ public class ButtonAudio : MonoBehaviour
     {
         buttonSource[2].Play();
     }
+
+    public void PlayCraftAudio()
+    {
+        buttonSource[3].Play();
+    }
 }
