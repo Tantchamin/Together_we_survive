@@ -25,4 +25,9 @@ public class ButtonAudio : MonoBehaviour
     {
         buttonSource[3].Play();
     }
+
+    public void PlayFireLitAudio()
+    {
+        buttonSource[4].Play();
+    }
 }
