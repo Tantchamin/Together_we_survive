@@ -22233,7 +22233,7 @@ GameObject:
   - component: {fileID: 832627795}
   - component: {fileID: 832627796}
   m_Layer: 0
-  m_Name: BG1
+  m_Name: BGM1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
