@@ -8370,8 +8370,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -22502,8 +22502,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -52346,8 +52346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -52517,6 +52517,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076967848}
     m_Modifications:
+    - target: {fileID: 4601156818366481200, guid: 831067700ce12ad47bf313c8902c3a46, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601156818366481200, guid: 831067700ce12ad47bf313c8902c3a46, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
     - target: {fileID: 4601156818366481202, guid: 831067700ce12ad47bf313c8902c3a46, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 309
@@ -53144,6 +53152,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieRaidNormal
       objectReference: {fileID: 0}
+    - target: {fileID: 7804811252924083184, guid: cdd6822cd6052424e9bbf1e5d238c29d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804811252924083184, guid: cdd6822cd6052424e9bbf1e5d238c29d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
     - target: {fileID: 7804811252924083186, guid: cdd6822cd6052424e9bbf1e5d238c29d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 308.99985
@@ -53356,6 +53372,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieRaidFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 8102218126657079356, guid: 53e289856b54b824d82d25e8afd1676b, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102218126657079356, guid: 53e289856b54b824d82d25e8afd1676b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
     - target: {fileID: 8102218126657079358, guid: 53e289856b54b824d82d25e8afd1676b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 308.99997
@@ -53629,6 +53653,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5408755268360557246, guid: 9e84bd8dc4b41ce40abd3711e3678ef3, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408755268360557246, guid: 9e84bd8dc4b41ce40abd3711e3678ef3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 054cffc08cc006444b003e90c5ab0a3c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e84bd8dc4b41ce40abd3711e3678ef3, type: 3}
 --- !u!222 &7907262080518785806
