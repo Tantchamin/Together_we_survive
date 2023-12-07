@@ -14,6 +14,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-7732247431630817601
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4bfdaabaf6416064d8474cd2630715df
+  m_EffectName: Attenuation
+  m_MixLevel: ebd474634c4425844a78f6a23e99ff73
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-7091203850548628851
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bonfire
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c65d2732ab855bc44a9e247d4101f7dd
+  m_Children: []
+  m_Volume: 04f70fe37618a204c9d21f2eb6edd9b8
+  m_Pitch: 295ed11abc3c81543ad8f894bd8ff183
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7732247431630817601}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-6954275777605983228
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -57,6 +90,7 @@ AudioMixerController:
     - 00ab9cc7085bd894b98e1fcd500ee5fd
     - 14510d23a4a98c44798e726426f88d79
     - 3366a4c9ca757674cb35b38c094466a0
+    - c65d2732ab855bc44a9e247d4101f7dd
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -75,6 +109,7 @@ AudioMixerGroupController:
   - {fileID: 7598560775075396469}
   - {fileID: 8132349374909432253}
   - {fileID: 738416606372572885}
+  - {fileID: -7091203850548628851}
   m_Volume: 3b9ac0b208e943645bd9c9f0d4215f0d
   m_Pitch: 7ee9dc9535c40bf4285802528788a4a0
   m_Send: 00000000000000000000000000000000
@@ -109,6 +144,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 23b6b400be09fd6429ecf9e015f94f8b
   m_FloatValues:
     c7c03df0ed92c694cb0163e3e1fc0888: -25.22691
+    04f70fe37618a204c9d21f2eb6edd9b8: -16.660433
     6e0dc8151297f374e9c088762ea3625b: -19.37692
     42ffbfcc5b4959049b2b4c662d9b2b5f: -16.660433
   m_TransitionOverrides: {}
