@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b0c17a5ba412e054b84912931f99fb8b, type: 2}
+  m_sharedMaterial: {fileID: 4096648655916994914, guid: b0c17a5ba412e054b84912931f99fb8b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 33
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -271,6 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5439a7bf6cf47346aef2a099f141de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scravengedItem: {fileID: 0}
+  scavengedItem: {fileID: 0}
   itemAmount: {fileID: 7890826742658706048}
   itemSprite: {fileID: 5567282762104514732}
