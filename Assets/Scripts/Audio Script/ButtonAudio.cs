@@ -30,4 +30,14 @@ public class ButtonAudio : MonoBehaviour
     {
         buttonSource[4].Play();
     }
+
+    public void PlayEatAudio()
+    {
+        buttonSource[5].Play();
+    }
+
+    public void PlayDrinkAudio()
+    {
+        buttonSource[6].Play();
+    }
 }
