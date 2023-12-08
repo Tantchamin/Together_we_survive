@@ -9573,6 +9573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315751815}
   - component: {fileID: 315751816}
+  - component: {fileID: 315751817}
   m_Layer: 0
   m_Name: Fire BGM
   m_TagString: Untagged
@@ -9691,6 +9692,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &315751817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315751814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fc76c9e66b7854a981f3e42d4d3334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonfireCheck1: {fileID: 1159128039}
+  bonfireCheck2: {fileID: 2083458423}
+  bonfireCheck3: {fileID: 156588455}
+  gameCamera: {fileID: 519420028}
+  bonfireSource: {fileID: 315751816}
 --- !u!1 &321844106
 GameObject:
   m_ObjectHideFlags: 0
