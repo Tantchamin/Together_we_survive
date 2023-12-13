@@ -16,9 +16,9 @@ public class Cooking : MonoBehaviour
     {
         if(cks.IsIgnited == false ) return;
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-        CraftUI craftUIScript =  clickedButton.GetComponentInParent<CraftUI>();
+        FoodUI craftUIScript =  clickedButton.GetComponentInParent<FoodUI>();
 
-        Item item = craftUIScript.GetCraftedItem();
+        Item item = craftUIScript.GetFood();
         var food = item as Food;
         if(cks.IsFuelEnough(food) == false) return;
         if(ReduceIngredient(food) == false) return;

@@ -40,4 +40,9 @@ public class ButtonAudio : MonoBehaviour
     {
         buttonSource[6].Play();
     }
+
+    public void PlayCookingAudio()
+    {
+        buttonSource[7].Play();
+    }
 }
