@@ -75,7 +75,7 @@ public class NightItemListManager : MonoBehaviour
     }
     public void RefreshInstantiatedWeapon()
     {
-        if (toolContent == null) return;
+        if (weaponContent == null) return;
         foreach (Transform item in weaponContent)
         {
             if (item == null) return;
