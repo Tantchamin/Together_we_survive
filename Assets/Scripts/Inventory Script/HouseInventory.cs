@@ -19,6 +19,8 @@ public static class HouseInventorySystem {
     public static List<Dictionary<Item , byte >> houseInventoryList = new List<Dictionary<Item , byte >>();
     public static event Action OnValueChanged;
     public static event Action<Item> OnItemDepleted;
+
+    
     public static void AddItem(Item item , byte amount){  
         if(CheckItem(item) == false){
             Dictionary<Item , byte> addedItem = new Dictionary<Item, byte>
@@ -314,5 +316,10 @@ public static class HouseInventorySystem {
         float totalWeight = 0;
         float value = UnityEngine.Random.value * totalWeight;
         return null;
+    }
+
+    public static void ClearHouseInventory()
+    {
+        houseInventoryList.Clear();
     }
 }

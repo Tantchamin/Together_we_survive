@@ -14,13 +14,19 @@ public class NightItemListManager : MonoBehaviour
     NightSelectItemUI nightSelectItemUI;
     public static event Action<Item> OnToolUse , OnWeaponUse;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(weaponContent.gameObject);
+        DontDestroyOnLoad(toolContent.gameObject);
+    }
+
     public void OnEnable()
     {
         DisplayList();
         NightSelectItemUI.OnWeaponSelected += DeleteItemFromList;
         NightSelectItemUI.OnToolSelected += DeleteItemFromList;
         NightSelectItemUI.OnItemSelectedBool += FillList;
-
+        
         DayManagerScript.OnDayStart += RefreshList;
     }
     public void DisplayList()
@@ -54,8 +60,10 @@ public class NightItemListManager : MonoBehaviour
     }
     public void RefreshInstantiatedTool()
     {
+        if (toolContent == null) return;
         foreach(Transform item in toolContent)
         {
+            if (item == null) return;
             Destroy(item.gameObject);
         }
     }
@@ -67,8 +75,10 @@ public class NightItemListManager : MonoBehaviour
     }
     public void RefreshInstantiatedWeapon()
     {
-        foreach(Transform item in weaponContent)
+        if (toolContent == null) return;
+        foreach (Transform item in weaponContent)
         {
+            if (item == null) return;
             Destroy(item.gameObject);
         }
     }
@@ -138,4 +148,6 @@ public class NightItemListManager : MonoBehaviour
         OnToolUse?.Invoke(currentSelectTool);
         OnWeaponUse?.Invoke(currentSelectWeapon);
     }
+
+    
 }

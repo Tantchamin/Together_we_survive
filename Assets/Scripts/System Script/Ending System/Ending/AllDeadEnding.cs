@@ -9,6 +9,7 @@ public class AllDeadEnding : MonoBehaviour , IEnding
         {
             ending.SetActive(true);
             endButton.SetActive(true);
+            HouseInventorySystem.ClearHouseInventory();
         }
     }
 }

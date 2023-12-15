@@ -28,6 +28,7 @@ public class DayManagerScript : MonoBehaviour
     private void Awake() 
     {
         mapSelectScript = FindObjectOfType<MapSelectScript>();
+        day = 1;
         // mapSelectScript.OnDayStart += DayStart;
     }
     public static void IncreaseDays()
